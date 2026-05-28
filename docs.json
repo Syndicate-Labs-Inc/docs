@@ -67,6 +67,21 @@
         ]
       },
       {
+        "tab": "Demo",
+        "groups": [
+          {
+            "group": "Product walkthroughs",
+            "pages": [
+              "demo/overview",
+              "demo/first-team",
+              "demo/solo-agent",
+              "demo/provider-setup",
+              "demo/mcp-workflow"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Reference",
         "groups": [
           {
