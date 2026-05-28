@@ -1,0 +1,30 @@
+---
+title: "Troubleshooting"
+description: "Common setup and provider problems in Syndicate."
+---
+
+Use this page when setup does not complete as expected.
+
+## Codex login succeeds but provider verification fails
+
+This usually means Syndicate found a login but could not verify that Codex can run.
+
+Common causes:
+
+- The account does not have Codex execution access.
+- The account hit a plan, quota, or usage limit.
+- A workspace or organization policy blocks Codex.
+- The local Codex CLI is installed but cannot execute from Syndicate.
+- The auth file changed format and Syndicate cannot read it yet.
+
+## Terminal output appears during OpenAI/Codex setup
+
+OpenAI/Codex should use browser login and should not rely on Syndicate's in-app terminal. If stale terminal output appears, reconnect the provider and refresh provider status.
+
+## Gemini auth does not finish
+
+Gemini can require an interactive CLI prompt. Keep the auth window open until the browser or terminal flow completes, then return to Syndicate and refresh provider status.
+
+## Claude auth is rate limited
+
+Wait a few minutes and try again. If the browser OAuth flow remains blocked, Syndicate may fall back to Claude terminal login.

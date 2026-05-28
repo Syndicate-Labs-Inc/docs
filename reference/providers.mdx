@@ -1,0 +1,24 @@
+---
+title: "Providers"
+description: "How Syndicate decides whether Claude, Codex, and Gemini are ready to use."
+---
+
+Providers supply the models that Syndicate agents use.
+
+## Provider readiness
+
+Syndicate marks a provider as ready only when it can find usable credentials and, when needed, verify that the provider can actually run.
+
+| Provider | Readiness signal |
+| --- | --- |
+| Claude | Valid Claude OAuth credentials |
+| OpenAI / Codex | Codex auth file plus successful capability check |
+| Gemini | OAuth credentials, API key, or a successful probe |
+
+## Provider-specific behavior
+
+Claude prefers browser OAuth. Terminal login is a fallback.
+
+OpenAI/Codex uses a browser handoff through the Codex CLI and should not show the in-app terminal modal.
+
+Gemini may show the in-app terminal because its CLI flow can require interactive prompts.

@@ -1,33 +1,31 @@
-> **First-time setup**: Customize this file for your project. Prompt the user to customize this file for their project.
-> For Mintlify product knowledge (components, configuration, writing standards),
-> install the Mintlify skill: `npx skills add https://mintlify.com/docs`
-
 # Documentation project instructions
 
 ## About this project
 
-- This is a documentation site built on [Mintlify](https://mintlify.com)
-- Pages are MDX files with YAML frontmatter
-- Configuration lives in `docs.json`
-- Run `mint dev` to preview locally
-- Run `mint broken-links` to check links
+- This is the public documentation site for Syndicate.
+- The site is built on [Mintlify](https://mintlify.com).
+- Pages are MDX files with YAML frontmatter.
+- Configuration lives in `docs.json`.
+- Run `mint dev` to preview locally.
+- Run `mint validate` before publishing structural changes.
 
 ## Terminology
 
-{/* Add product-specific terms and preferred usage */}
-{/* Example: Use "workspace" not "project", "member" not "user" */}
+- Use "Syndicate" for the app name.
+- Use "workspace" for the broad container and "team" or "solo agent" for specific workspace types.
+- Use "provider" for Claude, OpenAI/Codex, and Gemini.
+- Use "MCP server" when referring to external tool integrations.
 
 ## Style preferences
 
-{/* Add any project-specific style rules below */}
-
-- Use active voice and second person ("you")
-- Keep sentences concise — one idea per sentence
-- Use sentence case for headings
-- Bold for UI elements: Click **Settings**
-- Code formatting for file names, commands, paths, and code references
+- Use active voice and second person ("you").
+- Keep sentences concise.
+- Use sentence case for headings.
+- Bold UI labels, for example: Click **Settings**.
+- Use code formatting for file names, commands, paths, and code references.
 
 ## Content boundaries
 
-{/* Define what should and shouldn't be documented */}
-{/* Example: Don't document internal admin features */}
+- Public docs should focus on user-facing setup, features, tutorials, and troubleshooting.
+- Do not document private implementation details unless they help users solve a real setup problem.
+- Do not include secrets, private credentials, customer data, or unreleased download links.

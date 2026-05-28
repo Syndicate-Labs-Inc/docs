@@ -1,0 +1,24 @@
+---
+title: "Auth Flows"
+description: "Technical reference for provider authentication behavior."
+---
+
+This page is the public reference version of Syndicate's provider auth behavior.
+
+## Claude
+
+Claude uses browser OAuth first. After sign-in, Syndicate stores credentials in the expected Claude credentials location and treats Claude as connected when a valid OAuth access token is available.
+
+## OpenAI / Codex
+
+OpenAI uses the Codex CLI auth file and a live capability check. Syndicate watches for Codex auth changes, refreshes provider state, and verifies that the account can execute Codex.
+
+## Gemini
+
+Gemini may use the in-app terminal. Syndicate treats Gemini as connected when OAuth credentials exist, a configured API key is available, or a lightweight probe succeeds.
+
+## Terminal UI rule
+
+- Gemini can show the in-app auth terminal.
+- OpenAI/Codex should not show the in-app auth terminal.
+- Claude should use browser OAuth; terminal is a fallback only.

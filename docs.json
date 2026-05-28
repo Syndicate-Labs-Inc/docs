@@ -1,97 +1,128 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "almond",
-  "name": "Product Guide",
-  "description": "Step-by-step guides for every product—platform setup, analytics, and integrations in one place.",
+  "theme": "mint",
+  "name": "Syndicate",
   "colors": {
-    "primary": "#166E3F",
-    "light": "#26BD6C",
-    "dark": "#166E3F"
+    "primary": "#2563EB",
+    "light": "#38BDF8",
+    "dark": "#1D4ED8"
   },
-  "favicon": "/favicon.ico",
-  "icons": {
-    "library": "lucide"
-  },
-  "styling": {
-    "eyebrows": "breadcrumbs"
-  },
-  "contextual": {
-    "options": ["copy", "view", "assistant", "mcp", "add-mcp"]
-  },
+  "favicon": "/assets/syndicate-icon.png",
   "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Start here",
+            "pages": [
+              "index",
+              "getting-started"
+            ]
+          },
+          {
+            "group": "Tutorials",
+            "pages": [
+              "tutorials/install-and-sign-in",
+              "tutorials/connect-providers",
+              "tutorials/create-your-first-team",
+              "tutorials/add-and-configure-agents",
+              "tutorials/use-mcp-and-skills"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Features",
+        "groups": [
+          {
+            "group": "Core concepts",
+            "pages": [
+              "features/overview",
+              "features/workspaces",
+              "features/agents",
+              "features/teams",
+              "features/solo-agents"
+            ]
+          },
+          {
+            "group": "Workflow",
+            "pages": [
+              "features/chat-and-dispatch",
+              "features/tasks",
+              "features/inbox",
+              "features/references-and-context",
+              "features/command-palette"
+            ]
+          },
+          {
+            "group": "Configuration",
+            "pages": [
+              "features/providers-and-models",
+              "features/mcp",
+              "features/skills",
+              "features/settings"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Reference",
+        "groups": [
+          {
+            "group": "Product reference",
+            "pages": [
+              "reference/providers",
+              "reference/settings",
+              "reference/troubleshooting",
+              "reference/auth-flows"
+            ]
+          }
+        ]
+      }
+    ],
     "global": {
       "anchors": [
         {
-          "anchor": "Home",
-          "icon": "house",
-          "href": "/"
+          "anchor": "Website",
+          "href": "https://usesyndicate.org",
+          "icon": "house"
         },
         {
-          "anchor": "Changelog",
-          "icon": "scroll-text",
-          "href": "https://www.mintlify.com/docs/changelog"
-        },
-        {
-          "anchor": "Help",
-          "icon": "life-buoy",
-          "href": "https://www.mintlify.com/docs/contact-support"
+          "anchor": "Support",
+          "href": "mailto:support@usesyndicate.org",
+          "icon": "life-ring"
         }
       ]
-    },
-    "directory": "card",
-    "groups": [
-      {
-        "group": "Platform",
-        "icon": "layers",
-        "expanded": true,
-        "pages": [
-          "platform/quickstart",
-          "platform/key-concepts",
-          "platform/configuration/settings",
-          "platform/configuration/user-management",
-          "platform/administration/roles-permissions"
-        ]
-      },
-      {
-        "group": "Analytics",
-        "icon": "chart-bar",
-        "expanded": true,
-        "pages": [
-          "analytics/quickstart",
-          "analytics/connect-data",
-          "analytics/dashboards/create-dashboard",
-          "analytics/reports/scheduled-reports"
-        ]
-      },
-      {
-        "group": "Integrations",
-        "icon": "plug",
-        "expanded": true,
-        "pages": [
-          "integrations/quickstart",
-          "integrations/authentication",
-          "integrations/connectors/crm",
-          "integrations/webhooks/configure"
-        ]
-      }
-    ]
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    }
   },
   "navbar": {
-    "links": [],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Download",
+      "href": "https://usesyndicate.org"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "seo": {
+    "metatags": {
+      "canonical": "https://docs.usesyndicate.org"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/yourcompany",
-      "linkedin": "https://linkedin.com/company/yourcompany"
+      "github": "https://github.com/allysyndicate/docs"
     }
   }
 }

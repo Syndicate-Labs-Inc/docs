@@ -1,0 +1,62 @@
+---
+title: "Agents"
+description: "How agents work, what they remember, and how to configure them."
+---
+
+Agents are specialized AI workers. Each agent has a name, specialization, model, instructions, tools, optional skills, and optional MCP access.
+
+## Agent anatomy
+
+| Area | What it controls |
+| --- | --- |
+| Identity | Agent name and specialization |
+| Soul | The agent's role, behavior, boundaries, and working style |
+| Tools | Which actions the agent can use |
+| Skills | Specialized workflows bundled into the agent's instructions |
+| MCP servers | External tools and data sources the agent can access |
+| Model | The provider model used when the agent runs |
+
+## Specializations
+
+Syndicate includes built-in specializations such as:
+
+- Manager
+- Frontend Developer
+- Backend Developer
+- QA Engineer
+- DevOps Engineer
+- Technical Writer
+- Researcher
+- Finance Analyst
+- Data Scientist
+- Marketing Strategist
+- E-Commerce Specialist
+- AI/ML Engineer
+- Mobile Developer
+- Game Developer
+
+Some areas split into more focused roles in the marketplace, such as UI Designer, Test Engineer, Site Reliability Engineer, AI Engineer, ML Engineer, and Security Engineer.
+
+## Soul
+
+The Soul is the most important agent instruction file. It tells the agent:
+
+- Who it is.
+- What it is responsible for.
+- What quality bar it should hold.
+- What it should avoid.
+- How it should communicate.
+
+Good Soul instructions are specific. Avoid generic traits like "be helpful" and prefer concrete rules such as "include file paths when reporting code changes."
+
+## Tools
+
+Tools determine what the agent can do. For example, a research-only agent might be allowed to read and search files but not edit them. A coding agent usually needs edit and command permissions.
+
+## Skills
+
+Skills add domain-specific workflows. A Technical Writer might use documentation skills, while a QA Engineer might use test planning, browser testing, and regression-check skills.
+
+## MCP access
+
+If MCP servers are installed in Settings, you can enable specific servers per agent. Keep access scoped to the agents that actually need it.

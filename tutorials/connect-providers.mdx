@@ -1,0 +1,55 @@
+---
+title: "Connect Providers"
+description: "Connect Claude, OpenAI/Codex, and Gemini in Syndicate."
+---
+
+Syndicate can work with multiple providers. You only need one provider to start, but connecting more providers gives teams more model options.
+
+## Claude
+
+Claude uses browser OAuth first.
+
+1. Open Settings.
+2. Select Claude.
+3. Click **Connect**.
+4. Complete the browser sign-in flow.
+5. Paste the authorization code into Syndicate if prompted.
+6. Wait for Claude to show as connected.
+
+## OpenAI / Codex
+
+OpenAI uses Codex CLI authentication plus a live capability check.
+
+1. Open Settings.
+2. Select OpenAI or Codex.
+3. Click **Connect**.
+4. Complete the browser sign-in flow.
+5. Return to Syndicate.
+6. Wait for the app to verify that Codex can run.
+
+<Warning>
+  Signing in is not always enough. Syndicate also checks whether the account can execute Codex. Plan limits, quota, workspace policy, or expired credentials can still block provider readiness.
+</Warning>
+
+## Gemini
+
+Gemini may use an in-app terminal during authentication.
+
+1. Open Settings.
+2. Select Gemini.
+3. Click **Connect**.
+4. Follow the terminal or browser prompts.
+5. Wait for Gemini to show as connected.
+
+## Choosing a default provider
+
+After providers are connected, choose the provider and model that best match the type of work each agent performs.
+
+## Screenshot checklist
+
+Add screenshots for:
+
+- Provider settings screen.
+- Claude connected state.
+- Codex connected and verified state.
+- Gemini terminal auth flow.

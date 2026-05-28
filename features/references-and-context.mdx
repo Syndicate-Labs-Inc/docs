@@ -1,0 +1,35 @@
+---
+title: "References and Context"
+description: "Give agents the right project information without burying them."
+---
+
+References are files or folders you attach so agents can use them as context.
+
+## Why references matter
+
+Agents work better when they can see the right information:
+
+- Product requirements.
+- README files.
+- Architecture notes.
+- API schemas.
+- Design specs.
+- Example files.
+
+## Reference scopes
+
+| Scope | Visibility | Example |
+| --- | --- | --- |
+| Global | Available across workspaces | Company style guide |
+| Team | Available to all agents in a team | Project architecture doc |
+| Agent | Available to one agent | Files for a specific task |
+
+## Keep context focused
+
+More context is not always better. Large or irrelevant references can distract agents and increase prompt size.
+
+Use the smallest reference set that helps the agent complete the task.
+
+## Prompt budgets
+
+Syndicate estimates context size and can trim lower-priority sections when a prompt gets too large. Keep references concise so the most important context survives.

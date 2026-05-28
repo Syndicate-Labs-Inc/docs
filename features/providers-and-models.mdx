@@ -1,0 +1,37 @@
+---
+title: "Providers and Models"
+description: "Connect AI providers and choose models for agents."
+---
+
+Providers supply the models agents use to run. Syndicate currently supports Claude, OpenAI/Codex, and Gemini.
+
+## Provider setup
+
+Open **Settings > Providers** to connect, disconnect, refresh, or inspect providers.
+
+| Provider | Typical auth behavior |
+| --- | --- |
+| Claude | Browser OAuth first; terminal fallback only when needed |
+| OpenAI / Codex | Browser sign-in through Codex CLI, followed by capability verification |
+| Gemini | Browser or terminal-assisted CLI flow |
+
+## Model selection
+
+Syndicate only offers models from authenticated providers. You can set:
+
+- A default provider.
+- A default model.
+- Per-agent model choices.
+- Manager-specific model choices during team creation.
+
+## Why provider verification matters
+
+Syndicate does not only check whether credentials exist. For providers like Codex, it also checks whether the account can actually run. This catches plan, quota, policy, and CLI issues earlier.
+
+## Recommended setup
+
+Start with the provider you use most. Add additional providers when:
+
+- You want different model strengths.
+- One provider is rate limited.
+- Different agents need different cost or quality profiles.

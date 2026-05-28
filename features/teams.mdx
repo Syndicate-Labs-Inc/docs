@@ -1,0 +1,42 @@
+---
+title: "Teams"
+description: "Use teams to coordinate multiple agents around one project."
+---
+
+Teams are for work that benefits from multiple specialists. A typical team includes a Manager plus agents for engineering, review, testing, writing, or research.
+
+## When to use a team
+
+Use a team when:
+
+- The work has multiple parts.
+- You want a Manager to coordinate specialists.
+- You need review or QA after implementation.
+- Agents should hand work to each other.
+- You want to monitor a longer workflow.
+
+## Team creation paths
+
+| Path | Use when |
+| --- | --- |
+| Template | You want a prebuilt team shape |
+| Describe | You want Syndicate to suggest a team from a project description |
+| Scratch | You know exactly which agents you want |
+
+## Manager control modes
+
+Teams with a Manager can run under different levels of autonomy.
+
+| Mode | Behavior |
+| --- | --- |
+| Autopilot | Manager can plan, delegate, follow up, and keep agents moving without approval |
+| Approve New Work | Manager can coordinate, but asks before creating new tasks or expanding scope |
+| Approve Each Step | Manager asks before every delegation, follow-up, reroute, or new instruction |
+
+Start with **Approve New Work** until you trust the team shape.
+
+## Hard pause
+
+Hard pause stops team dispatches and blocks new automatic dispatch. Use it when a team is moving too quickly, a provider is misconfigured, or you want to inspect work before anything else runs.
+
+Resuming a paused team does not automatically restart agents. They run again when prompted or dispatched.
