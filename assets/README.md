@@ -1,12 +1,5 @@
-# Docs Assets
+# Docs assets
 
-Store public documentation assets here.
+This directory stores public assets referenced by the Syndicate docs.
 
-Recommended screenshot structure:
-
-- `screenshots/install`
-- `screenshots/providers`
-- `screenshots/teams`
-- `screenshots/settings`
-
-Use descriptive, stable file names such as `providers-connected-state.png` so tutorial pages remain easy to maintain.
+Use descriptive, stable file names for images and keep any sensitive account details, paths, tokens, or customer data out of published assets.
