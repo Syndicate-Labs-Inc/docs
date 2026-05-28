@@ -7,6 +7,11 @@
     "light": "#38BDF8",
     "dark": "#1D4ED8"
   },
+  "logo": {
+    "light": "/assets/syndicate-logo-white.png",
+    "dark": "/assets/syndicate-logo-dark.png",
+    "href": "https://usesyndicate.org"
+  },
   "favicon": "/assets/syndicate-icon.png",
   "navigation": {
     "tabs": [
