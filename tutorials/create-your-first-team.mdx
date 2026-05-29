@@ -3,17 +3,43 @@ title: "Create Your First Team"
 description: "Create a Syndicate team for a local project folder."
 ---
 
-A team is a group of agents that run against the same working folder and share team context inside Syndicate.
+A team is a shared workspace for agents working against the same local project folder. Start here when you want a Manager to coordinate specialists.
+
+{/* Hero media: 20-30 second clip creating a team, selecting a folder, reviewing agents, and landing in the new workspace.
+Capture list:
+- Create Team entry point.
+- Manual setup and AI-guided setup options.
+- Local folder picker.
+- Proposed or selected agent roster.
+- Manager control mode selector.
+- Finished team workspace with agents visible.
+*/}
 
 ## Create a team manually
 
-1. Click **Create Team**.
-2. Choose **Build Your Team** if you want to start from scratch.
-3. Choose the local project folder the team should work in.
-4. Add or review agents.
-5. Create the team.
+{/* Video: Build Your Team flow from click to completed workspace. */}
+
+<Steps>
+  <Step title="Start team creation">
+    Click **Create Team**.
+  </Step>
+  <Step title="Choose manual setup">
+    Select **Build Your Team** if you want to start from scratch.
+  </Step>
+  <Step title="Select a project folder">
+    Choose the local folder the team should read, edit, and run commands in.
+  </Step>
+  <Step title="Review agents">
+    Add or review the Manager and specialists before creating the team.
+  </Step>
+  <Step title="Create the team">
+    Finish setup and open the new team workspace.
+  </Step>
+</Steps>
 
 ## Use AI-guided setup
+
+{/* Video: describe a project, review proposed agents, select folder, create team. */}
 
 Use the guided team flow when you want Syndicate to draft a starting roster from a project description.
 
@@ -23,13 +49,15 @@ Use the guided team flow when you want Syndicate to draft a starting roster from
 4. Select the project folder.
 5. Create the team.
 
-## What the working folder controls
+## Pick the working folder
+
+{/* Screenshot: folder picker and selected path in setup. */}
 
 The selected folder becomes the working directory for agent runs. Agents use it when they read files, edit code, run commands, and gather project context.
 
 ## Choose a Manager control mode
 
-If your team has a Manager, choose how much autonomy the Manager should have when delegating or following up with specialists.
+{/* Screenshot: Manager control mode options. */}
 
 | Mode | Use when |
 | --- | --- |
@@ -41,6 +69,8 @@ You can change this later in team settings.
 
 ## First task to try
 
+{/* Screenshot or video: sending a first task and seeing the team respond. */}
+
 Ask one agent to inspect the project and summarize:
 
 - What the app does.
@@ -48,10 +78,15 @@ Ask one agent to inspect the project and summarize:
 - Which files are most important.
 - What the agent would improve first.
 
+<Tip>
 This gives you a quick sanity check before assigning larger work.
+</Tip>
 
-## Related
-
-- [Teams](/features/teams)
-- [Agents](/features/agents)
-- [Tasks](/features/tasks)
+<CardGroup cols={2}>
+  <Card title="Teams" icon="users" href="/features/teams">
+    Learn how team workspaces are organized.
+  </Card>
+  <Card title="Add and configure agents" icon="user-plus" href="/tutorials/add-and-configure-agents">
+    Tune the roster after the team exists.
+  </Card>
+</CardGroup>

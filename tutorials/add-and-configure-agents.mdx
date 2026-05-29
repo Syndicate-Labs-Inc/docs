@@ -3,18 +3,44 @@ title: "Add and Configure Agents"
 description: "Create agents with clear roles, models, skills, and working instructions."
 ---
 
-Agents work best when each one has a clear job.
+Agents work best when each one has a clear job, a good model, and instructions that tell it how to report progress.
+
+{/* Hero media: 20 second clip adding an agent, choosing a model, writing instructions, and saving it to a team.
+Capture list:
+- Team workspace with existing agents.
+- Add agent control.
+- Agent name and role fields.
+- Provider and model selector.
+- Instructions editor.
+- Skills or tools area, if visible.
+- Saved agent appearing in the roster.
+*/}
 
 ## Add an agent
 
-1. Open a team.
-2. Click the add agent control.
-3. Give the agent a short name.
-4. Choose a role.
-5. Select a provider and model.
-6. Save the agent.
+{/* Video: add an agent from an existing team workspace. */}
+
+<Steps>
+  <Step title="Open a team">
+    Choose the team that should receive the new agent.
+  </Step>
+  <Step title="Add an agent">
+    Click the add agent control.
+  </Step>
+  <Step title="Name the agent">
+    Use a short, specific name that makes the job obvious.
+  </Step>
+  <Step title="Choose role and model">
+    Pick the role, provider, and model that fit the work.
+  </Step>
+  <Step title="Save the agent">
+    Confirm the setup and return to the team roster.
+  </Step>
+</Steps>
 
 ## Write useful instructions
+
+{/* Screenshot: instructions editor with a concise example. */}
 
 Good agent instructions answer:
 
@@ -25,6 +51,8 @@ Good agent instructions answer:
 - How should it report progress?
 
 ## Example roles
+
+{/* Screenshot: role picker or a configured roster with several specialists. */}
 
 | Role | Good for |
 | --- | --- |
@@ -38,8 +66,17 @@ Good agent instructions answer:
 
 Start with two or three agents. Add more only when a repeated kind of work needs its own specialist.
 
-## Related
+## Done when
 
-- [Agents](/features/agents)
-- [Skills](/features/skills)
-- [MCP](/features/mcp)
+- The agent appears in the team roster.
+- It has a role, provider, model, and clear instructions.
+- You know what kind of task should go to that agent.
+
+<CardGroup cols={2}>
+  <Card title="Agents" icon="bot" href="/features/agents">
+    Learn how agents behave inside Syndicate.
+  </Card>
+  <Card title="Use MCP and skills" icon="wrench" href="/tutorials/use-mcp-and-skills">
+    Add specialized capabilities to agents.
+  </Card>
+</CardGroup>

@@ -3,17 +3,62 @@ title: "Use MCP and Skills"
 description: "Extend agents with specialized workflows and external tools."
 ---
 
-Syndicate supports skills and MCP-style tool integrations so agents can do more than chat.
+Skills and MCP tools turn agents from general chat partners into specialists with repeatable workflows and external capabilities.
 
-## Skills
+{/* Hero media: 20-30 second clip opening an agent, adding a skill or MCP tool, then using it in chat.
+Capture list:
+- Skills area or skill picker.
+- MCP settings or tool list.
+- A configured agent with enabled capabilities.
+- A chat where the agent uses a capability.
+- Any permission, authentication, or connected state that users need to recognize.
+*/}
+
+## Add a skill
+
+{/* Video: enable a skill for an agent and show it available in the agent configuration. */}
 
 Skills are reusable instructions for specialized work. Use them when an agent needs a reliable workflow for tasks like documentation, QA, frontend design, analytics, or release management.
 
-## MCP tools
+<Steps>
+  <Step title="Open the agent">
+    Choose the agent that should use the skill.
+  </Step>
+  <Step title="Find skills">
+    Open the skills area in the agent configuration.
+  </Step>
+  <Step title="Add the right skill">
+    Choose the skill that matches the agent's job.
+  </Step>
+  <Step title="Save the agent">
+    Return to the team and give the agent a task that uses the skill.
+  </Step>
+</Steps>
+
+## Add an MCP tool
+
+{/* Video: enable an MCP tool and show connected/available state. */}
 
 MCP servers connect agents to external capabilities only after you install or configure them and enable them for an agent. Depending on your setup, a server may expose files, browser automation, documents, or another service.
 
+<Steps>
+  <Step title="Install or configure the MCP server">
+    Complete the setup required by that tool.
+  </Step>
+  <Step title="Enable it for an agent">
+    Open the agent configuration and make the tool available.
+  </Step>
+  <Step title="Confirm access">
+    Check that the tool shows as available before asking the agent to use it.
+  </Step>
+  <Step title="Test with a small task">
+    Ask for something simple that clearly requires the tool.
+  </Step>
+</Steps>
+
 ## When to add a capability
+
+{/* Screenshot: agent configuration with a small number of clear capabilities. */}
 
 Add a skill or tool when:
 
@@ -26,8 +71,11 @@ Add a skill or tool when:
 
 Give each capability a clear name and purpose. Agents should not need to guess when to use it.
 
-## Related
-
-- [MCP](/features/mcp)
-- [Skills](/features/skills)
-- [Agents](/features/agents)
+<CardGroup cols={2}>
+  <Card title="MCP" icon="plug-zap" href="/features/mcp">
+    Learn how MCP tools fit into Syndicate.
+  </Card>
+  <Card title="Skills" icon="sparkles" href="/features/skills">
+    Learn how skills guide specialist work.
+  </Card>
+</CardGroup>

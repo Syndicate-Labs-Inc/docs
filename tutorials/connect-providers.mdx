@@ -3,52 +3,87 @@ title: "Connect Providers"
 description: "Connect Claude, OpenAI/Codex, and Gemini in Syndicate."
 ---
 
-Syndicate can work with multiple providers. You only need one provider to start, but connecting more providers gives teams more model options.
+Providers are what let agents actually run. You only need one connected provider to start, but connecting more gives each agent better model options.
+
+{/* Hero media: 15-20 second clip opening provider settings, connecting one provider, and returning to a connected state.
+Capture list:
+- Provider settings list with Claude, OpenAI/Codex, and Gemini.
+- A provider detail screen before connection.
+- Browser or terminal authentication flow.
+- Connected provider state with available models.
+- Agent creation screen showing provider/model selection.
+*/}
+
+## Open provider settings
+
+{/* Screenshot: Settings area with Providers visible. */}
+
+<Steps>
+  <Step title="Open Settings">
+    Go to the settings area in Syndicate.
+  </Step>
+  <Step title="Choose a provider">
+    Select Claude, OpenAI/Codex, or Gemini.
+  </Step>
+  <Step title="Start connection">
+    Click **Connect** and follow the prompts for that provider.
+  </Step>
+</Steps>
 
 ## Claude
 
+{/* Video: Claude browser OAuth flow returning to Syndicate. */}
+
 Claude uses browser OAuth first.
 
-1. Open Settings.
-2. Select Claude.
-3. Click **Connect**.
-4. Complete the browser sign-in flow.
-5. Paste the authorization code into Syndicate if prompted.
-6. Wait for Claude to show as connected.
+1. Select Claude in Settings.
+2. Click **Connect**.
+3. Complete the browser sign-in flow.
+4. Paste the authorization code into Syndicate if prompted.
+5. Wait for Claude to show as connected.
 
 ## OpenAI / Codex
 
+{/* Video: OpenAI/Codex authentication plus readiness check. */}
+
 OpenAI uses Codex CLI authentication plus a live capability check.
 
-1. Open Settings.
-2. Select OpenAI or Codex.
-3. Click **Connect**.
-4. Complete the browser sign-in flow.
-5. Return to Syndicate.
-6. Wait for the app to verify that Codex can run.
+1. Select OpenAI or Codex in Settings.
+2. Click **Connect**.
+3. Complete the browser sign-in flow.
+4. Return to Syndicate.
+5. Wait for the app to verify that Codex can run.
 
 <Warning>
-  Signing in is not always enough. Syndicate also checks whether the account can execute Codex. Plan limits, quota, workspace policy, or expired credentials can still block provider readiness.
+Signing in is not always enough. Syndicate also checks whether the account can execute Codex. Plan limits, quota, workspace policy, or expired credentials can still block provider readiness.
 </Warning>
 
 ## Gemini
 
+{/* Video: Gemini terminal or browser prompts until connected. */}
+
 Gemini may use an in-app terminal during authentication.
 
-1. Open Settings.
-2. Select Gemini.
-3. Click **Connect**.
-4. Follow the terminal or browser prompts.
-5. Wait for Gemini to show as connected.
-
-## Choosing a default provider
-
-After providers are connected, choose the provider and model that best match the type of work each agent performs.
+1. Select Gemini in Settings.
+2. Click **Connect**.
+3. Follow the terminal or browser prompts.
+4. Wait for Gemini to show as connected.
 
 ## Verify setup
+
+{/* Screenshot: connected provider with models available. */}
 
 Provider setup is complete when:
 
 - The provider shows as connected.
 - The provider has at least one available model.
 - New agents can select that provider's models during creation.
+
+<CardGroup cols={2}>
+  <Card title="Create your first team" icon="users" href="/tutorials/create-your-first-team">
+    Use your connected provider in a real workspace.
+  </Card>
+  <Card title="Providers reference" icon="plug" href="/reference/providers">
+    Learn how each provider connection works.
+  </Card>
+</CardGroup>
