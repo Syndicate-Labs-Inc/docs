@@ -1,170 +1,77 @@
 ---
 title: "Getting Started"
-description: "Request access, install Syndicate, connect your first AI provider, and launch your first agent workspace."
+description: "A short launchpad for installing Syndicate, connecting a provider, and starting your first workspace."
 ---
 
-Syndicate helps you turn one instruction into coordinated work from a team of AI specialists. Instead of juggling separate chats, prompts, tools, and project context yourself, you build a small team with a Manager and focused agents that can plan, delegate, report back, and keep momentum.
+Syndicate turns one request into coordinated work from AI specialists. This page is the quick route. Each step links to a focused guide when you need more detail.
 
-Our goal is simple: make powerful agent teams feel usable, visible, and under your control. Syndicate runs as a desktop app, connects to the AI providers you choose, and works against local project folders you select.
+{/* Suggested media: 8-12 second hero clip of a Manager receiving a request and specialists becoming active. */}
 
-{/* Suggested hero media: 8-12 second screen recording of the app landing on a team dashboard, sending one message to Manager, and seeing agents light up/work. */}
+## The 5-minute path
 
-## Before you begin
+<Steps>
+  <Step title="Request access and install the app">
+    Syndicate is in private beta. Request access, then install the desktop app from your invite email.
 
-Syndicate is currently in private beta.
+    [Install and sign in](/tutorials/install-and-sign-in)
+  </Step>
+  <Step title="Create or sign in to your Syndicate account">
+    Use the same email address that was approved for beta access.
 
-You need:
+    [Install and sign in](/tutorials/install-and-sign-in)
+  </Step>
+  <Step title="Connect one AI provider">
+    Connect Claude, OpenAI Codex, or Google Gemini. You only need one provider to start.
 
-- An approved beta email address.
-- The Syndicate desktop installer from your invite/download email.
-- At least one AI provider account: Claude, OpenAI Codex, or Google Gemini.
-- A local folder for the project or work area you want agents to use.
+    [Connect providers](/tutorials/connect-providers)
+  </Step>
+  <Step title="Choose a workspace">
+    Start with a Manager-led team for coordinated work, or a solo agent for direct 1:1 help.
 
-<Tip>
-Use the same email address that was approved for beta access when you create your Syndicate account.
-</Tip>
+    [Create your first team](/tutorials/create-your-first-team)
+  </Step>
+  <Step title="Give a small first task">
+    Ask the Manager or solo agent to inspect your project, summarize the structure, or draft a small change.
 
-## Request access and install Syndicate
+    [Chat and dispatch](/features/chat-and-dispatch)
+  </Step>
+</Steps>
 
-1. Request access from [usesyndicate.org](https://usesyndicate.org).
-2. After you are approved, open the beta invite email.
-3. Download the installer for your operating system.
-4. Install and open Syndicate.
-5. If your operating system asks for permission to run the app, approve it.
-
-{/* Suggested screenshot: beta invite/download email showing Windows and Mac download buttons. Crop out personal email/address details. */}
-
-## Create or sign in to your Syndicate account
-
-On first launch, Syndicate shows a welcome screen. Click **Get Started**.
-
-From there:
-
-1. Create an account with your approved beta email, or sign in if you already have one.
-2. Confirm your email if prompted.
-3. If the confirmation email does not arrive, use **Resend confirmation email** in the app.
-
-Syndicate uses your account to keep beta access, app launch policy, and plan limits in sync. Your provider credentials and local workspace data are handled separately.
-
-{/* Suggested screenshot: welcome screen with Get Started button, then Auth screen with closed-beta copy. */}
-
-## Connect your first AI provider
-
-After sign-in, Syndicate asks you to connect at least one provider before launching a workspace.
-
-You can connect:
-
-- **Claude** for Anthropic models.
-- **OpenAI Codex** for OpenAI/Codex coding models.
-- **Google Gemini** for Gemini models.
-
-Each provider has its own auth flow. Syndicate guides you through checking, installing if needed, and connecting the provider.
-
-<Note>
-You only need one connected provider to start. You can add more later in **Settings > Providers**.
-</Note>
-
-{/* Suggested screenshot: ProviderGate with Claude, OpenAI Codex, and Google Gemini cards. Optional 8-second clip of clicking Check/Connect on one provider. */}
-
-## Launch your first workspace
-
-Once at least one provider is connected, Syndicate helps you choose how you want to work.
-
-### Team workspace
-
-Choose a team workspace when you want multiple agents working together under a Manager.
-
-A team is best for:
-
-- Building or modifying a software project.
-- Researching and writing a longer deliverable.
-- Splitting work across specialists such as frontend, backend, QA, writer, researcher, or DevOps.
-- Watching a Manager coordinate progress across several agents.
-
-You can start from a template, describe your project so Syndicate suggests a roster, or build your own team.
-
-### Solo agent
-
-Choose a solo agent when you want one focused specialist in a direct 1:1 chat.
-
-A solo agent is best for:
-
-- Quick code edits.
-- Focused research.
-- Writing or reviewing one document.
-- Testing a specialist before building a full team.
-
-{/* Suggested screenshot: "Launch your first workspace" choice between Team Workspace and Solo Agent. */}
-
-## Create a team workspace
-
-To create a team:
-
-1. Choose **Team Workspace**.
-2. Pick a template, describe what you are building, or start from scratch.
-3. Review the suggested agents.
-4. Choose each agent's model if you want to customize it.
-5. Select the local working directory for the project.
-6. Click **Create Team**.
-
-Syndicate creates a Manager and specialist agents, then opens the workspace so you can start talking to the team.
-
-{/* Suggested screenshot: Team creation wizard review step with Manager and specialist agents visible. */}
-
-## Create a solo agent
-
-To create a solo agent:
-
-1. Choose **Solo Agent**.
-2. Pick an existing specialist or describe the specialist you want.
-3. Choose a model.
-4. Select the local folder where the agent should work.
-5. Click **Add Agent**.
-
-Solo agents skip the Manager and give you a direct chat with one specialist.
-
-## Give your first task
-
-Start small. A good first task has a clear outcome and a safe scope.
-
-Examples:
-
-- "Read this project and summarize how it is structured."
-- "Review the onboarding flow and list the top three UX issues."
-- "Find where provider auth is implemented and explain the flow."
-- "Draft a README section for running this project locally."
-
-If you created a team, message the **Manager** first. The Manager can plan, delegate, and coordinate the specialists.
-
-If you created a solo agent, message that agent directly.
-
-{/* Suggested short video: user sends one clear request to Manager, Manager responds with a plan or dispatches specialists. */}
-
-## What to set up next
+## Team or solo?
 
 <CardGroup cols={2}>
-  <Card title="Connect more providers" icon="plug" href="/tutorials/connect-providers">
-    Add Claude, OpenAI Codex, or Gemini so each agent can use the best model for the job.
+  <Card title="Team workspace" icon="users" href="/features/teams">
+    Use a Manager plus specialists when work needs planning, delegation, review, or parallel execution.
   </Card>
-  <Card title="Create your first team" icon="users" href="/tutorials/create-your-first-team">
-    Build a Manager-led workspace around a real local project folder.
-  </Card>
-  <Card title="Use MCP and skills" icon="wrench" href="/tutorials/use-mcp-and-skills">
-    Extend agents with tools, integrations, and reusable specialist workflows.
-  </Card>
-  <Card title="Learn the product areas" icon="sparkles" href="/features/overview">
-    Understand teams, solo agents, inboxes, tasks, references, and settings.
+  <Card title="Solo agent" icon="user" href="/features/solo-agents">
+    Use one focused specialist for quick edits, research, writing, or review.
   </Card>
 </CardGroup>
 
-## If something blocks you
+## Good first tasks
 
-- **Account creation fails:** make sure you are using the email approved for beta access.
-- **Confirmation email does not arrive:** use **Resend confirmation email** and check spam.
-- **No provider connects:** open **Settings > Providers**, refresh status, then try connecting again.
-- **Provider says connected but agents cannot use a tool:** check whether the tool is a provider connection, a local MCP server, or a Claude cloud MCP connector.
-- **Workspace creation fails:** try a folder you own and can edit.
+- "Read this project and summarize how it is structured."
+- "Find the auth flow and explain it in plain English."
+- "Review this folder and suggest the safest first improvement."
+- "Draft a README section for running this project locally."
 
-<Warning>
-Only select project folders you are comfortable letting agents inspect and modify. Agents work inside the local folder you choose and may send relevant prompt/context to the AI provider you connect.
-</Warning>
+<Tip>
+Start with a small, concrete task. Once the agent understands your project, give it larger work.
+</Tip>
+
+## Next guides
+
+<CardGroup cols={2}>
+  <Card title="Install and sign in" icon="download" href="/tutorials/install-and-sign-in">
+    Beta access, installer, account creation, and confirmation email.
+  </Card>
+  <Card title="Connect providers" icon="plug" href="/tutorials/connect-providers">
+    Set up Claude, OpenAI Codex, or Gemini.
+  </Card>
+  <Card title="Create your first team" icon="users" href="/tutorials/create-your-first-team">
+    Pick a template, describe your project, or create a team from scratch.
+  </Card>
+  <Card title="Feature overview" icon="sparkles" href="/features/overview">
+    Learn how workspaces, agents, teams, tasks, and MCP fit together.
+  </Card>
+</CardGroup>
