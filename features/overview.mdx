@@ -1,46 +1,75 @@
 ---
-title: "Feature overview"
-description: "A tour of the main product areas in Syndicate."
+title: "Overview"
+description: "How workspaces, agents, teams, and providers fit together."
 ---
 
 Syndicate turns a local project folder into a workspace where AI agents can plan, build, review, research, document, and coordinate with each other.
 
-## Main feature areas
+## What's in this section
+
+The pages in this section describe the building blocks that shape every Syndicate setup.
+
+### Concepts in this section
 
 <CardGroup cols={2}>
+  <Card title="Workspaces" icon="folder-tree" href="/features/workspaces">
+    Where Syndicate organizes work around a local project folder.
+  </Card>
+  <Card title="Agents" icon="sparkles" href="/features/agents">
+    The specialists you configure, including roles from the Agent Marketplace.
+  </Card>
   <Card title="Teams" icon="users" href="/features/teams">
-    Run a group of specialist agents under a Manager.
+    A group of specialist agents coordinated by a Manager.
   </Card>
   <Card title="Solo agents" icon="user" href="/features/solo-agents">
-    Work directly with one specialist agent.
-  </Card>
-  <Card title="Agent marketplace" icon="sparkles" href="/features/agents">
-    Create agents from built-in or custom specializations.
+    A single specialist agent for direct one-on-one work.
   </Card>
   <Card title="Providers and models" icon="plug" href="/features/providers-and-models">
-    Connect Claude, OpenAI/Codex, and Gemini, then choose models per agent.
+    Claude, OpenAI/Codex, and Gemini accounts and the models agents run on.
+  </Card>
+</CardGroup>
+
+### Where to go next
+
+<CardGroup cols={2}>
+  <Card title="Chat and dispatch" icon="list-checks" href="/features/chat-and-dispatch">
+    Send work to an agent and watch what happens during a run.
+  </Card>
+  <Card title="Tasks" icon="list-checks" href="/features/tasks">
+    Track agent work in progress and review what has been completed.
+  </Card>
+  <Card title="Inbox" icon="inbox" href="/features/inbox">
+    Respond to questions and updates that need your attention.
+  </Card>
+  <Card title="References" icon="book" href="/features/references-and-context">
+    Give agents the project files and docs they need as context.
   </Card>
   <Card title="MCP servers" icon="blocks" href="/features/mcp">
     Connect agents to external tools and data sources.
   </Card>
-  <Card title="Tasks and dispatch" icon="list-checks" href="/features/chat-and-dispatch">
-    Send work to agents and track what is happening.
-  </Card>
 </CardGroup>
 
-## How the pieces fit together
+## How a team coordinates work
+
+A **Manager** is the agent that coordinates a team. Instead of you assigning each step, you give the Manager an outcome and it decides who on the team should do what.
+
+**Dispatch** is how Syndicate hands a message or task to an agent so it actually starts running. The Manager dispatches work to specialists, specialists dispatch results and follow-ups back, and you stay in the loop through the inbox.
 
 ```mermaid
 flowchart LR
   User["You"] --> Workspace["Workspace"]
   Workspace --> Team["Team"]
-  Workspace --> Solo["Solo Agent"]
+  Workspace --> Solo["Solo agent"]
   Team --> Manager["Manager"]
-  Manager --> Agents["Specialist Agents"]
+  Manager --> Agents["Specialist agents"]
   Agents --> Tasks["Tasks"]
-  Agents --> Inbox["Inbox Messages"]
+  Agents --> Inbox["Inbox messages"]
   Agents --> Tools["Skills and MCP servers"]
-  Agents --> Project["Local Project Folder"]
+  Agents --> Project["Local project folder"]
+  Solo --> Tasks
+  Solo --> Inbox
+  Solo --> Tools
+  Solo --> Project
 ```
 
 ## Common ways to use Syndicate
@@ -54,12 +83,13 @@ flowchart LR
 | Research a topic | Researcher or research team |
 | Coordinate many tasks | Team workspace with Manager control modes |
 
-## Recommended first setup
+## Next steps
 
-Start with one provider, one local project folder, and either:
-
-- A solo agent for direct work.
-- A small team with a Manager, Coder, and Reviewer.
-
-Add more agents, skills, and MCP servers only when the workflow needs them.
-
+<CardGroup cols={2}>
+  <Card title="Workspaces" icon="folder-tree" href="/features/workspaces">
+    See how a workspace holds a team or a solo agent and links to a project folder.
+  </Card>
+  <Card title="Chat and dispatch" icon="list-checks" href="/features/chat-and-dispatch">
+    Send work to an agent and watch a run unfold.
+  </Card>
+</CardGroup>

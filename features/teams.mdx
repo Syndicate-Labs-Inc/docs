@@ -5,6 +5,21 @@ description: "Use teams to coordinate multiple agents around one project."
 
 Teams are for work that benefits from multiple specialists. A typical team includes a Manager plus agents for engineering, review, testing, writing, or research.
 
+## The Manager
+
+The Manager is the agent that coordinates a team. Instead of you assigning each step to each specialist, you give the Manager an outcome and it decides who should do what.
+
+A Manager typically:
+
+- Plans the work and breaks it into tasks.
+- Delegates each task to the right specialist on the team.
+- Follows up when an agent finishes or gets blocked.
+- Routes inter-agent messages and escalates anything that needs you.
+
+The Manager hands work to specialists through **dispatch** — Syndicate's mechanism for kicking off a run on a target agent. See [chat and dispatch](/features/chat-and-dispatch) for how dispatches appear in the UI and how to watch them.
+
+Every team has exactly one Manager. How much authority the Manager has is set by its control mode, described below. If you don't need a Manager, use a [solo agent](/features/solo-agents) instead.
+
 ## When to use a team
 
 Use a team when:
@@ -19,24 +34,33 @@ Use a team when:
 
 | Path | Use when |
 | --- | --- |
-| **Template** | You want a prebuilt team shape |
-| **Guided description** | You want Syndicate to draft a roster from a project description |
-| **Build Your Team** | You want to start with a Manager and add specialists yourself |
+| Template | You want a prebuilt team shape |
+| Guided description | You want Syndicate to draft a roster from a project description |
+| Build your team | You want to start with a Manager and add specialists yourself |
 
 ## Manager control modes
 
-Teams with a Manager can run under different levels of autonomy.
+Teams with a Manager can run under different levels of autonomy. Each mode controls how much the Manager can do on its own before asking for your input.
 
-| Mode | Behavior |
-| --- | --- |
-| **Autopilot** | Manager can plan, delegate, follow up, and keep agents moving without approval |
-| **Approve New Work** | Manager can coordinate, but asks before creating new tasks or expanding scope |
-| **Approve Each Step** | Manager asks before every delegation, follow-up, reroute, or new instruction |
+| Mode | Manager can do without asking | Manager must ask before |
+| --- | --- | --- |
+| Autopilot | Plan, delegate, follow up, keep agents moving | Nothing routine — only when truly blocked |
+| Approve new work | Coordinate existing work | Creating new tasks or expanding scope |
+| Approve each step | Nothing automatic | Every delegation, follow-up, reroute, or new instruction |
 
-Start with **Approve New Work** until you trust the team shape.
+Start with **Approve new work** until you trust the team shape.
 
 ## Hard pause
 
-Hard pause stops team dispatches and blocks new automatic dispatch. Use it when a team is moving too quickly, a provider is misconfigured, or you want to inspect work before anything else runs.
+Hard pause stops in-flight team dispatches and blocks new automatic dispatch. Use it when a team is moving too quickly, a provider is misconfigured, or you want to inspect work before anything else runs. Resuming a paused team does not auto-restart agents — they run again when prompted or dispatched. If a paused team gets stuck or you can't restart cleanly, see [troubleshooting workspaces](/reference/troubleshooting-workspaces).
 
-Resuming a paused team does not automatically restart agents. They run again when prompted or dispatched.
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Solo agents" icon="user" href="/features/solo-agents">
+    Compare a team to working with a single specialist agent.
+  </Card>
+  <Card title="Chat and dispatch" icon="list-checks" href="/features/chat-and-dispatch">
+    See how the Manager dispatches work and how runs appear in the UI.
+  </Card>
+</CardGroup>

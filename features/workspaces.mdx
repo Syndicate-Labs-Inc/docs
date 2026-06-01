@@ -1,9 +1,11 @@
 ---
 title: "Workspaces"
-description: "Understand teams, solo agents, project folders, and the Team Hub."
+description: "Understand workspace shapes, the sidebar, project folders, and the lifecycle of a team or solo agent."
 ---
 
-A workspace is the place where Syndicate organizes agent work. Most workspaces point at a local project folder.
+A workspace is the place Syndicate organizes agent work. Every workspace is either a team or a solo agent, and most workspaces point at a local project folder so agents can read, write, and run commands against real code.
+
+A workspace bundles three things into one place: the agents that live there, the project folder they operate on, and the inboxes, tasks, and run history that build up over time. Switching workspaces moves you between those bundles without stopping the work happening in the one you leave.
 
 ## Workspace types
 
@@ -12,18 +14,61 @@ A workspace is the place where Syndicate organizes agent work. Most workspaces p
 | Team | Coordinated multi-agent work | Manager, specialists, inboxes, tasks |
 | Solo agent | Direct one-on-one work | One agent attached to a project folder |
 
+A team and a solo agent are distinct workspace shapes. A solo agent is not a team of one — it has no Manager and no inter-agent dispatch. See [Teams](/features/teams) and [Solo agents](/features/solo-agents) for the details of each shape.
+
+## Sidebar layout
+
+Syndicate groups workspaces in the sidebar so the two shapes stay separate at a glance:
+
+- **Teams** appear in their own section, with each team expandable to show its agents.
+- **Solo agents** appear in a separate section below teams.
+
+Use the sidebar to switch between workspaces. Switching workspaces does not stop work in the one you leave — runs and dispatches continue in the background, and you can come back to find new messages waiting in the inbox.
+
+## Hubs
+
+Syndicate has a hub view for each workspace shape, so you can scan across workspaces without diving into a single one.
+
+- **Team hub** lists your multi-agent workspaces, connected provider state, recent teams, and active work.
+- **Solo hub** lists your solo agents and recent activity.
+
+Use a hub when you want the bigger picture. Use the sidebar when you want to jump straight into one workspace.
+
 ## Project folders
 
-When you create a team or solo agent, choose the local folder where the agent should work. Agents use that folder as their working directory when reading files, editing code, running commands, and gathering context.
+When you create a team or solo agent, choose the local folder where the agent should work. Agents use that folder as their working directory when reading files, editing code, running commands, and gathering context. A workspace can only point at one project folder at a time.
 
 <Warning>
   Choose a folder where you are comfortable letting agents operate. Use Git or another backup system before giving agents broad edit permission.
 </Warning>
 
-## Team Hub
+**References** are different from the project folder. The project folder is where agents work — what they read, edit, and run commands in. References are extra files, folders, or docs you attach to a workspace, team, or agent to shape what they read for context during a run. See [references and context](/features/references-and-context).
 
-The Team Hub shows your multi-agent workspaces, connected provider state, recent teams, and active work. Use it when you want to see the bigger picture across teams.
+## Working directory
 
-## Changing a working directory
+The working directory is the local folder a workspace is linked to. Agents in that workspace treat it as the root for everything they do — file lookups, edits, shell commands, and references all resolve against that path.
 
-Open team settings, then use **Browse** in the working directory area. Syndicate relinks the workspace to the selected folder.
+You can change the working directory later if the project folder moves or you want the agent to operate somewhere else. Stop any active work in the workspace before relinking so agents do not run against a half-changed folder.
+
+In team settings, look for the working directory area and use the option to browse for a new folder. The exact label may vary by version of the app. If a workspace gets into a stuck or confused state, see [troubleshooting workspaces](/reference/troubleshooting-workspaces).
+
+## Workspace lifecycle
+
+You can create workspaces from the hubs or from the workspace creation flow. Once a workspace exists:
+
+- **Rename it** from its settings to keep your sidebar organized.
+- **Relink the working directory** when the project folder moves or you want the agent to work somewhere else.
+- **Remove it** when the work is done. Removing a workspace from Syndicate does not delete the project folder.
+
+Solo agents follow the same lifecycle — created, renamed, relinked, and removed the same way teams are.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Teams" icon="users" href="/features/teams">
+    See how a Manager and specialists coordinate inside one workspace.
+  </Card>
+  <Card title="References and context" icon="book" href="/features/references-and-context">
+    Attach the right project files and docs so agents have useful context.
+  </Card>
+</CardGroup>

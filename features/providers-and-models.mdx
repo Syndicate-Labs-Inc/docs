@@ -1,19 +1,30 @@
 ---
 title: "Providers and models"
-description: "Connect AI providers and choose models for agents."
+description: "Connect AI providers and choose the models agents run on."
 ---
 
-Providers supply the models agents use to run. Syndicate currently supports Claude, OpenAI/Codex, and Gemini.
+Providers supply the models agents use to run. Syndicate currently supports Claude, OpenAI/Codex, and Gemini. You connect a provider once, and any agent on any workspace can pick a model from it.
+
+<CardGroup cols={2}>
+  <Card title="Tutorial: connect providers" icon="plug" href="/tutorials/connect-providers">
+    Step-by-step setup for Claude, OpenAI/Codex, and Gemini.
+  </Card>
+  <Card title="Reference: providers" icon="book" href="/reference/providers">
+    Per-provider details, auth flows, and known issues.
+  </Card>
+</CardGroup>
 
 ## Provider setup
 
-Open **Settings > Providers** to connect, disconnect, refresh, or inspect providers.
+Connect, disconnect, refresh, or inspect providers from the settings area of the app. Look for a **Providers** section in settings — the exact label or path may vary by version.
 
 | Provider | Typical auth behavior |
 | --- | --- |
 | Claude | Browser OAuth first; terminal fallback only when needed |
-| OpenAI/Codex | Browser sign-in through Codex CLI, followed by capability verification |
+| OpenAI/Codex | Browser sign-in through the Codex CLI, followed by capability verification |
 | Gemini | Browser or terminal-assisted CLI flow |
+
+For the detailed flow per provider, see [auth flows](/reference/auth-flows).
 
 ## Model selection
 
@@ -24,9 +35,15 @@ Syndicate only offers models from authenticated providers. You can set:
 - Per-agent model choices.
 - Manager-specific model choices during team creation.
 
+A provider has to be connected and verified before its models appear in any of these pickers.
+
+When an agent doesn't specify a model, Syndicate falls back to your team and account defaults. Each [agent](/features/agents) can override the default model.
+
 ## Why provider verification matters
 
-Syndicate checks more than whether credentials exist. For providers like Codex, it also verifies that the account can actually run. That catches plan, quota, policy, and CLI issues earlier.
+Syndicate checks more than whether credentials exist. For providers like Codex, it also confirms the connected account can actually run a model — that the plan is active, quota is available, the policy allows the requested usage, and the local CLI is functional.
+
+That extra check catches a class of problems early: an account that signed in fine but does not have access to a needed model, a quota that is exhausted, a policy that blocks the workflow, or a CLI that is installed but broken. Without verification, those problems would only surface when an agent tries to run and fails partway through.
 
 ## Recommended setup
 
@@ -35,3 +52,14 @@ Start with the provider you use most. Add additional providers when:
 - You want different model strengths.
 - One provider is rate limited.
 - Different agents need different cost or quality profiles.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Agents" icon="sparkles" href="/features/agents">
+    See how a model fits into the rest of an agent's configuration.
+  </Card>
+  <Card title="Settings" icon="gear" href="/features/settings">
+    Manage providers, defaults, and app-level configuration.
+  </Card>
+</CardGroup>
