@@ -3,11 +3,25 @@ title: "Agent Maker"
 description: "Use Syndicate's Agent Maker specialist to draft a reusable agent package from a description."
 ---
 
-Agent Maker is a Syndicate-specialized agent whose job is to draft other agents. Describe the specialist you want, and Agent Maker generates a Marketplace package — title, description, skills, and workflow guidance — that you can review, revise, and save.
+Agent Maker is a built-in Syndicate specialist whose job is to draft other agents. Unlike the Manager and the rest of the built-in roster, you don't add Agent Maker from the **Syndicate** category — you open it through **Add Agent Package → Agent Maker**, because it produces new agent packages rather than joining a workspace itself.
+
+Describe the specialist you want, and Agent Maker generates a Marketplace package — title, description, skills, and workflow guidance — that you can review, revise, and save.
 
 Use it for repeatable roles that aren't in the built-in catalog: launch reviewer, compliance reader, customer research analyst, release-note writer, prompt auditor, QA checklist owner, or any specialist your team uses often.
 
 {/* Suggested video: opening Agent Maker, entering a specialist description, reviewing the generated package, and saving it. */}
+
+## How Agent Maker drafts a package
+
+Agent Maker is built and tuned to Syndicate's package conventions. It knows the shape of a Marketplace package — title, description, skills, and workflow guidance — and how those pieces fit together so the saved result is addable to a team or solo workspace without extra cleanup.
+
+It is also tuned to recognize when the role you describe overlaps a built-in specialist. If a built-in already fits, Agent Maker can steer you toward that one instead of generating a duplicate package.
+
+## Agent Maker vs. asking a Manager to create one
+
+A Manager in a regular workspace can advise on what an agent should do, but a Manager conversation produces a chat-shaped answer, not a saved package. Agent Maker is the path that produces a Marketplace package — one that lands in the **User Made** category and is addable to teams or solo workspaces alongside the built-ins.
+
+Use Agent Maker when you want the role to persist and be reused. Ask a Manager when you only need help thinking through what the role should be.
 
 ## When to use Agent Maker
 
@@ -31,7 +45,7 @@ You need:
 Agent Maker works best when you describe the agent's job, inputs, outputs, boundaries, and what "good work" looks like.
 </Tip>
 
-## Open Agent Maker
+## Open Agent Maker via Add Agent Package
 
 1. Open **Agent Marketplace**.
 2. Click **Add Agent Package**.
@@ -91,14 +105,6 @@ When the draft looks right, click **Save to Marketplace**.
 
 The package appears in the **User Made** category. You can add it to a team or create a solo workspace from it.
 
-## Edit a user-made package later
-
-1. Open **Agent Marketplace**.
-2. Go to **User Made**.
-3. Select the package.
-4. Click **Edit**.
-5. Update or revise the package.
-
 ## Add the custom agent to a workspace
 
 Open the package in the **User Made** category, click **Add to...**, and choose **Existing Team** or **Solo Workspace**. For the full flow and what happens after you add an agent, see [Choose how you want to add an agent](/tutorials/agent-marketplace#choose-how-you-want-to-add-an-agent).
@@ -109,13 +115,22 @@ Agent Maker bundles skills into the draft based on your description. Skills are 
 
 After saving the package, open the agent in any workspace to inspect or change those skills in the agent configuration panel. See [Skills](/features/skills) for what skills do and when to add more.
 
+## Edit a user-made package later
+
+1. Open **Agent Marketplace**.
+2. Go to **User Made**.
+3. Select the package.
+4. Click **Edit**.
+5. Update or revise the package.
+
 ## Limits & gotchas
 
+- **Agent Maker drafts packages — it doesn't run the role for you.** Saving a package puts it in **User Made**. To actually use the agent, add it to a team or solo workspace from there.
 - **Draft quality follows description quality.** Vague inputs produce vague agents. Spell out the job, inputs, outputs, boundaries, and what "good work" looks like, then iterate with **Revise Draft**.
 - **Agent Maker runs through your connected provider.** Drafting and revising a package uses your provider account the same way any other agent run does — Agent Maker is not free of provider usage.
 - **The first draft is a starting configuration, not a finished agent.** Review the skills, instructions, and references before you save, and tighten them in the agent settings after you add it to a workspace.
-- **Use a built-in when one already fits.** Agent Maker is for roles that aren't in the catalog. If a built-in specialist covers the role, prefer it.
-- **Iterating on a user-made agent is normal.** Save the package, try it on a small task, then come back to **Edit** with what you learned.
+- **Use a built-in when one already fits.** Agent Maker is for roles that aren't covered by a built-in. If a built-in specialist covers the role, prefer it.
+- **Iterating on a user-made agent is normal.** Save the package, try it on a small task, then come back and update the saved package with what you learned.
 
 ## Verify it worked
 
