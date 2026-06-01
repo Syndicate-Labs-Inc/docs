@@ -27,9 +27,17 @@
         "pages": [
           "tutorials/install-and-sign-in",
           "tutorials/connect-providers",
+          {
+            "group": "Agent Marketplace",
+            "pages": [
+              "tutorials/agent-marketplace",
+              "tutorials/agent-marketplace/built-in-syndicate-agents",
+              "tutorials/agent-marketplace/community-agents",
+              "tutorials/agent-marketplace/agent-maker"
+            ]
+          },
           "tutorials/create-your-first-team",
           "tutorials/create-a-solo-agent",
-          "tutorials/add-and-configure-agents",
           "tutorials/attach-references",
           "tutorials/use-mcp-and-skills",
           "tutorials/tasks-and-inbox"

@@ -1,0 +1,122 @@
+---
+title: "Community Agents"
+description: "Install reusable agent packages from local folders, GitHub repositories, or supported CLI install commands."
+---
+
+Community agents let you bring outside skill packages into Syndicate. Use them when a specialist is not built in, or when a team shares a package across multiple machines.
+
+{/* Suggested screenshot: Add Agent Package modal showing Agent Maker, Local Folder, GitHub Repository, and CLI Install. */}
+
+## Install methods
+
+Syndicate supports three community install paths:
+
+| Method | Use when |
+| --- | --- |
+| Local Folder | You already have a package folder on this machine. |
+| GitHub Repository | The package lives in a public or accessible GitHub repo. |
+| CLI Install | The package author gives you a supported `npx skills add ...` command. |
+
+<Warning>
+A skill package and a runtime are not always the same thing. Installing a skill package teaches the agent what commands/workflow to use. Some packages also need a separate CLI, API key, or provider account before the agent can actually complete work.
+</Warning>
+
+## Open the install modal
+
+1. Open **Agent Marketplace**.
+2. Click **Add Agent Package**.
+3. Choose how you want to add the package.
+
+{/* Suggested video: opening Add Agent Package and selecting each install option. */}
+
+## Install from a local folder
+
+Use this when someone sends you a package folder, or when you are testing a package from disk.
+
+1. Choose **Local Folder**.
+2. Click **Browse**.
+3. Select the folder that contains the package's `SKILL.md` files.
+4. Click **Install**.
+
+Expected result: the package appears in the Marketplace as a community agent.
+
+## Install from GitHub
+
+Use this when the package lives in a GitHub repository.
+
+1. Choose **GitHub Repository**.
+2. Paste a GitHub URL or shorthand.
+3. Click **Install**.
+
+Examples:
+
+```txt
+https://github.com/owner/repo
+owner/repo
+```
+
+Expected result: Syndicate downloads the package and adds it to the Marketplace.
+
+## Install with a CLI command
+
+Use this when a package author gives you a `skills add` command.
+
+1. Choose **CLI Install**.
+2. Paste the install command.
+3. Click **Install**.
+
+Supported command shape:
+
+```bash
+npx skills add owner/repo --skill skill-name
+```
+
+Example:
+
+```bash
+npx skills add owner/agent-skills --skill researcher
+```
+
+<Note>
+Syndicate supports `npx skills add` with an optional `--skill` value. It does not run arbitrary shell commands from this field.
+</Note>
+
+## Configure package credentials
+
+Some community packages need an API key or companion runtime.
+
+If a package needs credentials, check the package detail page in Marketplace. For supported packages, Syndicate can show a configuration panel where you save the key securely.
+
+For example, Surf-style packages can require:
+
+- The installed skill package.
+- A local runtime/CLI that provides the actual commands.
+- A saved API key, such as `SURF_API_KEY`, configured in Marketplace.
+
+{/* Suggested screenshot: community package detail page with API key status/config panel visible. */}
+
+## Add the community agent to a workspace
+
+After install:
+
+1. Select the package in the **Community** category.
+2. Click **Add to...**.
+3. Choose **Existing Team** or **Solo Workspace**.
+4. Finish the workspace selection flow.
+
+## Verify it worked
+
+Open the agent and ask for a small task that uses the package's specialty.
+
+If the agent says a runtime or tool is missing:
+
+1. Check whether the package requires a separate CLI or API key.
+2. Reopen the Marketplace package detail page.
+3. Save any required key.
+4. Restart Syndicate if the runtime was installed outside the app.
+
+## Next steps
+
+- [Use built-in Syndicate agents](/tutorials/agent-marketplace/built-in-syndicate-agents)
+- [Create a custom package with Agent Maker](/tutorials/agent-marketplace/agent-maker)
+- [Use MCP and skills](/tutorials/use-mcp-and-skills)

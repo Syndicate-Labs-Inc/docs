@@ -1,82 +1,22 @@
 ---
-title: "Add and configure agents"
-description: "Create agents with clear roles, models, skills, and working instructions."
+title: "Agent Marketplace"
+description: "Add built-in Syndicate agents, install community agents, or create custom agents with Agent Maker."
 ---
 
-Agents work best when each one has a clear job, a good model, and instructions that tell it how to report progress.
+The old **Add and configure agents** guide now lives under **Agent Marketplace**.
 
-{/* Hero media: 20 second clip adding an agent, choosing a model, writing instructions, and saving it to a team.
-Capture list:
-- Team workspace with existing agents.
-- Add agent control.
-- Agent name and role fields.
-- Provider and model selector.
-- Instructions editor.
-- Skills or tools area, if visible.
-- Saved agent appearing in the roster.
-*/}
+Start here:
 
-## Add an agent
-
-{/* Video: add an agent from an existing team workspace. */}
-
-<Steps>
-  <Step title="Open a team">
-    Choose the team that should receive the new agent.
-  </Step>
-  <Step title="Add an agent">
-    Click the add agent control.
-  </Step>
-  <Step title="Name the agent">
-    Use a short, specific name that makes the job obvious.
-  </Step>
-  <Step title="Choose role and model">
-    Pick the role, [provider, and model](/features/providers-and-models) that fit the work.
-  </Step>
-  <Step title="Save the agent">
-    Confirm the setup and return to the team roster.
-  </Step>
-</Steps>
-
-## Write useful instructions
-
-{/* Screenshot: instructions editor with a concise example. */}
-
-Good agent instructions answer:
-
-- What is this agent responsible for?
-- What should it avoid changing?
-- Which tools or skills should it prefer?
-- When should it ask for help?
-- How should it report progress?
-
-## Example roles
-
-{/* Screenshot: role picker or a configured roster with several specialists. */}
-
-| Role | Good for |
-| --- | --- |
-| Frontend engineer | UI changes, layout fixes, component work |
-| QA engineer | Test plans, regression checks, browser testing |
-| Technical writer | Tutorials, release notes, help docs |
-| Researcher | Competitive research, product analysis |
-| Release manager | Shipping checklists, changelogs, deployment review |
-
-## Keep teams focused
-
-Start with two or three agents. Add more only when a repeated kind of work needs its own specialist.
-
-## Done when
-
-- The agent appears in the team roster.
-- It has a role, provider, model, and clear instructions.
-- You know what kind of task should go to that agent.
-
-<CardGroup cols={2}>
-  <Card title="Agents" icon="bot" href="/features/agents">
-    Learn how agents behave inside Syndicate.
+<CardGroup cols={3}>
+  <Card title="Agent Marketplace" icon="store" href="/tutorials/agent-marketplace">
+    Learn how the Marketplace fits into teams, solo workspaces, and agent setup.
   </Card>
-  <Card title="Use MCP servers and skills" icon="wrench" href="/tutorials/use-mcp-and-skills">
-    Add specialized capabilities to agents.
+  <Card title="Built-in Syndicate agents" icon="sparkles" href="/tutorials/agent-marketplace/built-in-syndicate-agents">
+    Add ready-made Syndicate specialists to a team or solo workspace.
+  </Card>
+  <Card title="Community agents" icon="download" href="/tutorials/agent-marketplace/community-agents">
+    Install packages from local folders, GitHub repositories, or CLI install commands.
   </Card>
 </CardGroup>
+
+For custom agents, see [Agent Maker](/tutorials/agent-marketplace/agent-maker).

@@ -1,0 +1,115 @@
+---
+title: "Agent Maker"
+description: "Describe a specialist and let Syndicate create a reusable agent package for your Marketplace."
+---
+
+Agent Maker helps you create a custom reusable agent when the built-in Marketplace does not have the exact specialist you need.
+
+Use it for repeatable roles: launch reviewer, compliance reader, customer research analyst, release-note writer, prompt auditor, QA checklist owner, or any specialist your team uses often.
+
+{/* Suggested video: opening Agent Maker, entering a specialist description, reviewing the generated package, and saving it. */}
+
+## Before you start
+
+You need:
+
+- At least one connected provider.
+- A clear description of the specialist you want.
+- A rough idea of what the agent should do repeatedly.
+
+<Tip>
+Agent Maker works best when you describe the agent's job, inputs, outputs, boundaries, and what "good work" looks like.
+</Tip>
+
+## Open Agent Maker
+
+1. Open **Agent Marketplace**.
+2. Click **Add Agent Package**.
+3. Choose **Agent Maker**.
+
+## Describe the agent
+
+Write a focused description.
+
+Good description:
+
+```txt
+A read-only launch review specialist that checks release notes, onboarding copy, screenshots, and setup instructions before a public launch. It should flag unclear language, missing steps, broken links, and claims that are not supported by the app.
+```
+
+Avoid vague descriptions:
+
+```txt
+Make me a good business agent.
+```
+
+## Generate the package
+
+1. Enter the description.
+2. Click **Generate Agent**.
+3. Wait for Syndicate to draft the package.
+
+Syndicate returns a Marketplace package with:
+
+- Agent title.
+- Description.
+- Reusable skill commands.
+- Workflow guidance.
+
+{/* Suggested screenshot: Agent Maker generated draft with title, package id, and skill cards. */}
+
+## Revise before saving
+
+If the draft is close but not perfect:
+
+1. Use the feedback box.
+2. Tell Agent Maker what to change.
+3. Click **Revise Draft**.
+
+Useful revision prompts:
+
+- "Make it read-only and explicitly say it should not edit files."
+- "Add a checklist-style review command."
+- "Remove analytics work and focus only on docs."
+- "Make this more tactical for release QA."
+
+## Save to Marketplace
+
+When the draft looks right, click **Save to Marketplace**.
+
+The package appears in the **User Made** category. You can add it to a team or create a solo workspace from it.
+
+## Edit a user-made package later
+
+1. Open **Agent Marketplace**.
+2. Go to **User Made**.
+3. Select the package.
+4. Click **Edit**.
+5. Update or revise the package.
+
+## Add the custom agent to a workspace
+
+After saving:
+
+1. Select the agent in **User Made**.
+2. Click **Add to...**.
+3. Choose **Existing Team** or **Solo Workspace**.
+4. Finish the workspace flow.
+
+## Verify it worked
+
+Send a task that matches the custom role.
+
+Example:
+
+```txt
+Review this onboarding doc as the launch review specialist. Do not edit files. Return the top issues, why they matter, and exact suggestions.
+```
+
+Expected result: the agent responds according to the package you created.
+
+## Next steps
+
+- [Use built-in Syndicate agents](/tutorials/agent-marketplace/built-in-syndicate-agents)
+- [Install community agents](/tutorials/agent-marketplace/community-agents)
+- [Create your first team](/tutorials/create-your-first-team)
