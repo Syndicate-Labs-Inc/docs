@@ -3,6 +3,8 @@ title: "Auth flows"
 description: "Technical reference for provider authentication behavior."
 ---
 
+{/* Hero media: diagram (static image). Show three swimlanes — Claude (browser OAuth -> credentials stored), OpenAI/Codex (Codex CLI auth -> capability check), Gemini (in-app terminal -> OAuth/API key/probe) — with the "terminal UI rule" callouts on each lane. No video required; this is a reference page. */}
+
 This page is the public reference version of Syndicate's provider auth behavior.
 
 ## Claude
@@ -16,6 +18,8 @@ OpenAI uses the Codex CLI auth file and a live capability check. Syndicate watch
 ## Gemini
 
 Gemini may use the in-app terminal. Syndicate treats Gemini as connected when OAuth credentials exist, a configured API key is available, or a lightweight probe succeeds.
+
+{/* Screenshot: side-by-side stills — Gemini in-app terminal (allowed) vs. a stale Codex terminal modal (not expected). Helps make the rule below visual. Crop any real auth codes. */}
 
 ## Terminal UI rule
 

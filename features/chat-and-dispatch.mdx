@@ -3,6 +3,14 @@ title: "Chat and dispatch"
 description: "Send work to agents and understand how dispatch works."
 ---
 
+{/* Hero media: 20-25 second clip of a single dispatch start-to-finish — type a request, hit send, watch the agent transition idle -> active -> done, show streaming tokens and a tool activity row, finish on the task summary. Anchors the entire page.
+Capture list:
+- Chat input with a real (non-sensitive) request being typed.
+- Send button click and the agent status changing.
+- Streaming response text with at least one tool activity row visible.
+- Final state with the task summary visible.
+*/}
+
 Chat is the direct way to work with an agent. Dispatch is the system that starts agent runs, streams progress, and routes follow-up messages.
 
 ## Chatting with an agent
@@ -27,6 +35,8 @@ Automatic dispatch can happen when an idle agent receives a message from another
 
 Agents can send work to each other using structured send messages. In practice, this lets a Manager hand work to a specialist, or lets a specialist report back to the Manager.
 
+{/* Screenshot: agent run in progress with callouts on status pill, streaming response area, tool activity row, and progress summary. */}
+
 ## What you see while an agent runs
 
 During a run, Syndicate can show:
@@ -36,6 +46,8 @@ During a run, Syndicate can show:
 - Tool activity.
 - Thought or progress summaries.
 - Files, commands, and changes detected during the run.
+
+{/* Screenshot: the Stop control on an active agent run, plus the hard pause control on the parent team for contrast. */}
 
 ## Stopping work
 

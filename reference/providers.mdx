@@ -3,6 +3,8 @@ title: "Providers"
 description: "How Syndicate decides whether Claude, OpenAI/Codex, and Gemini are ready to use."
 ---
 
+{/* Hero media: single still (no video). Screenshot: Settings > Providers showing all three provider cards with distinct readiness signals — Claude Connected, OpenAI/Codex Not signed in, Gemini Not installed — so the readiness table below maps directly to the visual. */}
+
 Providers supply the models that Syndicate agents use.
 
 ## Provider readiness
@@ -14,6 +16,8 @@ Syndicate marks a provider as ready only when it can find usable credentials and
 | Claude | Valid Claude OAuth credentials |
 | OpenAI/Codex | Codex auth file plus successful capability check |
 | Gemini | OAuth credentials, API key, or a successful probe |
+
+{/* Screenshot: provider behavior comparison — three small stills side by side, one per provider, each showing its distinctive auth surface (Claude browser OAuth window, Codex CLI handoff, Gemini in-app terminal). */}
 
 ## Provider-specific behavior
 

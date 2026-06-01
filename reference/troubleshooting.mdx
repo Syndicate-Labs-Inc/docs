@@ -3,7 +3,11 @@ title: "Troubleshooting"
 description: "Common setup and provider problems in Syndicate."
 ---
 
+{/* Hero media: no hero video — troubleshooting is reference content. Suggested hero still: a Provider card in a failed/verification state with the recovery action button visible, anchoring the "fix-it" mindset. */}
+
 This page covers common setup, provider, and authentication problems.
+
+{/* Screenshot: OpenAI/Codex card showing the "signed in but verification failed" state, with the error reason visible. Crop any real account info. */}
 
 ## Codex login succeeds but provider verification fails
 
@@ -17,13 +21,19 @@ Common causes:
 - The local Codex CLI is installed but cannot execute from Syndicate.
 - The auth file changed format and Syndicate cannot read it yet.
 
+{/* Screenshot: the stale in-app terminal modal during Codex setup (the state the user should NOT see), with a caption-style annotation to clarify it's the failure mode. */}
+
 ## Terminal output appears during OpenAI/Codex setup
 
 OpenAI/Codex should use browser login and should not rely on Syndicate's in-app terminal. If stale terminal output appears, reconnect the provider and refresh provider status.
 
+{/* Screenshot: Gemini in-app terminal mid-prompt, paired with the Refresh provider status control after returning from the browser flow. */}
+
 ## Gemini auth does not finish
 
 Gemini can require an interactive CLI prompt. Keep the auth window open until the browser or terminal flow completes, then return to Syndicate and refresh provider status.
+
+{/* Screenshot: Claude card showing a rate-limit message and the option for terminal login fallback. */}
 
 ## Claude auth is rate limited
 

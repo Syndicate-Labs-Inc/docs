@@ -3,7 +3,11 @@ title: "Troubleshooting workspaces and dispatch"
 description: "Diagnose team, dispatch, and workspace problems."
 ---
 
+{/* Hero media: no hero video — this is reference. Suggested hero still: a team workspace in a stuck state (Manager waiting, one specialist Blocked, hard-pause indicator visible) so the page anchors on the kinds of states it teaches the reader to read. */}
+
 This page covers team-side issues — Manager behavior, dispatch, working folder, and inbox. For provider connection or auth problems, see [Troubleshooting](/reference/troubleshooting).
+
+{/* Screenshot: pending-approval surface for a Manager in Approve Each Step mode, with the approval action visible. */}
 
 ## Manager is not delegating
 
@@ -22,6 +26,8 @@ What to try:
 2. Confirm the team is not hard paused.
 3. Check the inbox for an unanswered user-attention item.
 4. Look at agent statuses for a Blocked or Waiting specialist.
+
+{/* Screenshot: a specialist agent's status row showing the Blocked state, with its last message reason visible. */}
 
 ## Agent is stuck on Blocked
 
@@ -67,6 +73,8 @@ What to try:
 3. Stop any agent doing the wrong work.
 4. Give the Manager one clear next instruction instead of replying to every specialist.
 
+{/* Screenshot: team settings showing the working directory field with a path that no longer exists on disk (caption-style annotation marking it as the bad state). */}
+
 ## Working directory looks wrong
 
 Symptoms: an agent edits the wrong files, cannot find files, or reports paths outside your project.
@@ -81,6 +89,8 @@ What to try:
 1. Open team settings and confirm the working folder path.
 2. If the folder moved, relink the team to the new path.
 3. Re-dispatch and confirm the agent now reads from the right location.
+
+{/* Screenshot: team header showing the team transitioning from Hard paused to Resumed, with all agents still idle to make the "does not auto-restart" rule visible. */}
 
 ## Hard pause does not resume agents
 

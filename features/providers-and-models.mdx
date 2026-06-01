@@ -3,6 +3,13 @@ title: "Providers and models"
 description: "Connect AI providers and choose the models agents run on."
 ---
 
+{/* Hero media: 15-20 second clip of provider setup -> model selection — Settings > Providers with three cards (Claude, OpenAI/Codex, Gemini), one of them showing Connected, then jumping to an agent's model picker showing the newly available models. Crop any auth codes or real ChatGPT account names.
+Capture list:
+- Settings > Providers with all three provider cards.
+- Connected state on one provider with model count visible.
+- Agent settings > model picker showing models from that provider.
+*/}
+
 Providers supply the models agents use to run. Syndicate currently supports Claude, OpenAI/Codex, and Gemini. You connect a provider once, and any agent on any workspace can pick a model from it.
 
 <CardGroup cols={2}>
@@ -25,6 +32,8 @@ Connect, disconnect, refresh, or inspect providers from the settings area of the
 | Gemini | Browser or terminal-assisted CLI flow |
 
 For the detailed flow per provider, see [auth flows](/reference/auth-flows).
+
+{/* Screenshot: defaults area in settings showing the default provider and default model dropdowns, alongside an agent panel with a Model override selected. */}
 
 ## Model selection
 

@@ -3,6 +3,14 @@ title: "Workspaces"
 description: "Understand workspace shapes, the sidebar, project folders, and the lifecycle of a team or solo agent."
 ---
 
+{/* Hero media: 15-20 second clip switching between a team workspace and a solo workspace via the sidebar, then opening the Team hub and the Solo hub. Use this to anchor the "two shapes, separate sections" mental model.
+Capture list:
+- Sidebar collapsed/expanded so both Teams and Solo Agents sections are visible.
+- Click into a team workspace, then back to sidebar, then into a solo workspace.
+- Open Team hub and scroll the list of teams.
+- Open Solo hub and show recent solo agents.
+*/}
+
 A workspace is the place Syndicate organizes agent work. Every workspace is either a team or a solo agent, and most workspaces point at a local project folder so agents can read, write, and run commands against real code.
 
 A workspace bundles three things into one place: the agents that live there, the project folder they operate on, and the inboxes, tasks, and run history that build up over time. Switching workspaces moves you between those bundles without stopping the work happening in the one you leave.
@@ -16,6 +24,8 @@ A workspace bundles three things into one place: the agents that live there, the
 
 A team and a solo agent are distinct workspace shapes. A solo agent is not a team of one — it has no Manager and no inter-agent dispatch. See [Teams](/features/teams) and [Solo agents](/features/solo-agents) for the details of each shape.
 
+{/* Screenshot: full sidebar with the Teams section expanded (showing one team and its agents) and the Solo Agents section visible below it. Crop any real project names. */}
+
 ## Sidebar layout
 
 Syndicate groups workspaces in the sidebar so the two shapes stay separate at a glance:
@@ -24,6 +34,8 @@ Syndicate groups workspaces in the sidebar so the two shapes stay separate at a 
 - **Solo agents** appear in a separate section below teams.
 
 Use the sidebar to switch between workspaces. Switching workspaces does not stop work in the one you leave — runs and dispatches continue in the background, and you can come back to find new messages waiting in the inbox.
+
+{/* Screenshot: Team hub landing view with a few sample teams listed, provider readiness indicators visible. Companion still: Solo hub landing view. */}
 
 ## Hubs
 
@@ -43,6 +55,8 @@ When you create a team or solo agent, choose the local folder where the agent sh
 </Warning>
 
 **References** are different from the project folder. The project folder is where agents work — what they read, edit, and run commands in. References are extra files, folders, or docs you attach to a workspace, team, or agent to shape what they read for context during a run. See [references and context](/features/references-and-context).
+
+{/* Screenshot: team settings area highlighting the working directory field and the option to browse for a new folder. */}
 
 ## Working directory
 
