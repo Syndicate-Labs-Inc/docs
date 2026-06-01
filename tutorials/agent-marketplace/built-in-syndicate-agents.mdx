@@ -26,11 +26,13 @@ Use a built-in agent when you want a reliable specialist for a common workflow:
 
 ## The Manager
 
-The Manager is a built-in agent designed for team orchestration. You add it from the Marketplace the same way as any other built-in, but it plays a different role: instead of doing the work itself, it delegates to the specialists on the team and follows up as they finish or get blocked.
+The Manager is a built-in agent built to orchestrate a team — not to write or edit files itself. You give it an outcome; it decides which specialist on the team should do what, dispatches the work, tracks status as agents finish or get blocked, and follows up until the outcome is met.
 
-Use a Manager when the work has multiple parts that benefit from coordination. Each team has one Manager. If you need to change the Manager, review the team configuration first.
+A Manager comes preloaded with the roster context it needs to coordinate: the names and specializations of the agents on its team, the skills and commands available to each one, the current status of work in progress, and the rules for how teammates hand work back and forth. You don't need to re-introduce the team every time you start a request — the Manager already knows who is on it and what each agent is good at.
 
-For more on how the Manager dispatches work and what control modes are available, see [Teams](/features/teams).
+Use a Manager when the work has multiple parts that benefit from coordination. If you only need one focused back-and-forth with one specialist, skip the Manager and use a [Solo Workspace](/features/solo-agents) instead. Each team has one Manager — if you need to change it, review the team configuration first.
+
+For how the Manager dispatches work and what control modes are available, see [Teams](/features/teams).
 
 ## Add a built-in agent to a workspace
 
@@ -60,7 +62,7 @@ Start with the default model if you are recording a quick demo. Change models la
 ## Limits & gotchas
 
 - **Built-in agents still need a provider.** Each agent runs on the model and provider you set in its configuration. If you haven't connected a provider yet, follow [Connect providers](/tutorials/connect-providers) first.
-- **The Manager is for coordination, not focused 1:1 chats.** If you only need one back-and-forth with one specialist, add the specialist to a **Solo Workspace** instead — adding a Manager for a single question adds orchestration the work doesn't need.
+- **Don't add a Manager just for one question.** For a single back-and-forth with one specialist, use a Solo Workspace instead — see [Solo agents](/features/solo-agents).
 - **One Manager per team.** A team is built around a single Manager coordinating specialists. If you need to change the Manager, review the team configuration first.
 - **Built-ins don't know your project until you tell them.** Add references, instructions, or a project folder so the agent has the context it needs — see [Attach references](/tutorials/attach-references).
 

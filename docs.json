@@ -28,7 +28,7 @@
           "tutorials/install-and-sign-in",
           "tutorials/connect-providers",
           {
-            "group": "Agent Marketplace",
+            "group": "The Marketplace",
             "pages": [
               "tutorials/agent-marketplace",
               "tutorials/agent-marketplace/built-in-syndicate-agents",
