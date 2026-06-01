@@ -1,13 +1,23 @@
 ---
 title: "Agent Maker"
-description: "Describe a specialist and let Syndicate create a reusable agent package for your Marketplace."
+description: "Use Syndicate's Agent Maker specialist to draft a reusable agent package from a description."
 ---
 
-Agent Maker helps you create a custom reusable agent when the built-in Marketplace does not have the exact specialist you need.
+Agent Maker is a Syndicate-specialized agent whose job is to draft other agents. Describe the specialist you want, and Agent Maker generates a Marketplace package — title, description, skills, and workflow guidance — that you can review, revise, and save.
 
-Use it for repeatable roles: launch reviewer, compliance reader, customer research analyst, release-note writer, prompt auditor, QA checklist owner, or any specialist your team uses often.
+Use it for repeatable roles that aren't in the built-in catalog: launch reviewer, compliance reader, customer research analyst, release-note writer, prompt auditor, QA checklist owner, or any specialist your team uses often.
 
 {/* Suggested video: opening Agent Maker, entering a specialist description, reviewing the generated package, and saving it. */}
+
+## When to use Agent Maker
+
+Reach for Agent Maker when:
+
+- No built-in specialist matches the role you need.
+- The role is specific to your project or team.
+- You expect to reuse the agent across multiple workspaces.
+
+If a built-in specialist already covers the role, [use the built-in](/tutorials/agent-marketplace/built-in-syndicate-agents) — it's faster and already battle-tested.
 
 ## Before you start
 
@@ -49,12 +59,14 @@ Make me a good business agent.
 2. Click **Generate Agent**.
 3. Wait for Syndicate to draft the package.
 
-Syndicate returns a Marketplace package with:
+Syndicate returns a Marketplace package with a starting configuration:
 
 - Agent title.
 - Description.
-- Reusable skill commands.
+- Skills the agent will use.
 - Workflow guidance.
+
+Treat this as a starting configuration — review it before saving.
 
 {/* Suggested screenshot: Agent Maker generated draft with title, package id, and skill cards. */}
 
@@ -89,12 +101,21 @@ The package appears in the **User Made** category. You can add it to a team or c
 
 ## Add the custom agent to a workspace
 
-After saving:
+Open the package in the **User Made** category, click **Add to...**, and choose **Existing Team** or **Solo Workspace**. For the full flow and what happens after you add an agent, see [Choose how you want to add an agent](/tutorials/agent-marketplace#choose-how-you-want-to-add-an-agent).
 
-1. Select the agent in **User Made**.
-2. Click **Add to...**.
-3. Choose **Existing Team** or **Solo Workspace**.
-4. Finish the workspace flow.
+## Skills in your custom agent
+
+Agent Maker bundles skills into the draft based on your description. Skills are reusable workflow instructions — they tell the agent when to use a workflow, what steps to follow, and what output to produce.
+
+After saving the package, open the agent in any workspace to inspect or change those skills in the agent configuration panel. See [Skills](/features/skills) for what skills do and when to add more.
+
+## Limits & gotchas
+
+- **Draft quality follows description quality.** Vague inputs produce vague agents. Spell out the job, inputs, outputs, boundaries, and what "good work" looks like, then iterate with **Revise Draft**.
+- **Agent Maker runs through your connected provider.** Drafting and revising a package uses your provider account the same way any other agent run does — Agent Maker is not free of provider usage.
+- **The first draft is a starting configuration, not a finished agent.** Review the skills, instructions, and references before you save, and tighten them in the agent settings after you add it to a workspace.
+- **Use a built-in when one already fits.** Agent Maker is for roles that aren't in the catalog. If a built-in specialist covers the role, prefer it.
+- **Iterating on a user-made agent is normal.** Save the package, try it on a small task, then come back to **Edit** with what you learned.
 
 ## Verify it worked
 

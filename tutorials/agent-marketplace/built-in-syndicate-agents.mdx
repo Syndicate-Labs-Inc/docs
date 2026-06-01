@@ -5,6 +5,8 @@ description: "Use Syndicate's built-in specialists when you want a proven role w
 
 Built-in Syndicate agents are the fastest way to build a useful team. They ship with Syndicate and are ready to add from the **Syndicate** category in the Agent Marketplace.
 
+The Manager is itself a built-in Syndicate agent — it is the one you add when you want a coordinator to lead a [team](/features/teams). The other built-ins are specialists you add alongside the Manager (or run as solo agents).
+
 {/* Suggested screenshot: Syndicate category selected with built-in agents listed on the left and one agent detail pane open. */}
 
 ## When to use a built-in agent
@@ -18,35 +20,29 @@ Use a built-in agent when you want a reliable specialist for a common workflow:
 | Build APIs, auth, or data flows | Backend Developer |
 | Review code, docs, copy, or plans without editing | Review Agent |
 | Write docs | Technical Writer |
-| Test and find regressions | QA Analyst or Test Engineer |
+| Test and find regressions | QA Engineer or Test Engineer |
 | Research and compare options | Researcher |
 | Plan infrastructure or releases | DevOps Engineer or Site Reliability Engineer |
 
-## Add a built-in agent to a team
+## The Manager
 
-1. Open **Agent Marketplace** from the left sidebar.
-2. Choose the **Syndicate** category.
-3. Select the agent you want.
-4. Click **Add to...**.
-5. Choose **Existing Team**.
-6. Pick the team.
+The Manager is a built-in agent designed for team orchestration. You add it from the Marketplace the same way as any other built-in, but it plays a different role: instead of doing the work itself, it delegates to the specialists on the team and follows up as they finish or get blocked.
 
-Syndicate adds the specialist to that team. If the team has a Manager, the Manager can delegate work to the new agent.
+Use a Manager when the work has multiple parts that benefit from coordination. Each team has one Manager. If you need to change the Manager, review the team configuration first.
+
+For more on how the Manager dispatches work and what control modes are available, see [Teams](/features/teams).
+
+## Add a built-in agent to a workspace
+
+Open the Marketplace, select the agent in the **Syndicate** category, click **Add to...**, and choose either **Existing Team** or **Solo Workspace**. For the full flow and what happens after you add an agent, see [Choose how you want to add an agent](/tutorials/agent-marketplace#choose-how-you-want-to-add-an-agent).
 
 {/* Suggested video: adding Review Agent to an existing team, then showing it in the team roster. */}
 
-## Create a solo workspace from a built-in agent
+## Skills on built-in agents
 
-1. Open **Agent Marketplace**.
-2. Choose the **Syndicate** category.
-3. Select the specialist.
-4. Click **Add to...**.
-5. Choose **Solo Workspace**.
-6. Name the workspace and choose the local folder the agent should use.
+Most built-in specialists ship with a small set of skills. Skills are reusable workflow instructions bundled into an agent — they tell the agent when to use a workflow, what steps to follow, and what output to produce.
 
-Solo workspaces are best when you want direct 1:1 help from one specialist.
-
-{/* Suggested screenshot: Add to menu showing Existing Team and Solo Workspace. */}
+You can inspect or change the skills on a built-in agent in the agent configuration panel after you add it. See [Skills](/features/skills) for what skills do and when to add more.
 
 ## Configure the agent after adding it
 
@@ -54,12 +50,19 @@ Open the agent settings from the workspace to adjust:
 
 - Model/provider.
 - Context settings.
+- Skills attached to the agent.
 - MCP servers available to that agent.
-- Connectors available to that agent.
 
 <Tip>
 Start with the default model if you are recording a quick demo. Change models later when you want to show provider flexibility.
 </Tip>
+
+## Limits & gotchas
+
+- **Built-in agents still need a provider.** Each agent runs on the model and provider you set in its configuration. If you haven't connected a provider yet, follow [Connect providers](/tutorials/connect-providers) first.
+- **The Manager is for coordination, not focused 1:1 chats.** If you only need one back-and-forth with one specialist, add the specialist to a **Solo Workspace** instead — adding a Manager for a single question adds orchestration the work doesn't need.
+- **One Manager per team.** A team is built around a single Manager coordinating specialists. If you need to change the Manager, review the team configuration first.
+- **Built-ins don't know your project until you tell them.** Add references, instructions, or a project folder so the agent has the context it needs — see [Attach references](/tutorials/attach-references).
 
 ## Verify it worked
 
