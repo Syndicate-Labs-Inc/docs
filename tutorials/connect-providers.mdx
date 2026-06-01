@@ -3,9 +3,11 @@ title: "Connect providers"
 description: "Connect Claude, OpenAI/Codex, and Gemini in Syndicate."
 ---
 
-Providers are what let agents actually run. Syndicate connects to Claude, OpenAI/Codex, and Gemini through their local CLIs, then verifies that the CLI is installed, signed in, and able to run.
+Providers supply the models agents use to run. Syndicate connects to Claude, OpenAI/Codex, and Gemini through their local CLIs, then verifies that each CLI is installed, signed in, and able to run.
 
-You only need one connected provider to start, but connecting more gives each agent better model options.
+Connect at least one provider to start. Adding more gives each agent a wider choice of models.
+
+Before you start, finish [Install and sign in](/tutorials/install-and-sign-in) so the Syndicate app is open on your machine.
 
 {/* Hero media: 20-30 second clip opening provider setup, checking a provider, installing a missing CLI, approving auth in the browser, and returning to Connected.
 Capture list:
@@ -18,99 +20,124 @@ Capture list:
 - Agent creation screen showing provider/model selection.
 */}
 
-## Open provider setup
+## Pick a provider
 
-{/* Screenshot: first-run provider gate or Settings > Providers with provider cards visible. */}
+Each provider connects through its own CLI and sign-in method. Pick one to start — the steps for each are below.
+
+| Provider | CLI | Sign-in |
+| --- | --- | --- |
+| Claude | Claude Code CLI | Browser OAuth |
+| OpenAI/Codex | Codex CLI | Browser ChatGPT login plus a capability check |
+| Gemini | Gemini CLI | In-app terminal plus Google browser sign-in, or a Gemini API key |
+
+<Note>
+**What's a CLI?** Each provider ships a small command-line tool (a CLI) that handles its local sign-in. Syndicate checks whether the CLI is installed, installs it for you if it's missing, and reads the provider's sign-in state to confirm the provider is ready. You don't need to type any commands yourself.
+</Note>
+
+{/* Screenshot: first-run provider gate or Settings > Providers with the three provider cards visible. */}
+
+## Connect Claude
+
+{/* Video: Claude CLI install/check, browser auth approval, code paste if prompted, then Connected. */}
 
 <Steps>
   <Step title="Open provider setup">
-    On first launch, Syndicate opens the provider setup gate automatically. Later, you can return to the same setup from Settings.
+    On first launch, Syndicate opens provider setup automatically. To return later, open **Settings**.
   </Step>
-  <Step title="Check a provider">
-    Click **Check** so Syndicate can detect whether that provider's CLI is installed and authenticated on this machine.
+  <Step title="Check Claude">
+    Click **Check** on the Claude card. Syndicate inspects whether the Claude Code CLI is installed and signed in on this machine.
   </Step>
   <Step title="Install the CLI if needed">
-    If the card says **Not installed**, click **Install CLI**. Syndicate installs the provider CLI with its managed Node/npm setup.
+    If the card shows **Not installed**, click **Install CLI**. Syndicate installs the Claude Code CLI using its managed Node and npm.
   </Step>
-  <Step title="Connect the provider">
-    When the CLI is installed but not signed in, click **Connect** and complete the provider's auth flow.
+  <Step title="Sign in with your browser">
+    If the card shows **Not signed in**, click **Connect**. Approve Claude in your browser, then paste the authentication code back into Syndicate if prompted.
+  </Step>
+  <Step title="Confirm Connected">
+    The Claude card switches to **Connected** and lists available models.
+  </Step>
+</Steps>
+
+## Connect OpenAI/Codex
+
+{/* Video: Codex CLI install/check, browser ChatGPT approval, capability check, then Connected. */}
+
+<Steps>
+  <Step title="Open provider setup">
+    On first launch, Syndicate opens provider setup automatically. To return later, open **Settings**.
+  </Step>
+  <Step title="Check OpenAI/Codex">
+    Click **Check** on the OpenAI/Codex card. Syndicate inspects whether the Codex CLI is installed and signed in.
+  </Step>
+  <Step title="Install the CLI if needed">
+    If the card shows **Not installed**, click **Install CLI**. Syndicate installs the Codex CLI using its managed Node and npm.
+  </Step>
+  <Step title="Approve in your browser">
+    Click **Connect** and approve the Codex login in your browser with the ChatGPT account Syndicate should use.
+  </Step>
+  <Step title="Confirm Connected">
+    The card switches to **Connected** after Syndicate confirms the account can actually run Codex.
+  </Step>
+</Steps>
+
+<Warning>
+Signing in alone isn't enough. Syndicate also checks whether the account can actually run Codex. Plan limits, quota, workspace policy, or expired credentials can still block provider readiness.
+</Warning>
+
+## Connect Gemini
+
+{/* Video: Gemini CLI install/check, in-app terminal, Google browser approval, terminal completion, then Connected. */}
+
+<Steps>
+  <Step title="Open provider setup">
+    On first launch, Syndicate opens provider setup automatically. To return later, open **Settings**.
+  </Step>
+  <Step title="Check Gemini">
+    Click **Check** on the Gemini card. Syndicate inspects whether the Gemini CLI is installed and signed in.
+  </Step>
+  <Step title="Install the CLI if needed">
+    If the card shows **Not installed**, click **Install CLI**. Syndicate installs the Gemini CLI using its managed Node and npm.
+  </Step>
+  <Step title="Follow the in-app terminal">
+    Click **Connect**. Syndicate opens a small in-app terminal that runs the Gemini CLI for you. Follow its prompts, then approve the Google sign-in in your browser when it opens.
+  </Step>
+  <Step title="Or use a Gemini API key">
+    Alternatively, paste a Gemini API key in **Settings** to skip the browser sign-in entirely.
+  </Step>
+  <Step title="Confirm Connected">
+    The Gemini card switches to **Connected** and lists available models.
   </Step>
 </Steps>
 
 <Note>
-Provider credentials are local to the machine. If you set up Syndicate on another computer, check and connect providers again there.
+Provider credentials stay on this machine. On a new computer, check and connect each provider again.
 </Note>
 
-## Claude
-
-{/* Video: Claude CLI install/check, browser auth approval, code paste if prompted, then Connected. */}
-
-Claude uses the Claude Code CLI.
-
-1. Click **Check** on the Claude card.
-2. If Claude is not installed, click **Install CLI**.
-3. Click **Connect**.
-4. Approve the Claude sign-in flow in the browser.
-5. Paste the authentication code into Syndicate if prompted.
-6. Wait for Claude to show **Connected**.
-
-Syndicate verifies Claude by checking the CLI and saved Claude credentials.
-
-## OpenAI/Codex
-
-{/* Video: Codex CLI install/check, browser ChatGPT approval, capability check, then Connected. */}
-
-OpenAI uses the Codex CLI.
-
-1. Click **Check** on the OpenAI/Codex card.
-2. If Codex is not installed, click **Install CLI**.
-3. Click **Connect**.
-4. Approve the Codex login in the browser with the ChatGPT account you want Syndicate to use.
-5. Return to Syndicate and wait for the readiness check.
-
-<Warning>
-Signing in is not always enough. Syndicate also checks whether the account can execute Codex. Plan limits, quota, workspace policy, or expired credentials can still block provider readiness.
-</Warning>
-
-## Gemini
-
-{/* Video: Gemini CLI install/check, in-app terminal, Google browser approval, terminal completion, then Connected. */}
-
-Gemini uses the Gemini CLI.
-
-1. Click **Check** on the Gemini card.
-2. If Gemini is not installed, click **Install CLI**.
-3. Click **Connect**.
-4. Follow the in-app terminal prompt.
-5. Approve the Google sign-in flow in the browser when it opens.
-6. Return to Syndicate and wait for Gemini to show **Connected**.
-
-Gemini can also be considered connected when a Gemini API key is set in settings.
-
-## Verify setup
+## Done when
 
 {/* Screenshot: connected provider with model list available. */}
 
-Provider setup is complete when:
-
 - The provider card shows **Connected**.
 - The provider has available models.
-- New agents can select that provider's models during creation.
+- New agents can select the provider's models during creation.
 
-## What the statuses mean
+For what each provider status means and what to do next, see the [Status reference](/reference/providers#status-reference).
 
-| Status | What it means | What to do |
-| --- | --- | --- |
-| **Not checked** | Syndicate has not inspected this provider yet | Click **Check** |
-| **Not installed** | The provider CLI is missing on this machine | Click **Install CLI** |
-| **Not signed in** | The CLI exists, but credentials are missing or expired | Click **Connect** and approve auth |
-| **Connected** | The CLI and credentials are ready | Use the provider in teams or agents |
+## Troubleshooting
 
-<CardGroup cols={2}>
+- **Install failed.** Click **Install CLI** again — Syndicate retries with its managed Node and npm. If the second attempt also fails, check this machine's internet connection.
+- **Card stays at "Not signed in" after you approved in the browser.** Click **Check** to refresh the card. If the status doesn't change, restart Syndicate and run **Connect** again.
+
+For deeper details on each provider's sign-in behavior, see [Auth flows](/reference/auth-flows).
+
+<CardGroup cols={3}>
   <Card title="Create your first team" icon="users" href="/tutorials/create-your-first-team">
     Use your connected provider in a real workspace.
   </Card>
   <Card title="Providers reference" icon="plug" href="/reference/providers">
     Learn how each provider connection works.
+  </Card>
+  <Card title="Auth flows" icon="shield-check" href="/reference/auth-flows">
+    See how Syndicate handles each provider's sign-in.
   </Card>
 </CardGroup>

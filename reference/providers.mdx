@@ -26,3 +26,14 @@ Claude prefers browser OAuth. Terminal login is a fallback.
 OpenAI/Codex uses a browser handoff through the Codex CLI and should not show the in-app terminal modal.
 
 Gemini may show the in-app terminal because its CLI flow can require interactive prompts.
+
+## Status reference
+
+Syndicate shows one of four readiness states on each provider card.
+
+| Status | What it means | What to do |
+| --- | --- | --- |
+| **Not checked** | Syndicate has not inspected this provider yet | Click **Check** |
+| **Not installed** | The provider CLI is missing on this machine | Click **Install CLI** |
+| **Not signed in** | The CLI is installed, but credentials are missing or expired | Click **Connect** and complete sign-in |
+| **Connected** | The CLI and credentials are ready | Pick the provider's models in teams or agents |
