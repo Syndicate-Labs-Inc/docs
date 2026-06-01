@@ -1,5 +1,5 @@
 ---
-title: "Providers and Models"
+title: "Providers and models"
 description: "Connect AI providers and choose models for agents."
 ---
 
@@ -12,7 +12,7 @@ Open **Settings > Providers** to connect, disconnect, refresh, or inspect provid
 | Provider | Typical auth behavior |
 | --- | --- |
 | Claude | Browser OAuth first; terminal fallback only when needed |
-| OpenAI / Codex | Browser sign-in through Codex CLI, followed by capability verification |
+| OpenAI/Codex | Browser sign-in through Codex CLI, followed by capability verification |
 | Gemini | Browser or terminal-assisted CLI flow |
 
 ## Model selection
@@ -26,7 +26,7 @@ Syndicate only offers models from authenticated providers. You can set:
 
 ## Why provider verification matters
 
-Syndicate does not only check whether credentials exist. For providers like Codex, it also checks whether the account can actually run. This catches plan, quota, policy, and CLI issues earlier.
+Syndicate checks more than whether credentials exist. For providers like Codex, it also verifies that the account can actually run. That catches plan, quota, policy, and CLI issues earlier.
 
 ## Recommended setup
 

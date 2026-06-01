@@ -1,0 +1,117 @@
+---
+title: "Troubleshooting workspaces and dispatch"
+description: "Diagnose team, dispatch, and workspace problems."
+---
+
+This page covers team-side issues — Manager behavior, dispatch, working folder, and inbox. For provider connection or auth problems, see [Troubleshooting](/reference/troubleshooting).
+
+## Manager is not delegating
+
+Symptoms: you ask the Manager to do something, but no tasks appear and no specialists wake up.
+
+Common causes:
+
+- The Manager is in **Approve Each Step** or **Approve New Work** mode and is waiting for your approval. Check the activity area for a pending approval.
+- The team is **hard paused**. Resume the team before dispatching again.
+- The Manager's last message is a question routed to you. Reply, and dispatch resumes.
+- The Manager already delegated and is waiting on a specialist that is **Blocked**.
+
+What to try:
+
+1. Open the activity or approval surface and resolve any pending step.
+2. Confirm the team is not hard paused.
+3. Check the inbox for an unanswered user-attention item.
+4. Look at agent statuses for a Blocked or Waiting specialist.
+
+## Agent is stuck on Blocked
+
+Symptoms: an agent's status stays Blocked and no further work happens.
+
+Common causes:
+
+- The agent reported a problem it cannot solve alone (missing reference, unclear requirement, failed tool call).
+- The Manager has not been notified, or the Manager has nothing to delegate next.
+
+What to try:
+
+1. Read the agent's last messages or task summary to find the blocker.
+2. Provide the missing input, reference, or decision.
+3. Re-dispatch the agent manually, or send the Manager a clear next instruction.
+
+## Automatic dispatch is not firing
+
+Symptoms: a specialist sends a message but no downstream agent wakes up.
+
+Common causes:
+
+- The target agent is not idle (it is already working, waiting, or blocked).
+- The send used an unrecognized name. Routing relies on exact teammate names.
+- The team is hard paused.
+- There is a pending user-attention item — agents wait for you to reply rather than piling on.
+
+What to try:
+
+1. Confirm the target teammate is idle.
+2. Confirm the team is not hard paused.
+3. Reply to any open user-attention items.
+4. Dispatch the target agent manually to resume the flow.
+
+## Inbox is piling up
+
+Symptoms: unread inbox counts keep climbing and the team feels noisy.
+
+What to try:
+
+1. Open the inbox and read the latest Manager messages first.
+2. Resolve any user-attention items.
+3. Stop any agent doing the wrong work.
+4. Give the Manager one clear next instruction instead of replying to every specialist.
+
+## Working directory looks wrong
+
+Symptoms: an agent edits the wrong files, cannot find files, or reports paths outside your project.
+
+Common causes:
+
+- The team is pointed at a different folder than you intended.
+- The folder was moved, renamed, or deleted on disk.
+
+What to try:
+
+1. Open team settings and confirm the working folder path.
+2. If the folder moved, relink the team to the new path.
+3. Re-dispatch and confirm the agent now reads from the right location.
+
+## Hard pause does not resume agents
+
+Symptoms: you resumed a hard-paused team, but agents stay idle.
+
+This is expected. Resuming a paused team does not automatically restart agents — it only allows dispatch to run again. Restart work by sending a message, dispatching an agent manually, or giving the Manager a new instruction.
+
+## Stopping runaway work
+
+If a team is doing the wrong thing or moving too fast:
+
+1. Stop the active agent.
+2. If multiple agents are involved, stop the team's dispatches.
+3. Hard pause the team to block any new automatic dispatch.
+4. Adjust instructions, references, or the Manager mode before resuming.
+
+## MCP tool is configured but not available in a run
+
+MCP credentials and tools are local to the machine and the provider runtime. If a server is configured in Syndicate but the active provider run does not expose it, the agent will say it is configured but unavailable in that run.
+
+What to try:
+
+1. Confirm the MCP server is enabled for the agent in question.
+2. Confirm the provider that ran is the one the server is wired to.
+3. Reconnect the provider or reinstall the MCP server if it fails repeatedly.
+
+<CardGroup cols={2}>
+  <Card title="Troubleshooting providers" icon="plug" href="/reference/troubleshooting">
+    Provider connection, install, and auth problems.
+  </Card>
+  <Card title="Teams" icon="users" href="/features/teams">
+    Manager control modes and hard pause.
+  </Card>
+</CardGroup>

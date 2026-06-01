@@ -28,24 +28,32 @@
           "tutorials/install-and-sign-in",
           "tutorials/connect-providers",
           "tutorials/create-your-first-team",
+          "tutorials/create-a-solo-agent",
           "tutorials/add-and-configure-agents",
-          "tutorials/use-mcp-and-skills"
+          "tutorials/attach-references",
+          "tutorials/use-mcp-and-skills",
+          "tutorials/tasks-and-inbox"
         ]
       },
       {
-        "group": "Features",
+        "group": "Core concepts",
         "pages": [
           "features/overview",
           "features/workspaces",
           "features/agents",
           "features/teams",
           "features/solo-agents",
+          "features/providers-and-models"
+        ]
+      },
+      {
+        "group": "Guides",
+        "pages": [
           "features/chat-and-dispatch",
           "features/tasks",
           "features/inbox",
           "features/references-and-context",
           "features/command-palette",
-          "features/providers-and-models",
           "features/mcp",
           "features/skills",
           "features/settings"
@@ -56,8 +64,10 @@
         "pages": [
           "reference/providers",
           "reference/settings",
+          "reference/auth-flows",
           "reference/troubleshooting",
-          "reference/auth-flows"
+          "reference/troubleshooting-workspaces",
+          "reference/faq"
         ]
       }
     ],

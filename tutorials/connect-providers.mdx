@@ -1,9 +1,9 @@
 ---
-title: "Connect Providers"
+title: "Connect providers"
 description: "Connect Claude, OpenAI/Codex, and Gemini in Syndicate."
 ---
 
-Providers are what let agents actually run. Syndicate connects to Claude, OpenAI Codex, and Gemini through their local CLIs, then verifies that the CLI is installed, signed in, and able to run.
+Providers are what let agents actually run. Syndicate connects to Claude, OpenAI/Codex, and Gemini through their local CLIs, then verifies that the CLI is installed, signed in, and able to run.
 
 You only need one connected provider to start, but connecting more gives each agent better model options.
 
@@ -56,13 +56,13 @@ Claude uses the Claude Code CLI.
 
 Syndicate verifies Claude by checking the CLI and saved Claude credentials.
 
-## OpenAI / Codex
+## OpenAI/Codex
 
 {/* Video: Codex CLI install/check, browser ChatGPT approval, capability check, then Connected. */}
 
 OpenAI uses the Codex CLI.
 
-1. Click **Check** on the OpenAI Codex card.
+1. Click **Check** on the OpenAI/Codex card.
 2. If Codex is not installed, click **Install CLI**.
 3. Click **Connect**.
 4. Approve the Codex login in the browser with the ChatGPT account you want Syndicate to use.
@@ -101,10 +101,10 @@ Provider setup is complete when:
 
 | Status | What it means | What to do |
 | --- | --- | --- |
-| Not checked | Syndicate has not inspected this provider yet | Click **Check** |
-| Not installed | The provider CLI is missing on this machine | Click **Install CLI** |
-| Not signed in | The CLI exists, but credentials are missing or expired | Click **Connect** and approve auth |
-| Connected | The CLI and credentials are ready | Use the provider in teams or agents |
+| **Not checked** | Syndicate has not inspected this provider yet | Click **Check** |
+| **Not installed** | The provider CLI is missing on this machine | Click **Install CLI** |
+| **Not signed in** | The CLI exists, but credentials are missing or expired | Click **Connect** and approve auth |
+| **Connected** | The CLI and credentials are ready | Use the provider in teams or agents |
 
 <CardGroup cols={2}>
   <Card title="Create your first team" icon="users" href="/tutorials/create-your-first-team">

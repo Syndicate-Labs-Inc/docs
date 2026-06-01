@@ -1,5 +1,5 @@
 ---
-title: "Auth Flows"
+title: "Auth flows"
 description: "Technical reference for provider authentication behavior."
 ---
 
@@ -9,7 +9,7 @@ This page is the public reference version of Syndicate's provider auth behavior.
 
 Claude uses browser OAuth first. After sign-in, Syndicate stores credentials in the expected Claude credentials location and treats Claude as connected when a valid OAuth access token is available.
 
-## OpenAI / Codex
+## OpenAI/Codex
 
 OpenAI uses the Codex CLI auth file and a live capability check. Syndicate watches for Codex auth changes, refreshes provider state, and verifies that the account can execute Codex.
 

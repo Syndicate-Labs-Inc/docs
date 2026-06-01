@@ -1,5 +1,5 @@
 ---
-title: "Feature Overview"
+title: "Feature overview"
 description: "A tour of the main product areas in Syndicate."
 ---
 
@@ -18,9 +18,9 @@ Syndicate turns a local project folder into a workspace where AI agents can plan
     Create agents from built-in or custom specializations.
   </Card>
   <Card title="Providers and models" icon="plug" href="/features/providers-and-models">
-    Connect Claude, Codex, and Gemini, then choose models per agent.
+    Connect Claude, OpenAI/Codex, and Gemini, then choose models per agent.
   </Card>
-  <Card title="MCP" icon="blocks" href="/features/mcp">
+  <Card title="MCP servers" icon="blocks" href="/features/mcp">
     Connect agents to external tools and data sources.
   </Card>
   <Card title="Tasks and dispatch" icon="list-checks" href="/features/chat-and-dispatch">
@@ -39,7 +39,7 @@ flowchart LR
   Manager --> Agents["Specialist Agents"]
   Agents --> Tasks["Tasks"]
   Agents --> Inbox["Inbox Messages"]
-  Agents --> Tools["Skills and MCP"]
+  Agents --> Tools["Skills and MCP servers"]
   Agents --> Project["Local Project Folder"]
 ```
 
@@ -62,3 +62,4 @@ Start with one provider, one local project folder, and either:
 - A small team with a Manager, Coder, and Reviewer.
 
 Add more agents, skills, and MCP servers only when the workflow needs them.
+

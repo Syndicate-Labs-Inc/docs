@@ -1,6 +1,6 @@
 ---
 title: "Providers"
-description: "How Syndicate decides whether Claude, Codex, and Gemini are ready to use."
+description: "How Syndicate decides whether Claude, OpenAI/Codex, and Gemini are ready to use."
 ---
 
 Providers supply the models that Syndicate agents use.
@@ -12,7 +12,7 @@ Syndicate marks a provider as ready only when it can find usable credentials and
 | Provider | Readiness signal |
 | --- | --- |
 | Claude | Valid Claude OAuth credentials |
-| OpenAI / Codex | Codex auth file plus successful capability check |
+| OpenAI/Codex | Codex auth file plus successful capability check |
 | Gemini | OAuth credentials, API key, or a successful probe |
 
 ## Provider-specific behavior

@@ -1,0 +1,81 @@
+---
+title: "FAQ"
+description: "Quick answers to common Syndicate questions."
+---
+
+Short answers to the questions that come up most often. Each entry links to the deeper page.
+
+## What is Syndicate?
+
+Syndicate is a desktop app for running AI agents against your local project folders. You can work with a single specialist or a coordinated team led by a Manager. See [Feature overview](/features/overview).
+
+## Do I need beta access to use Syndicate?
+
+Yes. Access is currently invite-based. Request access from the Syndicate site and create your account against the approved email. See [Install and sign in](/tutorials/install-and-sign-in).
+
+## Which providers are supported?
+
+Syndicate supports three providers:
+
+- **Claude** through the Claude Code CLI.
+- **OpenAI** through the Codex CLI.
+- **Gemini** through the Gemini CLI.
+
+See [Connect providers](/tutorials/connect-providers).
+
+## Where are my credentials stored?
+
+Provider credentials are stored locally on the machine that connected them. Syndicate does not sync provider credentials between machines — you connect providers once per machine. See [Auth flows](/reference/auth-flows).
+
+## Where does my workspace data live?
+
+Workspace data — teams, agents, messages, tasks, references — is stored locally on your machine and scoped to your signed-in user. Syndicate handles account and beta access through its backend so it can sign you in and check access.
+
+## Can I use Syndicate offline?
+
+Agent runs need the provider you chose to be reachable, so they require internet. Sign-in and account-related checks also need connectivity.
+
+## What is the difference between a team and a solo agent?
+
+- A **team** has a Manager plus specialists. The Manager plans, delegates, and routes follow-ups.
+- A **solo agent** is a single specialist with no Manager — best for focused, one-on-one work.
+
+See [Workspaces](/features/workspaces).
+
+## How do Manager control modes work?
+
+Teams can run in one of three modes:
+
+- **Autopilot** — Manager continues freely.
+- **Approve New Work** — Manager asks before expanding scope.
+- **Approve Each Step** — Manager asks before every delegation.
+
+See [Teams](/features/teams).
+
+## How does Syndicate choose which model to run?
+
+Each agent has a provider and model. When an agent does not specify one, Syndicate uses a sensible default based on your team and account settings. See [Providers and models](/features/providers-and-models).
+
+## What is an MCP server?
+
+An MCP server is an external tool integration. Once configured and enabled for an agent, it gives that agent access to a service like file search, browser automation, documents, or another API. MCP server credentials are local to the machine and the provider runtime. See [MCP servers](/features/mcp).
+
+## How do references work?
+
+References are files or folders you attach so agents can use them as context. They can be attached at global, team, or agent scope. Syndicate manages context size and may trim references when a run grows too large. See [Attach references](/tutorials/attach-references).
+
+## How do I stop a runaway team?
+
+Stop the active agent, hard pause the team, then adjust the instructions or the Manager mode before resuming. See [Troubleshooting workspaces and dispatch](/reference/troubleshooting-workspaces).
+
+## Can I use the same account on more than one machine?
+
+You can sign in to Syndicate from more than one machine. Provider credentials are local to each machine, so you need to connect providers separately wherever you sign in. Workspace data is also stored locally per machine.
+
+## How does Syndicate update?
+
+Syndicate is a packaged desktop app and surfaces an update prompt when a new release is available. Apply the update from within the app when you see it.
+
+## Where do I get help?
+
+Email [support@usesyndicate.org](mailto:support@usesyndicate.org). For setup problems, start with [Troubleshooting](/reference/troubleshooting) or [Troubleshooting workspaces and dispatch](/reference/troubleshooting-workspaces).
