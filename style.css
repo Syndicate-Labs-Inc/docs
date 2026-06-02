@@ -1,11 +1,13 @@
 /* Syndicate docs — conservative global typography polish.
    Mintlify auto-loads style.css from the repo root; no docs.json wiring. */
 
-/* Mintlify-documented stable wrapper: <mdx-content> is the rendered
-   MDX body. See https://mintlify.com/docs/customize/custom-scripts. */
+/* Mintlify rendered DOM wraps each MDX page body in a <div> that carries
+   class="mdx-content" and id="content". The class selector targets it
+   reliably across pages. Verified against the deployed DOM at
+   docs.usesyndicate.org on 2026-06-02. */
 
 /* Lead paragraph: first <p> in the MDX body. */
-mdx-content > p:first-of-type {
+.mdx-content > p:first-of-type {
   font-size: 1.125rem;
   line-height: 1.6;
   font-weight: 400;
@@ -14,7 +16,7 @@ mdx-content > p:first-of-type {
 /* H2 section divider: subtle hairline above each section heading.
    currentColor with low opacity adapts to light and dark themes
    without referencing brand colors. */
-mdx-content h2 {
+.mdx-content h2 {
   border-top: 1px solid rgb(from currentColor r g b / 0.12);
   padding-top: 2rem;
   margin-top: 3rem;
@@ -22,15 +24,15 @@ mdx-content h2 {
 
 /* Don't draw a divider above the first h2 if it immediately follows
    the page title or sits at the very top of the MDX body. */
-mdx-content > h2:first-child,
-mdx-content > :first-child + h2 {
+.mdx-content > h2:first-child,
+.mdx-content > :first-child + h2 {
   border-top: 0;
   padding-top: 0;
   margin-top: 2rem;
 }
 
 /* H3 hierarchy: clear sub-section step-down. */
-mdx-content h3 {
+.mdx-content h3 {
   font-size: 1.125rem;
   font-weight: 600;
   margin-top: 2rem;
@@ -38,14 +40,14 @@ mdx-content h3 {
 }
 
 /* Body rhythm: modest spacing so prose breathes without feeling loose. */
-mdx-content p,
-mdx-content ul,
-mdx-content ol {
+.mdx-content p,
+.mdx-content ul,
+.mdx-content ol {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
 }
 
-mdx-content li {
+.mdx-content li {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
 }
@@ -53,7 +55,7 @@ mdx-content li {
 /* Fallback for browsers without relative-color syntax: use a neutral
    semi-transparent rule that still adapts via opacity, not hue. */
 @supports not (color: rgb(from currentColor r g b / 0.12)) {
-  mdx-content h2 {
+  .mdx-content h2 {
     border-top-color: rgba(127, 127, 127, 0.18);
   }
 }
