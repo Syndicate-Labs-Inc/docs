@@ -52,7 +52,7 @@ When an agent doesn't specify a model, Syndicate falls back to your team and acc
 
 Syndicate checks more than whether credentials exist. For providers like Codex, it also confirms the connected account can actually run a model. That means the plan is active, quota is available, the policy allows the requested usage, and the local CLI is functional.
 
-That extra check catches a class of problems early: an account that signed in fine but lacks access to a needed model, an exhausted quota, a policy that blocks the workflow, or a broken CLI. Without verification, those problems only surface when an agent tries to run and fails partway through.
+That extra check catches a class of problems early. Examples include an account that signed in fine but lacks access to a needed model, an exhausted quota, a policy that blocks the workflow, or a broken CLI. Without verification, those problems only surface when an agent tries to run and fails partway through.
 
 ## Recommended setup
 
