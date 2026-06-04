@@ -23,7 +23,7 @@
         ]
       },
       {
-        "group": "Tutorials",
+        "group": "Guides",
         "pages": [
           "tutorials/install-and-sign-in",
           "tutorials/connect-providers",
@@ -36,7 +36,14 @@
               "tutorials/agent-marketplace/agent-maker"
             ]
           },
-          "tutorials/create-your-first-team",
+          {
+            "group": "Your first team",
+            "pages": [
+              "tutorials/create-your-first-team",
+              "tutorials/create-your-first-team/team-hub",
+              "tutorials/create-your-first-team/team-view"
+            ]
+          },
           "tutorials/create-a-solo-agent",
           "tutorials/attach-references",
           "tutorials/use-mcp-and-skills",
@@ -55,7 +62,7 @@
         ]
       },
       {
-        "group": "Guides",
+        "group": "How to",
         "pages": [
           "features/chat-and-dispatch",
           "features/tasks",
