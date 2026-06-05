@@ -1,99 +1,107 @@
 ---
-title: "Quick start"
-description: "Create your first Syndicate team and send it a sanity-check task."
+title: "Quick guide"
+description: "Create your first Syndicate team and send it a small first task."
 ---
 
-A team is a shared [workspace](/features/workspaces) for agents working against the same local project folder. Start here when you want a Manager to coordinate specialists.
+A team is a [workspace](/features/workspaces) where a Manager coordinates specialists against one local project folder. Use this guide when you want a team to inspect, edit, test, review, or document a real project.
 
-{/* Hero media: 20-30 second clip creating a team, selecting a folder, reviewing agents, and landing in the new workspace.
+{/* Hero media: 20-30 second clip creating a team, selecting a folder, reviewing the roster, choosing a Manager control mode, and landing in the team workspace.
 Capture list:
 - Create Team entry point.
-- Manual setup and AI-guided setup options.
+- Template, Guided description, and Build Your Team setup options.
 - Local folder picker.
-- Proposed or selected agent roster.
 - Manager control mode selector.
-- Finished team workspace with agents visible.
+- Finished team workspace with Manager and specialists visible.
 */}
 
-## Create a team manually
+## Before you start
 
-{/* Video: Build Your Team flow from click to completed workspace. */}
+Make sure you have:
+
+- Installed Syndicate and signed in.
+- Connected at least one [provider](/tutorials/connect-providers).
+- Picked the local project folder the team should use.
+
+## Create the team
 
 <Steps>
   <Step title="Start team creation">
     Click **Create Team**.
+  </Step>
+  <Step title="Choose a setup path">
+    Choose the setup path that fits how much help you want:
 
-    <Frame>
-      ![Create Team modal in Syndicate with options for Build Your Team and AI-guided setup.](/assets/screenshots/teams/Create%20Team%20Modal.png)
-    </Frame>
+    | Path | Use when |
+    | --- | --- |
+    | **Template** | You want a prebuilt team shape. |
+    | **Guided description** | You want Syndicate to draft a roster from a project description. |
+    | **Build Your Team** | You want to start with a Manager and add specialists yourself. |
   </Step>
-  <Step title="Choose manual setup">
-    Select **Build Your Team** if you want to start from scratch.
-  </Step>
-  <Step title="Select a project folder">
-    Choose the local folder the team should read, edit, and run commands in.
-  </Step>
-  <Step title="Review agents">
-    Add or review the Manager and specialists before creating the team.
+  <Step title="Review the roster">
+    Confirm the Manager and specialists. Edit agent names, roles, or instructions before you create the team.
   </Step>
   <Step title="Create the team">
-    Finish setup and open the new team workspace.
+    Finish setup to open the new team workspace.
   </Step>
 </Steps>
 
-## Use AI-guided setup
+## Choose the working folder
 
-{/* Video: describe a project, review proposed agents, select folder, create team. */}
+The working folder is the local project folder the team can use during runs. Agents use it when they read files, edit code, run commands, and gather project context.
 
-Use the guided team flow when you want Syndicate to draft a starting roster from a project description.
+Choose the folder that contains the project you want the team to work on. Avoid selecting a parent folder that contains unrelated projects.
 
-1. Describe your project.
-2. Review the proposed agents.
-3. Edit names, roles, or instructions.
-4. Select the project folder.
-5. Create the team.
+<Tip>
+Start with one focused project folder. You can create another workspace later if you need a different project context.
+</Tip>
 
-## Pick the working folder
+## Pick a Manager control mode
 
-{/* Screenshot: folder picker and selected path in setup. */}
-
-The selected folder becomes the working directory for agent runs. Agents use it when they read files, edit code, run commands, and gather project context.
-
-## Choose a Manager control mode
-
-{/* Screenshot: Manager control mode options. */}
+The control mode decides how much the Manager can do before asking you.
 
 | Mode | Use when |
 | --- | --- |
-| **Autopilot** | You trust the team to keep work moving without checking every step |
-| **Approve New Work** | You want the Manager to ask before expanding scope |
-| **Approve Each Step** | You want tight control over every delegation |
+| **Autopilot** | You trust the Manager to plan, delegate, and follow up without routine approval. |
+| **Approve New Work** | You want the Manager to coordinate existing work, but ask before expanding scope. |
+| **Approve Each Step** | You want to approve every delegation, reroute, or follow-up. |
 
-You can change this later in team settings.
+Start with **Approve New Work** for a new team. It keeps the team moving while giving you a chance to catch scope changes.
 
-## First task to try
+## Send a first task
 
-{/* Video: send a first task, show the Manager assigning it to a specialist, then show the specialist beginning work. */}
+Keep the first task small. Ask the Manager to inspect the project before you assign implementation work.
 
-Ask one agent to inspect the project and summarize:
+For example:
 
+```text
+Inspect this project and summarize:
 - What the app does.
 - How to run it locally.
 - Which files are most important.
-- What the agent would improve first.
+- What you would improve first.
+```
 
-<Tip>
-This gives you a quick sanity check before assigning larger work.
-</Tip>
+## Verify the team is working
+
+After you send the task, check that:
+
+- The Manager responds with a plan or dispatches a specialist.
+- At least one task appears or updates.
+- The assigned agent moves out of idle state.
+- The inbox shows any agent messages that need your attention.
+
+If nothing starts, check that the team has a connected provider and that the working folder is available.
+
+## Next steps
 
 <CardGroup cols={3}>
-  <Card title="Team view" icon="layout" href="/tutorials/create-your-first-team/team-view">
-    Get oriented inside the workspace you just created.
+  <Card title="Team workspace" icon="layout" href="/tutorials/create-your-first-team/team-workspace">
+    Learn the main areas inside a single team workspace.
   </Card>
   <Card title="Team hub" icon="grid" href="/tutorials/create-your-first-team/team-hub">
-    Switch between teams and start new ones from the landing page.
+    See every team and jump back into recent work.
   </Card>
-  <Card title="Agent Marketplace" icon="store" href="/tutorials/agent-marketplace">
-    Add built-in specialists, community agents, or custom Agent Maker packages.
+  <Card title="Manager" icon="route" href="/tutorials/create-your-first-team/manager">
+    Learn how the Manager plans, delegates, and asks for approval.
   </Card>
 </CardGroup>

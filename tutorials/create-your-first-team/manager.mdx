@@ -1,0 +1,111 @@
+---
+title: "Manager"
+description: "Use the Manager to plan work, delegate to specialists, and keep a team moving."
+---
+
+The Manager is the coordinating agent in a team. You give it an outcome, and it decides which specialist should handle each step.
+
+Use the Manager when you want the team to plan, delegate, follow up, and report back without making you route every message yourself.
+
+{/* Hero media: 20-25 second clip sending the Manager an outcome, seeing a plan, approving new work, and watching a specialist receive a dispatch.
+Capture list:
+- Message to the Manager.
+- Manager response with a short plan.
+- Approval prompt or control-mode-dependent action.
+- Specialist run starting from dispatch.
+- Task or inbox update after the dispatch.
+*/}
+
+## What the Manager does
+
+The Manager can:
+
+- Break an outcome into smaller tasks.
+- Delegate tasks to specialists.
+- Follow up when an agent finishes or gets blocked.
+- Route messages between agents.
+- Escalate decisions that need you.
+- Summarize progress across the team.
+
+Every team has one Manager. If you want to work with one agent directly, use a [solo agent](/features/solo-agents) or message a specialist directly inside the team workspace.
+
+## What to ask the Manager
+
+Ask for outcomes, not busywork.
+
+Good Manager requests:
+
+- "Inspect this repo and create a short implementation plan."
+- "Have the frontend specialist build the settings view, then send it to review."
+- "Find why provider setup fails and ask me before changing files."
+- "Coordinate a docs pass for the onboarding guides."
+
+Weak Manager requests:
+
+- "Do stuff."
+- "Fix everything."
+- "Tell everyone to work."
+
+Clear outcomes help the Manager choose the right specialist and stop at the right point.
+
+## How delegation works
+
+When the Manager delegates, Syndicate starts a dispatch on the selected specialist. A dispatch is the run that carries the task, context, and instructions to that agent.
+
+You can usually see delegation through:
+
+- A Manager message.
+- A new or updated task.
+- A specialist status change.
+- An inbox message or follow-up summary.
+
+See [chat and dispatch](/features/chat-and-dispatch) for more detail about how runs appear in the app.
+
+## Choose the right control mode
+
+The Manager's control mode decides when it must ask you before acting.
+
+| Mode | Best for | What to expect |
+| --- | --- | --- |
+| **Autopilot** | Trusted teams and routine workflows. | The Manager keeps planning, delegating, and following up without routine approval. |
+| **Approve New Work** | Most new teams. | The Manager coordinates current work, but asks before expanding scope. |
+| **Approve Each Step** | Sensitive work or first-time setup. | The Manager asks before each delegation or follow-up. |
+
+Use stricter control when the team is new, the project is sensitive, or the task is ambiguous. Loosen control when the workflow is proven.
+
+## Review or stop work
+
+Review the Manager's work through chat, tasks, and inbox messages. If the team is moving in the wrong direction:
+
+1. Stop the active run if one agent is doing the wrong task.
+2. Send the Manager a clearer outcome or constraint.
+3. Use **Hard pause** if the whole team needs to stop.
+4. Resume with one concrete next instruction.
+
+**Hard pause** stops in-flight team dispatches and prevents new automatic dispatches until you resume.
+
+## When to message a specialist directly
+
+Message a specialist directly when you already know who should do the work and do not need the Manager to coordinate.
+
+Use direct messages for:
+
+- A focused review.
+- A narrow code or docs task.
+- A quick question about that agent's specialty.
+
+Use the Manager when the work has multiple steps, multiple specialists, or unclear ownership.
+
+## Next steps
+
+<CardGroup cols={3}>
+  <Card title="Team workspace" icon="layout" href="/tutorials/create-your-first-team/team-workspace">
+    See where Manager messages, tasks, and inbox updates appear.
+  </Card>
+  <Card title="Chat and dispatch" icon="messages" href="/features/chat-and-dispatch">
+    Learn how dispatch starts and how runs show progress.
+  </Card>
+  <Card title="Teams" icon="users" href="/features/teams">
+    Learn when to use a team and how control modes work.
+  </Card>
+</CardGroup>

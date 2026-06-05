@@ -37,11 +37,12 @@
             ]
           },
           {
-            "group": "Your first team",
+            "group": "Create your first team",
             "pages": [
               "tutorials/create-your-first-team",
               "tutorials/create-your-first-team/team-hub",
-              "tutorials/create-your-first-team/team-view"
+              "tutorials/create-your-first-team/team-workspace",
+              "tutorials/create-your-first-team/manager"
             ]
           },
           "tutorials/create-a-solo-agent",
@@ -80,8 +81,13 @@
           "reference/providers",
           "reference/settings",
           "reference/auth-flows",
-          "reference/troubleshooting",
-          "reference/troubleshooting-workspaces",
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "reference/troubleshooting",
+              "reference/troubleshooting-workspaces"
+            ]
+          },
           "reference/faq"
         ]
       }
