@@ -25,30 +25,30 @@
       {
         "group": "Guides",
         "pages": [
-          "tutorials/install-and-sign-in",
-          "tutorials/connect-providers",
+          "guides/install-and-sign-in",
+          "guides/connect-providers",
           {
             "group": "The Marketplace",
             "pages": [
-              "tutorials/agent-marketplace",
-              "tutorials/agent-marketplace/built-in-syndicate-agents",
-              "tutorials/agent-marketplace/community-agents",
-              "tutorials/agent-marketplace/agent-maker"
+              "guides/agent-marketplace",
+              "guides/agent-marketplace/built-in-syndicate-agents",
+              "guides/agent-marketplace/community-agents",
+              "guides/agent-marketplace/agent-maker"
             ]
           },
           {
             "group": "Create your first team",
             "pages": [
-              "tutorials/create-your-first-team",
-              "tutorials/create-your-first-team/team-hub",
-              "tutorials/create-your-first-team/team-workspace",
-              "tutorials/create-your-first-team/manager"
+              "guides/create-your-first-team/quick-start",
+              "guides/create-your-first-team/team-hub",
+              "guides/create-your-first-team/creating-teams",
+              "guides/create-your-first-team/atlas-orchestrator"
             ]
           },
-          "tutorials/create-a-solo-agent",
-          "tutorials/attach-references",
-          "tutorials/use-mcp-and-skills",
-          "tutorials/tasks-and-inbox"
+          "guides/create-a-solo-agent",
+          "guides/attach-references",
+          "guides/use-mcp-and-skills",
+          "guides/tasks-and-inbox"
         ]
       },
       {
