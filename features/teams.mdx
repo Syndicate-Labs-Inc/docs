@@ -1,39 +1,39 @@
 ---
 title: "Teams"
-description: "Use teams to coordinate multiple agents around one project."
+description: "Use Team Hub and Team Workspace to coordinate multiple agents around one project."
 ---
 
-{/* Hero media: 20-25 second clip of a team workspace mid-run — Manager dispatches to two specialists, statuses update, an inbox message comes in. Anchors the "Manager coordinates specialists" mental model the page describes.
-Capture list:
-- Team workspace open with Manager + 3-4 specialists visible.
-- Manager sends a message; one specialist transitions idle -> active.
-- A second specialist picks up follow-up work.
-- Inbox badge increments and a Manager message appears.
-*/}
+{/* Hero media: 20-25 second clip of Team Workspace mid-run. Show Atlas dispatching to two specialists, statuses updating, Agent Comms receiving a message, and a User Task appearing. */}
 
-Teams are for work that benefits from multiple specialists. A typical team includes a Manager plus agents for engineering, review, testing, writing, or research.
+Teams are for work that benefits from multiple specialists. A typical team includes Atlas as the Manager plus agents for engineering, review, testing, writing, or research.
+
+Team work happens across two main surfaces:
+
+- **Team Hub**: the overview where you scan teams, unread updates, roster summaries, settings, and recent work.
+- **Team Workspace**: the single-team control room where you chat, assign work, inspect coordination, review tasks, browse files, and preview the project.
 
 ## The Manager
 
-The Manager is the agent that coordinates a team. Instead of you assigning each step to each specialist, you give the Manager an outcome and it decides who should do what.
+The Manager is the agent that coordinates a team. In most teams, this is Atlas. Instead of you assigning each step to each specialist, you give Atlas an outcome and it decides who should do what.
 
-A Manager typically:
+Atlas typically:
 
 - Plans the work and breaks it into tasks.
 - Delegates each task to the right specialist on the team.
 - Follows up when an agent finishes or gets blocked.
-- Routes inter-agent messages and escalates anything that needs you.
+- Routes inter-agent messages through **Agent Comms**.
+- Creates **User Tasks** for decisions, approvals, blockers, or interruptions that need you.
 
-The Manager hands work to specialists through **dispatch** — Syndicate's mechanism for kicking off a run on a target agent. See [chat and dispatch](/features/chat-and-dispatch) for how dispatches appear in the UI and how to watch them.
+Atlas hands work to specialists through dispatch messages. Specialists reply through **Agent Comms**, while your direct conversation stays in chat. See [chat and dispatch](/features/chat-and-dispatch) for how dispatches appear in the UI and how to watch them.
 
-Every team has exactly one Manager. How much authority the Manager has is set by its control mode, described below. If you don't need a Manager, use a [solo agent](/features/solo-agents) instead.
+Every managed team has one Manager. How often Atlas asks before continuing is set by **Interruption Level**, described below. If you do not need a Manager, use a [solo agent](/features/solo-agents) instead.
 
 ## When to use a team
 
 Use a team when:
 
 - The work has multiple parts.
-- You want a Manager to coordinate specialists.
+- You want Atlas to coordinate specialists.
 - You need review or QA after implementation.
 - Agents should hand work to each other.
 - You want to monitor a longer workflow.
@@ -44,27 +44,46 @@ Use a team when:
 | --- | --- |
 | **Template** | You want a prebuilt team shape |
 | **Guided description** | You want Syndicate to draft a roster from a project description |
-| **Build Your Team** | You want to start with a Manager and add specialists yourself |
+| **Build Your Team** | You want to start with Atlas and add specialists yourself |
 
-{/* Screenshot: Manager control mode selector showing Autopilot, Approve New Work, and Approve Each Step options, with Approve New Work highlighted as the default suggestion. */}
+{/* Screenshot: Team Settings showing Interruption Level with Minimal, Balanced, Hands-on, and Manual options, with Balanced highlighted as the default suggestion. */}
 
-## Manager control modes
+## Interruption level
 
-Teams with a Manager can run under different levels of autonomy. Each mode controls how much the Manager can do on its own before asking for your input.
+Teams with Atlas can run under different interruption levels. Each level controls how often Atlas turns decisions, approvals, blockers, or scope changes into **User Tasks**.
 
-| Mode | Manager can do without asking | Manager must ask before |
+| Level | Atlas can do without asking | Atlas asks before |
 | --- | --- | --- |
-| **Autopilot** | Plan, delegate, follow up, keep agents moving | Nothing routine — only when truly blocked |
-| **Approve New Work** | Coordinate existing work | Creating new tasks or expanding scope |
-| **Approve Each Step** | Nothing automatic | Every delegation, follow-up, reroute, or new instruction |
+| **Minimal** | Plan, delegate, follow up, and keep routine work moving | True blockers, missing access, high-risk work, or required approval |
+| **Balanced** | Coordinate routine work and existing tasks | Meaningful new workstreams, unclear scope, medium or high risk, or completion approvals |
+| **Hands-on** | Continue narrow follow-ups | Major assignments, broad follow-ups, risky decisions, and completion reviews |
+| **Manual** | Wait for explicit approval on most coordination | Most delegations, follow-ups, re-routes, and new-work steps |
 
-Start with **Approve New Work** until you trust the team shape.
+Start with **Balanced** for a new team. It keeps the team moving while giving you a chance to catch scope changes.
 
-{/* Screenshot: team header or settings view with the Hard pause control visible and a paused state badge on the team. */}
+Older labels such as **Autopilot**, **Approve New Work**, and **Approve Each Step** map to the current interruption levels.
+
+## Team workspace layout
+
+The **Team Workspace** has three primary areas:
+
+- The agent network, where Atlas and specialists show status, alerts, and coordination relationships.
+- The right rail, where you use chat, **Agent Comms**, **User Tasks**, **Agent Tasks**, **Task Health**, **Assign Task**, and agent settings.
+- The bottom tray, where you inspect **Activity**, **Files**, **Uploads**, and file previews.
+
+When Atlas is selected, the right rail shows the manager operations tabs: **User Tasks**, **Agent Tasks**, and **Task Health**. Use these tabs for approvals, blockers, tracked work, and risk review instead of hunting through chat.
+
+Use **Assign Task** when you want to create tracked work directly. You can choose the assignee, title, instructions, deliverable, done condition, acceptance criteria, phase, risk, whether completion needs human review, and whether to notify and start the agent.
 
 ## Hard pause
 
-**Hard pause** stops in-flight team dispatches and blocks new automatic dispatch. Use it when a team is moving too quickly, a provider is misconfigured, or you want to inspect work before anything else runs. Resuming a paused team does not auto-restart agents — they run again when prompted or dispatched. If a paused team gets stuck or you can't restart cleanly, see [troubleshooting workspaces](/reference/troubleshooting-workspaces).
+**Hard pause** stops in-flight team dispatches and blocks new automatic dispatch. Use **Stop Team** or the team settings pause control when a team is moving too quickly, a provider is misconfigured, or you want to inspect work before anything else runs. Resuming a paused team does not auto-restart agents. They run again when prompted or messaged.
+
+Syndicate can also soft pause a team while an unresolved **User Task** waits for your input. You do not manually unlock a soft pause; reply to or resolve the relevant **User Task**.
+
+## Project preview
+
+Click **Preview** from the workspace header to open the team's project preview. Syndicate reuses an existing running server when it can. If none exists, it starts a default dev server from the team's working directory and opens the preview when a URL or port is available.
 
 ## Next steps
 
@@ -73,6 +92,6 @@ Start with **Approve New Work** until you trust the team shape.
     Compare a team to working with a single specialist agent.
   </Card>
   <Card title="Chat and dispatch" icon="list-checks" href="/features/chat-and-dispatch">
-    See how the Manager dispatches work and how runs appear in the UI.
+    See how Atlas dispatches work and how runs appear in the UI.
   </Card>
 </CardGroup>

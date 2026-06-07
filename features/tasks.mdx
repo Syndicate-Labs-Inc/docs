@@ -1,15 +1,51 @@
 ---
 title: "Tasks"
-description: "Track queued, active, blocked, and completed work."
+description: "Track User Tasks, Agent Tasks, and Task Health in Team Workspace."
 ---
 
-{/* Hero media: 12-15 second clip of the tasks view — show tasks in each of the four statuses (Todo, In Progress, Blocked, Done) and open one Done task to reveal its summary. */}
+{/* Hero media: 12-15 second clip of Atlas selected in Team Workspace. Show the right rail moving between User Tasks, Agent Tasks, and Task Health. */}
 
-Tasks help you see what a team is doing and what has already happened.
+Tasks help you see what a team is doing, what needs you, and which active work may be risky or blocked.
 
-{/* Screenshot: tasks view with one task in each status (Todo, In Progress, Blocked, Done) so the labels mirror the table below. */}
+In Team Workspace, task work is split across three Atlas tabs:
 
-## Task statuses
+- **User Tasks**: decisions, approvals, blockers, and interruption prompts that need your input.
+- **Agent Tasks**: tracked work assigned to Atlas or specialists.
+- **Task Health**: risk and quality signals for active tasks.
+
+## User Tasks
+
+**User Tasks** replace chat approval cards. Use them when the team needs a human decision.
+
+A **User Task** can come from:
+
+- A blocked task.
+- A task that needs human review before completion.
+- A message sent to you.
+- An Atlas interruption request.
+
+Each item shows the requester, source, impact, description, related task or message, and latest update time.
+
+| Impact | Meaning |
+| --- | --- |
+| **Blocking** | The team should not continue until you respond |
+| **High** | The decision affects scope, risk, or completion |
+| **Medium** | The team can continue some work but needs direction |
+| **Low** | The item needs review but is not urgent |
+
+Use **Reply** to answer Atlas. Use **Resolve** to close an item without a reply. Use **Allow** or **Dismiss** when Atlas asks you to approve a manager step.
+
+## Agent Tasks
+
+**Agent Tasks** shows real tracked work for Atlas and specialists. It excludes routine dispatch bookkeeping.
+
+Use it to:
+
+- Filter tasks by status.
+- Review the title, assignee, risk, phase, and update time.
+- See whether a task requires a human decision.
+- Cancel one task.
+- Abort all visible abortable tasks when the plan needs a reset.
 
 | Status | Meaning |
 | --- | --- |
@@ -17,20 +53,47 @@ Tasks help you see what a team is doing and what has already happened.
 | **In Progress** | An agent is actively working |
 | **Blocked** | Work needs input or cannot continue |
 | **Done** | Work is complete |
+| **Canceled** | You canceled the task |
 
-## How tasks are created
+When you cancel a task, Atlas gets a receipt and guidance not to recreate or reassign that task unless you explicitly ask.
 
-You can create a task manually, or dispatch creates one whenever it routes work to an agent. A dispatch-created task gives you a trace of what the agent was asked to do.
+## Task Health
 
-{/* Screenshot: a completed task detail panel showing the agent's summary, edited files, and follow-up notes. Crop any real file paths. */}
+**Task Health** is a watchlist, not a second task board. Use it to spot task risk before the team loops or stalls.
 
-## Task summaries
+Task Health can flag:
 
-When an agent completes a run, the task can include a summary of the work. Use the summary to understand decisions, edited files, commands, and follow-up needs.
+- Blocked tasks.
+- Tasks requiring human decisions.
+- High-risk or medium-risk tasks.
+- Unassigned tasks.
+- Tasks with weak deliverables, acceptance criteria, or done conditions.
+
+Click **Nudge Manager** on a specific risk item when you want Atlas to address that item. Syndicate sends Atlas the task, severity, reason, and requested next step.
+
+## Assign Task
+
+Click **Assign Task** from the right rail when you want to create tracked work directly.
+
+The form includes:
+
+- **Agent**.
+- **Title**.
+- **Instructions**.
+- **Deliverable**.
+- **Done Condition**.
+- **Acceptance Criteria**.
+- **Phase**.
+- **Risk**.
+- **Requires human decision before completion**.
+- **Notify and start agent**.
+
+Choose **Notify and start agent** when you want the assignee to wake and start through normal dispatch. If the task requires a human decision, Syndicate routes that review through **User Tasks**.
 
 ## Best practices
 
 - Keep tasks outcome-focused.
 - Assign tasks to the agent best suited for the work.
-- Mark blocked tasks clearly.
-- Use the Manager for cross-agent task coordination.
+- Add a deliverable, done condition, and acceptance criteria.
+- Use **User Tasks** for decisions instead of burying approvals in chat.
+- Use **Task Health** to catch risk early.

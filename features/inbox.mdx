@@ -1,11 +1,11 @@
 ---
 title: "Inbox"
-description: "Understand agent-to-agent messages and user attention requests."
+description: "Understand Agent Comms, inter-agent messages, and user attention requests."
 ---
 
-{/* Hero media: 10-15 second clip of an inbox in motion — show unread badges incrementing on multiple agents, click into one inbox to read a Manager message, then resolve a user-attention item. */}
+{/* Hero media: 10-15 second clip of Agent Comms in motion. Show Atlas sending a specialist message, unread activity appearing, then a User Task opening for a decision. */}
 
-Each agent can receive inbox messages from other agents. Inbox messages are how teams coordinate across specialists.
+Agents coordinate through inbox messages. In Team Workspace, you usually read that coordination in **Agent Comms**.
 
 ## What inbox messages are for
 
@@ -15,25 +15,34 @@ Agents use inbox messages to:
 - Ask another specialist to review something.
 - Report completion.
 - Request clarification.
-- Escalate a user decision to the Manager.
+- Escalate a user decision to Atlas.
 
-{/* Screenshot: sidebar showing unread badges on two agents and a total unread indicator on a team. */}
+## Agent Comms
+
+**Agent Comms** is the user-facing view of inter-agent dispatch messages.
+
+For a selected specialist, it shows messages received from Atlas or other agents and messages sent by that specialist. For Atlas, it shows the broader team dispatch stream.
+
+Use **Agent Comms** to inspect coordination without cluttering your direct chat with the selected agent.
 
 ## Unread counts
 
-Unread badges show which agents need attention. The app also tracks total unread inbox activity across teams.
+Unread badges show which agents or teams have new coordination activity. **Team Hub** can also surface unread and recent messages across teams or for the focused team.
 
-{/* Screenshot: user-attention item in the inbox — a Manager message asking the user for a decision, with the reply control visible. */}
+Click an unread item to open the related team and agent. When the item needs your response, Syndicate can route it into **User Tasks**.
 
 ## User attention
 
-When an agent needs your input, it can route the request through the Manager or surface it as a user-attention item. Treat these items as decision points — the team is waiting on you before it can continue cleanly.
+When an agent needs your input, it can route the request through Atlas or surface it as a **User Task**. Treat these items as decision points. The team may soft pause while it waits for your answer.
+
+Use **Reply** to answer Atlas, **Resolve** to close an item without a reply, or **Allow** / **Dismiss** for interruption prompts.
 
 ## Clearing confusion
 
 If messages pile up or the team seems stuck:
 
-1. Open the inbox.
-2. Read the latest Manager messages first.
-3. Stop any agent doing the wrong work.
-4. Give the Manager a clear next instruction.
+1. Open **User Tasks** and resolve anything blocking.
+2. Open **Agent Comms** for Atlas and the relevant specialist.
+3. Check **Task Health** for blocked or risky work.
+4. Stop any agent doing the wrong work.
+5. Give Atlas one clear next instruction.

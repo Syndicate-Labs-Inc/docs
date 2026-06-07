@@ -1,41 +1,59 @@
 ---
 title: "Chat and dispatch"
-description: "Send work to agents and understand how dispatch works."
+description: "Send work to agents, use Agent Comms, and understand dispatch."
 ---
 
-{/* Hero media: 20-25 second clip of a single dispatch start-to-finish — type a request, hit send, watch the agent transition idle -> active -> done, show streaming tokens and a tool activity row, finish on the task summary. Anchors the entire page.
-Capture list:
-- Chat input with a real (non-sensitive) request being typed.
-- Send button click and the agent status changing.
-- Streaming response text with at least one tool activity row visible.
-- Final state with the task summary visible.
-*/}
+{/* Hero media: 20-25 second clip of a dispatch start-to-finish. Type a request to Atlas, attach a file, send it, watch a specialist wake through Agent Comms, and finish on the Activity tray. */}
 
-Chat is the direct way to work with an agent. Dispatch is the system that starts agent runs, streams progress, and routes follow-up messages.
+Chat is the direct way to work with an agent. Dispatch is how Syndicate starts agent runs, routes inter-agent messages, streams progress, and wakes specialists when Atlas assigns work.
 
-## Chatting with an agent
+## Direct chat
+
+Use direct chat when you want to talk to the selected agent.
 
 1. Open a team or solo workspace.
 2. Select an agent.
 3. Type a clear request.
-4. Attach context if needed.
+4. Attach files or images if needed.
 5. Send the message.
 
-The agent receives your message, recent conversation, its instructions, team context, and available references.
+The agent receives your message, recent conversation, its instructions, team context, tasks, inbox context, and available references based on its context settings.
+
+## Attachments
+
+The chat input supports:
+
+- Picking files from your computer.
+- Dragging files onto the input.
+- Pasting images.
+- Previewing image thumbnails before you send.
+- Removing attachments before send.
+
+Files attached through team chat can appear later in the **Uploads** tab in the bottom tray.
+
+## Slash commands
+
+Agents can expose slash commands from installed skills. When a slash command menu appears, choose a skill to insert `/{skill-name}` into the chat input.
+
+Slash commands are scoped to the selected agent's specialization and installed skills.
+
+## Agent Comms
+
+**Agent Comms** shows inter-agent dispatch messages. It keeps coordination traffic separate from your direct chat.
+
+For a specialist, **Agent Comms** shows messages received from Atlas or other agents and messages sent by that specialist. For Atlas, it shows the broader team dispatch stream.
+
+Use **Agent Comms** when you want to inspect what Atlas asked a specialist to do, what the specialist reported back, or why a handoff happened.
 
 ## Manual dispatch
 
-Manual dispatch starts an agent run on demand. Use it when you want an agent to check its inbox, continue a task, review work, or run a specific request.
+Manual dispatch starts an agent run on demand. Use it when you want an agent to check messages, continue a task, review work, or run a specific request.
 
 ## Automatic dispatch
 
-Automatic dispatch can happen when an idle agent receives a message from another agent. This lets teams continue a workflow without you manually waking each specialist.
+Automatic dispatch can happen when an idle agent receives a message from Atlas or another agent. This lets teams continue a workflow without you manually waking each specialist.
 
-## Inter-agent messages
-
-Agents can send work to each other using structured send messages. In practice, this lets a Manager hand work to a specialist, or lets a specialist report back to the Manager.
-
-{/* Screenshot: agent run in progress with callouts on status pill, streaming response area, tool activity row, and progress summary. */}
+Automatic dispatch does not run while the team is hard paused. A team can also soft pause while a **User Task** waits for your input.
 
 ## What you see while an agent runs
 
@@ -46,9 +64,26 @@ During a run, Syndicate can show:
 - Tool activity.
 - Thought or progress summaries.
 - Files, commands, and changes detected during the run.
+- Context and activity events in the **Activity** tab.
 
-{/* Screenshot: the Stop control on an active agent run, plus the hard pause control on the parent team for contrast. */}
+{/* Screenshot: active run controls showing Answer Now, Stop, and Send or Steer. */}
 
-## Stopping work
+## Running agent controls
 
-If an agent is running the wrong task or needs to pause, stop the run. Then adjust the request, update the agent instructions, or hard pause the team if needed.
+When an agent is running, the chat input can show:
+
+- **Answer Now**: interrupt the current run and ask the agent to respond with what it has so far.
+- **Stop**: cancel the current response for that agent.
+- **Send** or **Steer**: send a new message, including guidance for the active run when supported.
+
+Stopping one agent response is different from **Stop Team**. Use **Stop Team** when you need a hard pause across the whole team.
+
+## Manager operations
+
+When Atlas is selected, use the right rail tabs for team operations:
+
+- **User Tasks** for decisions, approvals, blockers, and interruption prompts.
+- **Agent Tasks** for tracked work.
+- **Task Health** for risk and task quality signals.
+
+User approval and decision work should route through **User Tasks**, not chat approval cards.

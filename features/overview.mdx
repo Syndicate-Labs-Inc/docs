@@ -27,7 +27,7 @@ The pages in this section describe the building blocks that shape every Syndicat
     The specialists you configure, including roles from the Agent Marketplace.
   </Card>
   <Card title="Teams" icon="users" href="/features/teams">
-    A group of specialist agents coordinated by a Manager.
+    A group of specialist agents coordinated by Atlas.
   </Card>
   <Card title="Solo agents" icon="user" href="/features/solo-agents">
     A single specialist agent for direct one-on-one work.
@@ -44,10 +44,10 @@ The pages in this section describe the building blocks that shape every Syndicat
     Send work to an agent and watch what happens during a run.
   </Card>
   <Card title="Tasks" icon="list-checks" href="/features/tasks">
-    Track agent work in progress and review what has been completed.
+    Track User Tasks, Agent Tasks, and Task Health.
   </Card>
   <Card title="Inbox" icon="inbox" href="/features/inbox">
-    Respond to questions and updates that need your attention.
+    Understand Agent Comms and user attention requests.
   </Card>
   <Card title="References" icon="book" href="/features/references-and-context">
     Give agents the project files and docs they need as context.
@@ -61,19 +61,20 @@ The pages in this section describe the building blocks that shape every Syndicat
 
 ## How a team coordinates work
 
-A **Manager** is the agent that coordinates a team. Instead of you assigning each step, you give the Manager an outcome and it decides who on the team should do what.
+Atlas is the Manager that coordinates a team. Instead of you assigning each step, you give Atlas an outcome and it decides who on the team should do what.
 
-**Dispatch** is how Syndicate hands a message or task to an agent so it actually starts running. The Manager dispatches work to specialists, specialists dispatch results and follow-ups back, and you stay in the loop through the inbox.
+Dispatch is how Syndicate hands a message or task to an agent so it starts running. Atlas dispatches work to specialists, specialists report back through **Agent Comms**, and you stay in the loop through **User Tasks** when a decision needs you.
 
 ```mermaid
 flowchart LR
   User["You"] --> Workspace["Workspace"]
   Workspace --> Team["Team"]
   Workspace --> Solo["Solo agent"]
-  Team --> Manager["Manager"]
+  Team --> Manager["Atlas"]
   Manager --> Agents["Specialist agents"]
-  Agents --> Tasks["Tasks"]
-  Agents --> Inbox["Inbox messages"]
+  Agents --> Tasks["Agent Tasks"]
+  Agents --> Inbox["Agent Comms"]
+  Manager --> UserTasks["User Tasks"]
   Agents --> Tools["Skills and MCP servers"]
   Agents --> Project["Local project folder"]
   Solo --> Tasks
@@ -86,12 +87,12 @@ flowchart LR
 
 | Goal | Use |
 | --- | --- |
-| Fix a bug | Solo engineer or team with Manager, Coder, and QA |
-| Build a feature | Team with Manager plus specialists |
+| Fix a bug | Solo engineer or team with Atlas, Coder, and QA |
+| Build a feature | Team with Atlas plus specialists |
 | Review code | Code review team or QA specialist |
 | Write docs | Technical writer agent with project references |
 | Research a topic | Researcher or research team |
-| Coordinate many tasks | Team workspace with Manager control modes |
+| Coordinate many tasks | Team Workspace with Interruption Level, Agent Tasks, and Task Health |
 
 ## Next steps
 

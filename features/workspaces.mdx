@@ -1,30 +1,22 @@
 ---
 title: "Workspaces"
-description: "Understand workspace shapes, the sidebar, project folders, and the lifecycle of a team or solo agent."
+description: "Understand workspace shapes, Team Workspace, project folders, and lifecycle."
 ---
 
-{/* Hero media: 15-20 second clip switching between a team workspace and a solo workspace via the sidebar, then opening Team Hub and Solo Agents. Use this to anchor the "two shapes, separate sections" mental model.
-Capture list:
-- Sidebar collapsed/expanded so both Team Hub and Solo Agents sections are visible.
-- Click into a team workspace, then back to sidebar, then into a solo workspace.
-- Open Team Hub and scroll the list of teams.
-- Open Solo Agents and show recent solo agents.
-*/}
+{/* Hero media: 15-20 second clip switching between Team Hub, Team Workspace, and a solo workspace via the sidebar. Show Team Workspace with Atlas selected, then a solo workspace with direct chat. */}
 
 A workspace is the place Syndicate organizes agent work. Every workspace is either a team or a solo agent, and most workspaces point at a local project folder so agents can read, write, and run commands against real code.
 
-A workspace bundles three things into one place: the agents that live there, the project folder they operate on, and the inboxes, tasks, and run history that build up over time. Switching workspaces moves you between those bundles without stopping work in the one you leave.
+A workspace bundles the agents that live there, the project folder they operate on, and the messages, tasks, references, uploads, and run history that build up over time. Switching workspaces moves you between those bundles without stopping work in the one you leave.
 
 ## Workspace types
 
 | Type | Best for | What it contains |
 | --- | --- | --- |
-| Team | Coordinated multi-agent work | Manager, specialists, inboxes, tasks |
+| Team | Coordinated multi-agent work | Atlas, specialists, Agent Comms, User Tasks, Agent Tasks, Task Health |
 | Solo agent | Direct one-on-one work | One agent attached to a project folder |
 
-A team and a solo agent are distinct workspace shapes. A solo agent is not a team of one — it has no Manager and no inter-agent dispatch. See [Teams](/features/teams) and [Solo agents](/features/solo-agents) for the details of each shape.
-
-{/* Screenshot: full sidebar with the Team Hub section expanded (showing one team and its agents) and the Solo Agents section visible below it. Crop any real project names. */}
+A team and a solo agent are distinct workspace shapes. A solo agent is not a team of one. It has no Manager, no **Agent Comms**, and no inter-agent dispatch. See [Teams](/features/teams) and [Solo agents](/features/solo-agents) for the details of each shape.
 
 ## Sidebar layout
 
@@ -33,18 +25,27 @@ Syndicate groups workspaces in the sidebar so the two shapes stay separate at a 
 - **Team Hub** is its own section, with each team expandable to show its agents.
 - **Solo Agents** is a separate section below **Team Hub**.
 
-Use the sidebar to switch between workspaces. Switching does not stop work in the one you leave. Runs and dispatches continue in the background, and you can come back to find new messages waiting in the inbox.
-
-{/* Screenshot: Team Hub landing view with a few sample teams listed, provider readiness indicators visible. Companion still: Solo Agents landing view. */}
+Use the sidebar to switch between workspaces. Switching does not stop work in the one you leave. Runs and dispatches continue in the background, and you can come back to find new messages waiting.
 
 ## Hubs
 
 Syndicate has a hub view for each workspace shape, so you can scan across workspaces without diving into a single one.
 
-- **Team Hub** lists your multi-agent workspaces, connected provider state, recent teams, and active work.
+- **Team Hub** lists your multi-agent workspaces, unread updates, roster summaries, settings access, recent teams, and active work.
 - **Solo Agents** lists your individual specialist workspaces and recent activity.
 
 Use a hub when you want the bigger picture. Use the sidebar when you want to jump straight into one workspace.
+
+## Team Workspace
+
+When you open a team, you enter **Team Workspace**. It gives you:
+
+- An agent network for Atlas and specialists.
+- A right rail for chat, **Agent Comms**, **User Tasks**, **Agent Tasks**, **Task Health**, **Assign Task**, and agent settings.
+- A bottom tray for **Activity**, **Files**, **Uploads**, and file previews.
+- Header actions for **Preview**, **Team Settings**, **Stop Team**, and restarting a hard-paused team.
+
+Use **Preview** when the team's working directory has a runnable project. Syndicate reuses a running server when available or starts a default dev server before opening the preview.
 
 ## Project folders
 
@@ -54,33 +55,31 @@ When you create a team or solo agent, choose the local folder where the agent sh
   Choose a folder where you are comfortable letting agents operate. Use Git or another backup system before giving agents broad edit permission.
 </Warning>
 
-**References** are different from the project folder. The project folder is where agents work — what they read, edit, and run commands in. References are extra files, folders, or docs you attach to a workspace, team, or agent to shape what they read for context during a run. See [references and context](/features/references-and-context).
-
-{/* Screenshot: team settings area highlighting the working directory field and the option to browse for a new folder. */}
+**References** are different from the project folder. The project folder is where agents work. References are extra files, folders, or docs you attach to a workspace, team, or agent to shape what they read for context during a run. See [references and context](/features/references-and-context).
 
 ## Working directory
 
-The working directory is the local folder a workspace is linked to. Agents in that workspace treat it as the root for everything they do — file lookups, edits, shell commands, and references all resolve against that path.
+The working directory is the local folder a workspace is linked to. Agents in that workspace treat it as the root for file lookups, edits, shell commands, and project context.
 
-You can change the working directory later if the project folder moves or you want the agent to operate somewhere else. Stop any active work in the workspace before relinking so agents do not run against a half-changed folder.
+You can change the working directory later if the project folder moves or you want the agent to operate somewhere else. Stop active work in the workspace before relinking so agents do not run against a half-changed folder.
 
-In team settings, look for the working directory area and use the option to browse for a new folder. The exact label may vary by version of the app. If a workspace gets into a stuck or confused state, see [troubleshooting workspaces](/reference/troubleshooting-workspaces).
+In **Team Settings**, use the working directory area to browse for a new folder. If a workspace gets into a stuck or confused state, see [troubleshooting workspaces](/reference/troubleshooting-workspaces).
 
 ## Workspace lifecycle
 
 You can create workspaces from the hubs or from the workspace creation flow. Once a workspace exists:
 
-- **Rename it** from its settings to keep your sidebar organized.
-- **Relink the working directory** when the project folder moves or you want the agent to work somewhere else.
-- **Remove it** when the work is done. Removing a workspace from Syndicate does not delete the project folder.
+- Rename it from settings to keep your sidebar organized.
+- Relink the working directory when the project folder moves or you want the agent to work somewhere else.
+- Remove it when the work is done. Removing a workspace from Syndicate does not delete the project folder.
 
-Solo agents follow the same lifecycle — created, renamed, relinked, and removed the same way teams are.
+Solo workspaces follow the same lifecycle: create, rename, relink, and remove.
 
 ## Next steps
 
 <CardGroup cols={2}>
   <Card title="Teams" icon="users" href="/features/teams">
-    See how a Manager and specialists coordinate inside one workspace.
+    See how Atlas and specialists coordinate inside one workspace.
   </Card>
   <Card title="References and context" icon="book" href="/features/references-and-context">
     Attach the right project files and docs so agents have useful context.

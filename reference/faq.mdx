@@ -3,13 +3,13 @@ title: "FAQ"
 description: "Quick answers to common Syndicate questions."
 ---
 
-{/* Hero media: no body media needed — this is a Q&A reference. Optional hero still if we want one: the support footer (Email support, Troubleshooting link, Workspaces troubleshooting link) so the "where to get help" question has a visual landing. Skip if it feels redundant against the inline links. */}
+{/* Hero media: no body media needed. Optional still: support footer with Troubleshooting and Workspaces troubleshooting links. */}
 
 Short answers to the questions that come up most often. Each entry links to the deeper page.
 
 ## What is Syndicate?
 
-Syndicate is a desktop app for running AI agents against your local project folders. You can work with a single specialist or a coordinated team led by a Manager. See [Feature overview](/features/overview).
+Syndicate is a desktop app for running AI agents against your local project folders. You can work with a single specialist or an Atlas-led team. See [Feature overview](/features/overview).
 
 ## Do I need beta access to use Syndicate?
 
@@ -20,18 +20,18 @@ Yes. Access is currently invite-based. Request access from the Syndicate site an
 Syndicate supports three providers:
 
 - **Claude** through the Claude Code CLI.
-- **OpenAI** through the Codex CLI.
+- **OpenAI/Codex** through the Codex CLI.
 - **Gemini** through the Gemini CLI.
 
 See [Connect providers](/guides/connect-providers).
 
 ## Where are my credentials stored?
 
-Provider credentials are stored locally on the machine that connected them. Syndicate does not sync provider credentials between machines — you connect providers once per machine. See [Auth flows](/reference/auth-flows).
+Provider credentials are stored locally on the machine that connected them. Syndicate does not sync provider credentials between machines. Connect providers once per machine. See [Auth flows](/reference/auth-flows).
 
 ## Where does my workspace data live?
 
-Workspace data — teams, agents, messages, tasks, references — is stored locally on your machine and scoped to your signed-in user. Syndicate handles account and beta access through its backend so it can sign you in and check access.
+Workspace data, including teams, agents, messages, tasks, references, and uploads, is stored locally on your machine and scoped to your signed-in user. Syndicate uses your account to sign you in and check beta access.
 
 ## Can I use Syndicate offline?
 
@@ -39,24 +39,31 @@ Agent runs need the provider you chose to be reachable, so they require internet
 
 ## What is the difference between a team and a solo agent?
 
-- A **team** has a Manager plus specialists. The Manager plans, delegates, and routes follow-ups.
-- A **solo agent** is a single specialist with no Manager — best for focused, one-on-one work.
+- A **team** has Atlas plus specialists. Atlas plans, delegates, routes follow-ups, and creates **User Tasks** when it needs you.
+- A **solo agent** is a single specialist with no Manager, no **Agent Comms**, and no inter-agent dispatch.
 
 See [Workspaces](/features/workspaces).
 
-## How do Manager control modes work?
+## How does Interruption Level work?
 
-Teams can run in one of three modes:
+**Interruption Level** controls when Atlas asks before continuing.
 
-- **Autopilot** — Manager continues freely.
-- **Approve New Work** — Manager asks before expanding scope.
-- **Approve Each Step** — Manager asks before every delegation.
+- **Minimal** interrupts only for true blockers, explicit user attention, missing access, high-risk work, or required approval.
+- **Balanced** interrupts for unclear scope, meaningful new workstreams, medium or high risk, or completion approvals.
+- **Hands-on** interrupts before major assignments, broad follow-ups, risky decisions, and completion reviews.
+- **Manual** turns most delegations, follow-ups, and re-routes into **User Task** approval prompts.
 
 See [Teams](/features/teams).
 
+## What are User Tasks?
+
+**User Tasks** are decisions, approvals, blockers, and interruption prompts that need you. They replace chat approval cards. Select Atlas in **Team Workspace**, then open **User Tasks**.
+
+See [Tasks](/features/tasks).
+
 ## How does Syndicate choose which model to run?
 
-Each agent has a provider and model. When an agent does not specify one, Syndicate uses a sensible default based on your team and account settings. See [Providers and models](/features/providers-and-models).
+Each agent has a provider and model. When an agent does not specify one, Syndicate uses your defaults. See [Providers and models](/features/providers-and-models).
 
 ## What is an MCP server?
 
@@ -68,7 +75,7 @@ References are files or folders you attach so agents can use them as context. Th
 
 ## How do I stop a runaway team?
 
-Stop the active agent, hard pause the team, then adjust the instructions or the Manager mode before resuming. See [Troubleshooting workspaces and dispatch](/reference/troubleshooting-workspaces).
+Stop the active agent response, use **Stop Team** to hard pause the team, then adjust instructions, references, or **Interruption Level** before resuming. See [Troubleshooting workspaces and dispatch](/reference/troubleshooting-workspaces).
 
 ## Can I use the same account on more than one machine?
 

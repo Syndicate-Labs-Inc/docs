@@ -1,203 +1,162 @@
-# Syndicate public docs revamp plan
+# Syndicate docs phase plan
+
+## Current phase: Team view alignment for all non-Atlas pages
+
+Source input:
+
+- Uploaded Team view reference: `team-view.md`
+- Docs repo: `C:\Users\allyz\Documents\syndicate-docs`
+- Site framework: Mintlify
+- Validation command: `mint validate`
 
 ## Goal
 
-Revamp the Syndicate Mintlify documentation using `syndicate-overview.md` as the source brief. The outcome should be a lightweight, public-facing docs site that helps users understand, set up, and troubleshoot Syndicate without exposing private implementation details.
-
-## Source inputs
-
-- Uploaded source brief: `syndicate-overview.md`
-- Docs repo: `C:\Users\allyz\Documents\syndicate-docs`
-- Site framework: Mintlify
-- Config file: `docs.json`
-- Validation command: `mint validate`
+Update every documentation page except the Atlas-specific page so the public docs reflect the current Team view model: Team Hub, Team Workspace, Agent Comms, User Tasks, Agent Tasks, Task Health, Assign Task, Interruption Level, hard pause, soft pause, bottom tray, file/upload browsing, and project preview.
 
 ## Editorial constraints
 
 - Use "Syndicate" for the app name.
-- Use "workspace" for the broad container.
-- Use "team" and "solo agent" for specific workspace types.
+- Use "workspace" for the broad container and "team" or "solo agent" for specific workspace types.
 - Use "provider" for Claude, OpenAI/Codex, and Gemini.
 - Use "MCP server" for external tool integrations.
-- Write in active voice and second person.
+- Use active voice and second person.
 - Keep sentences concise.
 - Use sentence case for headings.
 - Bold UI labels.
-- Format commands, paths, files, and code references with code styling.
-- Avoid secrets, private credentials, customer data, unreleased links, and unnecessary implementation details.
+- Format file names, commands, paths, and code references with code styling.
+- Keep private implementation details out of public docs unless they help users solve a real setup problem.
 
-## Phase 1: Source audit and content map
+## Scope
 
-Owner: Researcher
+Included:
 
-Tasks:
+- All existing MDX pages except the Atlas orchestrator page.
+- `docs.json` only if navigation labels or page sequencing need updates.
+- User-facing explanations, tutorials, feature references, troubleshooting, and FAQ content that mention teams, agents, tasks, inbox, preview, files, uploads, settings, skills, MCP servers, providers, or workspace controls.
 
-- Audit `syndicate-overview.md` for public-docs candidates.
-- Separate must-have MVP docs from later nice-to-have docs.
-- Identify user-facing concepts, setup paths, core workflows, references, and troubleshooting topics.
-- Flag private/internal sections that should not become public docs.
-- Produce a content map grouped by reader intent.
+Excluded:
 
-Deliverables:
+- The Atlas-specific page: `guides/create-your-first-team/atlas-orchestrator.mdx`.
+- Private implementation details from the source reference, including internal source file paths, IPC names, persistence file names, and backend parsing mechanics unless needed for troubleshooting.
 
-- Content inventory.
-- MVP vs later-scope recommendation.
-- Risk list for unclear, stale, or private claims.
-
-Acceptance criteria:
-
-- Every proposed page traces back to a user-facing need.
-- Private implementation details are either omitted or reframed as user-facing behavior.
-- Open questions are explicit.
-
-## Phase 2: Information architecture
-
-Owner: UI Designer
-
-Depends on: Phase 1
-
-Tasks:
-
-- Design the Mintlify navigation structure.
-- Define top-level groups such as getting started, workspaces, agents, providers, MCP servers, references, troubleshooting, and FAQ.
-- Recommend landing/index flow and cross-linking patterns.
-- Keep the docs lightweight and easy to scan.
-
-Deliverables:
-
-- Proposed `docs.json` navigation structure.
-- Page hierarchy with short page descriptions.
-- Reader paths for first-time setup, team creation, solo agent setup, provider setup, and troubleshooting.
-
-Acceptance criteria:
-
-- Navigation supports both new users and returning users.
-- No top-level group is overloaded.
-- Public docs do not read like an internal architecture manual.
-
-## Phase 3: Writing templates and first draft
+## Phase 1: Audit non-Atlas docs
 
 Owner: Technical Writer
 
-Depends on: Phase 2
+Supporting agents:
+
+- Frontend Developer checks page inventory, routes, and `docs.json`.
+- AI Engineer flags AI-agent terminology or workflow claims that need technical validation.
 
 Tasks:
 
-- Define reusable page templates for tutorials, how-to guides, feature references, troubleshooting, and FAQ.
-- Draft the MVP docs from the approved content map.
-- Rewrite implementation-heavy content into user-facing language.
-- Apply Syndicate terminology and style rules.
-
-Likely MVP pages:
-
-- Overview
-- Quickstart
-- Install and launch Syndicate
-- Connect providers
-- Create a team workspace
-- Create a solo agent workspace
-- Use the Manager
-- Add and configure agents
-- Use Agent Marketplace
-- Attach references
-- Configure MCP servers
-- Manage tasks and inbox messages
-- Troubleshooting provider setup
-- Troubleshooting workspace and dispatch issues
-- FAQ
+- Inventory all MDX pages except `guides/create-your-first-team/atlas-orchestrator.mdx`.
+- Identify pages that must change based on the Team view reference.
+- Mark pages that should receive only terminology or cross-link updates.
+- Find stale labels such as Manager Control, chat approval cards, or old task-board language.
 
 Deliverables:
 
-- Draft MDX pages with frontmatter.
-- Consistent headings and UI-label formatting.
-- Internal links between related pages.
+- Page-by-page update map.
+- List of terms and concepts to standardize.
+- Any content gaps that require user clarification.
 
-Acceptance criteria:
+Status: In progress.
 
-- Each page has one clear user intent.
-- Tutorials include prerequisites and expected outcomes.
-- Troubleshooting pages include symptoms, causes, and fixes.
-- Claims are grounded in the source brief or marked as questions.
+## Phase 2: Rewrite and add content
 
-## Phase 4: Mintlify implementation
+Owner: Technical Writer
+
+Supporting agents:
+
+- AI Engineer validates coordination, interruption, User Task, task lifecycle, and agent workflow descriptions.
+- Backend Developer validates user-facing provider, MCP server, file, upload, preview, and troubleshooting claims when backend behavior is mentioned.
+
+Tasks:
+
+- Update feature pages for Team Hub, Team Workspace, agents, tasks, inbox, workspaces, settings, references/context, MCP servers, skills, providers, and solo-agent contrasts.
+- Update guides for creating teams, using tasks and inbox, adding agents, attaching references, MCP/skills, provider setup, and marketplace-related workflows when Team view context matters.
+- Update troubleshooting and FAQ pages for hard pause, soft pause, User Tasks, preview, large histories, file browsing, uploads, and dispatch issues.
+- Keep the Atlas page untouched.
+
+Deliverables:
+
+- Revised MDX pages.
+- Consistent terminology and links.
+- Public-facing descriptions of current Team view workflows.
+
+Status: Pending.
+
+## Phase 3: Mintlify implementation pass
 
 Owner: Frontend Developer
 
-Depends on: Phase 3
-
 Tasks:
 
-- Implement the approved docs page structure in the repo.
-- Update `docs.json` navigation.
-- Add or update MDX files.
-- Use Mintlify components where useful for cards, callouts, tabs, and steps.
-- Keep the implementation maintainable and aligned with existing repo conventions.
+- Ensure page structure, frontmatter, headings, callouts, steps, tabs, and cards render cleanly in Mintlify.
+- Update `docs.json` only where navigation needs to match revised page content.
+- Keep routes stable unless a route change is necessary.
+- Confirm the Atlas page remains unchanged.
 
 Deliverables:
 
-- Updated `docs.json`.
-- New or revised MDX pages.
-- Reusable Mintlify patterns for key docs surfaces.
+- Mintlify-ready docs implementation.
+- Navigation updates if needed.
 
-Acceptance criteria:
+Status: Pending.
 
-- Pages render in Mintlify.
-- Navigation matches the approved IA.
-- File names and routes are predictable.
-- No private source paths are exposed unless they directly help users solve setup problems.
+## Phase 4: Specialist accuracy review
 
-## Phase 5: Review and validation
-
-Owner: QA Analyst
-
-Depends on: Phase 4
+Owners: AI Engineer and Backend Developer
 
 Tasks:
 
-- Review the docs for missing prerequisites, confusing steps, stale claims, broken reader paths, and dead links.
-- Validate tutorials, guides, references, troubleshooting, and FAQ against their intended user intents.
-- Run or request `mint validate` before publishing structural changes.
-- Produce a fix list prioritized by severity.
+- Review rewritten pages for inaccurate descriptions of orchestration, interruption levels, task routing, Agent Comms, user approvals, hard pause, soft pause, provider setup, MCP servers, preview, files, and uploads.
+- Flag internal-only details that should be removed or reframed.
+- Confirm terminology follows project rules.
 
 Deliverables:
 
-- QA review notes.
-- Broken-link or navigation issues.
-- Required fixes before publish.
+- Accuracy review notes.
+- Required corrections before final validation.
 
-Acceptance criteria:
+Status: Pending.
 
-- `mint validate` passes or failures are documented with fixes.
-- Critical user flows are covered.
-- No known severe documentation issues remain.
+## Phase 5: Final review and validation
 
-## Phase 6: Final polish and ship-readiness
+Owner: Review Agent
 
-Owners: Technical Writer, UI Designer, Frontend Developer, QA Analyst
+Supporting agent:
 
-Depends on: Phase 5
+- Frontend Developer runs or coordinates `mint validate`.
 
 Tasks:
 
-- Apply QA fixes.
-- Tighten page titles, descriptions, links, and callouts.
-- Confirm docs follow terminology and style preferences.
-- Summarize what changed and what remains for later.
+- Review all changed pages for gaps, ambiguity, broken assumptions, inconsistent terminology, and missing setup or usage steps.
+- Check links and navigation.
+- Confirm `mint validate` passes, or document failures and required fixes.
 
 Deliverables:
 
-- Final docs update ready for review or publish.
-- Short changelog-style summary.
-- Later-scope backlog.
+- Final review notes.
+- Validation result.
+- Fix list, if any.
 
-Acceptance criteria:
+Status: Pending.
 
-- MVP docs are coherent end to end.
-- Mintlify validation is clean.
-- Remaining work is clearly separated from launch scope.
+## Phase 6: Phase closeout
 
-## Current status
+Owner: Atlas
 
-- Phase 1 is ready to start after user approval.
-- No files beyond this planning document have been changed.
+Tasks:
 
+- Summarize what changed.
+- Update this plan with completed statuses.
+- Report any open questions or next-phase recommendations.
+
+Deliverables:
+
+- Human-facing phase summary.
+- Updated `PLAN.md`.
+
+Status: Pending.

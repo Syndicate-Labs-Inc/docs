@@ -1,34 +1,28 @@
 ---
 title: "Settings"
-description: "Manage account, general app behavior, providers, and MCP."
+description: "Manage account, general app behavior, providers, MCP servers, teams, and agents."
 ---
 
-{/* Hero media: 12-15 second clip walking through the Settings navigation — Account, General, Providers, MCP — pausing briefly on each tab so the layout is clear. Crop any real account email. */}
+{/* Hero media: 12-15 second clip walking through Settings navigation, then opening Team Settings and Agent Settings from Team Workspace. Crop any real account email. */}
 
-Settings is the control center for app-level configuration.
-
-{/* Screenshot: Account settings showing signed-in user (email masked) and Sign out button. */}
+Settings is the control center for app-level configuration. Team and agent settings live inside the workspace so you can adjust them in context.
 
 ## Account
 
-Use Account settings to view your signed-in Syndicate account and sign out.
-
-{/* Screenshot: General settings showing app data path, default provider, default model, and theme controls. */}
+Use **Account** settings to view your signed-in Syndicate account and sign out.
 
 ## General
 
-Use General settings to manage:
+Use **General** settings to manage:
 
 - App data path.
 - Default provider.
 - Default model.
 - Theme.
 
-{/* Screenshot: Providers settings with the three cards (Claude, OpenAI/Codex, Gemini) in different states — one Connected, one Not signed in, one Not installed. */}
-
 ## Providers
 
-Use Providers settings to:
+Use **Providers** settings to:
 
 - Connect providers.
 - Disconnect providers.
@@ -36,19 +30,45 @@ Use Providers settings to:
 - See installed and authenticated status.
 - Choose defaults.
 
-{/* Screenshot: MCP settings showing the catalog with both ready entries and docs-only entries, plus the manual-add control. */}
+Agents can only run on models from connected providers.
 
 ## MCP
 
-Use MCP settings to:
+Use **MCP** settings to:
 
 - Review available MCP catalog entries.
 - See setup requirements.
 - Install or configure an MCP server.
 - Add an MCP server manually.
 
-{/* Screenshot: team settings inside an open team — rename, working directory, Manager control mode, and Hard pause controls visible. */}
+Installing an MCP server does not give every agent access. Enable MCP servers for the agents that need them from **Agent Settings**.
 
 ## Team settings
 
-Team settings live inside a team. Use them to rename the project, relink the working directory, choose Manager control mode, hard pause the team, or delete the team.
+Open **Team Settings** from **Team Hub**, a team card, or the **Team Workspace** header.
+
+Use **Team Settings** to:
+
+- Rename the team.
+- Review or relink the working directory.
+- Set **Interruption Level**.
+- Hard pause or resume the team.
+- Delete the team.
+
+**Interruption Level** controls when Atlas asks for input. **Hard pause** stops current team dispatches and blocks new automatic dispatch. Resuming a hard-paused team does not restart agents automatically.
+
+## Agent settings
+
+Open **Agent Settings** from the right rail in **Team Workspace** or a solo workspace.
+
+Use **Agent Settings** to:
+
+- Review identity and specialization.
+- Rename non-manager agents.
+- Read the agent's instructions or **Soul**.
+- Change context settings.
+- Review skills and slash commands.
+- Enable or disable MCP servers for that agent.
+- Delete a non-manager agent after confirmation.
+
+Context settings control how much history, inbox context, tasks, team context, references, and connector context the agent receives during runs.

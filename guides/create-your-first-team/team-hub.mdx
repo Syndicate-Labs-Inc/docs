@@ -1,18 +1,11 @@
 ---
-title: "Team hub"
-description: "Use Team Hub to see every team, check provider readiness, create teams, and jump back into recent work."
+title: "Team Hub"
+description: "Use Team Hub to scan teams, unread updates, settings, and recent work."
 ---
 
-**Team Hub** is the landing view for multi-agent work. Open it when you want to scan your teams before entering a specific team workspace.
+**Team Hub** is the landing view for multi-agent work. Open it when you want to scan teams before entering a specific **Team Workspace**.
 
-{/* Hero media: 15-20 second clip opening Team Hub from the sidebar, scanning teams, checking provider state, and opening one team workspace.
-Capture list:
-- Sidebar with Team Hub selected.
-- Team Hub list with several teams.
-- Provider readiness indicator on a team.
-- Create Team entry point.
-- Click into one team workspace.
-*/}
+{/* Hero media: 15-20 second clip opening Team Hub from the sidebar, selecting a team card, reviewing the focused preview and inbox panel, opening team settings, then opening Team Workspace. */}
 
 <Frame>
   ![Syndicate Team Hub landing page listing team workspaces with provider readiness indicators and a Create Team entry point.](/assets/screenshots/teams/Landing%20Page.png)
@@ -23,47 +16,56 @@ Capture list:
 Use **Team Hub** when you want to:
 
 - See every team in one place.
-- Check which teams have a connected provider.
+- Check team status and unread updates.
 - Reopen a team you used recently.
 - Create a new team without staying inside another workspace.
+- Open team settings before you enter the workspace.
 
 If you already know which workspace you need, use the sidebar. Use **Team Hub** when you want the broader team view.
 
-## What you see
+## What team cards show
 
-**Team Hub** can show:
+Each team card can show:
 
-- **Your teams**: multi-agent workspaces you have created.
-- **Provider state**: whether each team has a provider ready to run.
-- **Recent activity**: teams that have run work recently.
-- **Create Team**: the entry point for creating another team.
-- **Team details**: the team name, roster summary, and local project folder when available.
-- **Workspace shortcuts**: actions for opening a team, continuing recent work, or starting a new setup flow.
+- Team name.
+- Working folder label.
+- Agent count and roster summary.
+- Agent avatars or status summary.
+- Team status based on agent status.
+- Unread or recent activity signals.
+- Settings access.
+- An open or drill-in action.
 
-Provider state matters because agents cannot run until the selected provider is connected.
+A team appears active when agents are working. Waiting, error, idle, and hard-paused states also affect the summary.
 
-## Common actions
+## Focused team preview
 
-From **Team Hub**, you can:
+When you select a team in **Team Hub**, the focused preview can show:
 
-- Open an existing team workspace.
-- Start the **Create Team** flow.
-- Check whether a team needs provider setup before agents can run.
-- Return to a recent team after closing or switching workspaces.
-- Compare teams before deciding where to send a task.
+- Team name.
+- Working folder label.
+- Agent roster.
+- Active status.
+- A primary action to open the team chat or workspace.
+- Team settings access.
+- Inbox messages scoped to that team.
+
+Open the team when you need the full **Team Workspace** with chat, **Agent Comms**, **User Tasks**, **Agent Tasks**, **Task Health**, and the bottom tray.
 
 ## Create a team from Team Hub
 
-Click **Create Team** to start the same setup flow covered in [Quick start](/guides/create-your-first-team/quick-start). Choose **Template**, **Guided description**, or **Build Your Team**; select the working folder; review the Manager and specialists; choose a control mode; and create the team.
+Click **Create Team** to start the same setup flow covered in [Quick start](/guides/create-your-first-team/quick-start). Choose **Template**, **Guided description**, or **Build Your Team**; select the working folder; review Atlas and specialists; choose **Interruption Level**; and create the team.
 
 ## Jump back into recent work
 
-Open a team from **Team Hub** when you want to continue where you left off. After the team workspace opens, check:
+Open a team from **Team Hub** when you want to continue where you left off. After **Team Workspace** opens, check:
 
-- The latest Manager message.
-- Active or blocked tasks.
-- Inbox messages that need your response.
-- The current provider state.
+- The latest Atlas message.
+- **User Tasks** for decisions, approvals, or blockers.
+- **Agent Tasks** for tracked work.
+- **Task Health** for risk signals.
+- **Agent Comms** for specialist handoffs.
+- **Activity**, **Files**, and **Uploads** in the bottom tray.
 
 ## Next steps
 
