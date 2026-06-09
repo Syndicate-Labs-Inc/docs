@@ -3,8 +3,6 @@ title: "Workspaces"
 description: "Understand workspace shapes, Team Workspace, project folders, and lifecycle."
 ---
 
-{/* Hero media: 15-20 second clip switching between Team Hub, Team Workspace, and a solo workspace via the sidebar. Show Team Workspace with Atlas selected, then a solo workspace with direct chat. */}
-
 A workspace is the place Syndicate organizes agent work. Every workspace is either a team or a solo agent, and most workspaces point at a local project folder so agents can read, write, and run commands against real code.
 
 A workspace bundles the agents that live there, the project folder they operate on, and the messages, tasks, references, uploads, and run history that build up over time. Switching workspaces moves you between those bundles without stopping work in the one you leave.
@@ -43,9 +41,11 @@ When you open a team, you enter **Team Workspace**. It gives you:
 - An agent network for Atlas and specialists.
 - A right rail for chat, **Agent Comms**, **User Tasks**, **Agent Tasks**, **Task Health**, **Assign Task**, and agent settings.
 - A bottom tray for **Activity**, **Files**, **Uploads**, and file previews.
-- Header actions for **Preview**, **Team Settings**, **Stop Team**, and restarting a hard-paused team.
+- Header actions for **Preview** and **Team Settings**. Use **Team Settings** to hard pause or resume a team.
 
 Use **Preview** when the team's working directory has a runnable project. Syndicate reuses a running server when available or starts a default dev server before opening the preview.
+
+Use **Activity** to inspect run events across the selected agent or team. Use **Files** to browse the working directory without leaving Syndicate. Use **Uploads** to return to files or images you attached through chat.
 
 ## Project folders
 
@@ -73,7 +73,7 @@ You can create workspaces from the hubs or from the workspace creation flow. Onc
 - Relink the working directory when the project folder moves or you want the agent to work somewhere else.
 - Remove it when the work is done. Removing a workspace from Syndicate does not delete the project folder.
 
-Solo workspaces follow the same lifecycle: create, rename, relink, and remove.
+Solo agents follow the same lifecycle: create, rename, relink, and remove.
 
 ## Next steps
 

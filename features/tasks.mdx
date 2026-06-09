@@ -3,8 +3,6 @@ title: "Tasks"
 description: "Track User Tasks, Agent Tasks, and Task Health in Team Workspace."
 ---
 
-{/* Hero media: 12-15 second clip of Atlas selected in Team Workspace. Show the right rail moving between User Tasks, Agent Tasks, and Task Health. */}
-
 Tasks help you see what a team is doing, what needs you, and which active work may be risky or blocked.
 
 In Team Workspace, task work is split across three Atlas tabs:
@@ -15,7 +13,7 @@ In Team Workspace, task work is split across three Atlas tabs:
 
 ## User Tasks
 
-**User Tasks** replace chat approval cards. Use them when the team needs a human decision.
+**User Tasks** collect decisions, approvals, blockers, and interruption prompts that need your input.
 
 A **User Task** can come from:
 
@@ -33,7 +31,7 @@ Each item shows the requester, source, impact, description, related task or mess
 | **Medium** | The team can continue some work but needs direction |
 | **Low** | The item needs review but is not urgent |
 
-Use **Reply** to answer Atlas. Use **Resolve** to close an item without a reply. Use **Allow** or **Dismiss** when Atlas asks you to approve a manager step.
+Use **Reply** to answer Atlas. Use **Resolve** to close an item without a reply. When Atlas shows an approval card, use **Allow & Send** to send the instructions or **Reject** to discard them. A team may soft pause while a blocking **User Task** waits for your input.
 
 ## Agent Tasks
 
@@ -57,17 +55,13 @@ Use it to:
 
 When you cancel a task, Atlas gets a receipt and guidance not to recreate or reassign that task unless you explicitly ask.
 
+If you use the bulk abort action, Syndicate cancels the visible abortable tasks and sends Atlas a summary. Relevant specialists can also receive stand-down instructions so they do not keep working on canceled tasks.
+
 ## Task Health
 
 **Task Health** is a watchlist, not a second task board. Use it to spot task risk before the team loops or stalls.
 
-Task Health can flag:
-
-- Blocked tasks.
-- Tasks requiring human decisions.
-- High-risk or medium-risk tasks.
-- Unassigned tasks.
-- Tasks with weak deliverables, acceptance criteria, or done conditions.
+Task Health can flag unassigned tasks, high-risk or medium-risk work, weak deliverables or acceptance criteria, stale in-progress work, stale todos, and stale blockers where the blocking question itself lives in **User Tasks**.
 
 Click **Nudge Manager** on a specific risk item when you want Atlas to address that item. Syndicate sends Atlas the task, severity, reason, and requested next step.
 
@@ -90,6 +84,8 @@ The form includes:
 
 Choose **Notify and start agent** when you want the assignee to wake and start through normal dispatch. If the task requires a human decision, Syndicate routes that review through **User Tasks**.
 
+If you assign work to Atlas, the message comes from you. If you assign work to a specialist in a managed team, Atlas can send the notification so the work stays inside the team coordination flow.
+
 ## Best practices
 
 - Keep tasks outcome-focused.
@@ -97,3 +93,4 @@ Choose **Notify and start agent** when you want the assignee to wake and start t
 - Add a deliverable, done condition, and acceptance criteria.
 - Use **User Tasks** for decisions instead of burying approvals in chat.
 - Use **Task Health** to catch risk early.
+- Use **Activity**, **Files**, **Uploads**, and **Preview** to verify work before approving completion.

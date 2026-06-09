@@ -12,6 +12,12 @@ Team work happens across two main surfaces:
 - **Team Hub**: the overview where you scan teams, unread updates, roster summaries, settings, and recent work.
 - **Team Workspace**: the single-team control room where you chat, assign work, inspect coordination, review tasks, browse files, and preview the project.
 
+## Team Hub
+
+Use **Team Hub** before you enter a specific workspace. Team cards show the team name, working folder label, roster summary, agent status, unread or recent activity, settings access, and an open action.
+
+When you select a team, the focused preview gives you the team roster, active status, focused inbox messages, and a primary action to open the team chat or workspace. Use this view when you need to compare several teams or check which one needs attention.
+
 ## The Manager
 
 The Manager is the agent that coordinates a team. In most teams, this is Atlas. Instead of you assigning each step to each specialist, you give Atlas an outcome and it decides who should do what.
@@ -75,9 +81,13 @@ When Atlas is selected, the right rail shows the manager operations tabs: **User
 
 Use **Assign Task** when you want to create tracked work directly. You can choose the assignee, title, instructions, deliverable, done condition, acceptance criteria, phase, risk, whether completion needs human review, and whether to notify and start the agent.
 
+Use the bottom tray when you need evidence for the work in progress. **Activity** shows recent tool, command, context, and message events. **Files** lets you browse the working folder and open previewable files. **Uploads** lists files attached through team chat.
+
+Agent settings also open from the right rail. Use them to review identity, specialization, instructions, context settings, skills, and MCP server access for the selected agent.
+
 ## Hard pause
 
-**Hard pause** stops in-flight team dispatches and blocks new automatic dispatch. Use **Stop Team** or the team settings pause control when a team is moving too quickly, a provider is misconfigured, or you want to inspect work before anything else runs. Resuming a paused team does not auto-restart agents. They run again when prompted or messaged.
+**Hard pause** stops in-flight team dispatches and blocks new automatic dispatch. Use the team settings pause control when a team is moving too quickly, a provider is misconfigured, or you want to inspect work before anything else runs. Resuming a paused team does not auto-restart agents. They run again when prompted or messaged.
 
 Syndicate can also soft pause a team while an unresolved **User Task** waits for your input. You do not manually unlock a soft pause; reply to or resolve the relevant **User Task**.
 
@@ -85,9 +95,14 @@ Syndicate can also soft pause a team while an unresolved **User Task** waits for
 
 Click **Preview** from the workspace header to open the team's project preview. Syndicate reuses an existing running server when it can. If none exists, it starts a default dev server from the team's working directory and opens the preview when a URL or port is available.
 
+To stop or redirect managed work, tell Atlas what should stop, then cancel any specific task from **Agent Tasks**. If several active tasks should stop, use the board's abort-all-active option.
+
 ## Next steps
 
-<CardGroup cols={2}>
+<CardGroup cols={3}>
+  <Card title="Atlas orchestrator" icon="route" href="/guides/create-your-first-team/atlas-orchestrator">
+    Learn how Atlas plans, delegates, and asks for input.
+  </Card>
   <Card title="Solo agents" icon="user" href="/features/solo-agents">
     Compare a team to working with a single specialist agent.
   </Card>

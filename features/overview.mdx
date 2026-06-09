@@ -5,14 +5,6 @@ description: "How workspaces, agents, teams, and providers fit together."
 
 Syndicate turns a local project folder into a workspace where AI agents can plan, build, review, research, document, and coordinate with each other.
 
-{/* Hero media: 15-25 second clip illustrating the map this page describes — open a team workspace, show the Manager dispatching to two specialists, switch to a solo workspace, then back. Use as a visual anchor for the concept cards below.
-Capture list:
-- Sidebar with both Team Hub and Solo Agents sections expanded.
-- A team workspace with the Manager card visible.
-- A dispatch animation (Manager -> specialist status changing to active).
-- A solo workspace open with its single specialist.
-*/}
-
 ## What's in this section
 
 The pages in this section describe the building blocks that shape every Syndicate setup.
@@ -46,7 +38,7 @@ The pages in this section describe the building blocks that shape every Syndicat
   <Card title="Tasks" icon="list-checks" href="/features/tasks">
     Track User Tasks, Agent Tasks, and Task Health.
   </Card>
-  <Card title="Inbox" icon="inbox" href="/features/inbox">
+  <Card title="Agent Comms" icon="inbox" href="/features/inbox">
     Understand Agent Comms and user attention requests.
   </Card>
   <Card title="References" icon="book" href="/features/references-and-context">
@@ -56,8 +48,6 @@ The pages in this section describe the building blocks that shape every Syndicat
     Connect agents to external tools and data sources.
   </Card>
 </CardGroup>
-
-{/* Screenshot: annotated version of the mermaid diagram below, exported as a static image, with callouts on Workspace, Manager, and Dispatch. Use this if the rendered mermaid feels too sparse on a hero scan. Optional — keep the live mermaid as the primary. */}
 
 ## How a team coordinates work
 
@@ -77,8 +67,7 @@ flowchart LR
   Manager --> UserTasks["User Tasks"]
   Agents --> Tools["Skills and MCP servers"]
   Agents --> Project["Local project folder"]
-  Solo --> Tasks
-  Solo --> Inbox
+  Solo --> DirectChat["Direct chat"]
   Solo --> Tools
   Solo --> Project
 ```
@@ -92,7 +81,7 @@ flowchart LR
 | Review code | Code review team or QA specialist |
 | Write docs | Technical writer agent with project references |
 | Research a topic | Researcher or research team |
-| Coordinate many tasks | Team Workspace with Interruption Level, Agent Tasks, and Task Health |
+| Coordinate many tasks | Team Workspace with Interruption Level, Agent Comms, Agent Tasks, and Task Health |
 
 ## Next steps
 
