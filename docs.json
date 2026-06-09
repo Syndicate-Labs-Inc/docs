@@ -31,6 +31,7 @@
             "group": "The Marketplace",
             "pages": [
               "guides/agent-marketplace",
+              "guides/add-and-configure-agents",
               "guides/agent-marketplace/built-in-syndicate-agents",
               "guides/agent-marketplace/community-agents",
               "guides/agent-marketplace/agent-maker"

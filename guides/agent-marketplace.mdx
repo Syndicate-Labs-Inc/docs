@@ -1,19 +1,22 @@
 ---
 title: "The Marketplace"
-description: "Choose built-in Syndicate specialists, install community agents, or create your own reusable agent with Agent Maker."
+description: "Choose built-in Syndicate specialists, install community agents, configure workspace agents, or create your own reusable agent with Agent Maker."
 ---
 
-The Agent Marketplace is where you decide who joins your workspace.
+The Agent Marketplace is where you decide who joins your workspace and how each agent starts its work.
 
-Use it when you want to add a specialist to an existing team, spin up a solo agent, install a community agent package, or generate a new reusable agent from a description.
+Use it when you want to add a specialist to an existing team, spin up a solo agent, install a community agent package, generate a reusable agent from a description, or adjust an agent after it joins a workspace.
 
 {/* Suggested screenshot: Agent Marketplace open with the Syndicate, User Made, and Community categories visible. */}
 
 ## What you can do here
 
-<CardGroup cols={3}>
+<CardGroup cols={2}>
   <Card title="Built-in Syndicate agents" icon="sparkles" href="/guides/agent-marketplace/built-in-syndicate-agents">
     Pick ready-made specialists like Manager, Frontend Developer, Researcher, Review Agent, Technical Writer, QA, DevOps, and more.
+  </Card>
+  <Card title="Add and configure agents" icon="sliders" href="/guides/add-and-configure-agents">
+    Add an agent to a team or solo agent, then review its role, model, skills, MCP servers, and context settings.
   </Card>
   <Card title="Community agents" icon="download" href="/guides/agent-marketplace/community-agents">
     Add packages from a local folder, GitHub repository, or supported CLI install command.
@@ -52,18 +55,20 @@ Use the path that matches what you are trying to do:
 | Add a common specialist quickly | Built-in Syndicate agents |
 | Use an agent package from another creator | Community agents |
 | Create a specialist that does not exist yet | Agent Maker |
+| Tune the agent after adding it | Add and configure agents |
 | Add one specialist directly to a workspace | **Add to... > Existing Team** |
-| Create a standalone specialist chat | **Add to... > Solo Workspace** |
+| Create a standalone specialist chat | **Add to... > Solo Workspace**, the option for a solo agent |
 
 ## What happens after you add an agent
 
 When you add an agent to a team, Syndicate creates that agent inside the selected team workspace. Atlas can coordinate with it, and the agent can receive work through dispatch and **Agent Comms**.
 
-When you create a solo workspace, Syndicate creates a one-agent workspace with no Manager. You chat with that specialist directly.
+When you create a solo agent, Syndicate creates a one-agent workspace with no Manager. You chat with that specialist directly.
 
 ## Next steps
 
 - [Add a built-in Syndicate agent](/guides/agent-marketplace/built-in-syndicate-agents)
+- [Add and configure agents](/guides/add-and-configure-agents)
 - [Install a community agent](/guides/agent-marketplace/community-agents)
 - [Create an agent with Agent Maker](/guides/agent-marketplace/agent-maker)
 - [Quick start](/guides/create-your-first-team/quick-start)

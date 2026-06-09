@@ -1,50 +1,227 @@
 ---
 title: "Atlas: Syndicate's orchestrator"
-description: "Placeholder outline for how Atlas coordinates work across a Syndicate team."
+description: "Use Atlas to plan, delegate, monitor, and unblock work across a Syndicate team."
 ---
 
-Atlas is Syndicate's orchestrator for team work. This guide is a scoped placeholder while the product details are being finalized.
+Atlas is the Manager for most Syndicate teams. You give Atlas an outcome, and Atlas coordinates the specialists that can help complete it.
 
-{/* Placeholder media: capture later after the Atlas workflow and UI details are confirmed. */}
+Use this guide when you want to understand what Atlas does, when to ask Atlas instead of a specialist, and where to watch team progress.
 
-## What this guide will cover
+## What Atlas coordinates
 
-This page will explain how Atlas helps you:
+Atlas keeps team work organized across planning, delegation, follow-up, and user decisions.
 
-- Turn an outcome into a plan.
-- Delegate work to the right specialist.
-- Track task progress across the team.
-- Route follow-up messages and blockers.
-- Ask for approval based on the team's control mode.
-- Summarize progress before you decide what to do next.
+Atlas can:
 
-## Current guidance
+- Turn a broad outcome into smaller tasks.
+- Assign work to the right specialist.
+- Follow up when an agent finishes or gets blocked.
+- Route specialist updates through **Agent Comms**.
+- Create **User Tasks** when a decision, approval, blocker, or interruption needs you.
+- Summarize progress so you can decide the next step.
 
-Until this guide is complete, use Atlas the same way you use the Manager in a team:
+Atlas does not replace specialists. It does not edit files, write code, or run commands. Specialists do that work. Atlas keeps the plan, assignments, handoffs, and completion checks organized.
 
-1. Give Atlas a clear outcome.
-2. Add constraints that matter, such as files to avoid or approval requirements.
-3. Review the plan or delegation before work expands.
-4. Watch tasks and inbox messages for blockers.
-5. Reply with one concrete next instruction when Atlas asks for input.
+Ask Atlas to plan and route multi-step work. Ask a specialist directly when the request is narrow and belongs to that agent.
 
-## Open details
+## Start with a clear outcome
 
-The full guide still needs product-confirmed details for:
+Good Atlas requests include the goal, the project area, constraints, and how much autonomy you want.
 
-- Atlas-specific UI labels.
-- How Atlas appears in the team roster.
-- How Atlas differs from other Manager-style agents.
-- Approval behavior in each control mode.
-- Recommended first tasks for a new Atlas-led team.
+For example:
+
+```text
+Inspect the onboarding flow and propose a small improvement plan.
+Stay inside the web app package.
+Do not edit files until you identify the key files and risks.
+Ask me before implementation if the change touches auth or billing.
+```
+
+You can also use a simpler structure:
+
+- The goal: what you want to exist when the work is done.
+- The deliverable: the concrete output you expect, such as a file, feature, report, or answer.
+- Done means: how you will know the work is finished.
+
+Atlas can then decide whether to create **Agent Tasks**, dispatch a specialist, or ask you for more information.
+
+## Watch the plan become work
+
+Select Atlas in **Team Workspace** to see the manager operations tabs.
+
+| Surface | Use it to |
+| --- | --- |
+| Atlas chat | See Atlas responses and **Dispatched to...** cards that show who Atlas contacted and what instructions it sent. |
+| **User Tasks** | Answer decisions, approvals, blockers, and interruption prompts. |
+| **Agent Tasks** | Review tracked work assigned to Atlas or specialists. |
+| **Task Health** | Spot blocked, risky, stale, unassigned, or under-specified tasks. |
+
+Use **Agent Tasks** to confirm that Atlas translated your request into tracked work. Use **Task Health** when the work feels vague, risky, or stuck.
+
+Agent task statuses mean:
+
+| Status | Meaning |
+| --- | --- |
+| `todo` | The task exists but work has not started. |
+| `in-progress` | An agent is actively working on it. |
+| `done` | The task is finished. Atlas can use that result and should not reassign the same work. |
+| `blocked` | Work stopped until a blocker is resolved. |
+| `canceled` | The task was deliberately removed from active work. |
+
+## Keep the task board healthy
+
+Longer projects can collect stale tasks, unclear tasks, or work that no longer matters. Use **Task Health** to find the items that need attention first.
+
+Task Health can surface:
+
+- Blocked tasks and tasks that need your decision.
+- Medium- or high-risk work.
+- Tasks with no owner.
+- Tasks with unclear instructions.
+- **No recent update**: in-progress work with no update for 4+ hours.
+- **Stale todo**: queued work with no activity for a week.
+- **Stale blocker**: blocked work that has been blocked for a week.
+
+Use **Nudge Manager** on a single item when you want Atlas to clarify, unblock, update, or escalate that task. Use **Sweep stale tasks** when you want Atlas to review the board, cancel outdated work, keep active work, and summarize what changed.
+
+## Follow handoffs in Agent Comms
+
+Atlas dispatches work through inter-agent messages. Open **Agent Comms** to inspect those handoffs without mixing them into your direct chat.
+
+For Atlas, **Agent Comms** shows the broader team dispatch stream. For a specialist, it shows messages sent to and from that specialist.
+
+Use **Agent Comms** when you want to answer questions like:
+
+- What did Atlas ask the specialist to do?
+- Which agent reported completion or a blocker?
+- Did Atlas already send follow-up instructions?
+- Is a stale instruction still causing work to continue?
+
+## Respond to Atlas decisions
+
+Atlas uses **User Tasks** when it needs you.
+
+Common **User Tasks** include:
+
+- A blocker that prevents the team from continuing.
+- A risky or unclear step that needs approval.
+- A completion review before work is marked finished.
+- A new workstream that falls outside the original request.
+
+Use **Reply** to answer **User Tasks**. When Atlas shows an approval card, use **Allow & Send** to send the instructions or **Reject** to discard them.
+
+A team may soft pause while a blocking **User Task** is open. You do not need to manually resume the team after a soft pause. Answer or resolve the relevant **User Task**, then Atlas can continue.
+
+## Choose the right interruption level
+
+**Interruption Level** controls how often Atlas asks before continuing.
+
+| Level | Use when |
+| --- | --- |
+| **Minimal** | You trust Atlas to keep routine work moving and interrupt only for true blockers, missing access, high-risk work, or required approval. |
+| **Balanced** | You want Atlas to coordinate routine work, but ask before meaningful new work, unclear scope, medium or high risk, or completion approvals. |
+| **Hands-on** | You want Atlas to ask before major assignments, broad follow-ups, risky decisions, and completion reviews. |
+| **Manual** | You want to approve most delegations, follow-ups, re-routes, and new-work steps. |
+
+Start with **Balanced** for a new team. Move toward **Minimal** after the team proves reliable. Move toward **Hands-on** or **Manual** for sensitive work.
+
+Atlas remembers routine follow-up inside work you already approved. In **Balanced**, Atlas can continue normal follow-up without asking again, but it should ask before meaningfully new workstreams or higher-risk decisions.
+
+## Assign work directly when needed
+
+You do not have to route every task through chat. Click **Assign Task** from the right rail when you already know the assignee and the task shape.
+
+Direct task assignment works best for bounded tasks with a clear deliverable, done condition, and acceptance criteria. If the task needs planning, sequencing, or coordination across several specialists, ask Atlas to coordinate it instead.
+
+When you assign work to a specialist in a managed team, Syndicate creates a task, notifies the agent, and can start the work if you choose.
+
+You cannot assign implementation work to Atlas. Atlas is the Manager, so use **Assign Task** for specialists that can do the work directly.
+
+## Choose models for Atlas and specialists
+
+Each agent uses a provider and model. Atlas benefits from a strong model because planning, delegation, risk judgment, and clear summaries depend on reasoning quality.
+
+Choose provider and model settings during team creation, or update them later from the agent's settings before the next run.
+
+Match specialist models to the work:
+
+- Use stronger models for complex coding, architecture, review, or writing tasks.
+- Use faster or lighter models for routine, low-risk work.
+- Change a model before the next run if the agent needs more capability or faster turnaround.
+
+## Verify progress before approving completion
+
+Before you approve completion or ask Atlas to continue, check the evidence:
+
+- **Agent Tasks** for status, assignee, risk, and update time.
+- **Task Health** for blockers, missing owners, weak task details, or risk.
+- **Agent Comms** for handoffs and specialist updates.
+- **Activity** for recent tool, command, context, and message events.
+- **Files** for changed or generated project files.
+- **Uploads** for files or images attached through team chat.
+- **Preview** for runnable projects that need visual inspection.
+
+This keeps approvals tied to visible work instead of relying only on a summary.
+
+## Use prompts that work well
+
+You do not need special commands. Clear direction works best.
+
+For status, ask:
+
+- "What's everyone working on right now?"
+- "Brief me on progress since this morning."
+- "What's blocked, and what do you need from me?"
+
+For starting work, ask:
+
+- "Have the frontend agent build the settings form. The deliverable is a working page. It is done when I can save a changed email in Preview."
+- "Plan the onboarding update and tell me the plan before anyone edits files."
+- "What would you suggest we tackle first?"
+
+For steering work, ask:
+
+- "Stop work on the billing change. We're going a different direction."
+- "That's approved, go ahead."
+- "Before anyone ships this, I want the review agent to inspect it."
+
+For cleanup, ask:
+
+- "Clean up the task board and cancel anything no longer relevant."
+- "Why is this task still open?"
+
+## Stop or redirect Atlas
+
+Tell Atlas to stop the work when the direction changes. For example, say: "Stop work on the billing change. We're going a different direction."
+
+You can cancel any individual task from **Agent Tasks**. If you need a clean slate, use the board's abort-all-active option.
+
+If Atlas keeps pursuing the wrong outcome:
+
+1. Tell Atlas to stop the work.
+2. Open **Agent Tasks** and cancel the specific task.
+3. Use the board's abort-all-active option if several active tasks should stop.
+4. Send Atlas one clear correction before continuing work.
+
+## If Atlas seems off
+
+Use these checks before assuming the team failed.
+
+| Symptom | What to check |
+| --- | --- |
+| Atlas seems quiet | Check for a paused banner, open **User Tasks**, then ask Atlas for status. |
+| Atlas seems to be missing context | Ask for a full status recap. Atlas can rebuild from the task board, which is not trimmed like long chat context. |
+| A task looks wrong or duplicated | Cancel the task from **Agent Tasks** or ask Atlas to cancel the duplicate by name. |
+| You do not know why Atlas delegated something | Read the dispatch card in Atlas chat, inspect **Agent Comms**, or ask Atlas why it chose that specialist. |
+| Work appears finished but you are unsure | Check **Files**, **Activity**, **Preview**, **Agent Tasks**, and **Agent Comms** before approving completion. |
 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Quick start" icon="rocket" href="/guides/create-your-first-team/quick-start">
-    Create a team and send the first task.
+  <Card title="Manage tasks and Agent Comms" icon="list-checks" href="/guides/tasks-and-inbox">
+    Track Agent Tasks, User Tasks, Task Health, and Agent Comms.
   </Card>
-  <Card title="Creating teams" icon="users" href="/guides/create-your-first-team/creating-teams">
-    Choose the right team setup path.
+  <Card title="Troubleshooting workspaces" icon="wrench" href="/reference/troubleshooting-workspaces">
+    Diagnose stuck dispatch, blocked work, hard pause, and preview issues.
   </Card>
 </CardGroup>
