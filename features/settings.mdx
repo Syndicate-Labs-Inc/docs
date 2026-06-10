@@ -1,21 +1,23 @@
 ---
 title: "Settings"
-description: "A tour of the Settings modal: Account, General, Providers, and MCP."
+description: "Every setting in Syndicate: the Settings modal, plus team and agent level controls."
 ---
 
-Open Settings from the sidebar account footer, the command palette, or a team's gear menu. Four tabs.
+Open Settings from the sidebar account footer, the command palette, or a team's gear menu. This page covers the four Settings tabs, then maps the settings that live at team and agent level.
 
 ## Account
 
 - **Profile**: your avatar, display name, email, and tier badge (free, beta, pro, gold), plus your **Team limit** and **Solo limit**.
-- **Sign out**: clears your session on this machine.
+- **Sign out**: clears your session on this machine (local workspace data is kept).
 - **Subscription**: "Billing and plan management arrives in Phase 2." The Manage subscription button is not active yet.
 
 ## General
 
-- **Theme**: **Light** or **Dark**. Applies immediately and persists.
-- **Confine agents to their working folder**: the workspace confinement toggle. "Runs agents inside the OS sandbox so they stay fully autonomous but can't read or write files outside their team's working folder." Also stops macOS permission prompts for personal folders. Network access is unaffected. Not available on Windows (Windows does not prompt for folder access). Details: [Permissions and safety](/reference/permissions-and-safety).
-- **syndicate version**: your current version, a **Check for updates** button, and a **Restart now** button when an update has downloaded. See [Data, storage, and updates](/reference/data-and-storage#updates).
+| Setting | Default | What it does |
+|---|---|---|
+| Theme | Dark | **Light** or **Dark**, applied immediately and persisted |
+| Confine agents to their working folder | Off | OS-level sandbox so agents "can't read or write files outside their team's working folder" (macOS/Linux; not applicable on Windows). Network access is unaffected. See [Permissions and safety](/reference/permissions-and-safety#workspace-confinement-global) |
+| syndicate version | automatic checks | **Check for updates**, and **Restart now** when an update has downloaded. See [Data, storage, and updates](/reference/data-and-storage#updates) |
 
 ## Providers
 
@@ -26,16 +28,36 @@ Open Settings from the sidebar account footer, the command palette, or a team's 
 
 - **Installed servers**: every MCP server with health dot, transport badge, **Test**, enable/disable toggle, and **Remove**.
 - **Add a server**: manual install by local command, remote URL, or SSE, with encrypted secrets.
-- **Catalog**: one-click presets for common servers.
+- **Catalog**: one-click presets; credential-requiring presets prompt first.
 
 Full guide: [MCP servers](/features/mcp).
 
-## Settings that live elsewhere
+## Team settings (gear on a team)
 
-| Setting | Where |
+| Setting | What it does |
 |---|---|
-| Team name, working directory, Interruption Level, hard pause, delete team | Team Settings (gear on the team) |
-| Agent model, Soul, context, skills, MCP toggles, delete agent | Agent configuration panel |
-| Agent permission mode | The shield selector on the agent |
+| Project Name | Rename the team |
+| Working Directory | Relink the team to a different folder (agents and history kept) |
+| Interruption Level | Minimal / Balanced / Hands-on / Manual: how often Atlas stops to ask you |
+| Team Hard Pause | Stop dispatches and block auto-dispatch until resumed |
+| Delete Team | Permanent removal of the team and its agents (project files untouched) |
 
-A consolidated list is in the [settings reference](/reference/settings).
+## Agent settings (configuration panel)
+
+| Setting | What it does |
+|---|---|
+| Name / Specialization / Model | Identity and the model it runs on |
+| Soul | The agent's system prompt (editable for user-made agents) |
+| Context | Presets (Lean / Balanced / Rich / Custom), history lookback, token budget, section toggles, Prompt Analytics |
+| Skills | Read-only list of the agent's slash-command skills |
+| Tools (MCP) | Per-agent toggles for installed MCP servers |
+| Delete Agent | Removes the agent and its configuration |
+
+The per-agent **permission mode** (Ask first / Auto-accept edits / Full auto) is set from the shield selector on the agent. See [Permissions and safety](/reference/permissions-and-safety).
+
+## Other persistent preferences
+
+| Preference | Where set |
+|---|---|
+| Show updates from agents | Checkbox in Atlas chat, remembered per team |
+| Sidebar visibility | Ctrl+B, remembered |

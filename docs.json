@@ -26,8 +26,7 @@
             "group": "Create your first team",
             "pages": [
               "guides/create-your-first-team/quick-start",
-              "guides/create-your-first-team/creating-teams",
-              "guides/create-your-first-team/atlas-orchestrator"
+              "guides/create-your-first-team/creating-teams"
             ]
           },
           "guides/create-a-solo-agent",
@@ -35,19 +34,11 @@
             "group": "The Marketplace",
             "pages": [
               "guides/agent-marketplace",
-              "guides/agent-marketplace/built-in-syndicate-agents",
               "guides/add-and-configure-agents",
               "guides/agent-marketplace/agent-maker",
               "guides/agent-marketplace/community-agents"
             ]
-          },
-          "features/chat-and-dispatch",
-          "features/tasks",
-          "features/inbox",
-          "features/skills",
-          "features/mcp",
-          "features/command-palette",
-          "features/settings"
+          }
         ]
       },
       {
@@ -56,20 +47,27 @@
           "features/overview",
           "features/workspaces",
           "features/teams",
+          "guides/create-your-first-team/atlas-orchestrator",
           "features/agents",
           "features/solo-agents",
+          "features/chat-and-dispatch",
+          "features/tasks",
+          "features/inbox",
+          "features/skills",
+          "features/mcp",
           "features/providers-and-models"
         ]
       },
       {
         "group": "Resources",
         "pages": [
-          "reference/permissions-and-safety",
           "reference/team-templates",
+          "guides/agent-marketplace/built-in-syndicate-agents",
           "reference/skills-catalog",
+          "reference/permissions-and-safety",
           "reference/keyboard-shortcuts",
+          "features/settings",
           "reference/providers",
-          "reference/settings",
           "reference/auth-flows",
           "reference/data-and-storage",
           {
