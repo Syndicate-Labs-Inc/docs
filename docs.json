@@ -16,15 +16,10 @@
   "navigation": {
     "groups": [
       {
-        "group": "Start here",
-        "pages": [
-          "index",
-          "getting-started"
-        ]
-      },
-      {
         "group": "Guides",
         "pages": [
+          "index",
+          "getting-started",
           "guides/install-and-sign-in",
           "guides/connect-providers",
           {
@@ -67,7 +62,7 @@
         ]
       },
       {
-        "group": "Reference",
+        "group": "Resources",
         "pages": [
           "reference/permissions-and-safety",
           "reference/team-templates",
