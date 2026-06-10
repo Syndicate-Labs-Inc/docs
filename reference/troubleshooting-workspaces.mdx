@@ -3,8 +3,6 @@ title: "Troubleshooting workspaces and dispatch"
 description: "Diagnose team, dispatch, and workspace problems."
 ---
 
-{/* Hero media: suggested still of Team Workspace in a stuck state with Atlas waiting, one specialist blocked, User Tasks open, and a hard-pause indicator visible. */}
-
 This page covers team-side issues: Atlas behavior, dispatch, working folder, **User Tasks**, **Agent Comms**, and hard pause. For provider connection or auth problems, see [Troubleshooting](/reference/troubleshooting).
 
 ## Atlas is not delegating
@@ -95,21 +93,27 @@ Symptoms: you resumed a hard-paused team, but agents stay idle.
 
 This is expected. Resuming a paused team only allows dispatch to run again. It does not restart agents automatically. Restart work by sending a message, manually messaging an agent, or giving Atlas a new instruction.
 
-## Stop Team versus Stop
-
-Use **Stop** in chat to cancel the current response for one agent.
-
-Use **Stop Team** when the whole team needs a hard pause. **Stop Team** stops current team dispatches and blocks new automatic dispatch until you resume the team.
-
 ## Stopping runaway work
 
 If a team is doing the wrong thing or moving too fast:
 
-1. Click **Stop** for any active agent response doing the wrong work.
-2. Click **Stop Team** if multiple agents are involved.
-3. Review **Agent Tasks** and cancel work that should not continue.
+1. Tell Atlas what work should stop or change.
+2. Review **Agent Tasks** and cancel work that should not continue.
+3. Use the board's abort-all-active option if several active tasks should stop.
 4. Check **User Tasks** and **Task Health**.
 5. Adjust instructions, references, or **Interruption Level** before resuming.
+
+## Canceled work keeps coming back
+
+Symptoms: you cancel a task, but Atlas or a specialist appears to resume similar work.
+
+What to try:
+
+1. Open **Agent Tasks** and confirm the original task is canceled.
+2. Cancel any duplicate active task with the same outcome.
+3. Check **Agent Comms** for stale instructions already sent to specialists.
+4. Send Atlas one clear instruction that the canceled outcome should not be resumed unless you ask.
+5. Use the board's abort-all-active option if several active tasks should stop.
 
 ## Preview does not open
 
@@ -119,8 +123,9 @@ What to try:
 
 1. Confirm the team has the right working directory in **Team Settings**.
 2. Confirm the project has a runnable dev server.
-3. Use **Activity** to inspect recent commands and server output when available.
-4. Stop and restart the preview if the server is stale.
+3. Check whether the project can start with the default dev command for that folder.
+4. Use **Activity** to inspect recent commands and server output when available.
+5. Stop and restart the preview if the server is stale.
 
 ## File preview does not load
 
@@ -132,6 +137,17 @@ What to try:
 2. Click **Refresh** in **Files** if available.
 3. Try a smaller text, code, or image file to confirm preview works.
 4. Close the preview pane with **Escape** and reopen the file.
+
+## Uploaded file is missing
+
+Symptoms: a file or image you attached through team chat does not appear where you expected.
+
+What to try:
+
+1. Open the same team where you sent the attachment.
+2. Check **Uploads** in the bottom tray.
+3. Confirm you attached the file before sending the message.
+4. Reattach the file if the original message failed or was canceled before send.
 
 ## MCP tool is configured but not available in a run
 

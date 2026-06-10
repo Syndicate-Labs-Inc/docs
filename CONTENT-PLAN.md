@@ -26,6 +26,25 @@ The Manager scoped a focused team-docs change. Reflected throughout this plan:
   - Atlas: Syndicate's orchestrator — `guides/create-your-first-team/atlas-orchestrator`
 - All four pages are drafted in the repo. Source-grounding for the siblings is the brief plus existing `features/workspaces.mdx`, `features/teams.mdx`, `features/chat-and-dispatch.mdx`, `features/tasks.mdx`, and `features/inbox.mdx`.
 
+### Plan update - Team view alignment (2026-06-07)
+
+The non-Atlas Team view pass aligns public docs around the current Team view model:
+
+- **Team Hub** leads into **Team Workspace**.
+- **Team Workspace** contains the agent network, right rail, bottom tray, and header actions.
+- The right rail covers chat, **Agent Comms**, **User Tasks**, **Agent Tasks**, **Task Health**, **Assign Task**, and agent settings.
+- The bottom tray covers **Activity**, **Files**, **Uploads**, and file previews.
+- **Preview** opens the team's runnable project when available.
+- **Interruption Level**, hard pause, soft pause, and **User Tasks** define how Atlas asks for input.
+
+Updated page families:
+
+- Team guides: `guides/create-your-first-team/quick-start`, `guides/create-your-first-team/team-hub`, `guides/create-your-first-team/creating-teams`, `guides/tasks-and-inbox`
+- Feature references: `features/teams`, `features/workspaces`, `features/chat-and-dispatch`, `features/tasks`, `features/inbox`, `features/references-and-context`, `features/settings`
+- Reference: `reference/settings`, `reference/troubleshooting-workspaces`
+
+The Atlas-specific page remains excluded from this pass.
+
 ## Source-material caveat
 
 `PLAN.md` names `syndicate-overview.md` as the source brief, but that file is not currently present in the workspace. Source-section references below trace to two grounded inputs:
@@ -120,8 +139,8 @@ Sidebar sub-group with four guide pages. Reader path: Quick start → Team hub �
 - **Route:** `/guides/create-your-first-team/quick-start`
 - **Page title (frontmatter):** `Quick start`
 - **Reader intent:** "How do I set up a Manager-led team for a real local project folder and run a first sanity-check task?"
-- **Summary:** Closely preserves the previous "Create your first team" flow: **Create Team**, **Template**, **Guided description**, **Build Your Team**, project folder selection, Manager control mode, and a first sanity-check task. Ends with a next-step CardGroup linking to Team hub, Creating teams, and Atlas.
-- **Source sections:** Brief — team creation flows, working directory selection, Manager control modes. Existing draft: `guides/create-your-first-team/quick-start.mdx`.
+- **Summary:** Closely preserves the previous "Create your first team" flow: **Create Team**, **Template**, **Guided description**, **Build Your Team**, project folder selection, **Interruption Level**, and a first sanity-check task. Ends with a next-step CardGroup linking to Team hub, Creating teams, and Atlas.
+- **Source sections:** Brief — team creation flows, working directory selection, Interruption Level. Team View reference: `team-view.md`. Existing draft: `guides/create-your-first-team/quick-start.mdx`.
 
 #### Team Hub
 
@@ -137,16 +156,16 @@ Sidebar sub-group with four guide pages. Reader path: Quick start → Team hub �
 - **Route:** `/guides/create-your-first-team/creating-teams`
 - **Page title (frontmatter):** `Creating teams`
 - **Reader intent:** "Which team creation path should I use, and what setup choices should I review?"
-- **Summary:** Deeper guide to **Template**, **Guided description**, and **Build Your Team**. Covers project folder selection, roster review, provider and model choices, Manager control mode, and what to check after creation.
-- **Source sections:** Existing drafts — `guides/create-your-first-team/creating-teams.mdx`, `features/teams.mdx`, `features/providers-and-models.mdx`.
+- **Summary:** Deeper guide to **Template**, **Guided description**, and **Build Your Team**. Covers project folder selection, roster review, provider and model choices, **Interruption Level**, and what to check after creation in Team Workspace.
+- **Source sections:** Existing drafts — `guides/create-your-first-team/creating-teams.mdx`, `features/teams.mdx`, `features/providers-and-models.mdx`. Team View reference: `team-view.md`.
 
 #### Atlas: Syndicate's orchestrator
 
 - **Route:** `/guides/create-your-first-team/atlas-orchestrator`
 - **Page title (frontmatter):** `Atlas: Syndicate's orchestrator`
-- **Reader intent:** "What does Atlas coordinate in a team, and what details are still pending?"
-- **Summary:** Scoped placeholder outline only. Lists the Atlas workflow areas to document later: planning, delegation, task progress, blockers, approvals, and summaries. Flags open product details that need user input before full documentation.
-- **Source sections:** Placeholder page only; awaiting product-confirmed Atlas details.
+- **Reader intent:** "What does Atlas coordinate in a team, and how do I monitor, unblock, or redirect that work?"
+- **Summary:** Explains Atlas as the team Manager. Covers clear outcome prompts, delegation, Agent Tasks, User Tasks, Task Health, Agent Comms, Interruption Level, direct task assignment, evidence checks, hard pause, and redirecting stale work.
+- **Source sections:** Existing drafts plus Team View reference: `team-view.md`.
 
 ### Create a solo agent workspace
 
@@ -160,7 +179,7 @@ Sidebar sub-group with four guide pages. Reader path: Quick start → Team hub �
 
 - **Route:** `/guides/add-and-configure-agents`
 - **Reader intent:** "How do I add a specialist to an existing team and give it the right job, model, and instructions?"
-- **Summary:** Adds an agent to an existing team, names it, picks role/provider/model, writes useful instructions (responsibilities, scope, tools, reporting), and confirms it appears in the roster.
+- **Summary:** Adds an agent from Marketplace to an existing team or solo agent workspace, then reviews role guidance, provider/model, context, references, skills, MCP servers, and verification.
 - **Source sections:** Brief — agent creation, agent anatomy (identity, soul, tools, skills, model). Existing draft: `guides/add-and-configure-agents.mdx`.
 
 ### Use MCP servers and skills
@@ -216,8 +235,8 @@ Sidebar sub-group with four guide pages. Reader path: Quick start → Team hub �
 
 - **Route:** `/features/teams`
 - **Reader intent:** "When and how do I use a team, and what controls do I have over the Manager?"
-- **Summary:** When to choose a team, the three creation paths (template, guided description, build-your-team), Manager control modes (Autopilot, Approve New Work, Approve Each Step), and hard pause.
-- **Source sections:** Brief — team creation, Manager autonomy, hard pause. Existing draft: `features/teams.mdx`.
+- **Summary:** When to choose a team, the three creation paths (Template, Guided description, Build Your Team), **Team Hub**, **Team Workspace**, **Interruption Level**, **User Tasks**, **Agent Tasks**, **Task Health**, **Assign Task**, hard pause, soft pause, bottom tray evidence, and project preview.
+- **Source sections:** Brief — team creation, Manager autonomy, hard pause. Team View reference: `team-view.md`. Existing draft: `features/teams.mdx`.
 
 ### Solo agents
 
@@ -349,10 +368,10 @@ Sidebar sub-group with four guide pages. Reader path: Quick start → Team hub �
 | Install and launch Syndicate    | Drafted             | guides/install-and-sign-in                   |
 | Connect providers               | Drafted             | guides/connect-providers                     |
 | Create a team workspace         | Drafted             | guides/create-your-first-team/quick-start + team-hub + creating-teams |
-| Use Atlas                       | Placeholder         | guides/create-your-first-team/atlas-orchestrator |
+| Use Atlas                       | Drafted             | guides/create-your-first-team/atlas-orchestrator |
 | Create a solo agent workspace   | Drafted             | guides/create-a-solo-agent                   |
 | Add and configure agents        | Drafted             | guides/add-and-configure-agents              |
-| Use Agent Marketplace           | Partial             | Covered in features/agents + features/overview; confirm whether a dedicated marketplace page is needed |
+| Use Agent Marketplace           | Drafted             | guides/agent-marketplace + Marketplace subpages |
 | Attach references               | Drafted             | guides/attach-references                     |
 | Configure MCP servers           | Drafted             | guides/use-mcp-and-skills                    |
 | Manage tasks and inbox messages | Drafted             | guides/tasks-and-inbox                       |
@@ -364,7 +383,7 @@ Sidebar sub-group with four guide pages. Reader path: Quick start → Team hub �
 
 1. Is the source brief (`syndicate-overview.md`) accessible elsewhere? If yes, the source-section mappings above should be tightened against actual brief headings.
 2. No MVP page-scope confirmation remains for the previously missing guides and reference pages; they are drafted and listed in `docs.json`.
-3. Does the brief warrant a standalone page for **Use Agent Marketplace**, or are the current cross-feature references sufficient?
+3. Marketplace standalone page scope is resolved for this draft set: the docs now include a dedicated Marketplace guide group.
 4. Should the **MCP** feature page nav label switch from "MCP" to "MCP servers" to match the terminology rule?
 
 ---
@@ -389,16 +408,15 @@ No Manager action remains for this decision.
 
 ### Decision 2 — Does **Use Agent Marketplace** need a standalone page?
 
-`PLAN.md` lists **Use Agent Marketplace** as a likely MVP page, but its content is currently distributed. Atlas now has a scoped placeholder at `guides/create-your-first-team/atlas-orchestrator`.
+Resolved for the current draft set. `PLAN.md` lists **Use Agent Marketplace** as a likely MVP page, and the docs now include a dedicated Marketplace guide group:
 
-- **Agent Marketplace** material lives in `features/agents.mdx` and `features/overview.mdx`.
+- `guides/agent-marketplace`
+- `guides/add-and-configure-agents`
+- `guides/agent-marketplace/built-in-syndicate-agents`
+- `guides/agent-marketplace/community-agents`
+- `guides/agent-marketplace/agent-maker`
 
-| Option | What you get | What you lose |
-| ------ | ------------ | ------------- |
-| **A. No standalone Agent Marketplace page (recommended)** | Flatter nav, less duplication; readers learn Marketplace in context of agents. | No single anchor URL to link to from external marketing. |
-| **B. Standalone Agent Marketplace page** | Direct discoverability and external linking; cleaner mental model for newcomers. | Risk of two sources of truth that drift; needs maintenance. |
-
-**Ask of you:** Approve **Option A** (fold into existing pages), or approve **Option B** (add `features/agent-marketplace`, which would be **blocked on source brief**).
+No Manager action remains for this decision unless the team wants to collapse the Marketplace group later.
 
 ### Decision 3 — Nav label: "MCP" vs "MCP servers"
 
