@@ -46,8 +46,13 @@
               "guides/agent-marketplace/community-agents"
             ]
           },
-          "guides/use-mcp-and-skills",
-          "guides/tasks-and-inbox"
+          "features/chat-and-dispatch",
+          "features/tasks",
+          "features/inbox",
+          "features/skills",
+          "features/mcp",
+          "features/command-palette",
+          "features/settings"
         ]
       },
       {
@@ -59,18 +64,6 @@
           "features/agents",
           "features/solo-agents",
           "features/providers-and-models"
-        ]
-      },
-      {
-        "group": "Using Syndicate",
-        "pages": [
-          "features/chat-and-dispatch",
-          "features/tasks",
-          "features/inbox",
-          "features/skills",
-          "features/mcp",
-          "features/command-palette",
-          "features/settings"
         ]
       },
       {

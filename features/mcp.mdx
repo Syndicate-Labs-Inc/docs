@@ -38,8 +38,10 @@ Each installed server row shows a health dot (green healthy with tool count, red
 
 Installing a server does not give every agent access. In each agent's configuration panel, the **Tools (MCP)** section lists installed servers with per-agent toggles. Enable only what the agent's role needs.
 
+After enabling, verify in chat: ask the agent to use the tool ("List my open GitHub PRs"). Under **Ask first** permissions you will get a Tool Request prompt; allow it and confirm the result.
+
 <Tip>
-Scope tools to roles. A researcher might get a web or GitHub server; there is rarely a reason for every agent on the team to carry every tool.
+Scope tools to roles. A researcher with a web or GitHub server makes `/investigate` dramatically stronger; a DevOps agent with a CI server gets live pipeline visibility for `/deploy-review`. But there is rarely a reason for every agent on the team to carry every tool: fewer tools means better tool choices and a smaller blast radius.
 </Tip>
 
 ## Security notes
