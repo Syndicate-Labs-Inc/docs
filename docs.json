@@ -31,7 +31,6 @@
             "group": "Create your first team",
             "pages": [
               "guides/create-your-first-team/quick-start",
-              "guides/create-your-first-team/team-hub",
               "guides/create-your-first-team/creating-teams",
               "guides/create-your-first-team/atlas-orchestrator"
             ]
