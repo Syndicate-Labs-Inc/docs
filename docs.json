@@ -28,16 +28,6 @@
           "guides/install-and-sign-in",
           "guides/connect-providers",
           {
-            "group": "The Marketplace",
-            "pages": [
-              "guides/agent-marketplace",
-              "guides/add-and-configure-agents",
-              "guides/agent-marketplace/built-in-syndicate-agents",
-              "guides/agent-marketplace/community-agents",
-              "guides/agent-marketplace/agent-maker"
-            ]
-          },
-          {
             "group": "Create your first team",
             "pages": [
               "guides/create-your-first-team/quick-start",
@@ -47,6 +37,16 @@
             ]
           },
           "guides/create-a-solo-agent",
+          {
+            "group": "The Marketplace",
+            "pages": [
+              "guides/agent-marketplace",
+              "guides/agent-marketplace/built-in-syndicate-agents",
+              "guides/add-and-configure-agents",
+              "guides/agent-marketplace/agent-maker",
+              "guides/agent-marketplace/community-agents"
+            ]
+          },
           "guides/attach-references",
           "guides/use-mcp-and-skills",
           "guides/tasks-and-inbox"
@@ -57,31 +57,36 @@
         "pages": [
           "features/overview",
           "features/workspaces",
-          "features/agents",
           "features/teams",
+          "features/agents",
           "features/solo-agents",
           "features/providers-and-models"
         ]
       },
       {
-        "group": "How to",
+        "group": "Using Syndicate",
         "pages": [
           "features/chat-and-dispatch",
           "features/tasks",
           "features/inbox",
           "features/references-and-context",
-          "features/command-palette",
-          "features/mcp",
           "features/skills",
+          "features/mcp",
+          "features/command-palette",
           "features/settings"
         ]
       },
       {
         "group": "Reference",
         "pages": [
+          "reference/permissions-and-safety",
+          "reference/team-templates",
+          "reference/skills-catalog",
+          "reference/keyboard-shortcuts",
           "reference/providers",
           "reference/settings",
           "reference/auth-flows",
+          "reference/data-and-storage",
           {
             "group": "Troubleshooting",
             "pages": [

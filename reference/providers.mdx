@@ -1,39 +1,57 @@
 ---
-title: "Providers"
-description: "How Syndicate decides whether Claude, OpenAI/Codex, and Gemini are ready to use."
+title: "Providers reference"
+description: "How Syndicate detects provider readiness, where credentials live, and provider-specific behavior."
 ---
 
-{/* Hero media: single still (no video). Screenshot: Settings > Providers showing all three provider cards with distinct readiness signals — Claude Connected, OpenAI/Codex Not signed in, Gemini Not installed — so the readiness table below maps directly to the visual. */}
+How-to setup lives in [Connect providers](/guides/connect-providers). This page is the technical detail for diagnosing provider state.
 
-Providers supply the models that Syndicate agents use.
+## Readiness model
 
-## Provider readiness
+A provider is usable when two things are true:
 
-Syndicate marks a provider as ready only when it can find usable credentials and, when needed, verify that the provider can actually run.
+1. **CLI installed**: the provider's CLI is present (Syndicate can install it for you with its bundled runtime).
+2. **Authenticated**: valid credentials exist for that CLI.
 
-| Provider | Readiness signal |
-| --- | --- |
-| Claude | Valid Claude OAuth credentials |
-| OpenAI/Codex | Codex auth file plus successful capability check |
-| Gemini | OAuth credentials, API key, or a successful probe |
+The Settings card reflects this: "not installed" shows **Install CLI**; "installed, not authenticated" shows **Connect**; authenticated shows **Connected** with the model list and a **Reconnect** action.
 
-{/* Screenshot: provider behavior comparison — three small stills side by side, one per provider, each showing its distinctive auth surface (Claude browser OAuth window, Codex CLI handoff, Gemini in-app terminal). */}
+## Where credentials live
+
+Each provider's CLI manages its own credentials, the same files you would have using the CLI directly:
+
+| Provider | Credentials file |
+|---|---|
+| Claude | `~/.claude/.credentials.json` |
+| OpenAI (Codex) | `~/.codex/auth.json` |
+| Google Gemini | `~/.gemini/oauth_creds.json` |
+
+Syndicate watches these files during sign-in, which is why terminal-based logins complete automatically ("Detected new [Provider] credentials — refreshing provider state."). Deleting a file signs that provider out; the next check reverts the card to "Not authenticated".
 
 ## Provider-specific behavior
 
-Claude prefers browser OAuth. Terminal login is a fallback.
+### Claude
 
-OpenAI/Codex uses a browser handoff through the Codex CLI and should not show the in-app terminal modal.
+- Primary flow is browser sign-in with a paste-back code; if the sign-in endpoint is rate-limited, Syndicate automatically falls back to a terminal login.
+- Sign-in codes expire after about 15 minutes; if a code is rejected ("Invalid code — try again."), fetch a fresh one from the browser.
 
-Gemini may show the in-app terminal because its CLI flow can require interactive prompts.
+### OpenAI (Codex)
 
-## Status reference
+- Requires a ChatGPT plan with Codex access. Without it: "This ChatGPT account cannot run Codex. Upgrade ChatGPT to access Codex, or use Claude/Gemini."
+- Rotating your key in the OpenAI dashboard invalidates stored credentials; reconnect from Settings.
 
-Syndicate shows one of four readiness states on each provider card.
+### Google Gemini
 
-| Status | What it means | What to do |
-| --- | --- | --- |
-| **Not checked** | Syndicate has not inspected this provider yet | Click **Check** |
-| **Not installed** | The provider CLI is missing on this machine | Click **Install CLI** |
-| **Not signed in** | The CLI is installed, but credentials are missing or expired | Click **Connect** and complete sign-in |
-| **Connected** | The CLI and credentials are ready | Pick the provider's models in teams or agents |
+- Sign-in runs through a terminal flow, including Google two-factor prompts.
+- Revoking the CLI's access in your Google account settings signs it out; reconnect from Settings.
+
+## Terminal flows by platform
+
+- **Windows/Linux**: sign-in runs in an in-app terminal modal. If the in-app terminal cannot start, Syndicate falls back to an external terminal.
+- **macOS**: some flows open Terminal.app directly, which picks up login-shell PATH entries (Homebrew, nvm) more reliably.
+
+## Detection and caching
+
+Provider state is cached briefly (about 30 seconds) and invalidated immediately after any auth event, so the UI reflects a successful sign-in within a second or two. The **Check** / **Refresh** buttons force a re-probe.
+
+## Expiry during a session
+
+If credentials expire mid-session, agents using that provider stop and an amber banner offers **Reconnect [Provider]**. Reconnect and re-prompt the affected agents; queued work is not lost.

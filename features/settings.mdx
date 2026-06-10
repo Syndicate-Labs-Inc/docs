@@ -1,74 +1,42 @@
 ---
 title: "Settings"
-description: "Manage account, general app behavior, providers, MCP servers, teams, and agents."
+description: "A tour of the Settings modal: Account, General, Providers, and MCP."
 ---
 
-Settings is the control center for app-level configuration. Team and agent settings live inside the workspace so you can adjust them in context.
+Open Settings from the sidebar account footer, the command palette, or a team's gear menu. Four tabs.
 
 ## Account
 
-Use **Account** settings to view your signed-in Syndicate account and sign out.
+- **Profile**: your avatar, display name, email, and tier badge (free, beta, pro, gold), plus your **Team limit** and **Solo limit**.
+- **Sign out**: clears your session on this machine.
+- **Subscription**: "Billing and plan management arrives in Phase 2." The Manage subscription button is not active yet.
 
 ## General
 
-Use **General** settings to manage:
-
-- App data path.
-- Default provider.
-- Default model.
-- Theme.
+- **Theme**: **Light** or **Dark**. Applies immediately and persists.
+- **Confine agents to their working folder**: the workspace confinement toggle. "Runs agents inside the OS sandbox so they stay fully autonomous but can't read or write files outside their team's working folder." Also stops macOS permission prompts for personal folders. Network access is unaffected. Not available on Windows (Windows does not prompt for folder access). Details: [Permissions and safety](/reference/permissions-and-safety).
+- **syndicate version**: your current version, a **Check for updates** button, and a **Restart now** button when an update has downloaded. See [Data, storage, and updates](/reference/data-and-storage#updates).
 
 ## Providers
 
-Use **Providers** settings to:
-
-- Connect providers.
-- Disconnect providers.
-- Refresh provider state.
-- See installed and authenticated status.
-- Choose defaults.
-
-Agents can only run on models from connected providers.
+- **Default Model For New Agents**: provider and model dropdowns. "Used for new teams and solo agents. Existing agents keep their current model."
+- **Provider Health**: a card per provider (Claude, OpenAI, Google Gemini) with its **Connected** / **Not connected** badge, CLI version, model list, and context-dependent actions: **Install CLI**, **Connect**, **Reconnect**, **Disconnect**, **Refresh**. Claude sign-in may show a code-paste form here. Full flows: [Connect providers](/guides/connect-providers).
 
 ## MCP
 
-Use **MCP** settings to:
+- **Installed servers**: every MCP server with health dot, transport badge, **Test**, enable/disable toggle, and **Remove**.
+- **Add a server**: manual install by local command, remote URL, or SSE, with encrypted secrets.
+- **Catalog**: one-click presets for common servers.
 
-- Review available MCP catalog entries.
-- See setup requirements.
-- Install or configure an MCP server.
-- Add an MCP server manually.
+Full guide: [MCP servers](/features/mcp).
 
-Installing an MCP server does not give every agent access. Enable MCP servers for the agents that need them from **Agent Settings**.
+## Settings that live elsewhere
 
-## Team settings
+| Setting | Where |
+|---|---|
+| Team name, working directory, Interruption Level, hard pause, delete team | Team Settings (gear on the team) |
+| Agent model, Soul, context, skills, MCP toggles, delete agent | Agent configuration panel |
+| Agent permission mode | The shield selector on the agent |
+| References | Sidebar (global), team settings (team), agent config (agent) |
 
-Open **Team Settings** from **Team Hub**, a team card, or the **Team Workspace** header.
-
-Use **Team Settings** to:
-
-- Rename the team.
-- Review or relink the working directory.
-- Set **Interruption Level**.
-- Hard pause or resume the team.
-- Delete the team.
-
-**Interruption Level** controls when Atlas asks for input. **Hard pause** stops current team dispatches and blocks new automatic dispatch. Resuming a hard-paused team does not restart agents automatically.
-
-## Agent settings
-
-Open **Agent Settings** from the right rail in **Team Workspace** or from a solo agent.
-
-Use **Agent Settings** to:
-
-- Review identity and specialization.
-- Rename non-manager agents.
-- Read the agent's instructions or **Soul**.
-- Change context settings.
-- Review skills and slash commands.
-- Enable or disable MCP servers for that agent.
-- Delete a non-manager agent after confirmation.
-
-Context settings control how much history, Agent Comms context, tasks, team context, references, and connector context the agent receives during runs. Use the presets when you want a quick choice, then tune history lookback, Agent Comms lookback, reference limits, token budget, and included context sections when a run needs more focus. Team context, Agent Comms, and task context apply to team agents; solo agents use their direct chat and attached context instead.
-
-Prompt analytics help you see the estimated size of the prompt, how much history is included, and which context sections are using the budget.
+A consolidated list is in the [settings reference](/reference/settings).

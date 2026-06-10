@@ -1,96 +1,69 @@
 ---
 title: "Built-in Syndicate agents"
-description: "Use Syndicate's built-in specialists when you want a proven role without installing anything extra."
+description: "Every built-in specialization: what it does and the skills it carries."
 ---
 
-Built-in Syndicate agents are the fastest way to build a useful team. They ship with Syndicate and are ready to add from the **Syndicate** category in the Agent Marketplace.
+Syndicate ships 20+ curated specializations. Each bundles a role description, a Soul, a suggested workflow, and a set of skills. Add any of them to a team or run them solo.
 
-The Manager is itself a built-in Syndicate agent — it is the one you add when you want a coordinator to lead a [team](/features/teams). The other built-ins are specialists you add alongside the Manager (or run as solo agents).
+## Coordination
 
-<Frame>
-  ![Agent Marketplace with the Syndicate category selected: built-in specialists listed in the left sidebar and the Backend Developer detail pane open with suggested workflow and commands.](/assets/screenshots/agents/agent_marketplace_syndicate.png)
-</Frame>
+| Specialization | What it does |
+|---|---|
+| **Atlas** (Manager) | Strategic team leader: runs office hours, automates review pipelines, ships with confidence, enforces safety guardrails, and runs retrospectives. Skills include `/think`, `/delegate`, `/status`, `/pipeline`, `/launch`, `/safeguard`, `/scope`, `/reflect`, `/learn`. |
 
-## When to use a built-in agent
+## Engineering
 
-Use a built-in agent when you want a reliable specialist for a common workflow:
+| Specialization | What it does |
+|---|---|
+| **Frontend Developer** | Production-grade UI implementation: accessibility, performance, responsive hardening, code quality. Skills: `/fe-review`, `/fe-clean`, `/fe-fortify`, `/fe-check`, `/fe-layout`, `/benchmark`. |
+| **Backend Developer** | API design, database modeling, security, testing, error handling, production operations. Skills: `/backend-design`, `/schema-check`, `/error-handling`, `/secure`, `/test-plan`, `/optimize-query`, `/api-document`, `/api-review`, `/benchmark`, `/migrate`. |
+| **Mobile Developer** | iOS, Android, React Native, Flutter. Native feel, offline support, store readiness. Skills: `/mobile-design`, `/mobile-patterns`, `/responsive-mobile`, `/offline-first`, `/push-notify`, `/app-store-review`. |
+| **Game Developer** | Game loops, state machines, physics, asset pipelines, multiplayer architecture. Skills: `/gamedev-design`, `/game-loop`, `/state-machine`, `/physics-check`, `/asset-pipeline`, `/multiplayer-review`. |
+| **DevOps Engineer** | CI/CD pipelines, containerization, deployment strategies, migration safety. Skills: `/devops-design`, `/containerize`, `/pipeline-check`, `/deploy-review`, `/migrate`. |
+| **Site Reliability Engineer** | Monitoring, incident response, capacity planning, rollbacks, production reliability. Skills: `/monitor-setup`, `/canary`, `/incident-response`, `/rollback`, `/scale`. |
 
-| Need | Good fit |
-| --- | --- |
-| Coordinate a team | Manager |
-| Build UI | UI Designer or Frontend Developer |
-| Build APIs, auth, or data flows | Backend Developer |
-| Review code, docs, copy, or plans without editing | Review Agent |
-| Write docs | Technical Writer |
-| Test and find regressions | QA Engineer or Test Engineer |
-| Research and compare options | Researcher |
-| Plan infrastructure or releases | DevOps Engineer or Site Reliability Engineer |
+## Quality
 
-## The Manager
+| Specialization | What it does |
+|---|---|
+| **QA Analyst** | Quality strategy, edge case discovery, bug investigation, regression analysis, UX review. Skills: `/qa-design`, `/edge-cases`, `/bug-report`, `/regression-check`, `/fe-review`. |
+| **Test Engineer** | Test automation, coverage analysis, browser testing, CI integration, benchmarks. Skills: `/test-plan`, `/test-coverage`, `/smoke-test`, `/qa-browser`, `/benchmark`. |
+| **Review Agent** | All-purpose read-only reviewer for code, docs, copy, plans, and product work. Finds issues without editing files. Skills: `/review`, `/bug-report`, `/regression-check`, `/edge-cases`, `/fe-review`, `/api-review`, `/style-guide`, `/fact-check`. |
+| **Security Engineer** | Security audits, compliance (SOX, PCI-DSS, GDPR), audit trails, adversarial edge cases. Skills: `/secure`, `/compliance-check`, `/audit-trail`, `/edge-cases`. |
 
-The Manager is a built-in agent built to orchestrate a team — not to write or edit files itself. You give it an outcome. It decides which specialist on the team should do what, dispatches the work, tracks status as agents finish or get blocked, and follows up until the outcome is met.
+## Design
 
-A Manager comes preloaded with the roster context it needs to coordinate. That includes the names and specializations of the agents on its team, the skills and commands available to each one, the current status of work in progress, and the rules for how teammates hand work back and forth. You don't need to re-introduce the team every time you start a request. The Manager already knows who is on it and what each agent is good at.
+| Specialization | What it does |
+|---|---|
+| **UI Designer** | Visual design, layout composition, color, typography, motion, onboarding experiences. Skills: `/fe-design`, `/fe-layout`, `/fe-color`, `/fe-enhance`, `/fe-welcome`. |
 
-Use a Manager when the work has multiple parts that benefit from coordination. If you only need one focused back-and-forth with one specialist, skip the Manager and use a [Solo Workspace](/features/solo-agents) instead. Each team has one Manager — if you need to change it, review the team configuration first.
+## Research and writing
 
-For how Atlas dispatches work and how **Interruption Level** controls approvals, see [Teams](/features/teams).
+| Specialization | What it does |
+|---|---|
+| **Researcher** | Systematic investigation, source evaluation, data synthesis, evidence-based reporting. Skills: `/researcher-design`, `/investigate`, `/source-eval`, `/fact-check`, `/synthesize`, `/compare-options`. |
+| **Technical Writer** | API docs, tutorials, changelogs, READMEs, style guides. Skills: `/writer-design`, `/api-docs`, `/tutorial-write`, `/changelog-gen`, `/readme-gen`, `/style-guide`. |
 
-<Frame>
-  ![Agent Marketplace with the Syndicate category selected and the Manager detail pane open: strategic tier badge, suggested workflow steps (Plan the sprint, Delegate work, Check progress, Run review pipeline, Retrospective), and coordination commands (Delegate, Launch, Learn, Pipeline, Reflect, Manager Design).](/assets/screenshots/agents/agent_marketplace_manager.png)
-</Frame>
+## Data and AI
 
-<Note>
-**Agent Maker is also a built-in Syndicate specialist.** You open it through **Add Agent Package → Agent Maker** instead of the **Syndicate** category, because it creates a new agent package rather than joining a team. See [Agent Maker](/guides/agent-marketplace/agent-maker).
-</Note>
+| Specialization | What it does |
+|---|---|
+| **Data Scientist** | Data cleaning, statistical analysis, visualization, ETL pipeline design. Skills: `/datasci-design`, `/data-clean`, `/stat-analysis`, `/visualize-data`, `/etl-review`. |
+| **AI Engineer** | Prompt engineering, RAG architectures, embedding pipelines, agent system design. Skills: `/aiml-design`, `/prompt-engineer`, `/rag-review`, `/embedding-review`, `/agent-design`. |
+| **Machine Learning Engineer** | Model evaluation, benchmarking, dataset preparation, statistical validation. Skills: `/model-eval`, `/model-benchmark`, `/data-clean`, `/stat-analysis`, `/visualize-data`. |
 
-## Add a built-in agent to a workspace
+## Business
 
-Open the Marketplace, select the agent in the **Syndicate** category, click **Add to...**, and choose either **Existing Team** or **Solo Workspace**. For the full flow and what happens after you add an agent, see [Choose how you want to add an agent](/guides/agent-marketplace#choose-how-you-want-to-add-an-agent).
+| Specialization | What it does |
+|---|---|
+| **Finance Analyst** | Financial modeling, risk analysis, regulatory compliance, audit trails, reporting. Skills: `/finance-design`, `/financial-model`, `/risk-analysis`, `/compliance-check`, `/audit-trail`, `/report-gen`. |
+| **Marketing Strategist** | SEO, content strategy, campaign analysis, A/B testing, analytics. Skills: `/marketing-design`, `/seo-audit`, `/content-strategy`, `/campaign-analyze`, `/analytics-setup`, `/ab-test`. |
+| **E-Commerce Specialist** | Product catalogs, checkout optimization, inventory, pricing strategies. Skills: `/ecommerce-design`, `/catalog-review`, `/checkout-optimize`, `/pricing-strategy`, `/inventory-check`, `/conversion-audit`. |
 
-{/* Suggested video: adding Review Agent to an existing team, then showing it in the team roster. */}
+## Choosing between similar roles
 
-## Skills on built-in agents
+- **QA Analyst vs Test Engineer**: the Analyst finds and strategizes (edge cases, bug investigation); the Engineer automates (test plans, coverage, browser runs). Bigger teams benefit from both.
+- **Review Agent vs Security Engineer**: the Review Agent is the generalist second opinion across any artifact; the Security Engineer goes deep on vulnerabilities and compliance.
+- **AI Engineer vs ML Engineer**: AI Engineer builds with LLMs (prompts, RAG, agents); ML Engineer evaluates and trains models.
 
-Most built-in specialists ship with a small set of skills. Skills are reusable workflow instructions bundled into an agent — they tell the agent when to use a workflow, what steps to follow, and what output to produce.
-
-You can inspect or change the skills on a built-in agent in the agent configuration panel after you add it. See [Skills](/features/skills) for what skills do and when to add more.
-
-## Configure the agent after adding it
-
-Open the agent settings from the workspace to adjust:
-
-- Model/provider.
-- Context settings.
-- Skills attached to the agent.
-- MCP servers available to that agent.
-
-<Tip>
-Start with the default model if you are recording a quick demo. Change models later when you want to show provider flexibility.
-</Tip>
-
-## Limits & gotchas
-
-- **Built-in agents still need a provider.** Each agent runs on the model and provider you set in its configuration. If you haven't connected a provider yet, follow [Connect providers](/guides/connect-providers) first.
-- **Don't add a Manager just for one question.** For a single back-and-forth with one specialist, use a Solo Workspace instead — see [Solo agents](/features/solo-agents).
-- **One Manager per team.** A team is built around a single Manager coordinating specialists. If you need to change the Manager, review the team configuration first.
-- **Built-ins don't know your project until you tell them.** Add references, instructions, or a project folder so the agent has the context it needs — see [Attach references](/guides/attach-references).
-
-## Verify it worked
-
-After adding the agent:
-
-1. Open the team or solo workspace.
-2. Confirm the agent appears in the roster.
-3. Send a small request.
-
-Good first prompts:
-
-- "Read this folder and summarize what is here."
-- "Review this plan and list the top risks."
-- "Draft a short README outline for this project."
-
-## Next steps
-
-- [Install a community agent](/guides/agent-marketplace/community-agents)
-- [Create a custom agent with Agent Maker](/guides/agent-marketplace/agent-maker)
+Every skill mentioned here is described one-by-one in the [skills catalog](/reference/skills-catalog).

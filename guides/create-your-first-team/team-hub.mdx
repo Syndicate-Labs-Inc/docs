@@ -1,81 +1,38 @@
 ---
 title: "Team Hub"
-description: "Use Team Hub to scan teams, unread updates, settings, and recent work."
+description: "Scan all your teams, their statuses, and unread activity from one place."
 ---
 
-**Team Hub** is the landing view for multi-agent work. Open it when you want to scan teams before entering a specific **Team Workspace**.
+The Team Hub is the landing grid for every team you have. Use it to see at a glance which teams need you, which are working, and which are idle.
 
-<Frame>
-  ![Syndicate Team Hub landing page listing team workspaces with provider readiness indicators and a Create Team entry point.](/assets/screenshots/teams/Landing%20Page.png)
-</Frame>
+## Reading a team card
 
-## When to use Team Hub
+Each card shows the team name, agent count, and task progress, plus a status badge:
 
-Use **Team Hub** when you want to:
+| Badge | Meaning |
+|---|---|
+| **Needs Input** / **Awaiting Review** (yellow) | Agents are blocked or waiting on your decision. Open the team and check User Tasks. |
+| **In Progress** / **Running** (green) | Agents are actively working. |
+| **Quiet** (gray) | There is history but everyone is idle. |
+| **New** / **Idle** (gray) | Nothing happening yet. |
 
-- See every team in one place.
-- Check team status and unread updates.
-- Reopen a team you used recently.
-- Create a new team without staying inside another workspace.
-- Open team settings before you enter the workspace.
+Counters along the bottom show active agents (green dot), errors (red dot), and total unread messages (envelope icon).
 
-If you already know which workspace you need, use the sidebar. Use **Team Hub** when you want the broader team view.
+## Card actions
 
-## What team cards show
+The **More actions** menu on each card:
 
-Each team card can show:
+- **Project Settings**: rename, relink the folder, interruption level, pause, delete.
+- **Pause Team** / **Resume Team**: hard-pause toggles directly from the hub.
+- **Add Agent**: drop a new specialist into the team.
+- **Delete Team**: permanent removal (project files on disk are kept).
 
-- Team name.
-- Working folder label.
-- Agent count and roster summary.
-- Agent avatars or status summary.
-- Team status based on agent status.
-- Unread or recent activity signals.
-- Settings access.
-- An open or drill-in action.
+Click the card or **Open team** to enter the [team dashboard](/features/teams#the-team-dashboard).
 
-A team appears active when agents are working. Waiting, error, idle, and hard-paused states also affect the summary.
+## Solo agents
 
-## Focused team preview
+Solo workspaces appear under their own **Solo Agents** section in the sidebar, with the same status dots. See [Solo agents](/features/solo-agents).
 
-When you select a team in **Team Hub**, the focused preview can show:
+## Empty state
 
-- Team name.
-- Working folder label.
-- Agent roster.
-- Active status.
-- A primary action to open the team chat or workspace.
-- Team settings access.
-- **Agent Comms** messages scoped to that team.
-
-Open the team when you need the full **Team Workspace** with chat, **Agent Comms**, **User Tasks**, **Agent Tasks**, **Task Health**, **Assign Task**, project preview, and the bottom tray.
-
-## Create a team from Team Hub
-
-Click **Create Team** to start the same setup flow covered in [Quick start](/guides/create-your-first-team/quick-start). Choose **Template**, **Guided description**, or **Build Your Team**; select the working folder; review Atlas and specialists; choose **Interruption Level**; and create the team.
-
-## Jump back into recent work
-
-Open a team from **Team Hub** when you want to continue where you left off. After **Team Workspace** opens, check:
-
-- The latest Atlas message.
-- **User Tasks** for decisions, approvals, or blockers.
-- **Agent Tasks** for tracked work.
-- **Task Health** for risk signals.
-- **Agent Comms** for specialist handoffs.
-- **Activity**, **Files**, and **Uploads** in the bottom tray.
-- **Preview** if the team has a runnable app and you need to verify the current project state.
-
-## Next steps
-
-<CardGroup cols={3}>
-  <Card title="Quick start" icon="rocket" href="/guides/create-your-first-team/quick-start">
-    Create a team and send it a small first task.
-  </Card>
-  <Card title="Creating teams" icon="users" href="/guides/create-your-first-team/creating-teams">
-    Compare templates, guided setup, and building your own team.
-  </Card>
-  <Card title="Teams" icon="users" href="/features/teams">
-    Learn when to use a team and how teams coordinate work.
-  </Card>
-</CardGroup>
+A fresh install shows "No teams yet. Create your first team to get started with orchestration." with a **New Team** button, which opens the [creation wizard](/guides/create-your-first-team/quick-start).

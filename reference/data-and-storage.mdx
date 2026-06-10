@@ -1,0 +1,48 @@
+---
+title: "Data, storage, and updates"
+description: "Where your data lives, what syncs to the cloud, and how app updates work."
+---
+
+## Local-first by design
+
+Your workspaces are stored on your machine, not in the cloud:
+
+- Teams and solo workspaces (names, working folders, configuration)
+- Agents (Souls, tool settings, memory, configuration)
+- Chat history, inbox messages, task boards, and activity logs
+- References (paths and metadata)
+- App settings
+
+Storage location:
+
+| OS | Path |
+|---|---|
+| Windows | `%APPDATA%\Syndicate\local-store\` |
+| macOS / Linux | `~/.config/syndicate/local-store/` |
+
+Back up that folder to back up your workspaces. There is no automatic cloud sync of workspace content; a second machine starts with its own empty set of workspaces.
+
+## What touches the cloud
+
+- **Your account**: authentication, profile, tier, and limits live with your Syndicate account.
+- **Provider calls**: agent runs go to the provider you connected (Claude, OpenAI, Google), under that provider's terms.
+- **Feedback**: what you submit through the feedback form.
+
+## Credentials and secrets
+
+- Your Syndicate session and MCP secrets are encrypted with OS keychain-backed storage; they are never written to plain-text settings files.
+- Provider credentials are managed by each provider's CLI in its own home-directory files, the same as using those CLIs directly.
+
+## Updates
+
+Syndicate checks for updates automatically (shortly after launch and periodically while running) and from **Settings, General, Check for updates**.
+
+- When an update is ready, a banner and the settings page show **Restart now**. One click installs and relaunches.
+- **Windows**: updates download and install in place.
+- **macOS**: while builds are unsigned (Apple notarization pending), the update flow may direct you to download the new version from the releases page manually.
+
+Version status messages you may see: update available, downloading, "ready to restart", up to date, or an error with details.
+
+## Resetting
+
+Signing out (Settings, Account) clears your session on the machine but keeps local workspace data. Deleting a team removes that team's data permanently; project files in its working directory are never deleted by Syndicate.

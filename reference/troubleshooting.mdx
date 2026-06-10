@@ -1,40 +1,58 @@
 ---
-title: "Troubleshooting"
-description: "Common setup and provider problems in Syndicate."
+title: "Troubleshooting: setup and providers"
+description: "Fixes for install, sign-in, and provider connection problems."
 ---
 
-{/* Hero media: no hero video — troubleshooting is reference content. Suggested hero still: a Provider card in a failed/verification state with the recovery action button visible, anchoring the "fix-it" mindset. */}
+Workspace and dispatch problems live in [Troubleshooting workspaces](/reference/troubleshooting-workspaces).
 
-This page covers common setup, provider, and authentication problems.
+## Sign-in
 
-{/* Screenshot: OpenAI/Codex card showing the "signed in but verification failed" state, with the error reason visible. Crop any real account info. */}
+**"Authentication failed." when signing in**
+Check your network and retry. If you just created the account, confirm your email first ("Check your email to confirm your account before signing in.") and use **Resend confirmation email** if needed.
 
-## Codex login succeeds but provider verification fails
+**Confirmation email never arrives**
+Check spam, wait a minute, then **Resend confirmation email**. Links expire after 24 hours; request a fresh one if yours is old.
 
-This usually means Syndicate found a login but could not verify that Codex can run.
+**Signed out unexpectedly**
+Long-expired sessions require a fresh sign-in. Local workspaces are unaffected.
 
-Common causes:
+## Provider CLIs
 
-- The account does not have Codex execution access.
-- The account hit a plan, quota, or usage limit.
-- A workspace or organization policy blocks Codex.
-- The local Codex CLI is installed but cannot execute from Syndicate.
-- The auth file changed format and Syndicate cannot read it yet.
+**Provider card stuck on "Not installed"**
+Click **Install CLI** and let Syndicate install it with its bundled runtime. If it fails ("Install failed."), open the diagnostic modal, use **Copy diagnostic**, and send it to support.
 
-{/* Screenshot: the stale in-app terminal modal during Codex setup (the state the user should NOT see), with a caption-style annotation to clarify it's the failure mode. */}
+**"CLI installed — click Connect to sign in" but Connect seems to do nothing**
+Look for an opened browser window or terminal behind the app. The sign-in continues there; Syndicate auto-detects completion.
 
-## Terminal output appears during OpenAI/Codex setup
+## Claude
 
-OpenAI/Codex should use browser login and should not rely on Syndicate's in-app terminal. If stale terminal output appears, reconnect the provider and refresh provider status.
+**Pasted code rejected ("Invalid code — try again.")**
+Codes expire in about 15 minutes. Restart Connect and paste the new code promptly.
 
-{/* Screenshot: Gemini in-app terminal mid-prompt, paired with the Refresh provider status control after returning from the browser flow. */}
+**"Claude OAuth endpoint is busy — switching to terminal login."**
+Not an error: the automatic fallback. Finish signing in inside the terminal window; the card flips to Connected on its own.
 
-## Gemini auth does not finish
+## OpenAI (Codex)
 
-Gemini can require an interactive CLI prompt. Keep the auth window open until the browser or terminal flow completes, then return to Syndicate and refresh provider status.
+**"This ChatGPT account cannot run Codex."**
+Your ChatGPT plan does not include Codex. Upgrade the plan or use Claude or Gemini instead.
 
-{/* Screenshot: Claude card showing a rate-limit message and the option for terminal login fallback. */}
+**Signed in but card stays "Not connected"**
+Click **Check** to re-probe. If it persists, **Reconnect** and complete the terminal flow again without closing the terminal early.
 
-## Claude auth is rate limited
+## Gemini
 
-Wait a few minutes and try again. If the browser OAuth flow remains blocked, Syndicate may fall back to Claude terminal login.
+**Terminal opens but sign-in stalls**
+Complete the Google flow, including two-factor prompts. On macOS the flow uses Terminal.app; bring it to front. If the terminal exited early ("Auth terminal exited with code X before completion."), close and Connect again.
+
+## Mid-session
+
+**Amber banner: provider credentials expired**
+Click **Reconnect [Provider]** in the banner, finish the sign-in, then re-prompt any stopped agents. Queued work is preserved.
+
+**Models missing from selectors**
+Model lists only include authenticated providers. Check Settings, Providers: the provider must show **Connected** and a non-empty Models row. **Refresh** forces a re-check.
+
+## Still stuck?
+
+Send details through the in-app feedback form (paste screenshots directly) or email [support@usesyndicate.org](mailto:support@usesyndicate.org). Include the diagnostic copy if an install failed.

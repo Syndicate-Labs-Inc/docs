@@ -3,88 +3,55 @@ title: "FAQ"
 description: "Quick answers to common Syndicate questions."
 ---
 
-{/* Hero media: no body media needed. Optional still: support footer with Troubleshooting and Workspaces troubleshooting links. */}
+## Basics
 
-Short answers to the questions that come up most often. Each entry links to the deeper page.
+**What is Syndicate?**
+A desktop app that runs coordinated teams of AI agents on your machine. A Manager agent (Atlas) plans and delegates; specialist agents do the work in a local project folder. See [Core concepts](/features/overview).
 
-## What is Syndicate?
+**How do I get access?**
+Syndicate is in closed beta. Request access at [usesyndicate.org](https://usesyndicate.org); sign-in works only with approved email addresses.
 
-Syndicate is a desktop app for running AI agents against your local project folders. You can work with a single specialist or an Atlas-led team. See [Feature overview](/features/overview).
+**Do I need my own AI accounts?**
+Yes. Agents run on providers you connect: Claude, OpenAI (Codex, requires a ChatGPT plan with Codex), or Google Gemini. One is enough; you can mix providers within a team. See [Connect providers](/guides/connect-providers).
 
-## Do I need beta access to use Syndicate?
+**Does Syndicate work offline?**
+The app opens and your data is local, but agents need network access to reach providers, so runs require a connection.
 
-Yes. Access is currently invite-based. Request access from the Syndicate site and create your account against the approved email. See [Install and sign in](/guides/install-and-sign-in).
+## Data
 
-## Which providers are supported?
+**Where is my data stored?**
+Locally: teams, agents, chats, tasks, and settings live in a folder on your machine and never sync to the cloud. Your account and tier live with Syndicate; agent runs go to your chosen provider. See [Data, storage, and updates](/reference/data-and-storage).
 
-Syndicate supports three providers:
+**Are my credentials safe?**
+Sessions and MCP secrets are encrypted with OS keychain-backed storage. Provider credentials are managed by the providers' own CLIs, exactly as if you used them directly.
 
-- **Claude** through the Claude Code CLI.
-- **OpenAI/Codex** through the Codex CLI.
-- **Gemini** through the Gemini CLI.
+**Can agents touch files outside the project folder?**
+They work in the team's working directory. Turn on [workspace confinement](/reference/permissions-and-safety#workspace-confinement-global) (macOS/Linux) for OS-level enforcement that they cannot leave it.
 
-See [Connect providers](/guides/connect-providers).
+## Working with agents
 
-## Where are my credentials stored?
+**Team or solo agent?**
+Solo for one kind of work in a direct chat; team when the work splits into roles worth coordinating (build plus review plus test). See [Solo agents](/features/solo-agents).
 
-Provider credentials are stored locally on the machine that connected them. Syndicate does not sync provider credentials between machines. Connect providers once per machine. See [Auth flows](/reference/auth-flows).
+**How do I keep agents from doing things I have not approved?**
+Per-agent [permission modes](/reference/permissions-and-safety) (Ask first, Auto-accept edits, Full auto), plus the team's Interruption Level for how often Atlas checks in.
 
-## Where does my workspace data live?
+**How do I stop a runaway team?**
+**Stop** the agent, **Abort all** tasks, or **Team Hard Pause**. All described in [Permissions and safety](/reference/permissions-and-safety#stop-controls).
 
-Workspace data, including teams, agents, messages, tasks, references, and uploads, is stored locally on your machine and scoped to your signed-in user. Syndicate uses your account to sign you in and check beta access.
+**Which model should agents use?**
+Strongest models for Atlas and planners, code models for coders, fast models for monitors. See [Providers and models](/features/providers-and-models#choosing-models-for-a-team).
 
-## Can I use Syndicate offline?
+**What are skills and MCP servers?**
+Skills are packaged workflows agents follow (slash commands); MCP servers are external tools agents can call. See [Skills](/features/skills) and [MCP servers](/features/mcp).
 
-Agent runs need the provider you chose to be reachable, so they require internet. Sign-in and account-related checks also need connectivity.
+## Account and app
 
-## What is the difference between a team and a solo agent?
+**Can I use Syndicate on two machines?**
+Yes; sign in on both. Workspaces are local to each machine. Tiers may limit concurrent devices.
 
-- A **team** has Atlas plus specialists. Atlas plans, delegates, routes follow-ups, and creates **User Tasks** when it needs you.
-- A **solo agent** is a single specialist with no Manager, no **Agent Comms**, and no inter-agent dispatch.
+**How do updates work?**
+Automatically checked and downloaded; click **Restart now** when prompted. See [Data, storage, and updates](/reference/data-and-storage#updates).
 
-See [Workspaces](/features/workspaces).
-
-## How does Interruption Level work?
-
-**Interruption Level** controls when Atlas asks before continuing.
-
-- **Minimal** interrupts only for true blockers, explicit user attention, missing access, high-risk work, or required approval.
-- **Balanced** interrupts for unclear scope, meaningful new workstreams, medium or high risk, or completion approvals.
-- **Hands-on** interrupts before major assignments, broad follow-ups, risky decisions, and completion reviews.
-- **Manual** turns most delegations, follow-ups, and re-routes into **User Task** approval prompts.
-
-See [Teams](/features/teams).
-
-## What are User Tasks?
-
-**User Tasks** are decisions, approvals, blockers, and interruption prompts that need you. They replace chat approval cards. Select Atlas in **Team Workspace**, then open **User Tasks**.
-
-See [Tasks](/features/tasks).
-
-## How does Syndicate choose which model to run?
-
-Each agent has a provider and model. When an agent does not specify one, Syndicate uses your defaults. See [Providers and models](/features/providers-and-models).
-
-## What is an MCP server?
-
-An MCP server is an external tool integration. Once configured and enabled for an agent, it gives that agent access to a service like file search, browser automation, documents, or another API. MCP server credentials are local to the machine and the provider runtime. See [MCP servers](/features/mcp).
-
-## How do references work?
-
-References are files or folders you attach so agents can use them as context. They can be attached at global, team, or agent scope. Syndicate manages context size and may trim references when a run grows too large. See [Attach references](/guides/attach-references).
-
-## How do I stop a runaway team?
-
-Stop the active agent response, use **Stop Team** to hard pause the team, then adjust instructions, references, or **Interruption Level** before resuming. See [Troubleshooting workspaces and dispatch](/reference/troubleshooting-workspaces).
-
-## Can I use the same account on more than one machine?
-
-You can sign in to Syndicate from more than one machine. Provider credentials are local to each machine, so you need to connect providers separately wherever you sign in. Workspace data is also stored locally per machine.
-
-## How does Syndicate update?
-
-Syndicate is a packaged desktop app and surfaces an update prompt when a new release is available. Apply the update from within the app when you see it.
-
-## Where do I get help?
-
-Email [support@usesyndicate.org](mailto:support@usesyndicate.org). For setup problems, start with [Troubleshooting](/reference/troubleshooting) or [Troubleshooting workspaces and dispatch](/reference/troubleshooting-workspaces).
+**How do I send feedback or get support?**
+The in-app feedback form (Bug / Idea / General, screenshots supported) or [support@usesyndicate.org](mailto:support@usesyndicate.org).

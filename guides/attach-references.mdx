@@ -1,69 +1,34 @@
 ---
 title: "Attach references"
-description: "Give agents the right project files and folders as context."
+description: "Give agents the project files and documents they should always have in mind."
 ---
 
-References are files or folders you attach so agents can use them as context during a run. Attaching the right references — at the right scope — is one of the biggest levers on agent quality.
-
-{/* Hero media: 20-30 second clip attaching a reference at agent, team, and global scope, then opening a run and confirming the reference shows up.
-Capture list:
-- References area in agent, team, and global settings.
-- Adding a file reference.
-- Adding a folder reference.
-- A reference appearing in a run's context.
-*/}
+References are read-only files and folders injected into an agent's context on every run. Use them for the material an agent should never have to go looking for. Concepts and limits: [References and context](/features/references-and-context).
 
 ## Pick the right scope
 
-| Scope | Visibility | Use for |
-| --- | --- | --- |
-| **Global** | All workspaces, all agents | Company style guide, shared standards |
-| **Team** | All agents in one team | Project README, architecture doc, schema |
-| **Agent** | A single agent | Files only that specialist needs |
-
-Start at the narrowest scope that works. Global references load on every run, so reserve them for material every agent genuinely needs.
-
-## Attach a reference
-
-{/* Video: add a reference at one scope and confirm it's attached. */}
-
 <Steps>
-  <Step title="Choose the scope">
-    Decide whether the reference belongs at **global**, **team**, or **agent** scope.
+  <Step title="Decide who needs it">
+    - Everyone, in every workspace (style guide, company standards): **Global**, managed in Settings.
+    - Everyone in one team (project README, schema, requirements doc): **Team**, managed in team settings.
+    - One agent (its role-specific source material): **Agent**, managed in its configuration panel.
   </Step>
-  <Step title="Add a file or folder">
-    From the relevant references control in Syndicate, attach a file (for example a README or schema) or a folder (for example a `docs/` directory).
+  <Step title="Attach it">
+    Click **+** next to the references section at that scope, then pick files or folders in the native picker.
   </Step>
-  <Step title="Confirm it's attached">
-    Check that the reference is listed for that scope before starting a run.
+  <Step title="Verify it landed">
+    Click the reference to open its read-only preview. Then ask the agent something only the reference answers ("What does our style guide say about headings?") and confirm it knows.
   </Step>
 </Steps>
 
-## Verify the reference reaches a run
+## What gets injected
 
-{/* Screenshot: an agent run referencing the attached file. */}
+- **Files**: content up to 64 KB per file, 200 KB total per run. Bigger files contribute path and metadata only.
+- **Folders**: a manifest of names and sizes, not contents.
+- **PDFs**: extracted text (sources up to 10 MB).
 
-After attaching, send the agent a small task that requires the reference — for example, "Summarize the architecture doc I just attached." If the agent answers from the document, the reference is wired up. If it asks for the file or guesses, recheck the scope.
+## Keep it lean
 
-## Keep context focused
-
-More context is not always better. Large or off-topic references crowd the prompt and can push more useful information out.
-
-- Attach the smallest set that answers the task.
-- Prefer a specific file over a whole folder when one file is enough.
-- Detach references the agent no longer needs.
-
-## Context budgets to know
-
-Syndicate inlines reference content with limits so prompts stay healthy. Very large files, deeply nested folders, or many references combined may be truncated when they reach the prompt.
-
-If an agent seems to be missing details from a reference, split large material into focused files rather than attaching one giant document.
-
-<CardGroup cols={2}>
-  <Card title="References and context" icon="folder-tree" href="/features/references-and-context">
-    Learn how scopes and context budgets work.
-  </Card>
-  <Card title="Agent Marketplace" icon="store" href="/guides/agent-marketplace">
-    Add specialists and decide which teams or solo workspaces they belong to.
-  </Card>
-</CardGroup>
+- Reference the few documents that define the work; agents can read everything else in the working directory with their own tools.
+- Audit occasionally with the agent's **Prompt Analytics** (configuration panel, Context): if references dominate the prompt and the agent rarely uses them, cut some.
+- Prefer attaching one folder manifest over twenty individual files when the agent mostly needs to know what exists.

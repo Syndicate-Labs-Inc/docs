@@ -1,97 +1,65 @@
 ---
 title: "Getting started"
-description: "A short launchpad for installing Syndicate, connecting a provider, and starting your first workspace."
+description: "From download to your first running workspace in five steps."
 ---
 
-Use this page as the quick route from approved beta access to your first working Syndicate workspace. Each step links to a focused guide when you need more detail.
-
-{/* Hero media: 8-12 second clip of Atlas receiving a request in chat, dispatch starting, and two specialist agents transitioning from idle to active in Team Workspace. Crop any real project names or emails. */}
-
-{/* Screenshot: the 5-minute path summary — workspace creation entry point with both Team and Solo Agent options visible. Used as a supporting still for the Steps block below. */}
-
-## Before you start
-
-You need:
-
-- An **approved beta invite email** with installer links.
-- **macOS or Windows** to install the desktop app.
-- An **internet connection** for sign-in and agent runs.
-- An account with one supported provider — **Claude**, **OpenAI/Codex**, or **Google Gemini**.
-
-Optional: install **Git** and configure your **Git credentials**. Neither is required for core setup, but they help with some Syndicate features and with working on projects outside the app.
-
-<Note>
-You don't need to install **Node** or **npm** yourself. Syndicate ships with a managed runtime and installs each provider's CLI on demand.
-</Note>
-
-## The 5-minute path
+This page takes you from a fresh install to a working team or solo agent. Each step links to a deeper guide if you want more detail.
 
 <Steps>
-  <Step title="Request access and install the app">
-    Syndicate is in private beta. Request access, then install the desktop app from your invite email.
+  <Step title="Install Syndicate and sign in">
+    Download Syndicate from [usesyndicate.org](https://usesyndicate.org) and run the installer. On first launch, create your account or sign in. Syndicate is in closed beta, so use the email address that was approved for access.
 
-    [Install and sign in](/guides/install-and-sign-in)
+    Details: [Install and sign in](/guides/install-and-sign-in)
   </Step>
-  <Step title="Create or sign in to your Syndicate account">
-    Use the same email address that was approved for beta access.
+  <Step title="Connect a provider">
+    Syndicate runs on provider CLIs. On the "Connect a provider to get started" screen, connect at least one of:
 
-    [Install and sign in](/guides/install-and-sign-in)
+    - **Claude**: browser sign-in with a code you paste back into the app.
+    - **OpenAI**: sign in with your ChatGPT account to authenticate Codex.
+    - **Google Gemini**: sign in with your Google account.
+
+    If a CLI is not installed yet, click **Install CLI** and Syndicate installs it for you using its bundled runtime. You can add or change providers any time in Settings.
+
+    Details: [Connect providers](/guides/connect-providers)
   </Step>
-  <Step title="Connect one provider">
-    Connect Claude, OpenAI/Codex, or Google Gemini. You only need one provider to start.
+  <Step title="Choose your default model">
+    Pick the provider and model that new teams and agents will use by default. You can change this later in Settings, and every agent can override it individually.
 
-    [Connect providers](/guides/connect-providers)
+    Details: [Providers and models](/features/providers-and-models)
   </Step>
-  <Step title="Choose a workspace">
-    Start with an Atlas-led team for coordinated work, or a solo agent for direct 1:1 help.
+  <Step title="Launch your first workspace">
+    Pick how you want to work:
 
-    [Quick start](/guides/create-your-first-team/quick-start)
+    - **Create a team**: a Manager (Atlas) plus specialist agents. Best for projects with multiple kinds of work.
+    - **Solo agent**: one specialist, no Manager. Best for quick, focused tasks.
+
+    Either way you choose a local folder as the working directory. That folder is where agents read and write files.
   </Step>
-  <Step title="Give a small first task">
-    Ask Atlas or a solo agent to inspect your project, summarize the structure, or draft a small change.
-
-    [Chat and dispatch](/features/chat-and-dispatch)
+  <Step title="Send your first message">
+    For a team, open the **Chat** tab and tell Atlas the goal: what you are building, any constraints, and what done looks like. Atlas plans the work and delegates. For a solo agent, just start chatting.
   </Step>
 </Steps>
 
-## Team or solo?
-
-<CardGroup cols={2}>
-  <Card title="Team workspace" icon="users" href="/features/teams">
-    Use Atlas plus specialists when work needs planning, delegation, review, or parallel execution.
-  </Card>
-  <Card title="Solo agent" icon="user" href="/features/solo-agents">
-    Use one focused specialist for quick edits, research, writing, or review.
-  </Card>
-</CardGroup>
-
 ## Good first tasks
 
-- "Read this project and summarize how it is structured."
-- "Find the auth flow and explain it in plain English."
-- "Review this folder and suggest the safest first improvement."
-- "Draft a README section for running this project locally."
+| Workspace | Try this |
+|---|---|
+| Team | "Audit this codebase and produce a prioritized list of improvements. Do not change anything yet." |
+| Team | "Build a landing page for X in this folder. Frontend handles the UI, QA verifies it renders." |
+| Solo (Chat mode) | "Read this folder and explain how the project is structured." |
+| Solo (Build mode) | "Add a README to this project that covers setup and usage." |
 
 <Tip>
-Start with a small, concrete task. Once the agent understands your project, give it larger work.
+Start with a small, verifiable goal. You will see how Atlas delegates, how agents report back, and where approvals appear, before you hand the team anything large.
 </Tip>
 
-## Next guides
+## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Install and sign in" icon="download" href="/guides/install-and-sign-in">
-    Beta access, installer, account creation, and confirmation email.
+  <Card title="Create your first team" icon="users" href="/guides/create-your-first-team/quick-start">
+    The full team creation walkthrough.
   </Card>
-  <Card title="Connect providers" icon="plug" href="/guides/connect-providers">
-    Set up Claude, OpenAI/Codex, or Gemini.
-  </Card>
-  <Card title="Explore Agent Marketplace" icon="store" href="/guides/agent-marketplace">
-    Add built-in Syndicate agents, install community agents, or create your own with Agent Maker.
-  </Card>
-  <Card title="Quick start" icon="users" href="/guides/create-your-first-team/quick-start">
-    Pick a template, describe your project, or create a team from scratch.
-  </Card>
-  <Card title="Feature overview" icon="sparkles" href="/features/overview">
-    Learn how workspaces, agents, teams, tasks, and MCP servers fit together.
+  <Card title="Core concepts" icon="lightbulb" href="/features/overview">
+    Workspaces, teams, agents, Atlas, and dispatch.
   </Card>
 </CardGroup>

@@ -1,49 +1,36 @@
 ---
-title: "Agent Comms"
-description: "Understand Agent Comms, inter-agent messages, and user attention requests in team workspaces."
+title: "Inbox and Agent Comms"
+description: "Where agent messages to you land, and how to read the team's coordination traffic."
 ---
 
-Agents coordinate through inter-agent messages. In **Team Workspace**, you read that coordination in **Agent Comms**.
+Syndicate keeps two message streams deliberately separate: messages **to you** (the Inbox) and messages **between agents** (Agent Comms).
 
-## What Agent Comms messages are for
+## The Inbox
 
-Agents use **Agent Comms** messages to:
+The bell icon in the title bar shows your unread count (up to "99+"). Click it for a dropdown of your most recent unread messages, each showing the team, the sender path, a timestamp, and a two-line preview.
 
-- Delegate work.
-- Ask another specialist to review something.
-- Report completion.
-- Request clarification.
-- Escalate a user decision to Atlas.
+The full **Inbox panel** shows:
+
+- **Received**: messages sent to you, each with **Reply** (inline composer) and **Forward to chat** actions.
+- **Sent**: messages you have sent to sessions.
+- **Compose**: pick a recipient session, type a message, **Send**.
+
+Agents reach your inbox when they tag a message for you (**@user**) or explicitly need a human answer. Those same items also appear as [User Tasks](/features/tasks#user-tasks-your-inbox) inside the team, so you can act from either place.
 
 ## Agent Comms
 
-**Agent Comms** is the user-facing view of inter-agent dispatch messages.
+Agent Comms is the read-only feed of coordination between Atlas and a specific agent. Open an agent and switch to its **Agent Comms** tab to see:
 
-For a selected specialist, it shows messages received from Atlas or other agents and messages sent by that specialist. For Atlas, it shows the broader team dispatch stream.
+- who messaged whom, when, and what was said
+- status badges (pending, read, sent)
+- filters: **All**, **@user** (with an unread count), or a specific teammate
 
-Use **Agent Comms** to inspect coordination without cluttering your direct chat with the selected agent.
+You never need to act here; it exists so the team's coordination is transparent rather than hidden.
 
-## Unread counts
+<Tip>
+If an agent seems lost, use the **"Tell this agent to review recent messages"** button in Agent Comms. It prompts the agent to re-read its last 25 messages, summarize the state of play, and respond to anyone waiting on it.
+</Tip>
 
-Unread badges show which agents or teams have new coordination activity. **Team Hub** can also surface unread and recent messages across teams or for the focused team.
+## Team updates in Atlas chat
 
-Click an unread item to open the related team and agent. When the item needs your response, Syndicate can route it into **User Tasks**.
-
-Use **Team Hub** when you want to scan unread and recent coordination activity across teams before opening one workspace.
-
-## User attention
-
-When an agent needs your input, it can route the request through Atlas or surface it as a **User Task**. Treat these items as decision points. The team may soft pause while it waits for your answer.
-
-Use **Reply** to answer Atlas or **Resolve** to close an item without a reply. When Atlas shows an approval card, use **Allow & Send** to send the instructions or **Reject** to discard them.
-
-## Clearing confusion
-
-If messages pile up or the team seems stuck:
-
-1. Open **User Tasks** and resolve anything blocking.
-2. Open **Agent Comms** for Atlas and the relevant specialist.
-3. Check **User Tasks** for blockers and **Task Health** for stale, unassigned, unclear, or risky work.
-4. Check **Activity** for recent tool, command, context, or message events.
-5. Tell Atlas what should stop, or cancel the specific task from **Agent Tasks**.
-6. Give Atlas one clear next instruction.
+In the Manager's chat, the **Show updates from agents** checkbox controls whether short "Update from [agent]" digests appear inline as teammates report progress. Uncheck it to keep the chat focused on your direct conversation with Atlas. The choice is remembered per team.

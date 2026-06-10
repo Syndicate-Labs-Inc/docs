@@ -1,51 +1,39 @@
 ---
 title: "Solo agents"
-description: "Use one specialist agent for focused, direct work."
+description: "One specialist, no Manager: direct 1:1 work in Chat or Build mode."
 ---
 
-{/* Hero media: 12-18 second clip of a solo workspace. Show the Solo Agents section, one solo workspace open, direct chat, attachments, and agent settings. */}
-
-A solo agent is a one-on-one workspace with a single specialist. There is no Manager, no **Agent Comms**, no inter-agent dispatch, and no roster to coordinate. It is just you, one agent, and a project folder.
-
-Use solo agents when you know which specialist you need and want fast back-and-forth instead of orchestration.
+A solo agent is a workspace with exactly one agent and no Manager. There is no delegation, no task board ceremony, and no Agent Comms: just you and a specialist in a direct conversation.
 
 ## When to use a solo agent
 
-Use a solo agent when:
+- The work fits one role: explain this codebase, draft this document, review this folder.
+- You already know which specialist you need.
+- You want answers or edits now, without orchestration overhead.
 
-- The task is focused.
-- You know which specialist you need.
-- You want fast back-and-forth.
-- The work does not need delegation.
-- You do not need **User Tasks**, **Agent Tasks**, or **Task Health**.
+If the work starts splitting into several kinds of tasks (build plus test plus document), graduate to a [team](/features/teams).
 
-## Good solo agent examples
+## Chat mode vs Build mode
 
-| Agent | Example task |
-| --- | --- |
-| Frontend Developer | Polish a settings screen |
-| Technical Writer | Write a tutorial page |
-| QA Engineer | Create a regression checklist |
-| Researcher | Compare product options |
-| Backend Developer | Review an API route |
+Every solo agent runs in one of two modes, switchable from the toggle in its header:
 
-## Set up a solo agent
+| Mode | What it can do | Best for |
+|---|---|---|
+| **Chat** | Read, ask, plan. No file edits or commands. | Questions, planning, writing, research, review |
+| **Build** | Full project work in the agent's folder: edit files, run commands. | Implementation, refactoring, file generation |
 
-<Card title="Guide: create a solo agent" icon="user" href="/guides/create-a-solo-agent">
-  Walk through choosing a specialization, picking a model, linking a project folder, and starting your first chat.
-</Card>
+The UI describes them as: "Chat mode: read, ask, plan. No file edits or commands." and "Build mode: full project work in the agent's folder."
 
-## Switching from solo to team
+## The solo workspace
 
-If a solo workflow grows into multiple parallel tasks, create a team and add specialists. Solo agents are best for focus; teams are best for coordination. See [Teams](/features/teams) for **Interruption Level**, **Agent Comms**, **User Tasks**, and team-creation paths.
+The header shows the agent's avatar and status dot, its name and specialization, and a link to its working folder (click to open it in your file explorer). A **Files** toggle opens a live file tree of the working folder, refreshed while open. The settings icon opens the same [agent configuration panel](/features/agents#the-agent-configuration-panel) used in teams.
 
-## Next steps
+Everything else works like team chat: attachments, slash commands, steer and stop controls, tool approvals. See [Chat and dispatch](/features/chat-and-dispatch).
 
-<CardGroup cols={2}>
-  <Card title="Teams" icon="users" href="/features/teams">
-    When a solo workflow outgrows one agent, switch to an Atlas-led team.
-  </Card>
-  <Card title="Chat and dispatch" icon="list-checks" href="/features/chat-and-dispatch">
-    Send work to your solo agent and watch a run unfold.
-  </Card>
-</CardGroup>
+## Creating one
+
+Use **Solo Agents** in the sidebar (+ button), or the team creation wizard's **Start from Scratch** path, then **Solo Agent**. You pick a name, an optional specialization, a model, a mode, and a workspace folder. Full walkthrough: [Create a solo agent](/guides/create-a-solo-agent).
+
+## Solo limits
+
+Your account tier sets how many solo workspaces you can have. Check Settings under **Account**.

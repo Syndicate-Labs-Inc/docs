@@ -1,95 +1,79 @@
 ---
-title: "Overview"
-description: "How workspaces, agents, teams, and providers fit together."
+title: "Core concepts"
+description: "The mental model: workspaces, teams, agents, Atlas, tasks, and dispatch."
 ---
 
-Syndicate turns a local project folder into a workspace where AI agents can plan, build, review, research, document, and coordinate with each other.
+Five concepts explain almost everything in Syndicate.
 
-## What's in this section
+## Workspace
 
-The pages in this section describe the building blocks that shape every Syndicate setup.
+A **workspace** is the unit you open and work in: either a team or a solo agent, plus the local **working directory** where its agents read and write files. Workspaces appear in the sidebar under **Team Hub** (teams) and **Solo Agents** (single agents).
 
-### Concepts in this section
+All workspace data lives on your machine. See [Data and storage](/reference/data-and-storage).
 
-<CardGroup cols={2}>
-  <Card title="Workspaces" icon="folder-tree" href="/features/workspaces">
-    Where Syndicate organizes work around a local project folder.
-  </Card>
-  <Card title="Agents" icon="sparkles" href="/features/agents">
-    The specialists you configure, including roles from the Agent Marketplace.
-  </Card>
-  <Card title="Teams" icon="users" href="/features/teams">
-    A group of specialist agents coordinated by Atlas.
-  </Card>
-  <Card title="Solo agents" icon="user" href="/features/solo-agents">
-    A single specialist agent for direct one-on-one work.
-  </Card>
-  <Card title="Providers and models" icon="plug" href="/features/providers-and-models">
-    Claude, OpenAI/Codex, and Gemini accounts and the models agents run on.
-  </Card>
-</CardGroup>
+## Team
 
-### Where to go next
+A **team** is a Manager agent plus one or more specialist agents sharing a working directory, a task board, and a message bus. Teams are for work that benefits from multiple roles: build plus review, research plus writing, implement plus test.
 
-<CardGroup cols={2}>
-  <Card title="Chat and dispatch" icon="list-checks" href="/features/chat-and-dispatch">
-    Send work to an agent and watch what happens during a run.
-  </Card>
-  <Card title="Tasks" icon="list-checks" href="/features/tasks">
-    Track User Tasks, Agent Tasks, and Task Health.
-  </Card>
-  <Card title="Agent Comms" icon="inbox" href="/features/inbox">
-    Understand Agent Comms and user attention requests.
-  </Card>
-  <Card title="References" icon="book" href="/features/references-and-context">
-    Give agents the project files and docs they need as context.
-  </Card>
-  <Card title="MCP servers" icon="blocks" href="/features/mcp">
-    Connect agents to external tools and data sources.
-  </Card>
-</CardGroup>
+See [Teams](/features/teams).
 
-## How a team coordinates work
+## Agent
 
-Atlas is the Manager that coordinates a team. Instead of you assigning each step, you give Atlas an outcome and it decides who on the team should do what.
+An **agent** is a single AI worker with:
 
-Dispatch is how Syndicate hands a message or task to an agent so it starts running. Atlas dispatches work to specialists, specialists report back through **Agent Comms**, and you stay in the loop through **User Tasks** when a decision needs you.
+- a **name** and a **specialization** (its role and baked-in skills)
+- a **model** (any model from a connected provider)
+- a **Soul**: the markdown prompt that defines its expertise and behavior
+- **skills** (slash-command workflows), **MCP tools**, **references**, and **permissions**
+
+See [Agents](/features/agents).
+
+## Atlas, the Manager
+
+Every standard team has a Manager called **Atlas**. Atlas plans phases, creates and assigns tasks, coordinates the specialists, and escalates decisions to you. Atlas is a coordinator, not an implementer: it inspects the project read-only and delegates the actual work.
+
+How much Atlas interrupts you is controlled by the team's **Interruption Level** (Minimal, Balanced, Hands-on, Manual).
+
+See [Working with Atlas](/guides/create-your-first-team/atlas-orchestrator).
+
+## Dispatch
+
+**Dispatch** is how agents run. When you message an agent, when Atlas assigns work, or when a teammate sends a message, the recipient agent wakes up, does the work in the working directory, and reports back. Agent-to-agent traffic is visible in the **Agent Comms** feed; anything that needs you lands in **User Tasks** and your **Inbox**.
 
 ```mermaid
-flowchart LR
-  User["You"] --> Workspace["Workspace"]
-  Workspace --> Team["Team"]
-  Workspace --> Solo["Solo agent"]
-  Team --> Manager["Atlas"]
-  Manager --> Agents["Specialist agents"]
-  Agents --> Tasks["Agent Tasks"]
-  Agents --> Inbox["Agent Comms"]
-  Manager --> UserTasks["User Tasks"]
-  Agents --> Tools["Skills and MCP servers"]
-  Agents --> Project["Local project folder"]
-  Solo --> DirectChat["Direct chat"]
-  Solo --> Tools
-  Solo --> Project
+flowchart TD
+  U[You] -->|goal| A[Atlas, the Manager]
+  A -->|tasks| AG1[Specialist agents]
+  AG1 -->|messages| A
+  AG1 -->|reads and writes| P[(Working directory)]
+  A -->|decisions and approvals| U
+  AG1 -.->|"@user"| U
 ```
 
-## Common ways to use Syndicate
+## Where things show up
 
-| Goal | Use |
-| --- | --- |
-| Fix a bug | Solo engineer or team with Atlas, Coder, and QA |
-| Build a feature | Team with Atlas plus specialists |
-| Review code | Code review team or QA specialist |
-| Write docs | Technical writer agent with project references |
-| Research a topic | Researcher or research team |
-| Coordinate many tasks | Team Workspace with Interruption Level, Agent Comms, Agent Tasks, and Task Health |
+| Surface | What it holds | Who acts |
+|---|---|---|
+| **Chat** | Your direct conversation with an agent or Atlas | You |
+| **Agent Comms** | Agent-to-agent coordination feed | Nobody (read-only) |
+| **User Tasks** | Questions, approvals, and decisions waiting on you | You |
+| **Agent Tasks** | The work board: every task with owner and status | Atlas |
+| **Task Health** | Board hygiene issues Atlas should clean up | Atlas (you can nudge) |
+| **Inbox** | Messages addressed to you across all workspaces | You |
 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Workspaces" icon="folder-tree" href="/features/workspaces">
-    See how a workspace holds a team or a solo agent and links to a project folder.
+  <Card title="Workspaces" icon="folder-open" href="/features/workspaces">
+    Layout, working directories, and lifecycle.
   </Card>
-  <Card title="Chat and dispatch" icon="list-checks" href="/features/chat-and-dispatch">
-    Send work to an agent and watch a run unfold.
+  <Card title="Teams" icon="users" href="/features/teams">
+    The Team Hub, dashboard, and team controls.
+  </Card>
+  <Card title="Agents" icon="robot" href="/features/agents">
+    Anatomy and configuration of a single agent.
+  </Card>
+  <Card title="Chat and dispatch" icon="comments" href="/features/chat-and-dispatch">
+    How conversations and agent runs actually work.
   </Card>
 </CardGroup>

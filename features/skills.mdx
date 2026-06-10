@@ -1,38 +1,36 @@
 ---
 title: "Skills"
-description: "Use skills to give agents specialized workflows."
+description: "Slash-command workflows that give agents specialized, repeatable procedures."
 ---
 
-{/* Hero media: 10-12 second clip of an agent's skills panel — open an agent's configuration, show its attached skills, expand one skill to reveal its workflow description. */}
+A skill is a packaged workflow an agent can run: a markdown instruction set with a name, a description, and a detailed procedure. Skills are what make a "Backend Developer" agent actually behave like one.
 
-Skills are reusable workflow instructions. They help agents approach specialized tasks consistently.
+## How agents get skills
 
-## What skills do
+Skills come bundled with **specializations**. When you create an agent with a specialization (say, Backend Developer), it automatically carries that role's skill set: `/backend-design`, `/schema-check`, `/secure`, `/test-plan`, `/optimize-query`, `/error-handling`, and so on.
 
-A skill can define:
+- **Built-in**: Syndicate ships 100 skills across 20+ specializations. Browse them in the [Marketplace](/guides/agent-marketplace) or the [skills catalog](/reference/skills-catalog).
+- **User-made**: the [Agent Maker](/guides/agent-marketplace/agent-maker) generates new skill packages from a description.
+- **Community**: packages imported from GitHub repositories or local folders.
 
-- When to use a workflow.
-- What context to gather.
-- What steps to follow.
-- What output format to produce.
-- What quality checks to run.
+An agent's current skills are listed in its configuration panel under **Skills (N)**.
 
-## Examples
+## Using skills in chat
 
-| Agent type | Useful skills |
-| --- | --- |
-| Technical Writer | writer-design, tutorial-write, readme-gen, changelog-gen |
-| Frontend Developer | fe-design, fe-review, fe-layout, fe-fortify |
-| QA Engineer | qa-design, test-plan, regression-check, smoke-test |
-| Researcher | investigate, source-eval, synthesize, fact-check |
-| DevOps Engineer | deploy-review, monitor-setup, rollback, pipeline-check |
+Type **/** in the chat input to open the slash menu with the agent's skills. Pick one to insert the command, add any arguments or context, and send. The agent follows the skill's procedure instead of improvising.
 
-{/* Screenshot: agent configuration panel highlighting the Skills section with several skills listed (e.g., a Technical Writer with tutorial-write, readme-gen, changelog-gen). */}
+You can also just ask in plain language ("run a security audit on this folder"); agents reach for their skills when the request matches. The slash command is the explicit, reliable way to trigger a specific workflow.
 
-## Skills and specializations
+## Suggested workflows
 
-When you create an agent from a specialization, Syndicate can associate relevant skills with that agent. You can inspect the skills in the agent configuration panel.
+In the Marketplace, each built-in specialization shows a **Suggested Workflow**: a numbered sequence of its skills that represents how the role typically operates. For example, Atlas's workflow runs `/think` (pressure-test the idea), `/delegate` (break down and assign), `/status` (check progress), `/pipeline` (run reviews), and `/reflect` (retrospective).
 
-## When to create or add a skill
+## Skills vs MCP servers
 
-Add a skill when a workflow is repeated, important, or easy to get wrong. Do not add skills just to make an agent look more capable.
+| | Skills | MCP servers |
+|---|---|---|
+| What they add | Procedures and judgment (how to do something) | Tools and data access (the ability to reach something) |
+| Where they run | Inside the agent's prompt | As separate processes or services |
+| Examples | `/secure`, `/test-plan`, `/launch` | GitHub, database, web search |
+
+They compose: a skill like `/deploy-review` works better when the agent also has an MCP server that can read your CI system.

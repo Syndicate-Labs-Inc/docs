@@ -1,70 +1,51 @@
 ---
 title: "Install and sign in"
-description: "Request beta access, install Syndicate, and sign in for the first time."
+description: "Download Syndicate, create your account, and sign in for the first time."
 ---
 
-Syndicate is in private beta. Request an invite, install the app, and sign in.
+Syndicate is a desktop app for Windows and macOS, currently in closed beta.
 
-{/* Hero media: 15-20 second clip — invite email, installer download, first launch, account creation, signed-in app. */}
-
-## Request beta access
+## Install
 
 <Steps>
-  <Step title="Open usesyndicate.org">
-    Go to [usesyndicate.org](https://usesyndicate.org) and click **Request Access**.
+  <Step title="Get beta access">
+    Syndicate is in closed beta. Sign in works only with an approved email address. Request access at [usesyndicate.org](https://usesyndicate.org) if you do not have it yet.
   </Step>
-  <Step title="Submit your email">
-    Enter the address you want to use for your Syndicate account.
-  </Step>
-  <Step title="Watch for the invite">
-    The invite email includes macOS and Windows installer links.
+  <Step title="Download and run the installer">
+    Download from [usesyndicate.org](https://usesyndicate.org).
+
+    - **Windows**: run `Syndicate-Setup-<version>.exe`. You can change the install directory; desktop and Start Menu shortcuts are created.
+    - **macOS**: open the DMG and drag Syndicate to Applications. Current macOS builds are unsigned while Apple notarization is pending, so you may need to right-click, then Open the first time.
   </Step>
 </Steps>
 
-## Install Syndicate
+## Create your account
 
-{/* Screenshot: beta invite email with macOS/Windows download buttons. */}
+On first launch you will see **"Create your syndicate account"**:
 
-<Steps>
-  <Step title="Install the app">
-    From the invite email, download the installer for your OS and run it. Approve any prompts from your OS.
-  </Step>
-  <Step title="Launch Syndicate">
-    Open the desktop app and click **Get Started**.
-  </Step>
-  <Step title="Create your account">
-    Choose **Create account** and enter the email you used for beta access.
+1. Fill in **Full name**, **Email**, **Password**, and **Confirm password**, then click **Create account**.
+2. Check your email: "Check your email to confirm your account before signing in." The confirmation link opens Syndicate and completes sign-in automatically.
+3. If the email does not arrive within a minute, check spam, then use **Resend confirmation email**.
 
-    <Frame>
-      ![Create your Syndicate account form with fields for full name, email, password, and confirm password.](/assets/screenshots/install/create_account.png)
-    </Frame>
-  </Step>
-  <Step title="Confirm your email">
-    Confirm your email if Syndicate prompts you.
-  </Step>
-  <Step title="Sign in">
-    Sign in with your new account. If Syndicate says the account is already active elsewhere, sign in here to take over the session.
+Already have an account? Use **Back to sign in**, enter your email and password, and click **Sign in**. **Forgot password?** starts a reset flow.
 
-    <Frame>
-      ![Syndicate sign-in screen with email and password fields and a Create account link.](/assets/screenshots/install/sign_in.png)
-    </Frame>
-  </Step>
-</Steps>
+## Sessions and devices
 
-<Tip>
-If the confirmation email does not arrive, use **Resend confirmation email** in the app and check spam.
-</Tip>
+- Your session is stored encrypted on this machine and persists across restarts; you will not sign in every launch.
+- You can sign in on more than one machine. Workspaces and chats are local to each machine; your account, tier, and limits follow you.
+- Sign out any time from **Settings, Account, Sign out**.
 
-## Done when
+## Common sign-in issues
 
-- Syndicate opens and you are signed in.
-- The app prompts you to connect at least one [provider](/features/providers-and-models).
+| Symptom | Fix |
+|---|---|
+| "Authentication failed." | Check your connection and retry; sign-in needs network access. |
+| Account created but cannot sign in | Confirm your email first; use **Resend confirmation email** if needed. |
+| Confirmation link expired | Request a new confirmation email and use it within 24 hours. |
+| Signed out unexpectedly | Sessions expire after long inactivity; sign in again. |
 
-<CardGroup cols={2}>
-  <Card title="Connect providers" icon="plug" href="/guides/connect-providers">
-    Connect Claude, OpenAI/Codex, or Gemini.
-  </Card>
-  <Card title="Quick start" icon="users" href="/guides/create-your-first-team/quick-start">
-    Launch an Atlas-led team or start with a solo agent.
-  </Card>
-</CardGroup>
+## Next step
+
+<Card title="Connect providers" icon="plug" href="/guides/connect-providers">
+  Hook up Claude, OpenAI (Codex), or Google Gemini so agents have a model to run on.
+</Card>

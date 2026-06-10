@@ -1,50 +1,38 @@
 ---
 title: "References and context"
-description: "Give agents the right project information without burying them."
+description: "Give agents the right files and folders as context, scoped globally, per team, or per agent."
 ---
 
-References are files or folders you attach so agents can use them as context.
+References are files and folders you attach as read-only context. Their content is injected into the agent's prompt on every run, so the agent does not have to go find it.
 
-References are different from the working folder and **Uploads**. The working folder is where agents read, edit, and run project files. **Uploads** are files or images attached through chat. References are durable context you intentionally attach at global, team, or agent scope.
+## Three scopes
 
-## Why references matter
+| Scope | Visible to | Managed in | Use for |
+|---|---|---|---|
+| **Global** | All agents, all workspaces | Settings | Company standards, style guides, shared docs |
+| **Team** | All agents in one team | Team settings | Project README, schema, requirements |
+| **Agent** | One agent | Agent configuration | Role-specific source material |
 
-Team agents and solo agents work better when they can see the right information:
+## How references are injected
 
-- Product requirements.
-- README files.
-- Architecture notes.
-- API schemas.
-- Design specs.
-- Example files.
+On each dispatch, Syndicate resolves the agent's references and inlines them:
 
-## Reference scopes
+- **Files**: content is included up to 64 KB per file, within a 200 KB total budget. Larger files contribute path and metadata only.
+- **Folders**: a manifest of file names and sizes (not the contents).
+- **PDFs**: extracted text (up to 10 MB source size).
 
-| Scope | Visibility | Example |
-| --- | --- | --- |
-| Global | Available across workspaces | Company style guide |
-| Team | Available to all agents in a team workspace | Project architecture doc |
-| Agent | Available to one team agent or solo agent | Files for a specific task |
+References can live anywhere on disk; unlike the working directory they are context, not a workspace. Agents read them but cannot edit them through the reference mechanism.
 
-## Keep context focused
+## Adding and removing
 
-More context is not always better. Large or irrelevant references can distract agents and increase prompt size.
+Click the **+** next to the relevant references section (sidebar, team settings, or agent config), then pick files or folders in the native picker. Remove a reference the same place you added it.
 
-Use the smallest reference set that helps the agent complete the task.
+Click any reference to open a read-only preview with line numbers and a language badge.
 
-## Context budgets
+## Keep context lean
 
-Syndicate estimates context size and can trim lower-priority sections when an agent run gets too large. Keep references concise so the most important context survives.
+More context is not better; it competes with conversation history and inbox messages for the agent's attention and token budget.
 
-Open **Agent Settings** when you need to tune context for a specific agent. You can adjust history lookback, Agent Comms lookback, reference limits, token budget, and which sections the agent receives, including team context, tasks, Agent Comms messages, references, connectors, and MCP server context. Team context, Agent Comms, and task context apply to team agents; solo agents use their direct chat and attached context instead.
-
-Use prompt analytics to confirm whether the agent is receiving the context you expect before you send a larger task.
-
-## Verify context
-
-If an agent seems to miss important context:
-
-1. Confirm the project is linked to the right working folder.
-2. Check whether the material belongs in **Files**, **Uploads**, or references.
-3. Attach durable docs as references at the narrowest useful scope.
-4. Send a small task that asks the agent to summarize or apply the reference.
+- Attach the few files that actually define the task, not the whole repository (the agent can read workspace files itself with its tools).
+- Prefer team scope for shared project facts, agent scope for role-specific material, and global scope sparingly.
+- Use the agent's **Context** settings and **Prompt Analytics** to see how many characters references consume per run, and trim what is not earning its place. See [Agents](/features/agents#context).

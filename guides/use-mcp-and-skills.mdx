@@ -1,81 +1,37 @@
 ---
 title: "Use MCP servers and skills"
-description: "Extend agents with specialized workflows and external tools."
+description: "Extend agents with external tools (MCP) and specialized workflows (skills), end to end."
 ---
 
-Skills and MCP servers turn [agents](/features/agents) from general chat partners into specialists with repeatable workflows and external capabilities.
+Skills give agents better procedures; MCP servers give them reach into external systems. This guide wires up both on a working agent. Concepts: [Skills](/features/skills) and [MCP servers](/features/mcp).
 
-{/* Hero media: 20-30 second clip opening an agent, adding a skill or MCP server, then using it in chat.
-Capture list:
-- Skills area or skill picker.
-- MCP settings or tool list.
-- A configured agent with enabled capabilities.
-- A chat where the agent uses a capability.
-- Any permission, authentication, or connected state that users need to recognize.
-*/}
-
-## Add a skill
-
-{/* Video: enable a skill for an agent and show it available in the agent configuration. */}
-
-Skills are reusable instructions for specialized work. Use them when an agent needs a reliable workflow for tasks like documentation, QA, frontend design, analytics, or release management.
+## Add an MCP server and give it to an agent
 
 <Steps>
-  <Step title="Open the agent">
-    Choose the agent that should use the skill.
+  <Step title="Install the server globally">
+    Open **Settings, MCP**. Use the **Catalog** for one-click presets (presets that need credentials ask for them first), or **Add a server** manually: pick the transport (Local command, Remote URL, or Remote SSE), name it, describe what agents use it for, add secrets if needed, and click **Add server**. Syndicate validates it with a live handshake before saving.
   </Step>
-  <Step title="Find skills">
-    Open the skills area in the agent configuration.
+  <Step title="Check its health">
+    The server row shows a health dot. Click **Test** to re-run the handshake and list the tools it exposes.
   </Step>
-  <Step title="Add the right skill">
-    Choose the skill that matches the agent's job.
+  <Step title="Enable it on the agent">
+    Open the agent's configuration panel, **Tools (MCP)**, and flip the toggle for that server. Only this agent gains access; teammates are unaffected.
   </Step>
-  <Step title="Save the agent">
-    Return to the team and give the agent a task that uses the skill.
+  <Step title="Verify in chat">
+    Ask the agent to use the tool ("List my open GitHub PRs"). Under **Ask first** permissions you will get a Tool Request prompt; allow it and confirm the result.
   </Step>
 </Steps>
 
-## Add an MCP server
+## Use skills
 
-{/* Video: enable an MCP server and show connected/available state. */}
+Skills arrive with the agent's specialization; nothing to install for built-ins.
 
-MCP servers connect agents to external capabilities only after you install or configure them and enable them for an agent. Depending on your setup, a server may expose files, browser automation, documents, or another service.
+1. Type **/** in the agent's chat to open the slash menu and see everything it carries.
+2. Pick a command, add context, send. The agent follows the skill's procedure.
+3. For workflows none of your agents have, generate a package with [Agent Maker](/guides/agent-marketplace/agent-maker) or import one from the [community](/guides/agent-marketplace/community-agents).
 
-<Steps>
-  <Step title="Install or configure the MCP server">
-    Complete the setup required by that server.
-  </Step>
-  <Step title="Enable it for an agent">
-    Open the agent configuration and make the server available.
-  </Step>
-  <Step title="Confirm access">
-    Check that the server shows as available before asking the agent to use it.
-  </Step>
-  <Step title="Test with a small task">
-    Ask for something simple that clearly requires the server.
-  </Step>
-</Steps>
+## Patterns that work
 
-## When to add a capability
-
-{/* Screenshot: agent configuration with 2-3 skills or MCP servers enabled. */}
-
-Add a skill or MCP server when:
-
-- The same task appears repeatedly.
-- The task needs a consistent process.
-- The agent needs access to a system outside the app.
-- The output quality improves with domain-specific instructions.
-
-## Keep capabilities understandable
-
-Give each capability a clear name and purpose. Agents should not need to guess when to use it.
-
-<CardGroup cols={2}>
-  <Card title="MCP servers" icon="plug-zap" href="/features/mcp">
-    Learn how MCP servers fit into Syndicate.
-  </Card>
-  <Card title="Skills" icon="sparkles" href="/features/skills">
-    Learn how skills guide specialist work.
-  </Card>
-</CardGroup>
+- **Researcher + web/GitHub MCP**: `/investigate` becomes dramatically stronger when the agent can actually fetch sources.
+- **DevOps + CI MCP**: `/deploy-review` and `/incident-response` with live pipeline visibility.
+- **Keep tools role-scoped**: install globally, enable per agent, and give each agent only what its job needs. Fewer tools means better tool choices and a smaller blast radius.

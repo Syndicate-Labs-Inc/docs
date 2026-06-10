@@ -1,112 +1,80 @@
 ---
 title: "Teams"
-description: "Use Team Hub and Team Workspace to coordinate multiple agents around one project."
+description: "The Team Hub, team statuses, the team dashboard, and team-level controls."
 ---
 
-{/* Hero media: 20-25 second clip of Team Workspace mid-run. Show Atlas dispatching to two specialists, statuses updating, Agent Comms receiving a message, and a User Task appearing. */}
-
-Teams are for work that benefits from multiple specialists. A typical team includes Atlas as the Manager plus agents for engineering, review, testing, writing, or research.
-
-Team work happens across two main surfaces:
-
-- **Team Hub**: the overview where you scan teams, unread updates, roster summaries, settings, and recent work.
-- **Team Workspace**: the single-team control room where you chat, assign work, inspect coordination, review tasks, browse files, and preview the project.
+A team is a Manager (Atlas) plus specialist agents sharing one working directory, one task board, and one message bus.
 
 ## Team Hub
 
-Use **Team Hub** before you enter a specific workspace. Team cards show the team name, working folder label, roster summary, agent status, unread or recent activity, settings access, and an open action.
+The Team Hub is the home grid showing every team as a card. Each card displays:
 
-When you select a team, the focused preview gives you the team roster, active status, focused inbox messages, and a primary action to open the team chat or workspace. Use this view when you need to compare several teams or check which one needs attention.
+- **Team name** and agent count (for example "3 agents")
+- **Task progress** (for example "2/5 tasks")
+- **Status badge**:
+  - **Needs Input** or **Awaiting Review** (yellow): agents are blocked or waiting on you
+  - **In Progress** / **Running** (green): agents actively working
+  - **Quiet**, **New**, or **Idle** (gray): no current activity
+- **Activity counters**: active agents (green dot), errors (red dot), and unread messages (envelope icon)
 
-## The Manager
+The card's **More actions** menu offers **Project Settings**, **Pause Team** / **Resume Team**, **Add Agent**, and **Delete Team**. Click the card or **Open team** to enter the dashboard.
 
-The Manager is the agent that coordinates a team. In most teams, this is Atlas. Instead of you assigning each step to each specialist, you give Atlas an outcome and it decides who should do what.
+## The team dashboard
 
-Atlas typically:
+Inside a team you get three tabs:
 
-- Plans the work and breaks it into tasks.
-- Delegates each task to the right specialist on the team.
-- Follows up when an agent finishes or gets blocked.
-- Routes inter-agent messages through **Agent Comms**.
-- Creates **User Tasks** for decisions, approvals, blockers, or interruptions that need you.
+- **Dashboard**: the visual canvas plus task panels (described below).
+- **Chat**: your direct conversation with Atlas.
+- **Dispatch**: the raw feed of agent-to-agent messages.
 
-Atlas hands work to specialists through dispatch messages. Specialists reply through **Agent Comms**, while your direct conversation stays in chat. See [chat and dispatch](/features/chat-and-dispatch) for how dispatches appear in the UI and how to watch them.
+### The canvas
 
-Every managed team has one Manager. How often Atlas asks before continuing is set by **Interruption Level**, described below. If you do not need a Manager, use a [solo agent](/features/solo-agents) instead.
+Atlas sits at the center with agent tiles around it. Animated lines glow when messages flow between agents. Each tile shows the agent's name, its model provider icon, and a status dot:
 
-## When to use a team
+| Dot | Meaning |
+|---|---|
+| Green | Active: currently working |
+| Gray | Idle |
+| Amber | Waiting: needs approval or input |
+| Red | Blocked: hit an error |
 
-Use a team when:
+Below each tile: task progress ("1/5 tasks"), files modified, and the agent's latest summary. Click any tile to open that agent's chat and Agent Comms.
 
-- The work has multiple parts.
-- You want Atlas to coordinate specialists.
-- You need review or QA after implementation.
-- Agents should hand work to each other.
-- You want to monitor a longer workflow.
+### The task panels
 
-## Team creation paths
+The right column has three panels. The full breakdown is in [Tasks](/features/tasks):
 
-| Path | Use when |
-| --- | --- |
-| **Template** | You want a prebuilt team shape |
-| **Guided description** | You want Syndicate to draft a roster from a project description |
-| **Build Your Team** | You want to start with Atlas and add specialists yourself |
+- **User Tasks**: everything waiting on you. Reply or resolve each item.
+- **Agent Tasks**: the work board Atlas manages. You can cancel individual tasks or **Abort all**.
+- **Task Health**: board hygiene issues (stale, unowned, unclear tasks). Use **Nudge Manager** or **Sweep stale tasks** to have Atlas clean up.
 
-{/* Screenshot: Team Settings showing Interruption Level with Minimal, Balanced, Hands-on, and Manual options, with Balanced highlighted as the default suggestion. */}
+### The bottom tray
 
-## Interruption level
+A collapsible tray with **Files** (everything agents created or modified, with previews) and **Activity** (a chronological log of commands run and files changed, with **Load more** for older history).
 
-Teams with Atlas can run under different interruption levels. Each level controls how often Atlas turns decisions, approvals, blockers, or scope changes into **User Tasks**.
+## Team controls
 
-| Level | Atlas can do without asking | Atlas asks before |
-| --- | --- | --- |
-| **Minimal** | Plan, delegate, follow up, and keep routine work moving | True blockers, missing access, high-risk work, or required approval |
-| **Balanced** | Coordinate routine work and existing tasks | Meaningful new workstreams, unclear scope, medium or high risk, or completion approvals |
-| **Hands-on** | Continue narrow follow-ups | Major assignments, broad follow-ups, risky decisions, and completion reviews |
-| **Manual** | Wait for explicit approval on most coordination | Most delegations, follow-ups, re-routes, and new-work steps |
+Open **Team Settings** (gear icon or card menu) to manage:
 
-Start with **Balanced** for a new team. It keeps the team moving while giving you a chance to catch scope changes.
+- **Project Name**: rename the team.
+- **Working Directory**: browse to relink the team to a different folder. Agents and history are kept.
+- **Interruption Level** (teams with a Manager): how often Atlas stops to ask you. Four modes: **Minimal**, **Balanced**, **Hands-on**, **Manual**. See [Working with Atlas](/guides/create-your-first-team/atlas-orchestrator#interruption-level).
+- **Team Hard Pause**: stops current dispatches and blocks auto-dispatch. While paused, the chat input is disabled with "Team paused. Resume the team before prompting agents." Resuming does not restart agents; they only run when prompted again.
+- **Danger Zone**: **Delete Team** permanently removes the team and all its agents (two-step confirmation). Project files on disk are untouched.
 
-Older labels such as **Autopilot**, **Approve New Work**, and **Approve Each Step** map to the current interruption levels.
+There is also a **Stop team** button in the workspace header for an immediate stop of the current run, separate from the hard pause.
 
-## Team workspace layout
+## Team limits
 
-The **Team Workspace** has three primary areas:
-
-- The agent network, where Atlas and specialists show status, alerts, and coordination relationships.
-- The right rail, where you use chat, **Agent Comms**, **User Tasks**, **Agent Tasks**, **Task Health**, **Assign Task**, and agent settings.
-- The bottom tray, where you inspect **Activity**, **Files**, **Uploads**, and file previews.
-
-When Atlas is selected, the right rail shows the manager operations tabs: **User Tasks**, **Agent Tasks**, and **Task Health**. Use these tabs for approvals, blockers, tracked work, and risk review instead of hunting through chat.
-
-Use **Assign Task** when you want to create tracked work directly. You can choose the assignee, title, instructions, deliverable, done condition, acceptance criteria, phase, risk, whether completion needs human review, and whether to notify and start the agent.
-
-Use the bottom tray when you need evidence for the work in progress. **Activity** shows recent tool, command, context, and message events. **Files** lets you browse the working folder and open previewable files. **Uploads** lists files attached through team chat.
-
-Agent settings also open from the right rail. Use them to review identity, specialization, instructions, context settings, skills, and MCP server access for the selected agent.
-
-## Hard pause
-
-**Hard pause** stops in-flight team dispatches and blocks new automatic dispatch. Use the team settings pause control when a team is moving too quickly, a provider is misconfigured, or you want to inspect work before anything else runs. Resuming a paused team does not auto-restart agents. They run again when prompted or messaged.
-
-Syndicate can also soft pause a team while an unresolved **User Task** waits for your input. You do not manually unlock a soft pause; reply to or resolve the relevant **User Task**.
-
-## Project preview
-
-Click **Preview** from the workspace header to open the team's project preview. Syndicate reuses an existing running server when it can. If none exists, it starts a default dev server from the team's working directory and opens the preview when a URL or port is available.
-
-To stop or redirect managed work, tell Atlas what should stop, then cancel any specific task from **Agent Tasks**. If several active tasks should stop, use the board's abort-all-active option.
+Your account tier sets how many teams and solo workspaces you can create, and the maximum agents per team. Your current limits are shown in Settings under **Account**.
 
 ## Next steps
 
-<CardGroup cols={3}>
-  <Card title="Atlas orchestrator" icon="route" href="/guides/create-your-first-team/atlas-orchestrator">
-    Learn how Atlas plans, delegates, and asks for input.
+<CardGroup cols={2}>
+  <Card title="Create your first team" icon="users" href="/guides/create-your-first-team/quick-start">
+    Templates, generated rosters, or from scratch.
   </Card>
-  <Card title="Solo agents" icon="user" href="/features/solo-agents">
-    Compare a team to working with a single specialist agent.
-  </Card>
-  <Card title="Chat and dispatch" icon="list-checks" href="/features/chat-and-dispatch">
-    See how Atlas dispatches work and how runs appear in the UI.
+  <Card title="Working with Atlas" icon="compass" href="/guides/create-your-first-team/atlas-orchestrator">
+    Delegation, briefs, and interruption levels.
   </Card>
 </CardGroup>

@@ -1,40 +1,48 @@
 ---
 title: "MCP servers"
-description: "Use MCP servers to connect agents to external tools and data."
+description: "Connect agents to external tools and data with Model Context Protocol servers."
 ---
 
-{/* Hero media: 15-18 second clip of MCP setup -> per-agent enablement — open Settings > MCP, install a ready entry, then go to an agent's configuration and enable that MCP server for the agent only.
-Capture list:
-- Settings > MCP catalog with ready entries and docs-only entries clearly visible.
-- One ready entry being installed/configured.
-- Agent configuration panel toggling MCP access for one specific agent.
-*/}
+MCP (Model Context Protocol) servers give agents tools beyond the built-ins: GitHub, databases, internal APIs, anything with an MCP server. In Syndicate you install servers once, globally, then turn them on per agent.
 
-MCP servers extend what agents can access. They can connect agents to services such as documents, files, internal tools, or other systems.
+## Install a server
 
-{/* Screenshot: Settings > MCP catalog page, showing at least one ready entry and one docs-only entry so the distinction in the text below is visible. */}
+Open **Settings, MCP**. Two paths:
 
-## Where MCP lives
+### From the Catalog
 
-Open **Settings > MCP** to view available MCP servers and setup requirements.
+The Catalog offers "One-click presets for common MCP servers. Ones that need credentials will ask for them first." Click **Install**, or **Configure** if the preset needs credentials: a modal collects them ("Secrets are stored locally and synced into Claude's MCP settings."), with a **Setup docs** link when available.
 
-The current MCP catalog includes ready entries and docs-only entries. Ready entries can be configured from the app. Docs-only entries link out while the integration package is still being verified.
+### Add a server manually
 
-{/* Screenshot: agent configuration panel with the MCP servers section showing one enabled and one disabled server toggle. */}
+Under **Add a server**, choose a transport:
 
-## Agent-level access
+| Transport | Use when | You provide |
+|---|---|---|
+| **Local command** (stdio) | The server runs as a local process | Command (usually `npx`) and args (`-y package-name` plus options) |
+| **Remote URL** (HTTP) | The server is hosted | An `https://` URL |
+| **Remote SSE** | The server streams over SSE | An `https://` URL |
 
-Installing or configuring an MCP server does not mean every agent should use it. Enable MCP servers only for the agents that need them.
+Give it a name and a short "What agents use it for" description, add any **Secrets** as key/value pairs (values are entered as passwords and encrypted; they never land in plain-text config), and click **Add server**. Syndicate validates the server with a live handshake before saving it.
 
-## Good MCP use cases
+## Manage installed servers
 
-- Let a researcher use an approved source material connector.
-- Let a writer use configured documentation sources.
-- Let an agent use a project-specific MCP server that you explicitly enabled.
+Each installed server row shows a health dot (green healthy with tool count, red failed with the error, gray unchecked), its transport badge (Local, HTTP, SSE), and actions:
 
-## Safety tips
+- **Test**: re-runs the handshake and lists the tools the server exposes.
+- **Show details**: the exact command or URL plus available tools.
+- **Toggle**: enable or disable the server globally.
+- **Remove**: uninstall, with confirmation.
 
-- Start with read-only capabilities where possible.
-- Avoid giving broad external access to every agent.
-- Keep credentials out of screenshots and docs.
-- Test one server with one agent before rolling it out to a team.
+## Turn servers on per agent
+
+Installing a server does not give every agent access. In each agent's configuration panel, the **Tools (MCP)** section lists installed servers with per-agent toggles. Enable only what the agent's role needs.
+
+<Tip>
+Scope tools to roles. A researcher might get a web or GitHub server; there is rarely a reason for every agent on the team to carry every tool.
+</Tip>
+
+## Security notes
+
+- Secrets are encrypted with your OS keychain-backed storage and injected into the server process at launch; they are never written to settings files.
+- MCP tool calls go through the same [permission flow](/reference/permissions-and-safety) as built-in tools, so "Ask first" agents still prompt you before using them.

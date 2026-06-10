@@ -1,96 +1,53 @@
 ---
 title: "Tasks"
-description: "Track User Tasks, Agent Tasks, and Task Health in Team Workspace."
+description: "User Tasks, Agent Tasks, and Task Health: the three task surfaces in a team."
 ---
 
-Tasks help you see what a team is doing, what needs you, and which active work may be risky or blocked.
+A team's work is tracked on a shared board, split into three panels so you always know what needs you and what does not.
 
-In Team Workspace, task work is split across three Atlas tabs:
+## User Tasks: your inbox
 
-- **User Tasks**: decisions, approvals, blockers, and interruption prompts that need your input.
-- **Agent Tasks**: tracked work assigned to Atlas or specialists.
-- **Task Health**: risk and quality signals for active tasks.
+Everything waiting on **you**: questions, decisions, approvals, missing access or inputs. Each item shows what is needed, why it blocks work, a priority badge (**Blocking**, **High**, **Medium**, **Low**), and who asked.
 
-## User Tasks
+Actions per item:
 
-**User Tasks** collect decisions, approvals, blockers, and interruption prompts that need your input.
+- **Reply**: opens "Reply to Atlas". Your answer is relayed to whichever agent needs it ("Atlas will follow up or relay your answer to the agent that needs it.").
+- **Resolve**: dismiss an item you have already handled.
 
-A **User Task** can come from:
+<Tip>
+If you only check one panel, check this one. Nothing in the other two panels requires your action.
+</Tip>
 
-- A blocked task.
-- A task that needs human review before completion.
-- A message sent to you.
-- An Atlas interruption request.
+## Agent Tasks: the work board
 
-Each item shows the requester, source, impact, description, related task or message, and latest update time.
+Every task Atlas has created or you have assigned, with title, assignee, and status: **Queued**, **In Progress**, **Done**, or **Blocked**. The default filter shows In Progress; toggle to see everything.
 
-| Impact | Meaning |
-| --- | --- |
-| **Blocking** | The team should not continue until you respond |
-| **High** | The decision affects scope, risk, or completion |
-| **Medium** | The team can continue some work but needs direction |
-| **Low** | The item needs review but is not urgent |
+Actions:
 
-Use **Reply** to answer Atlas. Use **Resolve** to close an item without a reply. When Atlas shows an approval card, use **Allow & Send** to send the instructions or **Reject** to discard them. A team may soft pause while a blocking **User Task** waits for your input.
+- **Cancel** a single task (the agent stands down and will not recreate it unless asked).
+- **Abort all (N)**: cancel every active task. Atlas is told to stand down the assigned agents and ask what to do next, after a confirmation prompt.
 
-## Agent Tasks
+You can also create tasks yourself: open the slash menu in Atlas chat and choose **Assign task**, or use the Assign Task form. Pick the agent, describe the work, and choose the start mode:
 
-**Agent Tasks** shows real tracked work for Atlas and specialists. It excludes routine dispatch bookkeeping.
+- **Notify**: the agent sees the work in its inbox.
+- **Start**: the agent begins immediately.
+- **Flag**: the task waits for your decision first.
 
-Use it to:
+## Task Health: board hygiene
 
-- Filter tasks by status.
-- Review the title, assignee, risk, phase, and update time.
-- See whether a task requires a human decision.
-- Cancel one task.
-- Abort all visible abortable tasks when the plan needs a reset.
+Atlas's cleanup queue: stale blockers, tasks with no owner, unclear descriptions, or quiet tasks. These are Atlas's to fix; the panel exists so you can keep an eye on him.
 
-| Status | Meaning |
-| --- | --- |
-| **Todo** | Work is queued or planned |
-| **In Progress** | An agent is actively working |
-| **Blocked** | Work needs input or cannot continue |
-| **Done** | Work is complete |
-| **Canceled** | You canceled the task |
+- **Nudge Manager** on a specific item prompts Atlas to address it.
+- **Sweep stale tasks** asks Atlas to review the whole board and cancel stale, duplicate, or superseded tasks.
 
-When you cancel a task, Atlas gets a receipt and guidance not to recreate or reassign that task unless you explicitly ask.
+When clean, it reads: "No stale, unassigned, unclear, or quiet tasks. Atlas is keeping the board clean."
 
-If you use the bulk abort action, Syndicate cancels the visible abortable tasks and sends Atlas a summary. Relevant specialists can also receive stand-down instructions so they do not keep working on canceled tasks.
+## The kanban board
 
-## Task Health
+The full task board view shows four columns: **Todo**, **In Progress**, **Done**, and **Blocked**, each with a count. You can add tasks ("New task title...", pick an assignee, **Add**), change a task's status or assignee from dropdowns on the card, and delete tasks. A compact version of the board lives in the workspace side tray, with completed tasks collapsed under an "N completed" disclosure.
 
-**Task Health** is a watchlist, not a second task board. Use it to spot task risk before the team loops or stalls.
+## Lifecycle notes
 
-Task Health can flag unassigned tasks, high-risk or medium-risk work, weak deliverables or acceptance criteria, stale in-progress work, stale todos, and stale blockers where the blocking question itself lives in **User Tasks**.
-
-Click **Nudge Manager** on a specific risk item when you want Atlas to address that item. Syndicate sends Atlas the task, severity, reason, and requested next step.
-
-## Assign Task
-
-Click **Assign Task** from the right rail when you want to create tracked work directly.
-
-The form includes:
-
-- **Agent**.
-- **Title**.
-- **Instructions**.
-- **Deliverable**.
-- **Done Condition**.
-- **Acceptance Criteria**.
-- **Phase**.
-- **Risk**.
-- **Requires human decision before completion**.
-- **Notify and start agent**.
-
-Choose **Notify and start agent** when you want the assignee to wake and start through normal dispatch. If the task requires a human decision, Syndicate routes that review through **User Tasks**.
-
-If you assign work to Atlas, the message comes from you. If you assign work to a specialist in a managed team, Atlas can send the notification so the work stays inside the team coordination flow.
-
-## Best practices
-
-- Keep tasks outcome-focused.
-- Assign tasks to the agent best suited for the work.
-- Add a deliverable, done condition, and acceptance criteria.
-- Use **User Tasks** for decisions instead of burying approvals in chat.
-- Use **Task Health** to catch risk early.
-- Use **Activity**, **Files**, **Uploads**, and **Preview** to verify work before approving completion.
+- Every dispatch automatically creates a task assigned to the running agent and fills in a completion summary when it finishes.
+- Queued and flagged tasks survive app restarts. Hard-paused teams hold their queue until resumed.
+- Canceled tasks record why they were canceled.

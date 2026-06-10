@@ -1,150 +1,63 @@
 ---
 title: "Add and configure agents"
-description: "Add a specialist to a team or solo agent, then review its model, instructions, skills, MCP servers, and context."
+description: "Add a specialist to a workspace, then tune its model, Soul, context, skills, and tools."
 ---
 
-Use this guide after you choose an agent in the [Agent Marketplace](/guides/agent-marketplace).
+This guide covers the full workflow: adding an agent to an existing workspace and shaping how it behaves.
 
-You can add agents to a team when you want Atlas to coordinate multiple specialists. You can create a solo agent when you want one focused specialist with no Manager.
+## Add an agent
 
-## Before you start
+Three entry points:
 
-Make sure you have:
+- **From the Marketplace**: open a specialization and use **Add to Team** (or create a solo agent from it).
+- **From the sidebar or Team Hub**: the **Add Agent** action on a team.
+- **During team creation**: the **+ Add Agent** button on the Review screen.
 
-- At least one connected provider.
-- A team, unless you plan to create the solo agent from Marketplace.
-- A clear job for the agent.
-- Any references, skills, or MCP servers the agent needs.
+The Add Agent modal asks for:
 
-If you have not connected a provider yet, follow [Connect providers](/guides/connect-providers).
+1. **Agent Name**: for example "Schema Wrangler".
+2. **Source**: **syndicate** (built-ins), **User Made**, or **Community**.
+3. **Specialization**: the role and its baked-in skills, or "General-Purpose (no baked skills)".
+4. **Model**: any model from a connected provider.
 
-## Choose the agent source
+Click **Add to Team** and the agent appears on the canvas, idle and ready.
 
-Open **Agent Marketplace**, then choose the source that fits your goal:
+## Configure it
 
-| Goal | Source |
-| --- | --- |
-| Use a proven Syndicate role | **Syndicate** |
-| Use a package from another creator | **Community** |
-| Use one of your saved custom agents | **User Made** |
-| Create a new reusable agent | **Add Agent Package > Agent Maker** |
+Open the agent's settings icon for the configuration panel. What to check, in order of impact:
 
-For source-specific setup, see [Built-in Syndicate agents](/guides/agent-marketplace/built-in-syndicate-agents), [Community agents](/guides/agent-marketplace/community-agents), or [Agent Maker](/guides/agent-marketplace/agent-maker).
+<Steps>
+  <Step title="Model">
+    Match the model to the role: strongest models for planning-heavy roles, code models for coders, fast models for high-volume monitors. See [Providers and models](/features/providers-and-models#choosing-models-for-a-team).
+  </Step>
+  <Step title="Permission mode">
+    Pick from the shield selector: **Ask first**, **Auto-accept edits**, or **Full auto**. Start conservative; loosen as trust builds. See [Permissions and safety](/reference/permissions-and-safety).
+  </Step>
+  <Step title="Soul">
+    The agent's system prompt. For user-made agents, click **Edit** to add project-specific guidance. Effective Soul additions are concrete:
 
-## Add the agent to a workspace
+    Weak: "Write good code."
 
-1. Select the agent package in Marketplace.
-2. Review the agent description, suggested workflow, and any setup notes.
-3. Click **Add to...**.
-4. Choose **Existing Team** or **Solo Workspace**, the option for a solo agent.
-5. If you choose **Existing Team**, select the team.
-6. If you choose **Solo Workspace**, name the solo agent and choose the project folder when prompted.
+    Better: "This project uses React 19 with Tailwind. Prefer existing components in src/components. Never introduce new dependencies without flagging it to Atlas first."
+  </Step>
+  <Step title="Skills">
+    Review the **Skills (N)** list so you know which slash commands the agent answers to. Skills come from the specialization; to change the set, change the specialization or build a custom package with [Agent Maker](/guides/agent-marketplace/agent-maker).
+  </Step>
+  <Step title="Tools (MCP)">
+    Toggle on only the MCP servers this role needs. Servers are installed globally in Settings, MCP, then enabled per agent here. See [MCP servers](/features/mcp).
+  </Step>
+  <Step title="Context">
+    The defaults (Balanced) are right for most agents. If runs feel slow or the agent misses recent instructions, open the Context editor and check **Prompt Analytics** to see where the tokens go. See [Agents](/features/agents#context).
+  </Step>
+  <Step title="References">
+    Attach the files this specific agent needs (its style guide, the schema it owns). Team-wide documents belong at team scope instead. See [Attach references](/guides/attach-references).
+  </Step>
+</Steps>
 
-After you add the agent to a team, it appears in that team workspace. Atlas can assign it work through dispatch, and you can inspect its activity in **Agent Tasks**, **Agent Comms**, and chat.
+## Verify
 
-After you create a solo agent, you work with that agent directly. There is no Manager and no team-level dispatch.
+Send the agent one small, role-typical message and confirm it responds in character, uses the right tools, and respects its permission mode. Then put it to work.
 
-## Review the agent settings
+## Remove an agent
 
-Open the agent settings from the workspace and review:
-
-| Setting | What to check |
-| --- | --- |
-| **Identity** | The agent name and specialization match the job you expect. |
-| **Soul** | The role instructions describe responsibilities, boundaries, and output expectations. |
-| **Provider and model** | The agent uses a connected provider and a model that fits the work. |
-| **Team agent context** | The agent receives the right task, **Agent Comms**, references, and team context. |
-| **Solo agent context** | The agent can use direct chat, the project folder, references, skills, and MCP server access. |
-| **Skills** | Reusable workflows are attached only when they help the agent do repeatable work. |
-| **MCP Servers** | External tool access is enabled only for the agents that need it. |
-
-<Tip>
-Start narrow. Add the smallest useful set of references, skills, and MCP servers, then expand only when the agent needs more context or tool access.
-</Tip>
-
-## Write useful role guidance
-
-If you can edit the agent's **Soul** or package instructions, describe:
-
-- What the agent owns.
-- What it should avoid.
-- Which files, systems, or references matter.
-- How it should report progress.
-- What a good final answer looks like.
-
-Weak guidance:
-
-```txt
-Help with the project.
-```
-
-Better guidance:
-
-```txt
-Review onboarding docs for missing setup steps, unclear UI labels, broken links, and unsupported claims. Do not edit files unless asked. Return issues with file paths, impact, and suggested wording.
-```
-
-## Attach references
-
-Attach references when the agent needs stable project knowledge, such as product notes, design files, API docs, or existing plans.
-
-Use the narrowest useful scope:
-
-- Workspace references for context every agent should see.
-- Team references for context shared by one team.
-- Agent references for specialist-only context.
-
-For the full workflow, see [Attach references](/guides/attach-references).
-
-## Enable skills and MCP servers
-
-Use skills for repeatable workflows. Use MCP servers for external tools or data the agent must access.
-
-Keep both scoped:
-
-- Add skills that match the agent's recurring work.
-- Enable MCP servers only for the agent that needs that access.
-- Avoid giving broad external access to every agent in a team.
-
-For setup steps, see [Use MCP servers and skills](/guides/use-mcp-and-skills).
-
-## Verify the agent
-
-Send a small request before relying on the agent for a larger task.
-
-Good first prompts:
-
-- "Read the project folder and summarize what you need to do this job well."
-- "Review this plan and list the top five risks. Do not edit files."
-- "Use your attached references to draft a checklist for this workflow."
-
-Expected result: the agent responds in the right role, uses the expected provider, and asks for missing context instead of guessing.
-
-For team agents, check that the agent receives the right task, **Agent Comms** messages, references, and team context. For solo agents, check direct chat, the project folder, references, skills, and MCP server access.
-
-## Troubleshooting
-
-| Symptom | What to check |
-| --- | --- |
-| The agent does not appear in the workspace | Reopen the workspace and confirm you selected the right destination under **Add to...**. |
-| The agent cannot run | Check that its provider is connected and the selected model is available. |
-| The agent misses obvious context | Review attached references and context settings. |
-| The agent cannot use an external tool | Confirm the MCP server is installed and enabled for that agent. |
-| A community agent reports a missing runtime | Reopen the package detail page and follow its setup notes. |
-
-## Next steps
-
-<CardGroup cols={2}>
-  <Card title="Built-in Syndicate agents" icon="sparkles" href="/guides/agent-marketplace/built-in-syndicate-agents">
-    Choose ready-made specialists that ship with Syndicate.
-  </Card>
-  <Card title="Community agents" icon="download" href="/guides/agent-marketplace/community-agents">
-    Install reusable packages from local folders, GitHub repositories, or supported CLI commands.
-  </Card>
-  <Card title="Agent Maker" icon="wand-magic-sparkles" href="/guides/agent-marketplace/agent-maker">
-    Draft a reusable custom agent package from a description.
-  </Card>
-  <Card title="Agents" icon="bot" href="/features/agents">
-    Learn what agents receive as context and how settings shape their behavior.
-  </Card>
-</CardGroup>
+Configuration panel, **Danger Zone**, **Delete Agent** (two-step confirmation): "Remove this agent and all its config." Queued tasks assigned to it are removed from the board.

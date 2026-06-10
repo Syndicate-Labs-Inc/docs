@@ -1,131 +1,36 @@
 ---
 title: "Community agents"
-description: "Install reusable agent and skill packages from local folders, GitHub repositories, or supported CLI install commands."
+description: "Import agent and skill packages from GitHub repositories, local folders, or CLI commands."
 ---
 
-Community agents let you bring outside packages into Syndicate. Use them when a specialist is not built in, or when a team shares a package across multiple machines.
+Beyond the built-ins and your own Agent Maker creations, you can import packages built by others. Imported packages appear in the Marketplace under the **Community** tab and work like any specialization.
 
-A community package can install an agent, one or more skills, or both. Check the package description before installing so you know what will appear in your workspace and what the package expects in return.
+## Import methods
 
-<Frame>
-  ![Add Agent Package modal in Agent Marketplace showing Agent Maker, Local Folder, GitHub Repository, and CLI Install options.](/assets/screenshots/agents/agent_marketplace_options.png)
-</Frame>
+From the Marketplace's **Add Agent Package** modal:
 
-## Install methods
+| Method | How |
+|---|---|
+| **GitHub Repository** | Paste a full URL or `owner/repo` shorthand. Syndicate fetches the package from the repo. |
+| **Local Folder** | Browse to a folder containing SKILL.md files. |
+| **CLI Install** | Paste an `npx skills add ...` command from a package's install instructions. |
 
-Syndicate supports three community install paths:
+A success or failure badge reports the result.
 
-| Method | Use when |
-| --- | --- |
-| Local Folder | You already have a package folder on this machine. |
-| GitHub Repository | The package lives in a public or accessible GitHub repo. |
-| CLI Install | The package author gives you a supported install command. |
+## What is in a package
+
+A package is a set of skills: markdown files defining a name, a description, and a procedure each. The package page in the Marketplace shows the full skill grid and source metadata (the GitHub link when available, otherwise "Source not listed").
+
+Some community packages require an API key for the services they call; the package page includes a key section with save, test, and clear controls where that applies.
+
+## Trust and safety
 
 <Warning>
-A package and a runtime are not always the same thing. A package can teach an agent what commands or workflow to use, but some packages also need a separate CLI, API key, or provider account before the agent can actually complete work. Always read the package description.
+Skills are instructions your agents follow, with the agent's permissions. Only install packages from sources you trust, and skim the skill descriptions before granting the agent broad permissions or MCP tools.
 </Warning>
 
-## Open the install modal
+A sensible pattern for trying an unknown package: add it to a solo agent in **Chat mode** first (no file edits, no commands), see how it behaves, then promote it to real work.
 
-1. Open **Agent Marketplace**.
-2. Click **Add Agent Package**.
-3. Choose how you want to add the package.
+## Removing a package
 
-{/* Suggested video: opening Add Agent Package and selecting each install option. */}
-
-## Install from a local folder
-
-Use this when someone sends you a package folder, or when you are testing a package from disk.
-
-1. Choose **Local Folder**.
-2. Click **Browse**.
-3. Select the package folder.
-4. Click **Install**.
-
-Expected result: the package appears in the Marketplace under the **Community** category.
-
-## Install from GitHub
-
-Use this when the package lives in a GitHub repository.
-
-1. Choose **GitHub Repository**.
-2. Paste a GitHub URL or shorthand.
-3. Click **Install**.
-
-Examples:
-
-```txt
-https://github.com/owner/repo
-owner/repo
-```
-
-Expected result: Syndicate downloads the package and adds it to the Marketplace.
-
-## Install with a CLI command
-
-Use this when a package author provides an install command.
-
-1. Choose **CLI Install**.
-2. Paste the command provided by the package.
-3. Click **Install**.
-
-Supported command shape:
-
-```bash
-npx skills add owner/repo --skill skill-name
-```
-
-<Note>
-Use the install command exactly as the package author provides it. Syndicate accepts the `npx skills add` shape shown above; it does not run arbitrary shell commands from this field.
-</Note>
-
-## Configure package credentials
-
-Some community packages need an API key or a companion runtime before they can do useful work.
-
-If a package needs credentials:
-
-1. Open the package detail page in Marketplace.
-2. Follow the package's instructions for any required keys.
-3. Save credentials in the package's configuration panel when one is offered, so they are stored securely.
-
-Read the package description to know which credentials apply — the requirements vary by package.
-
-{/* Suggested screenshot: community package detail page with credential status/config panel visible. */}
-
-## Add a community agent to a workspace
-
-After install, open the package in the **Community** category, click **Add to...**, and choose **Existing Team** or **Solo Workspace**. For the full flow and what happens after you add an agent, see [Choose how you want to add an agent](/guides/agent-marketplace#choose-how-you-want-to-add-an-agent).
-
-## Skills in community packages
-
-Many community packages install one or more skills. Skills are reusable workflow instructions bundled into an agent — they tell the agent when to use a workflow, what steps to follow, and what output to produce.
-
-If the package installs an agent, those skills are attached to that agent by default. If the package installs only skills, you attach them to an existing agent from the agent configuration panel.
-
-See [Skills](/features/skills) for what skills do and how to inspect them on an agent.
-
-## Limits & gotchas
-
-- **Read the package description first.** A community package may install an agent, a skill, or both. The description tells you which.
-- **Some packages depend on a separate runtime or API key.** A successful install only means the workflow is registered. If the agent says a tool or key is missing, revisit the package detail page and configure what it asks for.
-- **If Syndicate does not detect a runtime installed while the app was open, restart Syndicate.** Newly installed CLIs are usually picked up on the next launch.
-- **Community packages run with the access you grant.** Review them the way you'd review any third-party code before giving them broad permissions or sensitive references.
-- **Team fit.** Community agents added to a team are coordinated by Atlas through dispatch and **Agent Comms**. If you only need a quick 1:1 with the community agent, use a **Solo Workspace** instead.
-
-## Verify it worked
-
-Open the agent (or the agent you attached the skills to) and ask for a small task that uses the package's specialty.
-
-If the agent reports a missing runtime or tool:
-
-1. Check whether the package requires a separate CLI or API key.
-2. Reopen the Marketplace package detail page.
-3. Save any required credentials.
-4. If Syndicate does not detect a newly installed runtime, restart Syndicate.
-
-## Next steps
-
-- [Use built-in Syndicate agents](/guides/agent-marketplace/built-in-syndicate-agents)
-- [Create a custom package with Agent Maker](/guides/agent-marketplace/agent-maker)
-- [Use MCP and skills](/guides/use-mcp-and-skills)
+Select the package in the Marketplace sidebar and remove it from its detail view. Agents already created from it keep their configuration but lose access to skills the package provided.

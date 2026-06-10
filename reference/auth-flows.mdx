@@ -1,28 +1,39 @@
 ---
 title: "Auth flows"
-description: "Technical reference for provider authentication behavior."
+description: "Technical reference for account and provider authentication behavior."
 ---
 
-{/* Hero media: diagram (static image). Show three swimlanes — Claude (browser OAuth -> credentials stored), OpenAI/Codex (Codex CLI auth -> capability check), Gemini (in-app terminal -> OAuth/API key/probe) — with the "terminal UI rule" callouts on each lane. No video required; this is a reference page. */}
+## Syndicate account
 
-This page is the public reference version of Syndicate's provider auth behavior.
+- **Sign-up** requires full name, email, password, and email confirmation. Confirmation links open the app via the `syndicateapp://` deep link and complete sign-in automatically.
+- **Sessions** are stored encrypted on-device (OS keychain-backed storage, never plain localStorage) and restored on launch. Tokens refresh automatically; if refresh fails or the session is revoked, you are returned to the sign-in screen.
+- **Sign-out** clears the encrypted session locally first, then revokes the token best-effort, so sign-out works even offline.
+- **Devices**: each install has a device identity ("Syndicate Desktop (Windows)" and similar). Account tiers may limit concurrent devices; if exceeded you will be asked to sign out elsewhere first. Closing the app releases its device session.
 
-## Claude
+## Launch policy
 
-Claude uses browser OAuth first. After sign-in, Syndicate stores credentials in the expected Claude credentials location and treats Claude as connected when a valid OAuth access token is available.
+On startup Syndicate checks a launch policy for your account and version. It can require a minimum app version (with an update link), an active subscription, or specific tiers. If the check cannot be reached (offline), the app launches normally and re-checks later.
 
-## OpenAI/Codex
+## Provider auth flows
 
-OpenAI uses the Codex CLI auth file and a live capability check. Syndicate watches for Codex auth changes, refreshes provider state, and verifies that the account can execute Codex.
+### Claude (browser code flow)
 
-## Gemini
+1. **Connect** opens claude.ai in your browser with a secure one-time challenge.
+2. You approve access and copy the displayed code.
+3. Pasting the code into Syndicate exchanges it for tokens, which are written to the Claude CLI's own credentials file (`~/.claude/.credentials.json`).
+4. On rate-limit errors (HTTP 429) the app automatically falls back to a terminal `claude` login and watches the credentials file for completion.
 
-Gemini may use the in-app terminal. Syndicate treats Gemini as connected when OAuth credentials exist, a configured API key is available, or a lightweight probe succeeds.
+### OpenAI and Gemini (terminal flows)
 
-{/* Screenshot: side-by-side stills — Gemini in-app terminal (allowed) vs. a stale Codex terminal modal (not expected). Helps make the rule below visual. Crop any real auth codes. */}
+1. **Connect** launches the provider CLI's interactive login (in-app terminal on Windows/Linux, Terminal.app on macOS).
+2. You complete the provider's own sign-in (ChatGPT account for Codex, Google account for Gemini).
+3. A file watcher polls the credentials location for up to 5 minutes; on success the provider card refreshes automatically.
 
-## Terminal UI rule
+### Failure modes
 
-- Gemini can show the in-app auth terminal.
-- OpenAI/Codex should not show the in-app auth terminal.
-- Claude should use browser OAuth; terminal is a fallback only.
+| Message | Meaning |
+|---|---|
+| "Invalid code — try again." | The pasted Claude code was wrong or expired (about 15 minutes); get a fresh one |
+| "Auth terminal exited with code X before completion." | The CLI login was interrupted; close and click Connect again |
+| "Claude OAuth endpoint is busy — switching to terminal login." | Automatic fallback in progress; finish in the terminal |
+| "Install failed." | CLI install failed; the diagnostic modal lists each step, with **Copy diagnostic** for support |

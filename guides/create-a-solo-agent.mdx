@@ -1,79 +1,43 @@
 ---
 title: "Create a solo agent"
-description: "Set up a single specialist workspace without Atlas or inter-agent dispatch."
+description: "Set up a single specialist with its own workspace, in Chat or Build mode."
 ---
 
-A solo agent is a one-on-one workspace with a single specialist and no Manager. It has no **Agent Comms**, **User Tasks**, **Agent Tasks**, or inter-agent dispatch. Use it when you want fast back-and-forth on focused work.
-
-{/* Hero media: 20-30 second clip starting solo creation, picking a specialization and model, selecting a folder, and sending the first message.
-Capture list:
-- Solo Agent entry point in the workspace creation flow.
-- Specialization picker.
-- Provider/model selector.
-- Local folder picker.
-- New solo workspace appearing under Solo Agents in the sidebar.
-*/}
-
-## Before you start
-
-You need:
-
-- An approved Syndicate account.
-- At least one provider connected — see [Connect providers](/guides/connect-providers).
-- A local project folder for the agent to work in.
-
-## Create the solo workspace
-
-{/* Video: Solo Agent flow from click to first chat. */}
+A solo agent is one specialist with no Manager: a direct 1:1 conversation, with its own working folder. Concepts and UI: [Solo agents](/features/solo-agents).
 
 <Steps>
-  <Step title="Start workspace creation">
-    Open the workspace creation flow and choose **Solo Agent**.
+  <Step title="Start the flow">
+    Click **+** next to **Solo Agents** in the sidebar (or take the wizard's **Start from Scratch** path and choose **Solo Agent**: "One specialist, no Manager. A direct 1:1 conversation.").
   </Step>
-  <Step title="Pick a specialization">
-    Choose the specialist that matches the work — for example Frontend Developer, Technical Writer, QA Engineer, Researcher, or Backend Developer.
+  <Step title="Pick the source">
+    - **Pick from Marketplace**: "Choose an existing syndicate, user-made, or community specialization."
+    - **Agent Maker**: "Describe a new specialist and generate a reusable skillset." See [Agent Maker](/guides/agent-marketplace/agent-maker).
   </Step>
-  <Step title="Pick a model">
-    Select the [provider and model](/features/providers-and-models) the agent should run on. You can change this later in agent settings.
+  <Step title="Configure the agent">
+    - **Agent Name**: for example "Schema Wrangler".
+    - **Specialization**: any built-in or custom specialization, or "General-Purpose (no baked skills)". The description and skill count show as you pick.
+    - **Model**: any model from a connected provider.
+    - **Mode**:
+      - **Chat**: "Best for questions, planning, writing, research, and review. The agent will not change files."
+      - **Build**: "Best for project work. The agent can edit files and run commands in the folder you choose."
   </Step>
-  <Step title="Select a project folder">
-    Choose the local folder the agent should read, edit, and run commands in.
+  <Step title="Choose the workspace folder">
+    "Choose where your agent lives." Browse to a folder and click **Add Agent**.
   </Step>
-  <Step title="Open the workspace">
-    Finish setup and land in the new solo workspace.
+  <Step title="Start chatting">
+    Good first messages:
+
+    - Chat mode: "Read this folder and summarize how the project works."
+    - Build mode: "Set up a basic project scaffold here and explain your choices."
   </Step>
 </Steps>
 
-## Send the first message
+## Tips
 
-{/* Screenshot: solo chat after the first message. */}
+<Tip>
+Start in **Chat mode** when pointing an agent at an unfamiliar folder. Switch to **Build** from the header toggle once you have seen how it reasons about the project.
+</Tip>
 
-Ask the agent to do something small that matches its specialty. Good first messages include:
-
-- Summarize what the project does.
-- Identify the most important files.
-- Suggest one improvement and explain why.
-
-A short first task gives you a quick read on whether the specialization, model, and folder are wired up correctly.
-
-## Where solo agents live
-
-Solo workspaces show up under **Solo Agents** in the sidebar, separate from collaborative teams. Each one is a workspace with exactly one agent and no Manager.
-
-## When to graduate to a team
-
-A solo agent is best for focus. Switch to a team when:
-
-- The work splits into parallel tracks.
-- You need Atlas to coordinate specialists.
-- You want review or QA after implementation.
-- Multiple agents need to hand work back and forth.
-
-<CardGroup cols={2}>
-  <Card title="Solo agents" icon="user" href="/features/solo-agents">
-    Learn when a solo workspace is the right choice.
-  </Card>
-  <Card title="Quick start" icon="users" href="/guides/create-your-first-team/quick-start">
-    Step up to an Atlas-led team when work expands.
-  </Card>
-</CardGroup>
+- The **Files** toggle in the header shows a live tree of the agent's folder.
+- Solo agents have the same configuration surface as team agents: Soul, context, skills, MCP toggles, permission mode.
+- When the work outgrows one role, create a [team](/guides/create-your-first-team/quick-start) and bring the same specialization in as a team member.

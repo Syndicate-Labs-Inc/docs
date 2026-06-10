@@ -1,51 +1,44 @@
 ---
-title: "Syndicate docs"
-description: "Learn how to set up Syndicate, connect providers, and run coordinated agent teams on your local projects."
+title: "Syndicate"
+description: "Build AI teams that work together. Syndicate is a desktop app that runs coordinated teams of AI agents on your own machine, using the model providers you already have."
 ---
 
-Most AI tools give you another chat box. Syndicate gives you a team.
+Syndicate turns AI agents into a coordinated team. Instead of juggling tabs and pasting context between chats, you describe a goal and a Manager agent (Atlas) plans the work, delegates to specialists, and surfaces only the decisions that need you.
 
-{/* Hero media: 15-20 second clip of the desktop app at a glance. Show Team Hub, Solo Agents, one Team Workspace with Atlas visible, a dispatch starting, Agent Comms updating, and a User Task arriving. Crop any real customer names or emails. */}
+Everything runs locally on your machine, inside a project folder you choose, powered by the AI providers you connect: Claude, OpenAI (Codex), or Google Gemini.
 
-Start with one request. Atlas can break it into steps, route work to specialists, keep context attached to your project, and bring the result back where you can see what happened. Use a full team when the work needs coordination, or a solo specialist when you want fast 1:1 help.
+## What you can do with Syndicate
 
-## Why people choose Syndicate
+- **Run a team.** A Manager plus specialist agents (developers, reviewers, researchers, writers) that delegate, hand off, and report back to you.
+- **Run a solo agent.** One specialist in a direct 1:1 chat, with or without permission to edit files.
+- **Stay in control.** Approval flows, permission modes, interruption levels, and a task board keep you in the loop exactly as much as you want.
+- **Extend agents.** Skills, specializations, MCP servers, and reference files shape what each agent knows and can do.
 
-- **Real coordination, not tab juggling:** agents can message each other, hand off work, and report back through Atlas.
-- **Your workspace stays visible:** chat, **Agent Comms**, **User Tasks**, **Agent Tasks**, references, files, uploads, and agent status live in one desktop app.
-- **You choose the models:** connect Claude, OpenAI/Codex, or Gemini and pick the right provider per agent.
-- **Built around local work:** select the project folder agents should use instead of copying context into yet another web chat.
-
-Start here if you want the shortest path from "I have access" to "my first agent is working." Each guide gets you one step closer.
+## Start here
 
 <CardGroup cols={2}>
-  <Card title="Get started" icon="rocket" href="/getting-started">
-    The short launchpad: access, install, provider setup, and first workspace.
+  <Card title="Getting started" icon="rocket" href="/getting-started">
+    Install, sign in, connect a provider, and run your first workspace in minutes.
   </Card>
-  <Card title="Install and sign in" icon="download" href="/guides/install-and-sign-in">
-    Request access, install the desktop app, and create your beta account.
+  <Card title="Create your first team" icon="users" href="/guides/create-your-first-team/quick-start">
+    Pick a template, generate a roster from a description, or build from scratch.
+  </Card>
+  <Card title="Create a solo agent" icon="user" href="/guides/create-a-solo-agent">
+    One specialist, no Manager. Direct chat for quick, focused work.
+  </Card>
+  <Card title="Working with Atlas" icon="compass" href="/guides/create-your-first-team/atlas-orchestrator">
+    How the Manager plans, delegates, and asks for your input.
+  </Card>
+  <Card title="The Agent Marketplace" icon="store" href="/guides/agent-marketplace">
+    Browse 20+ built-in specialists, community packages, and the Agent Maker.
   </Card>
   <Card title="Connect providers" icon="plug" href="/guides/connect-providers">
-    Connect Claude, OpenAI/Codex, or Gemini so agents can run.
-  </Card>
-  <Card title="Quick start" icon="users" href="/guides/create-your-first-team/quick-start">
-    Build an Atlas-led workspace around a real local project folder.
-  </Card>
-  <Card title="Use MCP servers and skills" icon="wrench" href="/guides/use-mcp-and-skills">
-    Extend agents with tools, integrations, and reusable specialist workflows.
-  </Card>
-  <Card title="Troubleshooting" icon="circle-help" href="/reference/troubleshooting">
-    Fix common auth, provider, MCP, and setup issues.
+    Hook up Claude, OpenAI (Codex), or Google Gemini.
   </Card>
 </CardGroup>
 
-## Suggested first path
+## How it fits together
 
-1. [Install and sign in](/guides/install-and-sign-in)
-2. [Connect a provider](/guides/connect-providers)
-3. [Quick start](/guides/create-your-first-team/quick-start)
-4. [Learn the core concepts](/features/overview)
+A **workspace** is a team or solo agent plus the local project folder it works in. Inside a team, **Atlas** (the Manager) receives your goals, breaks them into tasks on a shared board, and dispatches **agents** to do the work. Agents message each other through **Agent Comms**, and anything that needs your attention lands in **User Tasks** and your **Inbox**.
 
-<Note>
-Syndicate is currently in private beta. Use the email address approved for access when creating your account.
-</Note>
+Read the full mental model in [Core concepts](/features/overview).

@@ -1,74 +1,54 @@
 ---
 title: "Providers and models"
-description: "Connect providers and choose the models agents run on."
+description: "Which providers Syndicate supports, the models they offer, and how model selection works."
 ---
 
-{/* Hero media: 15-20 second clip of provider setup -> model selection — Settings > Providers with three cards (Claude, OpenAI/Codex, Gemini), one of them showing Connected, then jumping to an agent's model picker showing the newly available models. Crop any auth codes or real ChatGPT account names.
-Capture list:
-- Settings > Providers with all three provider cards.
-- Connected state on one provider with model count visible.
-- Agent settings > model picker showing models from that provider.
-*/}
+Syndicate does not ship its own models. Agents run on the provider accounts you connect: Claude, OpenAI (Codex), and Google Gemini. Connect one or all three; agents in the same team can run on different providers.
 
-Providers supply the models agents use to run. Syndicate currently supports Claude, OpenAI/Codex, and Gemini. You connect a provider once, and any agent on any workspace can pick a model from it.
+## Supported providers
 
-<CardGroup cols={2}>
-  <Card title="Guide: connect providers" icon="plug" href="/guides/connect-providers">
-    Step-by-step setup for Claude, OpenAI/Codex, and Gemini.
-  </Card>
-  <Card title="Reference: providers" icon="book" href="/reference/providers">
-    Per-provider details, auth flows, and known issues.
-  </Card>
-</CardGroup>
+| Provider | Account used | Auth flow |
+|---|---|---|
+| **Claude** | Your Claude account | Browser sign-in, paste a code back into the app |
+| **OpenAI (Codex)** | Your ChatGPT account (with Codex access) | CLI sign-in |
+| **Google Gemini** | Your Google account | CLI sign-in |
 
-## Provider setup
+Each provider works through its CLI. If the CLI is missing, Syndicate offers an **Install CLI** button and installs it using its bundled runtime, so you do not need Node.js set up yourself. Connection details and troubleshooting: [Connect providers](/guides/connect-providers).
 
-Connect, disconnect, refresh, or inspect providers from the settings area of the app. Look for a **Providers** section in settings — the exact label or path may vary by version.
+## Available models
 
-| Provider | Typical auth behavior |
-| --- | --- |
-| Claude | Browser OAuth first; terminal fallback only when needed |
-| OpenAI/Codex | Browser sign-in through the Codex CLI, followed by capability verification |
-| Gemini | Browser or terminal-assisted CLI flow |
+Models appear only for providers that are connected. Current lineup:
 
-For the detailed flow per provider, see [auth flows](/reference/auth-flows).
+| Provider | Models |
+|---|---|
+| Claude | Fable 5, Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 4.6, Haiku 4.5 |
+| OpenAI (Codex) | GPT-5.5, GPT-5.4, GPT-5.3 Codex |
+| Google Gemini | Gemini 2.5 Pro, Gemini 2.5 Flash, Gemini 3 Flash Preview |
 
-{/* Screenshot: defaults area in settings showing the default provider and default model dropdowns, alongside an agent panel with a Model override selected. */}
+Model lists update as providers ship new versions; the in-app selector always reflects what your connected CLIs support.
 
-## Model selection
+## How model selection works
 
-Syndicate only offers models from authenticated providers. You can set:
+There are two levels:
 
-- A default provider.
-- A default model.
-- Per-agent model choices.
-- Atlas-specific model choices during team creation.
+1. **Default model** (Settings, Providers tab, "Default Model For New Agents"): used for new teams and solo agents. Existing agents keep their current model.
+2. **Per-agent model**: set in the team creation wizard or any time in the agent's configuration panel. Each agent can use a different model.
 
-A provider has to be connected and verified before its models appear in any of these pickers.
+If a provider disconnects, agents pointing at its models are automatically resolved to the first available model from your remaining providers, so nothing gets stuck.
 
-When an agent doesn't specify a model, Syndicate falls back to your team and account defaults. Each [agent](/features/agents) can override the default model.
+## Choosing models for a team
 
-## Why provider verification matters
+A pattern that works well:
 
-Syndicate checks more than whether credentials exist. For providers like Codex, it also confirms the connected account can actually run a model. That means the plan is active, quota is available, the policy allows the requested usage, and the local CLI is functional.
+- **Atlas (Manager)**: your most capable model (for example Fable 5). Planning and coordination benefit most from reasoning quality.
+- **Coders**: a strong code model (for example GPT-5.3 Codex or Sonnet 4.6).
+- **Reviewers, writers, support roles**: a balanced model (Sonnet 4.6).
+- **High-volume, low-stakes monitors**: a fast model (Haiku 4.5).
 
-That extra check catches a class of problems early. Examples include an account that signed in fine but lacks access to a needed model, an exhausted quota, a policy that blocks the workflow, or a broken CLI. Without verification, those problems only surface when an agent tries to run and fails partway through.
+The built-in [team templates](/reference/team-templates) follow this pattern out of the box.
 
-## Recommended setup
+## Disconnecting and reconnecting
 
-Start with the provider you use most. Add additional providers when:
+Manage providers in Settings under **Providers**: each card shows a **Connected** or **Not connected** badge, the CLI version, and its model list, with **Connect**, **Reconnect**, and **Disconnect** actions. **Reconnect** lets you switch accounts.
 
-- You want different model strengths.
-- One provider is rate limited.
-- Different agents need different cost or quality profiles.
-
-## Next steps
-
-<CardGroup cols={2}>
-  <Card title="Agents" icon="sparkles" href="/features/agents">
-    See how a model fits into the rest of an agent's configuration.
-  </Card>
-  <Card title="Settings" icon="gear" href="/features/settings">
-    Manage providers, defaults, and app-level configuration.
-  </Card>
-</CardGroup>
+If credentials expire mid-session, an amber banner appears with a one-click **Reconnect** action.

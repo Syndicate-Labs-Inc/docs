@@ -1,79 +1,65 @@
 ---
 title: "Creating teams"
-description: "Choose the right team creation path for your project and review the setup choices before agents start work."
+description: "All three creation paths in depth: templates, generated rosters, and from scratch."
 ---
 
-Create a team when work needs coordination across Atlas and specialists. A team is a workspace tied to one local project folder, with Atlas coordinating the specialists that work inside it.
+The team creation wizard ("Create a New Team") offers three paths. This page walks through each, plus the roster review and folder selection that follow.
 
-Use [Quick start](/guides/create-your-first-team/quick-start) when you want the shortest path. Use this guide when you want to understand the setup choices before you create or revise a team.
+## Path 1: Starter Templates
 
-## Choose a setup path
+"Deploy a fully configured team in under 2 minutes. You can customize everything after."
 
-Syndicate gives you three ways to create a team.
+Pick one of six pre-built teams; each loads a complete roster with roles, models, and skills already chosen:
 
-| Path | Use when | What you decide |
-| --- | --- | --- |
-| **Template** | You want a proven team shape for a common workflow. | Pick the template, confirm the project folder, and review the generated roster. |
-| **Guided description** | You know the project and outcome, but want Syndicate to suggest the roster. | Describe the project, review the proposed Atlas-led roster, then edit before creating. |
-| **Build Your Team** | You know exactly which agents you want. | Start with Atlas, add specialists, and configure each role yourself. |
+| Template | What it is for |
+|---|---|
+| **Application Developers** | Full-stack development: architecture, frontend, backend, testing, and security |
+| **Code Reviewers** | Automated PR reviews, linting, and quality gates |
+| **Content Pipeline** | Research, write, edit, and publish content end-to-end |
+| **Research Analysts** | Deep-dive analysis with multi-source synthesis |
+| **DevOps Watchtower** | Monitor deployments, catch failures, manage infrastructure |
+| **Customer Support Triage** | Route, respond, and escalate support tickets intelligently |
 
-Start with **Template** when you are new to Syndicate. Use **Guided description** when the project has a clear goal but the team shape is not obvious. Use **Build Your Team** when you already know the roles you need.
+Full rosters, agent by agent: [Team templates reference](/reference/team-templates).
 
-## Pick the project folder
+## Path 2: Generate Team
 
-Every team needs a working folder. Agents use this folder when they inspect files, run commands, edit code, and gather project context.
+"Describe your project and let Manager pick specialized agents."
 
-Pick the smallest folder that contains the project. Avoid a parent folder that contains unrelated repositories, private notes, or files the team does not need.
+1. Choose a **Team model**: it generates the roster and becomes every agent's default model (you can still change individual agents in Review).
+2. Write a **Project Description**, for example: "I'm building a full-stack SaaS app with React frontend, Node.js backend, PostgreSQL database. Need user auth, payment integration, and a dashboard..."
+3. Click **Generate Team** (or press Ctrl+Enter). While it works you will see "Analyzing your project and assembling the ideal team...", then the proposed roster lands in Review.
 
-## Review the roster
+## Path 3: Start from Scratch
 
-Before you create the team, review:
+Two sub-options:
 
-- **Atlas**: the coordinating Manager that plans, delegates, and follows up.
-- **Specialists**: the agents that handle focused work, such as coding, review, writing, or research.
-- **Names and roles**: labels that make handoffs and task ownership easy to scan.
-- **Instructions**: constraints each agent should follow while working.
-- **Provider and model choices**: the provider and model each agent uses for runs.
+- **Build Your Team**: "Starts with a Manager agent — add specialists until your roster feels right." You land in Review with just the Manager and add agents one by one.
+- **Solo Agent**: "One specialist, no Manager. A direct 1:1 conversation." This branches into the [solo agent flow](/guides/create-a-solo-agent).
 
-Keep the first roster small. You can add specialists later if the work needs more coverage.
+## The Review screen
 
-## Choose an interruption level
+Whatever path you took, you finish on **Your Team Roster**:
 
-**Interruption Level** decides when Atlas must ask before acting.
+- **Team Name**: edit freely; defaults come from the template or generation.
+- **Manager row**: always present with a star icon, described as the "Auto-created coordinator that delegates tasks to other agents". You can change its model but not remove it.
+- **Agent rows**: checkbox to include or exclude, **Edit** to change name, specialization, or model, and **Skills (N)** to expand the baked-in skill list.
+- **+ Add Agent**: opens a modal where you name the agent, pick a **Source** (syndicate, User Made, or Community), choose a **Specialization** (or "General-Purpose (no baked skills)"), and select a model.
 
-| Level | Best for | What to expect |
-| --- | --- | --- |
-| **Minimal** | Trusted teams and routine work. | Atlas plans, delegates, and follows up without routine approval. |
-| **Balanced** | Most new teams. | Atlas coordinates current work, but asks before meaningful new work, unclear scope, or higher-risk steps. |
-| **Hands-on** | Sensitive projects or first-time setup. | Atlas asks before major assignments, broad follow-ups, risky decisions, and completion reviews. |
-| **Manual** | Highly controlled work. | Atlas asks before most delegations, follow-ups, and re-routes. |
+At least one agent must be selected ("Select at least one agent."). Click **Create Team**.
 
-Start with **Balanced** unless you already know the team and project are low risk.
+## Working Directory
+
+Last step: "Choose where your team's project files live." Browse to a folder and confirm. This is where agents read, write, and run commands; you can change it later in Team Settings.
 
 ## After creation
 
-When the team opens:
+- Set the team's **Interruption Level** in Team Settings to control how often Atlas checks in with you (default is fine to start). See [Working with Atlas](/guides/create-your-first-team/atlas-orchestrator#interruption-level).
+- Attach [references](/guides/attach-references) if there are documents the whole team should know.
+- Send Atlas the first goal.
 
-1. Send one small inspection task to Atlas.
-2. Check **Agent Tasks** for tracked work.
-3. Check **Task Health** for blocked, risky, or under-specified work.
-4. Watch whether a specialist moves out of idle state.
-5. Open **Agent Comms** to inspect specialist handoffs.
-6. Open **User Tasks** if the team asks for input.
-7. Use **Activity**, **Files**, and **Uploads** in the bottom tray to inspect run events, project output, and attached files.
-8. Click **Preview** if the working folder contains a runnable app.
-9. Review the first result before assigning implementation work.
+## Validation and limits
 
-## Next steps
-
-<CardGroup cols={3}>
-  <Card title="Quick start" icon="rocket" href="/guides/create-your-first-team/quick-start">
-    Create a team and send the first task.
-  </Card>
-  <Card title="Team hub" icon="grid" href="/guides/create-your-first-team/team-hub">
-    See where teams live and how to return to recent work.
-  </Card>
-  <Card title="Atlas: Syndicate's orchestrator" icon="route" href="/guides/create-your-first-team/atlas-orchestrator">
-    Learn what Atlas coordinates inside a team.
-  </Card>
-</CardGroup>
+- Every agent needs a model from a connected provider. With no providers connected, the wizard warns: "Connect a provider in Settings before generating a team."
+- If a selected model becomes unavailable (provider disconnected), the wizard resolves it to the first available model automatically.
+- Your account tier caps teams, solo workspaces, and agents per team; see Settings, Account.

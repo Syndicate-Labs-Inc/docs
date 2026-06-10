@@ -1,169 +1,52 @@
 ---
-title: "Troubleshooting workspaces and dispatch"
-description: "Diagnose team, dispatch, and workspace problems."
+title: "Troubleshooting: workspaces and dispatch"
+description: "Fixes for team, agent, and dispatch problems."
 ---
 
-This page covers team-side issues: Atlas behavior, dispatch, working folder, **User Tasks**, **Agent Comms**, and hard pause. For provider connection or auth problems, see [Troubleshooting](/reference/troubleshooting).
+Setup and provider problems live in [Troubleshooting: setup and providers](/reference/troubleshooting).
 
-## Atlas is not delegating
+## Agents
 
-Symptoms: you ask Atlas to do something, but no tasks appear and no specialists wake up.
+**An agent shows Blocked (red)**
+Open its chat and read the error. Common causes: provider credentials expired (reconnect from the banner), a denied tool approval (re-prompt with permission), or a missing file or folder. Message the agent again to retry, or cancel its task.
 
-Common causes:
+**An agent shows Waiting (amber) and nothing moves**
+It needs input. Check **User Tasks** for the question, or open the agent's chat for a pending Tool Request. The status line under the tile usually says what it is waiting for.
 
-- **Interruption Level** is **Hands-on** or **Manual**, and Atlas is waiting for your approval in **User Tasks**.
-- The team is hard paused.
-- Atlas asked you a question and the related **User Task** is still open.
-- Atlas already delegated and is waiting on a specialist that is **Blocked**.
+**An agent seems lost or repeats itself**
+In its **Agent Comms** tab, click **"Tell this agent to review recent messages"**. It re-reads its last 25 messages, summarizes state, and responds to anyone waiting. Steering mid-run also works: type while it streams and hit **Steer**.
 
-What to try:
+## Atlas and delegation
 
-1. Select Atlas and open **User Tasks**.
-2. Resolve any pending decision, approval, blocker, or interruption prompt.
-3. Confirm the team is not hard paused.
-4. Open **Agent Tasks** and check for blocked or in-progress work.
-5. Open **Agent Comms** for the relevant specialist.
+**Atlas is not delegating, just talking**
+Give it a goal with a deliverable and ask it to delegate explicitly, or use `/delegate`. Check the team's Interruption Level: on **Manual**, most delegations wait for your approval as interruption cards in chat.
 
-## Agent is stuck on Blocked
+**Approval cards keep interrupting me**
+Lower the Interruption Level (Team Settings) toward **Balanced** or **Minimal**.
 
-Symptoms: an agent's status stays **Blocked** and no further work happens.
+**The task board is full of stale clutter**
+**Task Health** panel: **Sweep stale tasks** asks Atlas to cancel stale, duplicate, or superseded tasks. **Abort all** in Agent Tasks is the bigger hammer.
 
-Common causes:
+## Dispatch
 
-- The agent reported a problem it cannot solve alone, such as a missing reference, unclear requirement, failed tool call, or missing access.
-- Atlas has not received the update yet.
-- The blocker is waiting for a **User Task** response.
+**Messages send but no agent wakes up**
+Check whether the team is hard-paused: the chat placeholder reads "Team paused. Resume the team before prompting agents." Resume from Team Settings or the card menu. Also confirm the assigned agent is not Blocked.
 
-What to try:
+**Work stopped after I closed the app**
+Queued tasks and inbox messages persist and resume when you reopen, unless the team is paused. Agents that were mid-run reset to idle on launch; re-prompt or let Atlas re-dispatch.
 
-1. Read the agent's latest chat and **Agent Comms** messages.
-2. Open Atlas and check **User Tasks**.
-3. Provide the missing input, reference, or decision.
-4. Use **Nudge Manager** in **Task Health** if the blocked task needs Atlas attention.
+## Working directory
 
-## Automatic dispatch is not firing
+**"Working folder no longer exists" or file errors**
+The folder moved or was deleted. Team Settings, **Working Directory**, **Browse** to relink. Agents and history are kept.
 
-Symptoms: a specialist sends a message, but no downstream agent wakes up.
+**Agents cannot read a file outside the project**
+Two possibilities: [workspace confinement](/reference/permissions-and-safety#workspace-confinement-global) is on (by design), or the file simply is not in the working directory. Attach it as a [reference](/guides/attach-references) instead.
 
-Common causes:
+## Emergency stops
 
-- The target agent is not idle.
-- The team is hard paused.
-- A **User Task** is soft-pausing the team until you respond.
-- Atlas is waiting for approval because of the current **Interruption Level**.
+In escalating order: **Stop** (one agent's run), **Cancel** / **Abort all** (board), **Stop team** (header), **Team Hard Pause** (settings; blocks all auto-dispatch until you resume). Details: [Permissions and safety](/reference/permissions-and-safety#stop-controls).
 
-What to try:
+## Still stuck?
 
-1. Confirm the target agent is idle.
-2. Confirm the team is not hard paused.
-3. Resolve open **User Tasks**.
-4. Send Atlas a clear next instruction, or manually message the target agent.
-
-## Agent Comms is noisy
-
-Symptoms: coordination messages pile up and the team feels hard to follow.
-
-What to try:
-
-1. Select Atlas and read **Agent Comms** first.
-2. Open **User Tasks** and resolve anything that needs you.
-3. Check **Task Health** for loops, blockers, or low-quality tasks.
-4. Give Atlas one clear next instruction instead of replying to every specialist.
-5. Raise **Interruption Level** if you want Atlas to ask more often.
-
-## Working directory looks wrong
-
-Symptoms: an agent edits the wrong files, cannot find files, or reports paths outside your project.
-
-Common causes:
-
-- The team is pointed at a different folder than you intended.
-- The folder was moved, renamed, or deleted on disk.
-
-What to try:
-
-1. Open **Team Settings** and confirm the working directory.
-2. If the folder moved, relink the team to the new path.
-3. Stop active work before relinking.
-4. Re-dispatch and confirm the agent now reads from the right location.
-
-## Hard pause does not resume agents
-
-Symptoms: you resumed a hard-paused team, but agents stay idle.
-
-This is expected. Resuming a paused team only allows dispatch to run again. It does not restart agents automatically. Restart work by sending a message, manually messaging an agent, or giving Atlas a new instruction.
-
-## Stopping runaway work
-
-If a team is doing the wrong thing or moving too fast:
-
-1. Tell Atlas what work should stop or change.
-2. Review **Agent Tasks** and cancel work that should not continue.
-3. Use the board's abort-all-active option if several active tasks should stop.
-4. Check **User Tasks** and **Task Health**.
-5. Adjust instructions, references, or **Interruption Level** before resuming.
-
-## Canceled work keeps coming back
-
-Symptoms: you cancel a task, but Atlas or a specialist appears to resume similar work.
-
-What to try:
-
-1. Open **Agent Tasks** and confirm the original task is canceled.
-2. Cancel any duplicate active task with the same outcome.
-3. Check **Agent Comms** for stale instructions already sent to specialists.
-4. Send Atlas one clear instruction that the canceled outcome should not be resumed unless you ask.
-5. Use the board's abort-all-active option if several active tasks should stop.
-
-## Preview does not open
-
-Symptoms: **Preview** does not open, opens the wrong project, or cannot find a running server.
-
-What to try:
-
-1. Confirm the team has the right working directory in **Team Settings**.
-2. Confirm the project has a runnable dev server.
-3. Check whether the project can start with the default dev command for that folder.
-4. Use **Activity** to inspect recent commands and server output when available.
-5. Stop and restart the preview if the server is stale.
-
-## File preview does not load
-
-Symptoms: **Files** opens, but a selected file does not preview.
-
-What to try:
-
-1. Confirm the file still exists in the working directory.
-2. Click **Refresh** in **Files** if available.
-3. Try a smaller text, code, or image file to confirm preview works.
-4. Close the preview pane with **Escape** and reopen the file.
-
-## Uploaded file is missing
-
-Symptoms: a file or image you attached through team chat does not appear where you expected.
-
-What to try:
-
-1. Open the same team where you sent the attachment.
-2. Check **Uploads** in the bottom tray.
-3. Confirm you attached the file before sending the message.
-4. Reattach the file if the original message failed or was canceled before send.
-
-## MCP tool is configured but not available in a run
-
-MCP credentials and tools are local to the machine and the provider runtime. If a server is configured in Syndicate but the active provider run does not expose it, the agent will say it is configured but unavailable in that run.
-
-What to try:
-
-1. Confirm the MCP server is enabled for the selected agent in **Agent Settings**.
-2. Confirm the provider that ran is the one the server is wired to.
-3. Reconnect the provider or reinstall the MCP server if it fails repeatedly.
-
-<CardGroup cols={2}>
-  <Card title="Troubleshooting providers" icon="plug" href="/reference/troubleshooting">
-    Provider connection, install, and auth problems.
-  </Card>
-  <Card title="Teams" icon="users" href="/features/teams">
-    Interruption Level, User Tasks, Agent Comms, and hard pause.
-  </Card>
-</CardGroup>
+Use the in-app feedback form with a screenshot, or email [support@usesyndicate.org](mailto:support@usesyndicate.org).

@@ -1,106 +1,56 @@
 ---
-title: "Quick start"
-description: "Create your first Syndicate team and send it a small first task."
+title: "Quick start: your first team"
+description: "Create a team and send it a first task in under five minutes."
 ---
 
-A team is a [workspace](/features/workspaces) where Atlas coordinates specialists against one local project folder. Use this guide when you want a team to inspect, edit, test, review, or document a real project.
-
-## Before you start
-
-Make sure you have:
-
-- Installed Syndicate and signed in.
-- Connected at least one [provider](/guides/connect-providers).
-- Picked the local project folder the team should use.
-
-## Create the team
+This is the fastest path to a running team. For the full tour of every creation option, see [Creating teams](/guides/create-your-first-team/creating-teams).
 
 <Steps>
-  <Step title="Start team creation">
-    Click **Create Team**.
+  <Step title="Open the wizard">
+    Click **+** next to **Team Hub** in the sidebar (or press **Ctrl+K** and choose **Create New Team**). The wizard asks "How would you like to get started?" with three options: **Generate Team**, **Starter Templates**, and **Start from Scratch**.
   </Step>
-  <Step title="Choose a setup path">
-    Choose the setup path that fits how much help you want:
-
-    | Path | Use when |
-    | --- | --- |
-    | **Template** | You want a prebuilt team shape. |
-    | **Guided description** | You want Syndicate to draft a roster from a project description. |
-    | **Build Your Team** | You want to start with Atlas and add specialists yourself. |
+  <Step title="Pick a starter template">
+    Choose **Starter Templates** and click a template that matches your work, for example **Application Developers** for full-stack builds or **Research Analysts** for deep-dive analysis. All six are described in the [template reference](/reference/team-templates). You can customize everything after.
   </Step>
   <Step title="Review the roster">
-    Confirm Atlas and the specialists. Edit agent names, roles, or instructions before you create the team.
-  </Step>
-  <Step title="Choose the working folder">
-    Select the local project folder the team can use during runs. Choose the smallest folder that contains the project you want the team to work on.
+    The **Your Team Roster** screen shows the Manager row (always included) and each proposed agent with a checkbox. Here you can:
 
-    The working folder is the local project folder the team can use when agents read files, edit code, run commands, and gather project context. Avoid selecting a parent folder that contains unrelated projects.
-  </Step>
-  <Step title="Pick an interruption level">
-    Choose how often Atlas should ask before continuing. Start with **Balanced** for a new team.
+    - Edit the **Team Name**
+    - Toggle agents on or off
+    - Click **Edit** on any agent to change its name, specialization, or model
+    - Expand **Skills (N)** to see what each agent comes with
+    - **+ Add Agent** to bring in more specialists
 
-    | Level | Use when |
-    | --- | --- |
-    | **Minimal** | You trust Atlas to plan, delegate, and follow up without routine approval. |
-    | **Balanced** | You want Atlas to coordinate routine work, but ask before meaningful new work or higher-risk steps. |
-    | **Hands-on** | You want Atlas to ask before major assignments, broad follow-ups, risky decisions, and completion reviews. |
-    | **Manual** | You want to approve most delegations, re-routes, and follow-ups. |
+    Click **Create Team** when the roster looks right.
   </Step>
-  <Step title="Create and open the team">
-    Finish setup to open the new **Team Workspace**.
+  <Step title="Choose the working directory">
+    Pick the local folder the team will work in ("Choose where your team's project files live."). An existing project folder or an empty one both work.
+
+    <Tip>If it is a real project, make sure it is a Git repository first, so every agent change is reviewable.</Tip>
+  </Step>
+  <Step title="Send Atlas a goal">
+    Open the **Chat** tab and give Atlas a clear, bounded goal:
+
+    > "Read this project and produce a prioritized improvement plan. Do not change any files yet. Flag anything you need from me."
+
+    Atlas plans, creates tasks, and delegates. Watch the Dashboard canvas light up as agents start working.
   </Step>
 </Steps>
 
-<Tip>
-Start with one focused project folder. You can create another workspace later if you need a different project context.
-</Tip>
+## Verify everything is working
 
-## Send a first task
-
-Keep the first task small. Ask Atlas to inspect the project before you assign implementation work.
-
-For example:
-
-```text
-Inspect this project and summarize:
-- What the app does.
-- How to run it locally.
-- Which files are most important.
-- What you would improve first.
-```
-
-## Verify the team is working
-
-After you send the task, check that:
-
-- Atlas responds with a plan or dispatches a specialist.
-- **Agent Tasks** shows tracked work when Atlas or you create a task.
-- The assigned agent moves out of idle state.
-- **Agent Comms** shows any inter-agent messages.
-- **User Tasks** shows any decisions, approvals, or blockers that need your attention.
-- **Task Health** stays clear of blocked, risky, or under-specified work.
-
-If nothing starts, check that the team has a connected provider and that the working folder is available.
-
-## Inspect the workspace
-
-Use the workspace controls once the first task is running:
-
-- Open **Activity** to see recent run events, tool use, commands, and context changes.
-- Open **Files** to browse the working folder and preview project files.
-- Open **Uploads** to find files or images you attached through team chat.
-- Click **Preview** if the working folder contains a runnable app and you want to inspect it in the browser.
+- Agent tiles show green **Active** dots while working.
+- **Agent Tasks** fills with tasks and owners.
+- Questions for you appear in **User Tasks** and your inbox bell.
+- The **Files** and **Activity** trays show exactly what agents touched.
 
 ## Next steps
 
-<CardGroup cols={3}>
-  <Card title="Team hub" icon="grid" href="/guides/create-your-first-team/team-hub">
-    See every team and jump back into recent work.
+<CardGroup cols={2}>
+  <Card title="Working with Atlas" icon="compass" href="/guides/create-your-first-team/atlas-orchestrator">
+    Briefs, slash commands, task assignment, and interruption levels.
   </Card>
-  <Card title="Creating teams" icon="users" href="/guides/create-your-first-team/creating-teams">
-    Learn the main paths for creating a team.
-  </Card>
-  <Card title="Atlas: Syndicate's orchestrator" icon="route" href="/guides/create-your-first-team/atlas-orchestrator">
-    Learn how Atlas plans, delegates, and asks for input.
+  <Card title="Creating teams in depth" icon="users" href="/guides/create-your-first-team/creating-teams">
+    Generate from a description or build from scratch.
   </Card>
 </CardGroup>

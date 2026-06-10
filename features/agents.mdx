@@ -1,110 +1,88 @@
 ---
 title: "Agents"
-description: "How agents work, what they receive as context, and how to configure them."
+description: "What an agent is made of and everything you can configure on it."
 ---
 
-{/* Hero media: 15-20 second clip walking through Agent Settings for one agent. Show Identity, Soul, Context, Skills, MCP Servers, and Danger Zone. */}
+An agent is a single AI worker. This page covers its anatomy and the configuration panel where you shape it.
 
-Agents are specialized AI workers. Each agent has a name, specialization, provider model, instructions, optional skills, optional MCP server access, and context settings that control what it receives during runs. To add agents, install community packages, or create a custom agent, see [Agent Marketplace](/guides/agent-marketplace).
+## Anatomy of an agent
 
-## Agent anatomy
+| Part | What it is |
+|---|---|
+| **Name** | The display name you choose (for example "Schema Wrangler") |
+| **Specialization** | Its role and baked-in skill set, chosen from the [Marketplace](/guides/agent-marketplace) at creation |
+| **Model** | The LLM powering it, from any connected provider |
+| **Soul** | The markdown prompt defining its expertise, personality, and workflow |
+| **Skills** | Slash-command workflows resolved from its specialization |
+| **Tools (MCP)** | External integrations toggled on per agent |
+| **Context settings** | How much history, inbox, and reference material it sees per run |
+| **Permissions** | What it may do without asking (see [Permissions and safety](/reference/permissions-and-safety)) |
 
-| Area | What it controls |
-| --- | --- |
-| **Identity** | Agent name and specialization |
-| **Soul** | The agent's role, behavior, boundaries, and working style |
-| **Context** | History, tasks, inbox, references, team context, and token budget |
-| **Skills** | Slash-invocable workflows available to the agent |
-| **MCP Servers** | Installed MCP servers explicitly enabled for that agent |
-| **Provider and model** | The provider model used when the agent runs |
+## Agent statuses
 
-## Specializations
+Agents show a live status everywhere they appear (sidebar, canvas, headers):
 
-Syndicate includes built-in specializations such as:
+- **Active** (green): currently dispatched and working
+- **Idle** (gray): waiting for work
+- **Waiting** (amber): needs approval or input, often with a short reason
+- **Blocked** (red): hit an error; open its chat to see what happened
 
-- Manager.
-- Frontend Developer.
-- Backend Developer.
-- QA Engineer.
-- DevOps Engineer.
-- Technical Writer.
-- Researcher.
-- Finance Analyst.
-- Data Scientist.
-- Marketing Strategist.
-- E-commerce Specialist.
-- AI/ML Engineer.
-- Mobile Developer.
-- Game Developer.
+## The agent configuration panel
 
-Some areas split into more focused roles, such as UI Designer, Test Engineer, Site Reliability Engineer, AI Engineer, ML Engineer, and Security Engineer.
+Open it from the agent's settings icon. Sections:
 
-## Agent Marketplace
+### Identity
 
-The Agent Marketplace is where Syndicate surfaces the catalog of available agent specializations. Browse it to pick a role when adding an agent or to compare focused variants such as AI Engineer and ML Engineer.
+Name, specialization badge, and the model selector. Models are listed per provider with friendly names (for example "Sonnet 4.6", "GPT-5.3 Codex", "Gemini 2.5 Pro").
 
-The Marketplace is a discovery surface, not a separate workspace. Anything you add from it lands as an agent inside the [team](/features/teams) or solo workspace you choose.
+### Soul
 
-## Agent settings
+The agent's system prompt as markdown. Built-in specializations are read-only; user-made agents have an **Edit** button for the editable section.
 
-Open **Agent Settings** from the right rail in **Team Workspace** or from a solo workspace.
+<Warning>
+Saved Soul edits cannot be undone automatically. Copy the current text somewhere safe before large rewrites.
+</Warning>
 
-Use it to:
+### Context
 
-- Rename non-manager agents.
-- Review the agent's specialization.
-- Read the agent's **Soul** instructions.
-- Change context settings.
-- Review skills and slash commands.
-- Enable or disable MCP servers for that agent.
-- Delete a non-manager agent after confirmation.
+Controls what the agent sees on each run. Presets: **Lean**, **Balanced**, **Rich**, or **Custom**. The editor exposes:
 
-Manager names are locked.
+- **History & Memory**: message lookback (0-200), max characters per message, and a role filter.
+- **Scope & Budget**: inbox lookback, reference max, and a token budget (0 = unlimited).
+- **Sections**: toggle which context blocks are injected (Team, Connectors, Tasks, Inbox, References).
+- **Prompt Analytics**: after a run, see prompt size, estimated tokens, and a per-section breakdown so you can trim what is not earning its keep.
 
-## Soul
+### Skills
 
-Every agent has instructions that define how it behaves. Syndicate calls these instructions the agent's **Soul**.
+The list of slash-command skills this agent carries, resolved from its specialization. See [Skills](/features/skills).
 
-Good instructions are specific. Avoid generic traits like "be helpful" and prefer concrete rules such as "include file paths when reporting code changes."
+### Tools (MCP)
 
-## Context
+Per-agent toggles for every MCP server installed in Settings, each with a health dot. If the list is empty: "No MCP servers installed. Add them in Settings > MCP, then turn them on here." See [MCP servers](/features/mcp).
 
-Context settings determine how much prompt context the agent receives.
+### Danger Zone
 
-You can adjust:
+**Delete Agent** removes the agent and all its configuration, with a two-step confirmation.
 
-- Preset: **Lean**, **Balanced**, or **Rich**.
-- History lookback.
-- Maximum characters per message.
-- Role filters.
-- Inbox lookback.
-- Reference limits.
-- Token budget.
-- Whether to include team context, connectors, tasks, inbox, and references.
+## Permission mode
 
-Prompt analytics can show estimated tokens, prompt size, history included, and section breakdowns.
+Each agent has a permission mode, set from the shield selector:
 
-## Skills and slash commands
+| Mode | Label | Behavior |
+|---|---|---|
+| Ask first | "Shows what the agent wants to do before executing" | Every tool use prompts you |
+| Auto-accept edits | "Agent can read & edit files automatically" | File operations run automatically, commands still prompt |
+| Full auto | "Agent can run commands, edit files, everything" | No prompts |
 
-Skills add domain-specific workflows. A Technical Writer might use documentation skills, while a QA Engineer might use test planning, browser testing, and regression-check skills. See [skills](/features/skills) for how to find and attach them.
-
-When an agent has slash-invocable skills, the chat input can show a slash-command menu. Selecting a command inserts `/{skill-name}` into the message.
-
-## References
-
-References attach project files, docs, and notes to an agent so they show up as context during runs. Scope each reference to the agent that actually needs it. Fewer, sharper references usually produce better runs than dumping every file at every agent.
-
-## MCP access
-
-If MCP servers are installed in settings, enable specific servers per agent. Keep access scoped to the agents that actually need it. See [MCP servers](/features/mcp) for installation and configuration.
+Details and recommendations: [Permissions and safety](/reference/permissions-and-safety).
 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Providers and models" icon="plug" href="/features/providers-and-models">
-    Choose the provider account and model an agent runs on.
+  <Card title="Add and configure agents" icon="sliders" href="/guides/add-and-configure-agents">
+    The full add-and-tune workflow.
   </Card>
-  <Card title="Skills" icon="wand-magic-sparkles" href="/features/skills">
-    Bundle reusable workflows into an agent's instructions.
+  <Card title="Built-in specializations" icon="store" href="/guides/agent-marketplace/built-in-syndicate-agents">
+    All 20+ built-in roles and their skills.
   </Card>
 </CardGroup>

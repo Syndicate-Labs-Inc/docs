@@ -1,54 +1,77 @@
 ---
-title: "Settings"
-description: "Settings areas you commonly need while setting up Syndicate."
+title: "Settings reference"
+description: "Every setting in Syndicate, where it lives, and what it does."
 ---
 
-Settings is where you connect providers, choose models, configure MCP servers, and adjust team or agent behavior.
+A consolidated map of every user-facing setting. The guided tour is in [Settings](/features/settings).
 
-## Provider settings
+## App settings (Settings modal)
 
-Use provider settings to:
+### Account
 
-- Connect or reconnect Claude, OpenAI/Codex, and Gemini.
-- Inspect provider readiness.
-- Resolve authentication problems.
-- Choose available models for agents.
+| Setting | What it does |
+|---|---|
+| Profile | Shows your name, email, and tier badge (free, beta, pro, gold) |
+| Team limit / Solo limit | Your tier's caps on teams and solo workspaces |
+| Sign out | Clears your session on this machine (local data is kept) |
+| Manage subscription | Not active yet ("Billing and plan management arrives in Phase 2.") |
 
-## MCP settings
+### General
 
-Use **MCP** settings to:
+| Setting | Default | What it does |
+|---|---|---|
+| Theme | Dark | Light or Dark, applied immediately |
+| Confine agents to their working folder | Off | OS-level sandbox restricting non-manager agents to their team's folder (macOS/Linux; not applicable on Windows). See [Permissions and safety](/reference/permissions-and-safety#workspace-confinement-global) |
+| Check for updates / Restart now | automatic | Manual update check; restart installs a downloaded update |
 
-- Browse available MCP servers.
-- Review setup requirements.
-- Install or configure a server.
-- Add a server manually.
+### Providers
 
-After you configure an MCP server, enable it for the agents that need it in **Agent Settings**.
+| Setting | What it does |
+|---|---|
+| Default Model For New Agents | Provider + model used by new teams and solo agents; existing agents keep theirs |
+| Provider Health cards | Per provider: status badge, CLI version, models, and Install CLI / Connect / Reconnect / Disconnect / Refresh actions |
 
-## Team settings
+### MCP
 
-Open **Team Settings** from **Team Hub**, a team card, or the **Team Workspace** header.
+| Setting | What it does |
+|---|---|
+| Installed servers | Health, transport, Test, enable/disable, Remove per server |
+| Add a server | Manual install: stdio command, HTTP URL, or SSE URL, plus encrypted secrets |
+| Catalog | One-click presets; credential-requiring presets prompt first |
 
-Use team settings to:
+## Team settings (gear on a team)
 
-- Rename teams.
-- Relink the working directory.
-- Set **Interruption Level**.
-- Hard pause or resume the team.
-- Delete the team.
+| Setting | What it does |
+|---|---|
+| Project Name | Rename the team |
+| Working Directory | Relink the team to a different folder (agents and history kept) |
+| Interruption Level | Minimal / Balanced / Hands-on / Manual: how often Atlas stops to ask you |
+| Team Hard Pause | Stop dispatches and block auto-dispatch until resumed |
+| Delete Team | Permanent removal of the team and its agents (project files untouched) |
 
-## Agent settings
+## Agent settings (configuration panel)
 
-In a team, open **Agent Settings** from the right rail. For a solo agent, open the agent and use the settings entry point in the workspace header or right rail.
+| Setting | What it does |
+|---|---|
+| Name / Specialization / Model | Identity and the model it runs on |
+| Soul | The agent's system prompt (editable for user-made agents) |
+| Context | Presets (Lean / Balanced / Rich / Custom), history lookback, char limits, token budget, section toggles, Prompt Analytics |
+| Skills | Read-only list of the agent's slash-command skills |
+| Tools (MCP) | Per-agent toggles for installed MCP servers |
+| Delete Agent | Removes the agent and its configuration |
 
-Use agent settings to:
+## Per-agent permission mode (shield selector)
 
-- Review identity and specialization.
-- Rename non-manager agents.
-- Read the agent's **Soul** instructions.
-- Change context settings.
-- Review skills and slash commands.
-- Enable or disable MCP servers for that agent.
-- Delete a non-manager agent after confirmation.
+| Mode | Behavior |
+|---|---|
+| Ask first | Prompt before every tool use |
+| Auto-accept edits | File operations automatic; commands prompt |
+| Full auto | No prompts |
 
-Context settings control how much history, **Agent Comms** context, tasks, references, team context, and connector context the agent receives during runs. In a team, these settings can include team-only context such as tasks, references, team context, and **Agent Comms**. For a solo agent, they apply to the solo agent's own chat, files, and enabled connectors. The context editor includes quick presets, lookback limits, reference limits, token budget, included sections, and prompt analytics.
+## Other persistent preferences
+
+| Preference | Where set |
+|---|---|
+| Show updates from agents | Checkbox in Atlas chat, remembered per team |
+| Sidebar visibility | Ctrl+B, remembered |
+| References (global / team / agent) | Settings, team settings, agent config respectively |

@@ -1,74 +1,60 @@
 ---
-title: "The Marketplace"
-description: "Choose built-in Syndicate specialists, install community agents, configure workspace agents, or create your own reusable agent with Agent Maker."
+title: "The Agent Marketplace"
+description: "Browse specializations, see their skills and workflows, and add agents to teams or solo workspaces."
 ---
 
-The Agent Marketplace is where you decide who joins your workspace and how each agent starts its work.
+The Marketplace (the **Browse Agents** icon in the sidebar) is where every agent specialization lives: Syndicate's built-ins, packages you have made, and packages imported from the community.
 
-Use it when you want to add a specialist to an existing team, spin up a solo agent, install a community agent package, generate a reusable agent from a description, or adjust an agent after it joins a workspace.
+## The three tabs
 
-{/* Suggested screenshot: Agent Marketplace open with the Syndicate, User Made, and Community categories visible. */}
+| Tab | Contents |
+|---|---|
+| **syndicate** | 20+ built-in specializations maintained by Syndicate |
+| **User Made** | Packages you created with [Agent Maker](/guides/agent-marketplace/agent-maker) |
+| **Community** | Packages imported from GitHub repositories or local folders |
 
-## What you can do here
+The left sidebar filters by package; the main panel shows the selected specialization's title, description, and skills.
+
+## Reading a specialization page
+
+For built-in specializations you get:
+
+- **Suggested Workflow**: a numbered sequence of slash commands showing how the role typically operates (for example the Manager: `/manager-design`, `/delegate`, `/status`, `/pipeline`, `/reflect`).
+- **All Commands**: a card per skill with its name, slash command, and description.
+
+Community and user-made packages show their full skill grid plus source metadata (GitHub link when available).
+
+## Adding an agent from the Marketplace
+
+- **Add to Team**: pick one of your multi-agent teams; the agent is created with that specialization. (A team can only have one Manager, so the Manager spec cannot be added twice.)
+- **Solo agent**: create a standalone workspace with this specialization via the solo flow.
+
+After adding, tune the agent in its [configuration panel](/features/agents#the-agent-configuration-panel): [Add and configure agents](/guides/add-and-configure-agents).
+
+## Installing new packages
+
+The **Add Agent Package** modal offers four methods:
+
+1. **Agent Maker**: describe a specialist and generate a package. The main path for custom agents.
+2. **Local Folder**: browse to a folder containing SKILL.md files.
+3. **GitHub Repository**: paste a URL or `owner/repo` shorthand.
+4. **CLI Install**: paste an `npx skills add` command.
+
+Installed packages appear under their source tab, ready to use like any built-in.
+
+## Go deeper
 
 <CardGroup cols={2}>
-  <Card title="Built-in Syndicate agents" icon="sparkles" href="/guides/agent-marketplace/built-in-syndicate-agents">
-    Pick ready-made specialists like Manager, Frontend Developer, Researcher, Review Agent, Technical Writer, QA, DevOps, and more.
-  </Card>
-  <Card title="Add and configure agents" icon="sliders" href="/guides/add-and-configure-agents">
-    Add an agent to a team or solo agent, then review its role, model, skills, MCP servers, and context settings.
-  </Card>
-  <Card title="Community agents" icon="download" href="/guides/agent-marketplace/community-agents">
-    Add packages from a local folder, GitHub repository, or supported CLI install command.
+  <Card title="Built-in Syndicate agents" icon="robot" href="/guides/agent-marketplace/built-in-syndicate-agents">
+    All 20+ built-in specializations.
   </Card>
   <Card title="Agent Maker" icon="wand-magic-sparkles" href="/guides/agent-marketplace/agent-maker">
-    A built-in Syndicate specialist that drafts new reusable agent packages from your description. Opened from **Add Agent Package**.
+    Generate a custom specialist from a description.
+  </Card>
+  <Card title="Community agents" icon="globe" href="/guides/agent-marketplace/community-agents">
+    Import packages from GitHub or local folders.
+  </Card>
+  <Card title="Add and configure agents" icon="sliders" href="/guides/add-and-configure-agents">
+    Tune model, Soul, context, skills, and tools after adding.
   </Card>
 </CardGroup>
-
-## Before you start
-
-Connect at least one provider first. Agents need a model runtime before they can work.
-
-If you have not done that yet, follow [Connect providers](/guides/connect-providers).
-
-<Note>
-Provider setup is separate from Marketplace setup. The Marketplace defines what an agent is good at. Providers define which model runs that agent.
-</Note>
-
-## Open the Agent Marketplace
-
-1. Open Syndicate.
-2. Use the left sidebar.
-3. Click **Agent Marketplace**.
-
-You will see Marketplace categories and the selected agent details.
-
-{/* Suggested video: 5-second clip opening Agent Marketplace from the left sidebar. */}
-
-## Choose how you want to add an agent
-
-Use the path that matches what you are trying to do:
-
-| Goal | Use |
-| --- | --- |
-| Add a common specialist quickly | Built-in Syndicate agents |
-| Use an agent package from another creator | Community agents |
-| Create a specialist that does not exist yet | Agent Maker |
-| Tune the agent after adding it | Add and configure agents |
-| Add one specialist directly to a workspace | **Add to... > Existing Team** |
-| Create a standalone specialist chat | **Add to... > Solo Workspace**, the option for a solo agent |
-
-## What happens after you add an agent
-
-When you add an agent to a team, Syndicate creates that agent inside the selected team workspace. Atlas can coordinate with it, and the agent can receive work through dispatch and **Agent Comms**.
-
-When you create a solo agent, Syndicate creates a one-agent workspace with no Manager. You chat with that specialist directly.
-
-## Next steps
-
-- [Add a built-in Syndicate agent](/guides/agent-marketplace/built-in-syndicate-agents)
-- [Add and configure agents](/guides/add-and-configure-agents)
-- [Install a community agent](/guides/agent-marketplace/community-agents)
-- [Create an agent with Agent Maker](/guides/agent-marketplace/agent-maker)
-- [Quick start](/guides/create-your-first-team/quick-start)

@@ -1,0 +1,61 @@
+---
+title: "Permissions and safety"
+description: "Permission modes, tool approvals, workspace confinement, and the controls that keep agents in bounds."
+---
+
+Syndicate gives agents real capabilities: editing files, running commands, calling external tools. These are the layers that keep that power under your control.
+
+## Permission modes (per agent)
+
+Every agent has a permission mode, set from the shield selector:
+
+| Mode | UI description | What happens |
+|---|---|---|
+| **Ask first** | "Shows what the agent wants to do before executing" | Every tool use opens a Tool Request prompt |
+| **Auto-accept edits** | "Agent can read & edit files automatically" | File reads and edits run automatically; commands still prompt |
+| **Full auto** | "Agent can run commands, edit files, everything" | No prompts |
+
+Recommendations:
+
+- New agent, unfamiliar package, or untested workflow: **Ask first**.
+- Trusted agent doing file-heavy work in a Git repository: **Auto-accept edits**.
+- **Full auto** only for agents whose scope you have already watched, in a folder you can fully restore.
+
+## The Tool Request prompt
+
+When approval is needed, a modal shows the tool name, the exact input (the command for Bash, the file path for edits, a content preview for writes), and a "destructive" badge for risky operations ("Destructive action — review carefully"). Choose **Allow** or **Deny & Stop** (denying stops the agent's run).
+
+## Workspace confinement (global)
+
+**Settings, General: "Confine agents to their working folder."**
+
+When on, non-manager agents run inside the operating system sandbox: fully autonomous, but unable to read or write anything outside their team's working folder. It also stops macOS prompts for access to Photos, Music, and other personal folders. Network access is unaffected.
+
+- Available on macOS and Linux. On Windows the toggle shows "Not available on Windows (no OS sandbox needed — Windows does not prompt for folder access)."
+- Confinement is enforcement at the OS level, on top of (not instead of) permission modes.
+
+## Manager guardrails
+
+Atlas is structurally limited to coordination: it inspects the project with read-only tools and cannot write code, edit files, or run shell commands. Implementation always goes through specialist agents, where your permission modes apply.
+
+## Interruption Level (per team)
+
+Separate from tool permissions, the team's [Interruption Level](/guides/create-your-first-team/atlas-orchestrator#interruption-level) (Minimal, Balanced, Hands-on, Manual) controls how often Atlas pauses to ask you before delegating, opening new workstreams, or following up.
+
+## Stop controls
+
+From softest to hardest:
+
+1. **Steer**: redirect a running agent without stopping it.
+2. **Answer Now**: interrupt and get what the agent has so far.
+3. **Stop**: cancel one agent's current run.
+4. **Cancel task / Abort all**: clear work from the board; agents stand down.
+5. **Team Hard Pause**: stop all dispatches and block auto-dispatch until you resume.
+
+## Practical safety checklist
+
+- Put working directories under Git so every agent change is reviewable and reversible.
+- Start new agents on **Ask first**; loosen after you have watched them work.
+- Turn on workspace confinement (macOS/Linux) if agents have no business outside their folders.
+- Give each agent only the MCP servers its role needs.
+- Treat community skill packages as code you are choosing to run: review before trusting. See [Community agents](/guides/agent-marketplace/community-agents#trust-and-safety).
