@@ -19,7 +19,7 @@ A workspace is a team or solo agent plus the local folder it works in. This page
 Every workspace is tied to one local folder, chosen when you create it. Agents read, write, and run commands inside that folder.
 
 - Change it later in **Team Settings** under **Working Directory** (Browse to pick a new folder).
-- References can point anywhere on disk; they are read-only context, not part of the working directory. See [References and context](/features/references-and-context).
+- To give agents a file that lives outside the folder, attach it in chat; attachments appear in the bottom tray's **Uploads** tab.
 - With **workspace confinement** enabled (Settings, General), agents are sandboxed at the OS level so they cannot read or write outside their working folder. See [Permissions and safety](/reference/permissions-and-safety).
 
 <Warning>
@@ -49,8 +49,9 @@ Clicking an agent tile opens that agent's focused view, with **Chat** and **Agen
 
 The collapsible **bottom tray** holds:
 
-- **Files**: every file agents have created or modified, with previews.
 - **Activity**: a chronological log of agent actions (commands run, files changed, summaries).
+- **Files**: every file agents have created or modified, with previews.
+- **Uploads**: files you have attached in chat for this team, refreshed automatically.
 
 ## Workspace lifecycle
 

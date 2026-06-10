@@ -47,7 +47,6 @@
               "guides/agent-marketplace/community-agents"
             ]
           },
-          "guides/attach-references",
           "guides/use-mcp-and-skills",
           "guides/tasks-and-inbox"
         ]
@@ -69,7 +68,6 @@
           "features/chat-and-dispatch",
           "features/tasks",
           "features/inbox",
-          "features/references-and-context",
           "features/skills",
           "features/mcp",
           "features/command-palette",
