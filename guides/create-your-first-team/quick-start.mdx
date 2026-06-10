@@ -5,15 +5,6 @@ description: "Create your first Syndicate team and send it a small first task."
 
 A team is a [workspace](/features/workspaces) where Atlas coordinates specialists against one local project folder. Use this guide when you want a team to inspect, edit, test, review, or document a real project.
 
-{/* Hero media: 20-30 second clip creating a team, selecting a folder, reviewing the roster, choosing Interruption Level, and landing in Team Workspace.
-Capture list:
-- Create Team entry point.
-- Template, Guided description, and Build Your Team setup options.
-- Local folder picker.
-- Interruption Level selector.
-- Finished Team Workspace with Atlas and specialists visible.
-*/}
-
 ## Before you start
 
 Make sure you have:
@@ -40,33 +31,29 @@ Make sure you have:
   <Step title="Review the roster">
     Confirm Atlas and the specialists. Edit agent names, roles, or instructions before you create the team.
   </Step>
-  <Step title="Create the team">
-    Finish setup to open the new team workspace.
+  <Step title="Choose the working folder">
+    Select the local project folder the team can use during runs. Choose the smallest folder that contains the project you want the team to work on.
+
+    The working folder is the local project folder the team can use when agents read files, edit code, run commands, and gather project context. Avoid selecting a parent folder that contains unrelated projects.
+  </Step>
+  <Step title="Pick an interruption level">
+    Choose how often Atlas should ask before continuing. Start with **Balanced** for a new team.
+
+    | Level | Use when |
+    | --- | --- |
+    | **Minimal** | You trust Atlas to plan, delegate, and follow up without routine approval. |
+    | **Balanced** | You want Atlas to coordinate routine work, but ask before meaningful new work or higher-risk steps. |
+    | **Hands-on** | You want Atlas to ask before major assignments, broad follow-ups, risky decisions, and completion reviews. |
+    | **Manual** | You want to approve most delegations, re-routes, and follow-ups. |
+  </Step>
+  <Step title="Create and open the team">
+    Finish setup to open the new **Team Workspace**.
   </Step>
 </Steps>
-
-## Choose the working folder
-
-The working folder is the local project folder the team can use during runs. Agents use it when they read files, edit code, run commands, and gather project context.
-
-Choose the folder that contains the project you want the team to work on. Avoid selecting a parent folder that contains unrelated projects.
 
 <Tip>
 Start with one focused project folder. You can create another workspace later if you need a different project context.
 </Tip>
-
-## Pick an interruption level
-
-**Interruption Level** decides how often Atlas asks before continuing.
-
-| Level | Use when |
-| --- | --- |
-| **Minimal** | You trust Atlas to plan, delegate, and follow up without routine approval. |
-| **Balanced** | You want Atlas to coordinate routine work, but ask before meaningful new work or higher-risk steps. |
-| **Hands-on** | You want Atlas to ask before major assignments, broad follow-ups, risky decisions, and completion reviews. |
-| **Manual** | You want to approve most delegations, re-routes, and follow-ups. |
-
-Start with **Balanced** for a new team. It keeps the team moving while giving you a chance to catch scope changes.
 
 ## Send a first task
 
@@ -91,8 +78,18 @@ After you send the task, check that:
 - The assigned agent moves out of idle state.
 - **Agent Comms** shows any inter-agent messages.
 - **User Tasks** shows any decisions, approvals, or blockers that need your attention.
+- **Task Health** stays clear of blocked, risky, or under-specified work.
 
 If nothing starts, check that the team has a connected provider and that the working folder is available.
+
+## Inspect the workspace
+
+Use the workspace controls once the first task is running:
+
+- Open **Activity** to see recent run events, tool use, commands, and context changes.
+- Open **Files** to browse the working folder and preview project files.
+- Open **Uploads** to find files or images you attached through team chat.
+- Click **Preview** if the working folder contains a runnable app and you want to inspect it in the browser.
 
 ## Next steps
 
@@ -104,6 +101,6 @@ If nothing starts, check that the team has a connected provider and that the wor
     Learn the main paths for creating a team.
   </Card>
   <Card title="Atlas: Syndicate's orchestrator" icon="route" href="/guides/create-your-first-team/atlas-orchestrator">
-    Learn where Atlas guidance will live.
+    Learn how Atlas plans, delegates, and asks for input.
   </Card>
 </CardGroup>

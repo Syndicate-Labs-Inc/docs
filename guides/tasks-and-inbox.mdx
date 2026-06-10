@@ -1,11 +1,9 @@
 ---
-title: "Manage tasks and inbox"
-description: "Track team work and respond to agent messages that need you."
+title: "Manage tasks and Agent Comms"
+description: "Track team work, review Agent Comms, and respond to user attention items."
 ---
 
-Tasks show what the team is doing. Inbox messages show what agents are saying to each other and to you. Together they help you manage a team without micromanaging every specialist.
-
-{/* Hero media: 20-30 second clip showing Atlas selected in Team Workspace, User Tasks open, an Agent Tasks item moving to Done, Agent Comms receiving an update, and Activity in the bottom tray. */}
+Tasks show what the team is doing. **Agent Comms** shows how agents coordinate. **User Tasks** show decisions, approvals, blockers, and interruption prompts that need you.
 
 ## Open the Atlas task tabs
 
@@ -13,9 +11,9 @@ Select Atlas in **Team Workspace** to use the manager operations tabs:
 
 - **User Tasks** for decisions, approvals, blockers, and interruption prompts that need you.
 - **Agent Tasks** for tracked work assigned to Atlas or specialists.
-- **Task Health** for risk, blocked work, missing owners, and weak task definitions.
+- **Task Health** for risk, stale work, missing owners, and weak task definitions.
 
-Use these tabs instead of looking for approval cards in chat.
+Use **User Tasks** for decisions, approvals, blockers, and interruption prompts. When Atlas shows an approval card, use **Allow & Send** or **Reject**.
 
 ## Respond to a User Task
 
@@ -28,8 +26,8 @@ When Atlas needs your input, Syndicate creates a **User Task**. The team may sof
   <Step title="Read the impact and source">
     Check whether the item is **Blocking**, **High**, **Medium**, or **Low** impact. Review the requester, related task, and description.
   </Step>
-  <Step title="Reply, resolve, allow, or dismiss">
-    Use **Reply** to answer Atlas, **Resolve** to close the item without a reply, or **Allow** / **Dismiss** for an Atlas interruption request.
+  <Step title="Reply, resolve, allow, or reject">
+    Use **Reply** to answer Atlas or **Resolve** to close an item without a reply. When Atlas shows an approval card, use **Allow & Send** or **Reject**.
   </Step>
   <Step title="Watch Atlas continue">
     After you answer or resolve the item, Atlas receives the update and can continue, relay your answer, or ask a follow-up.
@@ -42,17 +40,19 @@ Open **Agent Tasks** to see tracked work. Each task can show its assignee, statu
 
 Use **Cancel** when a task should not continue. Use the bulk abort action when a visible group of tasks needs to stop. Atlas receives a receipt so it knows not to recreate the canceled work unless you ask.
 
+## Assign work directly
+
+Click **Assign Task** from the right rail when you want to create tracked work yourself instead of asking Atlas in chat.
+
+Fill in the assignee, title, instructions, deliverable, done condition, acceptance criteria, phase, risk, and whether the task needs human review before completion. Enable **Notify and start agent** when you want the assignee to wake through the normal dispatch flow.
+
+Use direct assignment for clear, bounded work. If the work needs planning or sequencing across several specialists, ask Atlas to coordinate it instead.
+
 ## Check Task Health
 
 Open **Task Health** when the team feels stuck or risky.
 
-Task Health can flag:
-
-- Blocked tasks.
-- Tasks requiring human decisions.
-- High-risk or medium-risk tasks.
-- Unassigned tasks.
-- Tasks missing a deliverable, acceptance criteria, or done condition.
+Task Health can flag unassigned tasks, high-risk or medium-risk work, weak deliverables or acceptance criteria, stale in-progress work, stale todos, and stale blockers where the blocking question itself lives in **User Tasks**.
 
 Click **Nudge Manager** on a specific item when you want Atlas to address that risk.
 
@@ -74,20 +74,20 @@ Use **Files** when you need to inspect project output. Use **Uploads** when you 
 
 ## When the team stalls
 
-If unread messages pile up or tasks all show **Blocked**:
+If unread **Agent Comms** messages pile up or tasks all show **Blocked**:
 
 1. Open **User Tasks** and resolve anything blocking.
 2. Open **Agent Comms** to see the latest Atlas and specialist messages.
 3. Check **Task Health** for risk or missing task details.
-4. Stop any active agent doing the wrong work.
+4. Tell Atlas what should stop or change.
 5. Give Atlas one clear next instruction.
-6. Use **Stop Team** if the whole team needs a hard pause.
+6. Cancel specific tasks from **Agent Tasks**, or use the board's abort-all-active option when several active tasks should stop.
 
 <CardGroup cols={2}>
   <Card title="Tasks" icon="list-checks" href="/features/tasks">
     Learn the task model and status flow.
   </Card>
-  <Card title="Inbox" icon="inbox" href="/features/inbox">
+  <Card title="Agent Comms" icon="inbox" href="/features/inbox">
     Learn how Agent Comms and user attention work.
   </Card>
 </CardGroup>
