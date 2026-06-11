@@ -5,9 +5,13 @@ description: "User Tasks, Agent Tasks, and Task Health: the three task surfaces 
 
 A team's work is tracked on a shared board, split into three panels so you always know what needs you and what does not.
 
-## User Tasks: your inbox
+## User Tasks: decisions waiting on you
 
 Everything waiting on **you**: questions, decisions, approvals, missing access or inputs. Each item shows what is needed, why it blocks work, a priority badge (**Blocking**, **High**, **Medium**, **Low**), and who asked.
+
+<Frame caption="User Tasks collect questions and decisions waiting on you">
+  <img src="/assets/screenshots/teams/user-tasks.png" alt="The User Tasks panel showing items that need the user's reply or resolution" />
+</Frame>
 
 Actions per item:
 
@@ -22,6 +26,10 @@ If you only check one panel, check this one. Nothing in the other two panels req
 
 Every task Atlas has created or you have assigned, with title, assignee, and status: **Queued**, **In Progress**, **Done**, or **Blocked**. The default filter shows In Progress; toggle to see everything.
 
+<Frame caption="Agent Tasks show the work Atlas has assigned across the team">
+  <img src="/assets/screenshots/teams/agent-tasks.png" alt="The Agent Tasks panel showing assigned work, task statuses, and task controls" />
+</Frame>
+
 Actions:
 
 - **Cancel** a single task (the agent stands down and will not recreate it unless asked).
@@ -29,7 +37,7 @@ Actions:
 
 You can also create tasks yourself: open the slash menu in Atlas chat and choose **Assign task**, or use the Assign Task form. Pick the agent, describe the work, and choose the start mode:
 
-- **Notify**: the agent sees the work in its inbox.
+- **Notify**: the agent receives the work without starting immediately.
 - **Start**: the agent begins immediately.
 - **Flag**: the task waits for your decision first.
 
@@ -56,10 +64,9 @@ The full task board view shows four columns: **Todo**, **In Progress**, **Done**
 
 Once a team is running, your job is mostly triage:
 
-1. **Check the inbox bell** in the title bar for unread messages across all workspaces.
-2. **Clear User Tasks** top to bottom: **Reply** to questions, **Resolve** what is already handled. **Blocking** items first; everything downstream of them is stalled.
-3. **Scan Agent Tasks**: cancel anything stale or off-goal. If the whole direction is wrong, **Abort all** and tell Atlas the new plan.
-4. **Glance at Task Health**: if clutter piles up, **Sweep stale tasks**.
-5. **Ask Atlas for a Quick Brief** (**Status brief**, **Blockers**, or **Needs from me**) instead of scrolling history.
+1. **Clear User Tasks** top to bottom: **Reply** to questions, **Resolve** what is already handled. **Blocking** items first; everything downstream of them is stalled.
+2. **Scan Agent Tasks**: cancel anything stale or off-goal. If the whole direction is wrong, **Abort all** and tell Atlas the new plan.
+3. **Glance at Task Health**: if clutter piles up, **Sweep stale tasks**.
+4. **Ask Atlas for a Quick Brief** (**Status brief**, **Blockers**, or **Needs from me**) instead of scrolling history.
 
 Cancel ruthlessly: a short board Atlas can reason about beats a long aspirational one.

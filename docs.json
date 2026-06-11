@@ -52,7 +52,6 @@
           "features/solo-agents",
           "features/chat-and-dispatch",
           "features/tasks",
-          "features/inbox",
           "features/skills",
           "features/mcp",
           "features/providers-and-models"

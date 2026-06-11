@@ -15,7 +15,7 @@ An agent is a single AI worker. This page covers its anatomy and the configurati
 | **Soul** | The markdown prompt defining its expertise, personality, and workflow |
 | **Skills** | Slash-command workflows resolved from its specialization |
 | **Tools (MCP)** | External integrations toggled on per agent |
-| **Context settings** | How much history and inbox material it sees per run |
+| **Context settings** | How much history and team-message context it sees per run |
 | **Permissions** | What it may do without asking (see [Permissions and safety](/reference/permissions-and-safety)) |
 
 ## Agent statuses
@@ -48,8 +48,8 @@ Saved Soul edits cannot be undone automatically. Copy the current text somewhere
 Controls what the agent sees on each run. Presets: **Lean**, **Balanced**, **Rich**, or **Custom**. The editor exposes:
 
 - **History & Memory**: message lookback (0-200), max characters per message, and a role filter.
-- **Scope & Budget**: inbox lookback, reference max, and a token budget (0 = unlimited).
-- **Sections**: toggle which context blocks are injected (Team, Connectors, Tasks, Inbox, References).
+- **Scope & Budget**: team-message lookback, reference max, and a token budget (0 = unlimited).
+- **Sections**: toggle which context blocks are injected (Team, Connectors, Tasks, Messages, References).
 - **Prompt Analytics**: after a run, see prompt size, estimated tokens, and a per-section breakdown so you can trim what is not earning its keep.
 
 ### Skills
