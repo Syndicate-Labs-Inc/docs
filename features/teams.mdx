@@ -1,83 +1,161 @@
 ---
 title: "Teams"
-description: "Navigating teams, team statuses, the team dashboard, and team-level controls."
+description: "The team workspace: Atlas, the dashboard, task panels, Dispatch, and team controls."
 ---
 
-A team is a Manager (Atlas) plus specialist agents sharing one working directory, one task board, and one message bus.
+A team is a Manager agent, **Atlas**, plus specialist agents sharing one local working directory. Use a team when work needs coordination across roles.
 
-## Finding and switching teams
-
-The sidebar is the team navigator. The **Team Hub** accordion lists every team; click one to open its workspace, or expand it to jump straight to a specific agent.
-
-Each team row carries a live indicator, prioritized by what needs you most:
-
-- **Amber pulsing dot + count**: agents waiting on you
-- **Red dot + count**: agents blocked by errors
-- **Green dot + count**: agents actively working
-- **Gray count**: idle (shows the agent count)
-
-When you launch the app with existing teams, Syndicate auto-opens your most recently active team. Clicking the Syndicate logo returns you to the welcome page.
-
-## The team dashboard
-
-Inside a team you get three tabs:
-
-- **Dashboard**: the visual canvas plus task panels (described below).
-- **Chat**: your direct conversation with Atlas.
-- **Dispatch**: the raw feed of agent-to-agent messages.
+<div style={{ position: "relative", boxSizing: "content-box", maxHeight: "80svh", width: "100%", aspectRatio: "1.70", padding: "40px 0" }}>
+  <iframe
+    src="https://app.supademo.com/embed/cmq9zcylq032qqma4821w0yn7?embed_v=2&utm_source=embed"
+    loading="lazy"
+    title="Syndicate Demo"
+    allow="clipboard-write"
+    frameBorder="0"
+    allowFullScreen
+    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+  />
+</div>
 
 <Frame caption="Team dashboard with Atlas, specialist agents, task panels, and the bottom tray">
   <img src="/assets/screenshots/teams/team-dashboard.png" alt="A Syndicate team dashboard showing Atlas in the center, specialist agent tiles around it, task panels on the right, and the bottom tray" />
 </Frame>
 
-### The canvas
+## Team Dashboard
 
-Atlas sits at the center with agent tiles around it. Animated lines glow when messages flow between agents. Each tile shows the agent's name, its model provider icon, and a status dot:
+The team workspace has three main tabs:
 
-| Dot | Meaning |
+- **Dashboard**: the visual canvas, task panels, and bottom tray.
+- **Chat**: your direct conversation with Atlas.
+- **Dispatch**: the coordination feed for team activity.
+
+### Canvas
+
+Atlas sits at the center with specialist tiles around it. Each tile shows the agent's name, model provider icon, status, current task progress, files modified, and latest summary.
+
+| Status | Meaning |
 |---|---|
 | Green | Active: currently working |
 | Gray | Idle |
-| Amber | Waiting: needs approval or input |
-| Red | Blocked: hit an error |
+| Amber | Waiting for approval or input |
+| Red | Blocked by an error |
 
-Below each tile: task progress ("1/5 tasks"), files modified, and the agent's latest summary. Click any tile to open that agent's chat.
+Click a tile to open that agent's focused chat.
 
-### The task panels
+### Bottom Tray
 
-The right column has three panels. The full breakdown is in [Tasks](/features/tasks):
+The collapsible bottom tray gives you evidence of work:
 
-- **User Tasks**: everything waiting on you. Reply or resolve each item.
-- **Agent Tasks**: the work board Atlas manages. You can cancel individual tasks or **Abort all**.
-- **Task Health**: board hygiene issues (stale, unowned, unclear tasks). Use **Nudge Manager** or **Sweep stale tasks** to have Atlas clean up.
+- **Activity**: commands, file changes, and run events.
+- **Files**: files agents created or modified, with previews.
+- **Uploads**: files you attached in chat for the team.
 
-### The bottom tray
+## Atlas
 
-A collapsible tray with **Files** (everything agents created or modified, with previews) and **Activity** (a chronological log of commands run and files changed, with **Load more** for older history).
+Atlas is the Manager at the center of every team. You give Atlas goals; it plans phases, creates tasks, dispatches specialists, keeps the board clean, and escalates decisions to you.
 
-## Team controls
+Atlas is a coordinator, not an implementer. It inspects the project read-only and delegates actual file work to specialist agents.
 
-Open **Team Settings** (gear icon or card menu) to manage:
+### Good Atlas Prompts
+
+Give Atlas the goal, constraints, and definition of done:
+
+> "Ship a pricing page this week. Use the existing design system. Frontend builds it, QA verifies mobile, and check with me before changing navigation."
+
+Quick Briefs in Atlas chat help when you return to a team:
+
+| Brief | What you get |
+|---|---|
+| **Status brief** | Current work, recent changes, blockers, and next move |
+| **Phase / plan** | Current phase, goal, owners, checkpoint, decisions needed |
+| **Needs from me** | Decisions, approvals, access, or missing inputs |
+| **Blockers** | Only things stopping or slowing the team |
+| **Next best action** | One recommended user action, with why |
+| **Ship check** | Release readiness, blockers, verification, confidence |
+
+## Task Panels
+
+The right side of the dashboard has three panels.
+
+### User Tasks
+
+Everything waiting on **you**: questions, approvals, missing access, or decisions. If you only check one panel, check this one.
+
+<Frame caption="User Tasks collect questions and decisions waiting on you">
+  <img src="/assets/screenshots/teams/user-tasks.png" alt="The User Tasks panel showing items that need the user's reply or resolution" />
+</Frame>
+
+Actions:
+
+- **Reply**: sends your answer back through Atlas.
+- **Resolve**: dismisses an item you already handled.
+
+### Agent Tasks
+
+Every task Atlas has created or you have assigned, with title, assignee, and status.
+
+<Frame caption="Agent Tasks show the work Atlas has assigned across the team">
+  <img src="/assets/screenshots/teams/agent-tasks.png" alt="The Agent Tasks panel showing assigned work, task statuses, and task controls" />
+</Frame>
+
+Actions:
+
+- **Cancel** a single task.
+- **Abort all** active tasks if the direction is wrong.
+- Add tasks yourself from the slash menu or Assign Task form.
+
+Start modes:
+
+- **Notify**: sends the work without starting immediately.
+- **Start**: begins immediately.
+- **Flag**: waits for your decision first.
+
+### Task Health
+
+Atlas's cleanup queue: stale blockers, unowned tasks, unclear descriptions, and quiet tasks. These are Atlas's to fix; the panel exists so you can keep an eye on board hygiene.
+
+- **Nudge Manager** asks Atlas to address one item.
+- **Sweep stale tasks** asks Atlas to clean up the whole board.
+
+## Interruption Level
+
+Team Settings includes an **Interruption Level** that controls how often Atlas stops and asks you:
+
+| Mode | Behavior |
+|---|---|
+| **Minimal** | Interrupts only for blockers, explicit user requests, high-risk work, missing access, or required approval |
+| **Balanced** | Coordinates routine work freely and interrupts for unclear scope, meaningful new workstreams, or medium/high risk |
+| **Hands-on** | Interrupts before major assignments, broad follow-ups, risky decisions, and completion reviews |
+| **Manual** | Turns most delegations and re-routes into approval prompts |
+
+Start with **Balanced**. Drop to **Minimal** once you trust the team; raise it for risky or unfamiliar work.
+
+## Team Controls
+
+Open **Team Settings** from the gear icon or card menu:
 
 - **Project Name**: rename the team.
-- **Working Directory**: browse to relink the team to a different folder. Agents and history are kept.
-- **Interruption Level** (teams with a Manager): how often Atlas stops to ask you. Four modes: **Minimal**, **Balanced**, **Hands-on**, **Manual**. See [Working with Atlas](/guides/create-your-first-team/atlas-orchestrator#interruption-level).
-- **Team Hard Pause**: stops current dispatches and blocks auto-dispatch. While paused, the chat input is disabled with "Team paused. Resume the team before prompting agents." Resuming does not restart agents; they only run when prompted again.
-- **Danger Zone**: **Delete Team** permanently removes the team and all its agents (two-step confirmation). Project files on disk are untouched.
+- **Working Directory**: relink the local folder.
+- **Interruption Level**: tune how often Atlas asks.
+- **Team Hard Pause**: stop dispatches and block auto-dispatch until resumed.
+- **Delete Team**: permanently remove the team and agents. Project files stay on disk.
 
-There is also a **Stop team** button in the workspace header for an immediate stop of the current run, separate from the hard pause.
+There is also a **Stop team** button in the workspace header for the current run.
 
-## Team limits
+## Five-Minute Check-In
 
-Your account tier sets how many teams and solo workspaces you can create, and the maximum agents per team. Your current limits are shown in Settings under **Account**.
+1. Clear **User Tasks** from top to bottom.
+2. Scan **Agent Tasks** and cancel stale or off-goal work.
+3. Glance at **Task Health** and sweep stale tasks if needed.
+4. Ask Atlas for a **Status brief**, **Blockers**, or **Needs from me** instead of scrolling history.
 
-## Next steps
+## Next Steps
 
 <CardGroup cols={2}>
   <Card title="Create your first team" icon="users" href="/guides/create-your-first-team/quick-start">
-    Templates, generated rosters, or from scratch.
+    Build and launch your first team.
   </Card>
-  <Card title="Working with Atlas" icon="compass" href="/guides/create-your-first-team/atlas-orchestrator">
-    Delegation, briefs, and interruption levels.
+  <Card title="Agents" icon="robot" href="/features/agents">
+    Configure specialists, tools, and permissions.
   </Card>
 </CardGroup>

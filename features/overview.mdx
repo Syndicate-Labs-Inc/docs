@@ -1,77 +1,101 @@
 ---
-title: "Core concepts"
-description: "The mental model: workspaces, teams, agents, Atlas, tasks, and dispatch."
+title: "How Syndicate works"
+description: "The mental model: workspaces, teams, Atlas, agents, dispatch, and local project folders."
 ---
 
-Five concepts explain almost everything in Syndicate.
+Syndicate is a desktop app for running AI agents against local project folders. You choose the folder, connect your own model providers, and decide whether to work with a coordinated team or one solo specialist.
 
-## Workspace
-
-A **workspace** is the unit you open and work in: either a team or a solo agent, plus the local **working directory** where its agents read and write files. Workspaces appear in the sidebar under **Team Hub** (teams) and **Solo Agents** (single agents).
-
-All workspace data lives on your machine. See [Data and storage](/reference/data-and-storage).
-
-## Team
-
-A **team** is a Manager agent plus one or more specialist agents sharing a working directory, a task board, and a message bus. Teams are for work that benefits from multiple roles: build plus review, research plus writing, implement plus test.
-
-See [Teams](/features/teams).
-
-## Agent
-
-An **agent** is a single AI worker with:
-
-- a **name** and a **specialization** (its role and baked-in skills)
-- a **model** (any model from a connected provider)
-- a **Soul**: the markdown prompt that defines its expertise and behavior
-- **skills** (slash-command workflows), **MCP tools**, and **permissions**
-
-See [Agents](/features/agents).
-
-## Atlas, the Manager
-
-Every standard team has a Manager called **Atlas**. Atlas plans phases, creates and assigns tasks, coordinates the specialists, and escalates decisions to you. Atlas is a coordinator, not an implementer: it inspects the project read-only and delegates the actual work.
-
-How much Atlas interrupts you is controlled by the team's **Interruption Level** (Minimal, Balanced, Hands-on, Manual).
-
-See [Working with Atlas](/guides/create-your-first-team/atlas-orchestrator).
-
-## Dispatch
-
-**Dispatch** is how agents run. When you message an agent, when Atlas assigns work, or when a teammate sends a message, the recipient agent wakes up, does the work in the working directory, and reports back. Team coordination is visible in **Dispatch**; anything that needs you lands in **User Tasks**.
+## The model
 
 ```mermaid
 flowchart TD
-  U[You] -->|goal| A[Atlas, the Manager]
-  A -->|tasks| AG1[Specialist agents]
-  AG1 -->|messages| A
-  AG1 -->|reads and writes| P[(Working directory)]
-  A -->|decisions and approvals| U
-  AG1 -.->|"@user"| U
+  U[You] -->|goal or message| W[Workspace]
+  W --> T{Team or solo}
+  T -->|team| A[Atlas, the Manager]
+  A -->|plans and assigns| AG[Specialist agents]
+  T -->|solo| S[Solo agent]
+  AG --> P[(Working directory)]
+  S --> P
+  AG -->|questions and approvals| UT[User Tasks]
+  A -->|task board| AT[Agent Tasks]
 ```
 
-## Where things show up
+## Workspaces
+
+A **workspace** is either a team or a solo agent plus the local folder it works in.
+
+| | Team | Solo agent |
+|---|---|---|
+| Best for | Multi-role projects | Focused one-role work |
+| Agents | Atlas plus specialists | One specialist |
+| Coordination | Tasks, delegation, Dispatch | Direct chat |
+| Sidebar section | **Team Hub** | **Solo Agents** |
+
+Every workspace has a **working directory**. Agents read, write, and run commands inside that folder. You can relink a team's folder later from Team Settings. If a file lives outside the folder, attach it in chat instead.
+
+<Warning>
+Agents with edit permissions change real files. Use a Git repository or another backup before giving agents broad edit access.
+</Warning>
+
+## Teams
+
+A **team** is Atlas plus specialist agents sharing one working directory, one task board, and one coordination feed. Teams are best when the work splits into roles, such as build plus review plus test.
+
+Atlas plans phases, creates and assigns tasks, keeps the board clean, and escalates decisions to you. Atlas coordinates rather than implements: specialist agents do the actual work.
+
+See [Teams](/features/teams).
+
+## Agents
+
+An **agent** is a single AI worker with a name, specialization, model, Soul, skills, tools, context settings, and permission mode.
+
+Specializations come from the Marketplace. Skills are slash-command workflows bundled with those specializations. MCP servers are external tools you install globally and enable per agent.
+
+See [Agents](/features/agents).
+
+## Dispatch
+
+**Dispatch** is how agents run. An agent wakes when:
+
+- you message it directly
+- Atlas assigns it a task
+- a teammate sends work its way
+
+During a run, the agent sees its Soul, recent conversation, relevant team context, tasks, references, and tool settings. It works in the working directory and reports back in chat, the task board, and activity logs.
+
+## Where Things Show Up
 
 | Surface | What it holds | Who acts |
 |---|---|---|
-| **Chat** | Your direct conversation with an agent or Atlas | You |
+| **Chat** | Your direct conversation with Atlas or an agent | You |
 | **User Tasks** | Questions, approvals, and decisions waiting on you | You |
-| **Agent Tasks** | The work board: every task with owner and status | Atlas |
-| **Task Health** | Board hygiene issues Atlas should clean up | Atlas (you can nudge) |
+| **Agent Tasks** | The work board: every task with owner and status | Atlas, with optional user cleanup |
+| **Task Health** | Stale, unclear, or unowned work Atlas should clean up | Atlas |
+| **Dispatch** | Coordination feed for team activity | Usually nobody; read for visibility |
+| **Activity** | Commands, file changes, and run events | You review |
+| **Files / Uploads** | Agent-created files and files you attached | You review or reuse |
 
-## Next steps
+## Workspace Lifecycle
+
+- **Create** from the sidebar `+` buttons or command palette.
+- **Pause** a team with Team Hard Pause to block auto-dispatch until resumed.
+- **Stop** a running agent or team from the header controls.
+- **Relink** the working directory from Team Settings.
+- **Delete** a team from Team Settings. Project files are not deleted.
+
+## Next Steps
 
 <CardGroup cols={2}>
-  <Card title="Workspaces" icon="folder-open" href="/features/workspaces">
-    Layout, working directories, and lifecycle.
+  <Card title="Create your first team" icon="users" href="/guides/create-your-first-team/quick-start">
+    The fastest path to a running team.
   </Card>
   <Card title="Teams" icon="users" href="/features/teams">
-    Navigation, the dashboard, and team controls.
+    Dashboard, tasks, Atlas, and team controls.
   </Card>
   <Card title="Agents" icon="robot" href="/features/agents">
-    Anatomy and configuration of a single agent.
+    Configuration, skills, tools, and permissions.
   </Card>
-  <Card title="Chat and dispatch" icon="comments" href="/features/chat-and-dispatch">
-    How conversations and agent runs actually work.
+  <Card title="Providers and models" icon="microchip" href="/features/providers-and-models">
+    Supported providers, models, and auth behavior.
   </Card>
 </CardGroup>

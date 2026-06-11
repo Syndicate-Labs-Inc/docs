@@ -1,43 +1,55 @@
 ---
 title: "Agents"
-description: "What an agent is made of and everything you can configure on it."
+description: "Agent anatomy, configuration, solo agents, skills, MCP tools, and permission modes."
 ---
 
-An agent is a single AI worker. This page covers its anatomy and the configuration panel where you shape it.
+An agent is a single AI worker. Agents can run inside a team or as a solo workspace.
 
-## Anatomy of an agent
+## Anatomy
 
 | Part | What it is |
 |---|---|
-| **Name** | The display name you choose (for example "Schema Wrangler") |
-| **Specialization** | Its role and baked-in skill set, chosen from the [Marketplace](/guides/agent-marketplace) at creation |
-| **Model** | The LLM powering it, from any connected provider |
-| **Soul** | The markdown prompt defining its expertise, personality, and workflow |
-| **Skills** | Slash-command workflows resolved from its specialization |
-| **Tools (MCP)** | External integrations toggled on per agent |
-| **Context settings** | How much history and team-message context it sees per run |
-| **Permissions** | What it may do without asking (see [Permissions and safety](/reference/permissions-and-safety)) |
+| **Name** | Display name, such as "Schema Wrangler" |
+| **Specialization** | Role and baked-in skill set from the Marketplace |
+| **Model** | The provider model powering the agent |
+| **Soul** | Markdown prompt defining expertise and behavior |
+| **Skills** | Slash-command workflows from its specialization |
+| **Tools (MCP)** | External tools enabled per agent |
+| **Context settings** | How much history, task context, messages, references, and tool context it sees |
+| **Permission mode** | What it may do without asking |
 
-## Agent statuses
+## Team Agents vs Solo Agents
 
-Agents show a live status everywhere they appear (sidebar, canvas, headers):
+| | Team agent | Solo agent |
+|---|---|---|
+| Best for | Work that benefits from coordination | Focused one-role work |
+| Manager | Atlas delegates and tracks tasks | No Manager |
+| Chat | Part of a team workspace | Direct 1:1 conversation |
+| Working folder | Team working directory | Solo working directory |
+| Modes | Permission mode controls autonomy | Chat mode or Build mode |
 
-- **Active** (green): currently dispatched and working
-- **Idle** (gray): waiting for work
-- **Waiting** (amber): needs approval or input, often with a short reason
-- **Blocked** (red): hit an error; open its chat to see what happened
+Solo **Chat** mode is best for questions, planning, writing, research, and review. Solo **Build** mode lets the agent edit files and run commands in its folder.
 
-## The agent configuration panel
+## Statuses
 
-Open it from the agent's settings icon. Sections:
+Agents show a live status in the sidebar, canvas, and headers:
+
+- **Active**: currently working.
+- **Idle**: waiting for work.
+- **Waiting**: needs approval or input.
+- **Blocked**: hit an error; open chat for details.
+
+## Configuration Panel
+
+Open an agent's settings to tune it.
 
 ### Identity
 
-Name, specialization badge, and the model selector. Models are listed per provider with friendly names (for example "Sonnet 4.6", "GPT-5.3 Codex", "Gemini 2.5 Pro").
+Name, specialization badge, and model selector. Models are listed by connected provider.
 
 ### Soul
 
-The agent's system prompt as markdown. Built-in specializations are read-only; user-made agents have an **Edit** button for the editable section.
+The agent's system prompt as markdown. Built-in specializations are read-only. User-made agents expose an editable section.
 
 <Warning>
 Saved Soul edits cannot be undone automatically. Copy the current text somewhere safe before large rewrites.
@@ -45,44 +57,68 @@ Saved Soul edits cannot be undone automatically. Copy the current text somewhere
 
 ### Context
 
-Controls what the agent sees on each run. Presets: **Lean**, **Balanced**, **Rich**, or **Custom**. The editor exposes:
+Controls what the agent sees on each run:
 
-- **History & Memory**: message lookback (0-200), max characters per message, and a role filter.
-- **Scope & Budget**: team-message lookback, reference max, and a token budget (0 = unlimited).
-- **Sections**: toggle which context blocks are injected (Team, Connectors, Tasks, Messages, References).
-- **Prompt Analytics**: after a run, see prompt size, estimated tokens, and a per-section breakdown so you can trim what is not earning its keep.
+- **History & Memory**: message lookback, max characters per message, and role filter.
+- **Scope & Budget**: team-message lookback, reference max, and token budget.
+- **Sections**: Team, Connectors, Tasks, Messages, References.
+- **Prompt Analytics**: prompt size, estimated tokens, and per-section breakdown.
 
 ### Skills
 
-The list of slash-command skills this agent carries, resolved from its specialization. See [Skills](/features/skills).
+Skills are packaged workflows agents can run with slash commands.
+
+- Built-in specializations include curated skills.
+- User-made packages come from [Agent Creator](/guides/agent-marketplace/agent-maker).
+- Community packages come from GitHub, local folders, or CLI install commands.
+
+Type **/** in chat to open the slash-command menu. You can also ask in plain language; slash commands are the explicit way to trigger a workflow.
+
+Suggested workflows appear in the Marketplace for built-in specializations.
 
 ### Tools (MCP)
 
-Per-agent toggles for every MCP server installed in Settings, each with a health dot. If the list is empty: "No MCP servers installed. Add them in Settings > MCP, then turn them on here." See [MCP servers](/features/mcp).
+MCP servers connect agents to external tools and data, such as GitHub, databases, or internal APIs.
+
+Install MCP servers once in Settings, then enable them per agent. Enable only what the role needs; fewer tools means better tool choices and a smaller blast radius.
+
+Common setup paths:
+
+- **Catalog**: one-click presets for common servers.
+- **Manual server**: local command, remote HTTP URL, or remote SSE URL.
+- **Secrets**: encrypted locally and injected at runtime.
+
+MCP tool calls go through the same permission flow as built-in tools.
 
 ### Danger Zone
 
-**Delete Agent** removes the agent and all its configuration, with a two-step confirmation.
+**Delete Agent** removes the agent and all of its configuration. Project files are not deleted.
 
-## Permission mode
+## Permission Mode
 
-Each agent has a permission mode, set from the shield selector:
+Set permission mode from the shield selector:
 
-| Mode | Label | Behavior |
-|---|---|---|
-| Ask first | "Shows what the agent wants to do before executing" | Every tool use prompts you |
-| Auto-accept edits | "Agent can read & edit files automatically" | File operations run automatically, commands still prompt |
-| Full auto | "Agent can run commands, edit files, everything" | No prompts |
+| Mode | Behavior |
+|---|---|
+| **Ask first** | Every tool use prompts you |
+| **Auto-accept edits** | File reads/edits run automatically; commands still prompt |
+| **Full auto** | Commands, edits, and tools run without prompts |
 
-Details and recommendations: [Permissions and safety](/reference/permissions-and-safety).
+Details and recommendations live in [Permissions and safety](/reference/permissions-and-safety).
 
-## Next steps
+## Next Steps
 
 <CardGroup cols={2}>
   <Card title="Add and configure agents" icon="sliders" href="/guides/add-and-configure-agents">
-    The full add-and-tune workflow.
+    The workflow for adding and tuning an agent.
   </Card>
-  <Card title="Built-in specializations" icon="store" href="/guides/agent-marketplace/built-in-syndicate-agents">
-    All 20+ built-in roles and their skills.
+  <Card title="Agent Marketplace" icon="store" href="/guides/agent-marketplace">
+    Browse built-in, user-made, and community specializations.
+  </Card>
+  <Card title="Skills catalog" icon="list" href="/reference/skills-catalog">
+    Lookup every built-in skill.
+  </Card>
+  <Card title="Permissions and safety" icon="shield" href="/reference/permissions-and-safety">
+    Approval flows and safety controls.
   </Card>
 </CardGroup>

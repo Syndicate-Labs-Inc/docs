@@ -1,9 +1,9 @@
 ---
-title: "Quick start: your first team"
-description: "Create a team and send it a first task in under five minutes."
+title: "Create your first team"
+description: "Create a team, choose a working directory, and send Atlas a first task."
 ---
 
-This is the fastest path to a running team. For the full tour of every creation option, see [Creating teams](/guides/create-your-first-team/creating-teams).
+This guide gets you to a running team and shows the choices you make along the way. A team includes Atlas, the Manager, plus specialist agents that share one working directory.
 
 <Steps>
   <Step title="Open the wizard">
@@ -13,8 +13,14 @@ This is the fastest path to a running team. For the full tour of every creation 
       <img src="/assets/screenshots/teams/create-team-modal.png" alt="The Create a New Team wizard with Generate Team, Starter Templates, and Start from Scratch options" />
     </Frame>
   </Step>
-  <Step title="Pick a starter template">
-    Choose **Starter Templates** and click a template that matches your work, for example **Application Developers** for full-stack builds or **Research Analysts** for deep-dive analysis. All six are described in the [template reference](/reference/team-templates). You can customize everything after.
+  <Step title="Choose how to start">
+    Pick the path that matches how much control you want:
+
+    - **Starter Templates**: choose a pre-built roster such as **Application Developers** or **Research Analysts**. All six templates are described in the [template reference](/reference/team-templates).
+    - **Generate Team**: describe your project and let Atlas propose a roster. Choose a **Team model**, write the **Project Description**, then click **Generate Team**.
+    - **Start from Scratch**: start with only Atlas and add specialists yourself. The **Solo Agent** option in this path branches to [Create a solo agent](/guides/create-a-solo-agent).
+
+    Choose **Starter Templates** for your first team unless you already know the exact roles you need.
   </Step>
   <Step title="Review the roster">
     The **Your Team Roster** screen shows the Manager row (always included) and each proposed agent with a checkbox. Here you can:
@@ -25,12 +31,15 @@ This is the fastest path to a running team. For the full tour of every creation 
     - Expand **Skills (N)** to see what each agent comes with
     - **+ Add Agent** to bring in more specialists
 
-    Click **Create Team** when the roster looks right.
+    Click **Create Team** when the roster looks right. At least one specialist must be selected. If a selected model is unavailable because its provider disconnected, Syndicate resolves it to the first available connected model.
   </Step>
   <Step title="Choose the working directory">
-    Pick the local folder the team will work in ("Choose where your team's project files live."). An existing project folder or an empty one both work.
+    Pick the local folder the team will work in: **Choose where your team's project files live.** An existing project folder or an empty one both work. Agents read, write, and run commands inside this folder.
 
     <Tip>If it is a real project, make sure it is a Git repository first, so every agent change is reviewable.</Tip>
+  </Step>
+  <Step title="Set the interruption level">
+    Use **Team Settings** to choose how often Atlas asks before delegating or opening new work. **Balanced** is the best starting point. Move toward **Minimal** once you trust the team, or toward **Hands-on** / **Manual** for risky work.
   </Step>
   <Step title="Send Atlas a goal">
     Open the **Chat** tab and give Atlas a clear, bounded goal:
@@ -47,6 +56,17 @@ This is the fastest path to a running team. For the full tour of every creation 
 - **Agent Tasks** fills with tasks and owners.
 - Questions for you appear in **User Tasks**.
 - The **Files** and **Activity** trays show exactly what agents touched.
+- Attached documents that live outside the working directory appear in **Uploads**.
+
+## Creation paths in detail
+
+| Path | Use it when | Notes |
+|---|---|---|
+| **Starter Templates** | You want a known-good roster quickly | Templates load complete teams with roles, models, and skills already chosen |
+| **Generate Team** | You can describe the project but do not know the right roles | Atlas proposes the roster from your description |
+| **Start from Scratch** | You know the exact specialists you want | Starts with Atlas; add agents one by one |
+
+Every agent needs a model from a connected provider. With no providers connected, the wizard asks you to connect a provider before generating or launching a team.
 
 ## Next steps
 
@@ -54,7 +74,7 @@ This is the fastest path to a running team. For the full tour of every creation 
   <Card title="Working with Atlas" icon="compass" href="/guides/create-your-first-team/atlas-orchestrator">
     Briefs, slash commands, task assignment, and interruption levels.
   </Card>
-  <Card title="Creating teams in depth" icon="users" href="/guides/create-your-first-team/creating-teams">
-    Generate from a description or build from scratch.
+  <Card title="Teams" icon="users" href="/features/teams">
+    Dashboard, tasks, Atlas, and team controls.
   </Card>
 </CardGroup>

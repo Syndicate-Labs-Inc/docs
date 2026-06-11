@@ -1,25 +1,27 @@
 ---
 title: "Providers and models"
-description: "Which providers Syndicate supports, the models they offer, and how model selection works."
+description: "Supported providers, available models, model selection, and auth behavior."
 ---
 
-Syndicate does not ship its own models. Agents run on the provider accounts you connect: Claude, OpenAI (Codex), and Google Gemini. Connect one or all three; agents in the same team can run on different providers.
-
-## Supported providers
-
-| Provider | Account used | Auth flow |
-|---|---|---|
-| **Claude** | Your Claude account | Browser sign-in, paste a code back into the app |
-| **OpenAI (Codex)** | Your ChatGPT account (with Codex access) | CLI sign-in |
-| **Google Gemini** | Your Google account | CLI sign-in |
-
-Each provider works through its CLI. If the CLI is missing, Syndicate offers an **Install CLI** button and installs it using its bundled runtime, so you do not need Node.js set up yourself. Connection details and troubleshooting: [Connect providers](/guides/connect-providers).
+Syndicate does not ship its own models. Agents run on the provider accounts you connect: Claude, OpenAI (Codex), and Google Gemini. Connect one provider or all three; agents in the same team can use different providers.
 
 <Frame caption="Provider cards show connection status, available models, and account actions">
   <img src="/assets/screenshots/providers/providers-connected.png" alt="The Providers settings screen showing connected provider cards and available models" />
 </Frame>
 
-## Available models
+## Supported Providers
+
+| Provider | Account used | Auth flow |
+|---|---|---|
+| **Claude** | Your Claude account | Browser sign-in, paste a code back into the app |
+| **OpenAI (Codex)** | Your ChatGPT account with Codex access | CLI sign-in |
+| **Google Gemini** | Your Google account | CLI sign-in |
+
+Each provider works through its CLI. If the CLI is missing, Syndicate offers **Install CLI** and installs it with its bundled runtime.
+
+How-to setup: [Connect providers](/guides/connect-providers).
+
+## Available Models
 
 Models appear only for providers that are connected. Current lineup:
 
@@ -29,30 +31,70 @@ Models appear only for providers that are connected. Current lineup:
 | OpenAI (Codex) | GPT-5.5, GPT-5.4, GPT-5.3 Codex |
 | Google Gemini | Gemini 2.5 Pro, Gemini 2.5 Flash, Gemini 3 Flash Preview |
 
-Model lists update as providers ship new versions; the in-app selector always reflects what your connected CLIs support.
+Model lists update as providers ship new versions. The in-app selector reflects what your connected CLIs support.
 
-## How model selection works
+## Model Selection
 
 There are two levels:
 
-1. **Default model** (Settings, Providers tab, "Default Model For New Agents"): used for new teams and solo agents. Existing agents keep their current model.
-2. **Per-agent model**: set in the team creation wizard or any time in the agent's configuration panel. Each agent can use a different model.
+1. **Default model**: Settings, Providers, **Default Model For New Agents**. Used for new teams and solo agents.
+2. **Per-agent model**: set during team creation or from the agent configuration panel.
 
-If a provider disconnects, agents pointing at its models are automatically resolved to the first available model from your remaining providers, so nothing gets stuck.
+If a provider disconnects, agents pointing at its models resolve to the first available model from your remaining providers.
 
-## Choosing models for a team
+### Choosing Models For A Team
 
-A pattern that works well:
+- **Atlas**: your most capable model. Planning and coordination benefit most from reasoning quality.
+- **Coders**: a strong code model.
+- **Reviewers, writers, support roles**: a balanced model.
+- **High-volume monitors**: a faster model.
 
-- **Atlas (Manager)**: your most capable model (for example Fable 5). Planning and coordination benefit most from reasoning quality.
-- **Coders**: a strong code model (for example GPT-5.3 Codex or Sonnet 4.6).
-- **Reviewers, writers, support roles**: a balanced model (Sonnet 4.6).
-- **High-volume, low-stakes monitors**: a fast model (Haiku 4.5).
+The built-in [team templates](/reference/team-templates) follow this pattern.
 
-The built-in [team templates](/reference/team-templates) follow this pattern out of the box.
+## Provider Readiness
 
-## Disconnecting and reconnecting
+A provider is usable when:
 
-Manage providers in Settings under **Providers**: each card shows a **Connected** or **Not connected** badge, the CLI version, and its model list, with **Connect**, **Reconnect**, and **Disconnect** actions. **Reconnect** lets you switch accounts.
+1. The CLI is installed.
+2. The CLI is authenticated.
 
-If credentials expire mid-session, an amber banner appears with a one-click **Reconnect** action.
+The Settings card reflects this: **Install CLI**, **Connect**, or **Connected** with model list and account actions. **Check** / **Refresh** force a re-probe.
+
+## Credentials
+
+Each provider's CLI manages its own credentials:
+
+| Provider | Credentials file |
+|---|---|
+| Claude | `~/.claude/.credentials.json` |
+| OpenAI (Codex) | `~/.codex/auth.json` |
+| Google Gemini | `~/.gemini/oauth_creds.json` |
+
+Syndicate watches these files during sign-in, which is why terminal-based logins complete automatically. Deleting a credential file signs that provider out.
+
+## Provider Behavior
+
+### Claude
+
+- Primary flow is browser sign-in with a paste-back code.
+- If the sign-in endpoint is rate-limited, Syndicate falls back to terminal login.
+- Codes expire after about 15 minutes.
+
+### OpenAI (Codex)
+
+- Requires a ChatGPT plan with Codex access.
+- If access is missing, use Claude/Gemini or upgrade your ChatGPT plan.
+- Reconnect from Settings to switch accounts.
+
+### Google Gemini
+
+- Sign-in runs through a terminal flow, including two-factor prompts.
+- Revoking CLI access in your Google account signs it out.
+
+## Expiry During Work
+
+If credentials expire mid-session, agents using that provider stop and an amber banner offers **Reconnect [Provider]**. Reconnect and re-prompt affected agents; queued work is preserved.
+
+## Account Auth
+
+Your Syndicate account session is stored encrypted on-device and restored on launch. Sign-out clears the local encrypted session first, then revokes the token best-effort. Account tiers may limit concurrent devices.
