@@ -28,7 +28,15 @@
         "pages": [
           "guides/create-your-first-team/quick-start",
           "guides/create-a-solo-agent",
-          "guides/agent-marketplace",
+          {
+            "group": "The Agent Marketplace",
+            "pages": [
+              "guides/agent-marketplace",
+              "guides/agent-marketplace/agent-maker",
+              "guides/agent-marketplace/built-in-syndicate-agents",
+              "guides/agent-marketplace/community-agents"
+            ]
+          },
           "guides/add-and-configure-agents"
         ]
       },
@@ -45,7 +53,6 @@
         "group": "Reference",
         "pages": [
           "reference/team-templates",
-          "guides/agent-marketplace/built-in-syndicate-agents",
           "reference/skills-catalog",
           "reference/permissions-and-safety",
           "reference/keyboard-shortcuts",
