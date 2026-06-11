@@ -26,7 +26,13 @@
       {
         "group": "Guides",
         "pages": [
-          "guides/create-your-first-team/quick-start",
+          {
+            "group": "Create your first team",
+            "pages": [
+              "guides/create-your-first-team/quick-start",
+              "guides/create-your-first-team/atlas-orchestrator"
+            ]
+          },
           "guides/create-a-solo-agent",
           {
             "group": "The Agent Marketplace",
