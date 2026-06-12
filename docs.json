@@ -86,7 +86,7 @@
   "navbar": {
     "primary": {
       "type": "button",
-      "label": "Download",
+      "label": "Website",
       "href": "https://usesyndicate.org"
     }
   },
